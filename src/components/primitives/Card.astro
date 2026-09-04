@@ -1,0 +1,28 @@
+---
+export interface Props {
+  variant?: 'default' | 'hover';
+  as?: 'div' | 'article' | 'li' | 'section';
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  as: Tag = 'div',
+  class: className,
+} = Astro.props;
+
+// Borders do the job of borders. Shadow = depth on hover only.
+const base = 'rounded-card bg-surface border border-border';
+
+const variants = {
+  default: 'p-6',
+  // Hover variant: identical border, shadow appears on hover only via transition
+  hover:   'p-6 transition-shadow duration-[120ms] ease-enter hover:shadow-card-hover',
+};
+
+const classes = [base, variants[variant], className].filter(Boolean).join(' ');
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>

@@ -1,0 +1,63 @@
+---
+import Logo from './Logo.astro';
+import MobileNavDrawer from './MobileNavDrawer';
+import Button from '../primitives/Button.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const navLinks = [
+  { label: 'Overview', href: '#hero' },
+  { label: 'Membership', href: '#membership' },
+  { label: 'Officers', href: '#officers' },
+  { label: 'Accomplishments', href: '#accomplishments' },
+  { label: 'Merch', href: '#merch' },
+  { label: 'DL Application', href: '#dl-application' },
+  { label: 'Hall of Fame', href: '#hall-of-fame' },
+];
+---
+
+<header
+  class:list={[
+    'sticky top-0 z-40 w-full',
+    // Frosted glass: semi-transparent surface with backdrop-blur — visually tested over hero image
+    'bg-surface/80 backdrop-blur-md border-b border-border/80 shadow-sm transition-[background-color,border-color] duration-[120ms] ease-enter',
+    className,
+  ]}
+>
+  <div class="max-w-7xl mx-auto container-gutter h-16 sm:h-20 flex items-center justify-between gap-4">
+    {/* Left: Brand Logo */}
+    <div class="flex items-center">
+      <Logo size="md" />
+    </div>
+
+    {/* Center: Desktop Navigation Links */}
+    <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 xl:gap-2">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="px-3 py-1.5 rounded-pill text-body-sm font-ui font-semibold text-gray-700 hover:text-maroon hover:bg-maroon-light/60 transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    {/* Right: Quick CTA & Mobile Drawer */}
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:inline-flex">
+        <Button href="#dl-application" variant="primary" size="sm">
+          Apply for DL
+        </Button>
+      </div>
+
+      {/* Mobile Nav Drawer Island — client:idle for non-blocking hydration */}
+      <div class="lg:hidden">
+        <MobileNavDrawer client:idle items={navLinks} />
+      </div>
+    </div>
+  </div>
+</header>

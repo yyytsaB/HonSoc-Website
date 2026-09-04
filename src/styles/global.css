@@ -1,0 +1,100 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base resets ──────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 0 0% 98%;          /* stone #FAFAF9 */
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;               /* surface #FFFFFF */
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 63% 32%;            /* maroon #8B1E1E — hsl approx */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 38 80% 57%;         /* gold #EAA838 — hsl approx */
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 38 80% 57%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 6% 90%;             /* border #E7E5E4 */
+    --input: 30 6% 90%;
+    --ring: 38 80% 57%;              /* gold for focus rings */
+    --radius: 1rem;                  /* card radius */
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Fluid font size root: 16px at 375px → 18px at 1280px */
+    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.125rem);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-body bg-stone text-gray-900;
+    min-height: 100vh;
+  }
+
+  /* ─── Heading defaults ───────────────────────────────────────────────────── */
+  /* Only h1–h3 use Alice. h4–h6 use Montserrat 600. */
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+
+  h4, h5, h6 {
+    @apply font-ui font-semibold;
+  }
+
+  /* ─── Focus visible — never outline: none without replacement ────────────── */
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ─── Reduced motion — disable non-essential animation ──────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─── Utility layer additions ──────────────────────────────────────────────── */
+@layer utilities {
+  /* Semantic gradient text */
+  .text-gradient-gold {
+    background-image: theme('backgroundImage.shimmer');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section vertical rhythm — use on every top-level <section> */
+  .section-padding {
+    padding-block: theme('spacing.section');
+  }
+
+  /* Page horizontal gutter — use on every max-width container */
+  .container-gutter {
+    padding-inline: theme('spacing.container');
+  }
+}

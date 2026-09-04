@@ -1,0 +1,33 @@
+---
+import Logo from './Logo.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer class:list={['bg-surface border-t border-border mt-auto py-12', className]}>
+  <div class="max-w-7xl mx-auto container-gutter flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col items-center sm:items-start gap-2">
+      <Logo size="sm" />
+      <p class="text-body-sm text-gray-600 font-body text-center sm:text-left">
+        College of Accountancy Honor Society. Dedicated to scholarship and integrity.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6 text-body-sm font-ui font-semibold text-gray-600">
+      <a href="#hero" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Overview</a>
+      <a href="#membership" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Membership</a>
+      <a href="#officers" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Officers</a>
+      <a href="#accomplishments" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Accomplishments</a>
+      <a href="#merch" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Merch</a>
+      <a href="#dl-application" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">DL Application</a>
+      <a href="#hall-of-fame" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Hall of Fame</a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto container-gutter mt-8 pt-6 border-t border-border/60 text-center text-label text-gray-600 font-body">
+    &copy; {new Date().getFullYear()} HonSoc. All rights reserved.
+  </div>
+</footer>

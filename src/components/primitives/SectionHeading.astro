@@ -1,0 +1,47 @@
+---
+export interface Props {
+  eyebrow?: string;
+  heading: string;
+  subheading?: string;
+  align?: 'left' | 'center';
+  level?: 1 | 2 | 3;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  heading,
+  subheading,
+  align = 'left',
+  level = 2,
+  class: className,
+} = Astro.props;
+
+// Optical note: the eyebrow label sits above the heading with slightly
+// more margin-bottom than margin-top relative to heading. This is not
+// equal spacing — it reads as a group.
+const HeadingTag = `h${level}` as 'h1' | 'h2' | 'h3';
+const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start';
+---
+
+<div class:list={['flex flex-col gap-2', alignClass, className]}>
+  {eyebrow && (
+    <span class="text-label font-ui font-semibold text-gold-accessible tracking-widest uppercase">
+      {eyebrow}
+    </span>
+  )}
+
+  <HeadingTag class:list={[
+    level === 1 ? 'text-h1' : level === 2 ? 'text-h2' : 'text-h3',
+    'font-heading text-gray-900',
+  ]}>
+    {heading}
+  </HeadingTag>
+
+  {/* Optical: slightly less visual weight below heading — Montserrat 400 */}
+  {subheading && (
+    <p class="text-body-lg text-gray-500 font-body max-w-prose mt-1">
+      {subheading}
+    </p>
+  )}
+</div>

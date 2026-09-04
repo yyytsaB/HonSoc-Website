@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import Hero from '../components/sections/Hero.astro';
+import SectionTabsIsland from '../components/navigation/SectionTabsIsland';
+import Footer from '../components/navigation/Footer.astro';
+import SectionHeading from '../components/primitives/SectionHeading.astro';
+import Card from '../components/primitives/Card.astro';
+import Button from '../components/primitives/Button.astro';
+import Pill from '../components/primitives/Pill.astro';
+import { getImage } from 'astro:assets';
+import heroBgAsset from '../assets/hero-bg.webp';
+
+const optimizedHero = await getImage({
+  src: heroBgAsset,
+  width: 480,
+  height: 270,
+  format: 'avif',
+  quality: 45,
+});
+---
+
+<BaseLayout
+  title="HonSoc — Honor Society | College of Accountancy"
+  description="The official website of the Honor Society. Access Dean's List applications, transparent semestral dues breakdown, officer directories, and academic accomplishments."
+  preloadImage={optimizedHero.src}
+>
+  {/* Sticky Frosted-Glass Navigation Bar */}
+  <Navbar />
+
+  <main id="main-content" class="min-h-screen">
+    {/* Hero Section — Extends underneath the frosted navbar */}
+    <Hero />
+
+    {/* Section Switcher Island — Shadcn Tabs primitive with pill-toggle styling */}
+    <section class="container-gutter py-8 bg-stone">
+      <div class="max-w-5xl mx-auto text-center mb-4">
+        <SectionHeading
+          eyebrow="Quick Switcher"
+          heading="Explore Society Sections"
+          subheading="Direct access to chapter operations, student transparency reports, and honors registries."
+          align="center"
+        />
+      </div>
+
+      <SectionTabsIsland client:visible defaultTab="overview" />
+    </section>
+
+    {/* Transparency & Information Sections Preview Container */}
+    <div class="container-gutter max-w-5xl mx-auto py-12 space-y-16">
+      {/* Membership Preview Anchor */}
+      <section id="membership" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Financial Transparency"
+          heading="Membership & Dues"
+          subheading="Transparent semestral breakdown of dues and how funds support academic review sessions."
+        />
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <Card>
+            <h3 class="text-h3 font-heading text-gray-900 mb-2">Semestral Dues</h3>
+            <p class="text-body text-gray-600 mb-4">
+              Membership dues are collected once per semester to fund student review materials, event logistics, and community outreach.
+            </p>
+            <div class="flex items-center gap-2">
+              <Pill variant="maroon">1st Semester</Pill>
+              <Pill variant="outline">2nd Semester</Pill>
+            </div>
+          </Card>
+          <Card>
+            <h3 class="text-h3 font-heading text-gray-900 mb-2">Fund Allocation</h3>
+            <p class="text-body text-gray-600 mb-4">
+              All financial reports are audited and published each term. 100% of collections directly support student academic initiatives.
+            </p>
+            <Button href="#membership" variant="outline" size="sm">Review Financial Report</Button>
+          </Card>
+        </div>
+      </section>
+
+      {/* Officers Preview Anchor */}
+      <section id="officers" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Leadership"
+          heading="Officers & Committees"
+          subheading="Elected student officers, faculty advisers, and committee heads for the current academic year."
+        />
+        <div class="mt-6">
+          <Card variant="hover">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h3 class="text-h3 font-heading text-gray-900">Officer Directory</h3>
+                <p class="text-body text-gray-600 mt-1">
+                  Full directory of executive officers, committee members, and academic mentors.
+                </p>
+              </div>
+              <Button href="#officers" variant="secondary" size="sm">View Directory</Button>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Accomplishments Preview Anchor */}
+      <section id="accomplishments" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Initiatives"
+          heading="Accomplishments & Projects"
+          subheading="Documented academic seminars, review workshops, and community outreach projects."
+        />
+        <div class="mt-6">
+          <Card>
+            <p class="text-body text-gray-600">
+              Project archives include event summaries, head organizers, and collaborating partners.
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Merch Preview Anchor */}
+      <section id="merch" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Apparel"
+          heading="Official Merchandise"
+          subheading="Society jackets, commemorative shirts, and pin sets available for order."
+        />
+        <div class="mt-6">
+          <Card variant="hover">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h3 class="text-h3 font-heading text-gray-900">Merchandise Catalog</h3>
+                <p class="text-body text-gray-600 mt-1">
+                  Size charts, color variants, and Google Form order links.
+                </p>
+              </div>
+              <Button href="#merch" variant="outline" size="sm">View Catalog</Button>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* DL Application Preview Anchor */}
+      <section id="dl-application" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Academic Honors"
+          heading="Dean's List Application"
+          subheading="Submission guidelines, required grade thresholds, and application periods."
+        />
+        <div class="mt-6">
+          <Card>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <h3 class="text-h3 font-heading text-gray-900">Application Cycle</h3>
+                <p class="text-body text-gray-600 mt-1">
+                  Submit grades and certification to verify Dean's List standing.
+                </p>
+              </div>
+              <Button href="#dl-application" variant="primary" size="md">Apply Now</Button>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Hall of Fame Preview Anchor */}
+      <section id="hall-of-fame" class="scroll-mt-24">
+        <SectionHeading
+          eyebrow="Honors Archive"
+          heading="Hall of Fame"
+          subheading="Permanent archive of Dean's Listers and professional board examination topnotchers."
+        />
+        <div class="mt-6">
+          <Card>
+            <p class="text-body text-gray-600">
+              Searchable records categorized by academic term and professional examination year.
+            </p>
+          </Card>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  {/* Footer with Logo */}
+  <Footer />
+</BaseLayout>

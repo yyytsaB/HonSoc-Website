@@ -1,0 +1,62 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  /** Additional aria-label if button content is icon-only */
+  'aria-label'?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  class: className,
+  'aria-label': ariaLabel,
+  ...rest
+} = Astro.props;
+
+// Base: shared structure — pill shape, Montserrat 600, specific focus ring
+const base = [
+  'inline-flex items-center justify-center gap-2',
+  'font-ui font-semibold rounded-pill',
+  'transition-[background-color,color,box-shadow,transform]',
+  'duration-[120ms] ease-enter',
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
+  'disabled:pointer-events-none disabled:opacity-50',
+  'active:scale-[0.97]', // micro-press feedback
+].join(' ');
+
+const sizes = {
+  sm: 'px-4 py-1.5 text-body-sm',
+  md: 'px-6 py-2.5 text-body',
+  lg: 'px-8 py-3.5 text-body-lg',
+};
+
+const variants = {
+  primary:   'bg-maroon text-white hover:bg-maroon-hover shadow-sm hover:shadow-card-hover',
+  secondary: 'bg-shimmer text-white hover:brightness-95 shadow-sm',
+  // Note: secondary uses gradient bg — 'bg-shimmer' maps to backgroundImage.shimmer
+  outline:   'border border-maroon text-maroon hover:bg-maroon hover:text-white',
+  ghost:     'text-maroon hover:bg-maroon-light',
+};
+
+const classes = [base, sizes[size], variants[variant], className].filter(Boolean).join(' ');
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  class={classes}
+  href={href}
+  type={!href ? type : undefined}
+  disabled={!href ? disabled : undefined}
+  aria-label={ariaLabel}
+  {...rest}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,33 @@
+---
+export interface Props {
+  variant?: 'maroon' | 'gold' | 'outline' | 'muted';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const {
+  variant = 'maroon',
+  size = 'sm',
+  class: className,
+} = Astro.props;
+
+const base = 'inline-flex items-center font-ui font-semibold rounded-pill leading-none';
+
+const sizes = {
+  sm: 'px-3 py-1 text-label',
+  md: 'px-4 py-1.5 text-body-sm',
+};
+
+const variants = {
+  maroon:  'bg-maroon-light text-maroon',
+  gold:    'bg-gold-light text-gold-accessible', // accessible gold token on light bg
+  outline: 'border border-border text-gray-600',
+  muted:   'bg-gray-100 text-gray-500',
+};
+
+const classes = [base, sizes[size], variants[variant], className].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>
