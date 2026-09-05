@@ -39,7 +39,7 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="px-3 py-1.5 rounded-pill text-body-sm font-ui font-semibold text-gray-700 hover:text-maroon hover:bg-maroon-light/60 transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          class="px-3 py-1.5 rounded-pill text-body-sm font-ui font-semibold text-stone-text/80 hover:text-maroon hover:bg-maroon-light/60 transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         >
           {link.label}
         </a>
@@ -54,9 +54,9 @@ const navLinks = [
         </Button>
       </div>
 
-      {/* Mobile Nav Drawer Island — client:idle for non-blocking hydration */}
+      {/* Mobile Nav Drawer Island — client:load per AGENTS.md §1 (above-the-fold nav toggle) */}
       <div class="lg:hidden">
-        <MobileNavDrawer client:idle items={navLinks} />
+        <MobileNavDrawer client:load items={navLinks} />
       </div>
     </div>
   </div>

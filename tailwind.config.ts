@@ -21,7 +21,14 @@ const config: Config = {
         // Semantic accessible gold tokens for small text & eyebrows on light backgrounds (WCAG AA ≥ 4.5:1)
         'gold-accessible': '#8A5E00',
         'gold-text':       '#8A5E00',
-        stone:   '#FAFAF9',   // page background
+        stone: {
+          DEFAULT: '#FAFAF9', // page background
+          text:    '#1C1917', // high-contrast text (stone-900 equivalent)
+          muted:   '#57534E', // secondary / metric badge text (stone-600 equivalent)
+          subtle:  '#78716C', // tertiary text (stone-500 equivalent)
+        },
+        'stone-muted':     '#57534E',
+        'stone-text':      '#1C1917',
         surface: '#FFFFFF',   // card surface
         border:  '#E7E5E4',   // card borders — 1px solid only
       },

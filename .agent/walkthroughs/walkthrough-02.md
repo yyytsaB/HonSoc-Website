@@ -20,7 +20,7 @@ Milestone 2 delivers the primary navigation header, mobile navigation drawer, in
   - Integrated `<Logo size="md" />` on the left.
   - Desktop nav links with pill hover states (`hover:text-maroon hover:bg-maroon-light/60`).
   - Direct CTA button (`<Button href="#dl-application" variant="primary" size="sm">`).
-  - Mobile hamburger trigger that activates `<MobileNavDrawer client:idle />`.
+    - Mobile hamburger trigger that activates `<MobileNavDrawer client:load />`.
 
 #### `<MobileNavDrawer />` (`src/components/navigation/MobileNavDrawer.tsx`)
 - **Purpose:** Accessible mobile navigation drawer built on shadcn/ui and Vaul primitives.
@@ -30,6 +30,7 @@ Milestone 2 delivers the primary navigation header, mobile navigation drawer, in
   <MobileNavDrawer items={[{ label: 'Overview', href: '#hero' }]} />
   ```
 - **Features:**
+  - Hydrated with `client:load` per AGENTS.md §1 for immediate mobile responsiveness.
   - Traps keyboard focus within drawer when opened.
   - Closes on `Escape` key press or overlay click.
   - Returns focus to the hamburger trigger button upon closing.
@@ -46,7 +47,7 @@ Milestone 2 delivers the primary navigation header, mobile navigation drawer, in
   <Logo size="md" />
   ```
 - **Features:**
-  - Vector SVG crest reflecting the academic lotus/leaf moodboard motif with brand gold shimmer and maroon petals.
+  - Vector SVG crest reflecting the academic lotus/leaf moodboard motif with brand gold shimmer and maroon petals (provisional geometric placeholder until client supplies official vector asset).
   - Alice serif brand name ("HonSoc") and Montserrat uppercase subtitle ("Honor Society").
   - Accessible label structure aligned with visible text to eliminate WCAG 2.5.3 name mismatches.
 
@@ -77,13 +78,14 @@ Milestone 2 delivers the primary navigation header, mobile navigation drawer, in
   - Alice heading at `text-display` token, tracking tight.
   - Montserrat 600 subheading at `text-body-lg` token.
   - Primary ("Apply for Dean's List") and Outline ("View Membership Details") action buttons using existing `Button.astro` primitives.
-  - Four key metric indicators in pill-style badges with high-contrast text (`text-gray-600`).
-  - Atmospheric 10kB AVIF background image with multi-stage gradient overlay guaranteeing WCAG AAA contrast and rapid sub-2s mobile LCP.
+  - Four key metric indicators in pill-style badges with high-contrast text (`text-stone-muted`).
+  - Native `astro:assets` `<Image />` component with explicit dimensions (1376x768), responsive breakpoints (375, 768, 1280, 1376), and multi-stage gradient overlay guaranteeing WCAG AAA contrast, zero layout shift, and sharp visual clarity at all desktop/mobile viewports.
 
 ### Integration Notes
 - **Milestone 3 (Transparency & Information Sections):** The navigation links in `Navbar.astro`, `MobileNavDrawer.tsx`, `Footer.astro`, and the `SectionTabsIsland.tsx` tabs target anchor IDs (`#hero`, `#membership`, `#officers`, `#accomplishments`, `#merch`, `#dl-application`, `#hall-of-fame`). As Milestone 3 components are developed, they will slot directly into these anchor locations.
-- **Milestone 4 (Interactive Features):** The CTA buttons in `Hero.astro` and `Navbar.astro` point to `#dl-application` and `#membership`. When the GWA calculator and application modals are built in Milestone 4, they can trigger modal dialogs or route to calculator workflows seamlessly.
+- **Milestone 4 (Interactive Features):** The CTA buttons in `Hero.astro` and `Navbar.astro` point to `#dl-application` and `#membership`. When the GWA calculator and application modals are built in Milestone 4, they can trigger modal dialogs or route directly to calculator workflows.
 
 ### Known Gaps
+- **Official Brand Crest Vector:** The lotus crest in `Logo.astro` is an interim SVG based on the moodboard; official vector artwork (`.svg` / `.ai`) from the organization must be supplied prior to Milestone 5 launch.
 - **Section Bodies:** Content beneath the quick switcher is currently represented as preview cards with anchors; full grids and JSON-backed data lists will be built in Milestone 3.
 - **Form Action Handlers:** The "Apply for Dean's List" and "View Catalog" buttons currently link to page anchors until external Google Forms or dialog modals are integrated in Milestone 4.

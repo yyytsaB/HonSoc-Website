@@ -11,10 +11,9 @@ import Pill from '../components/primitives/Pill.astro';
 import { getImage } from 'astro:assets';
 import heroBgAsset from '../assets/hero-bg.webp';
 
-const optimizedHero = await getImage({
+const preloadedHero = await getImage({
   src: heroBgAsset,
-  width: 480,
-  height: 270,
+  width: 768,
   format: 'avif',
   quality: 45,
 });
@@ -23,7 +22,7 @@ const optimizedHero = await getImage({
 <BaseLayout
   title="HonSoc — Honor Society | College of Accountancy"
   description="The official website of the Honor Society. Access Dean's List applications, transparent semestral dues breakdown, officer directories, and academic accomplishments."
-  preloadImage={optimizedHero.src}
+  preloadImage={preloadedHero.src}
 >
   {/* Sticky Frosted-Glass Navigation Bar */}
   <Navbar />
