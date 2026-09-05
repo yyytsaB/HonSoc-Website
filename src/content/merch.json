@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "id": "fleece-jacket",
+    "name": "[Provisional] Chapter Fleece Jacket",
+    "description": "Heavyweight collegiate zip fleece featuring embroidered society crest. Design mockup subject to executive committee specification.",
+    "price": 950,
+    "sizes": ["S", "M", "L", "XL", "2XL"],
+    "colors": [
+      { "label": "Maroon", "hex": "#8B1E1E" },
+      { "label": "Stone", "hex": "#FAFAF9" }
+    ],
+    "images": ["/images/merch-placeholder.svg"],
+    "available": true
+  },
+  {
+    "id": "polo-shirt",
+    "name": "[Provisional] Embroidered Polo Shirt",
+    "description": "Pique cotton collared polo with gold collar piping and chest insignia. Production batch pending order volume.",
+    "price": 550,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      { "label": "Maroon", "hex": "#8B1E1E" },
+      { "label": "Gold", "hex": "#EAA838" }
+    ],
+    "images": ["/images/merch-placeholder.svg"],
+    "available": true
+  },
+  {
+    "id": "lapel-pin",
+    "name": "[Provisional] Commemorative Lapel Pin Set",
+    "description": "Die-cast metallic enamel pin pair in polished gold finish with rubber clutch backing. Batch allocation pending committee sign-off.",
+    "price": 220,
+    "sizes": ["Standard"],
+    "colors": [
+      { "label": "Gold", "hex": "#EAA838" }
+    ],
+    "images": ["/images/merch-placeholder.svg"],
+    "available": true
+  }
+]

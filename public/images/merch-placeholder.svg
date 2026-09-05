@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <rect width="600" height="450" rx="16" fill="#F5ECEC" />
+  
+  <!-- Subtle Grid Accent -->
+  <path d="M0 75 H600 M0 150 H600 M0 225 H600 M0 300 H600 M0 375 H600" stroke="#8B1E1E" stroke-opacity="0.05" stroke-width="1"/>
+  <path d="M100 0 V450 M200 0 V450 M300 0 V450 M400 0 V450 M500 0 V450" stroke="#8B1E1E" stroke-opacity="0.05" stroke-width="1"/>
+
+  <!-- Apparel / Pin Silhouette -->
+  <g transform="translate(175, 75)" fill="#8B1E1E" fill-opacity="0.85">
+    <path d="M85 20 C100 35 150 35 165 20 L220 50 L195 95 L170 85 V220 H80 V85 L55 95 L30 50 Z" />
+    <circle cx="125" cy="90" r="14" fill="#EAA838" />
+  </g>
+
+  <!-- Tag / Badge -->
+  <rect x="220" y="325" width="160" height="34" rx="17" fill="#FFFFFF" stroke="#EAA838" stroke-width="1.5" />
+  <text x="300" y="347" font-family="sans-serif" font-size="12" font-weight="600" fill="#8B1E1E" text-anchor="middle">PROVISIONAL MOCKUP</text>
+  <text x="300" y="385" font-family="sans-serif" font-size="11" fill="#78716C" text-anchor="middle">Official apparel &amp; pin design pending</text>
+</svg>

@@ -97,4 +97,35 @@
   .container-gutter {
     padding-inline: theme('spacing.container');
   }
+
+  /* Dialog animation classes (150ms scale 96%->100% / fade per AGENTS.md §4 & emil-design-eng) */
+  .dialog-overlay[data-state='open'] {
+    animation: dialogFadeIn 150ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  .dialog-overlay[data-state='closed'] {
+    animation: dialogFadeOut 120ms cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+  .dialog-content[data-state='open'] {
+    animation: dialogScaleIn 150ms cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  .dialog-content[data-state='closed'] {
+    animation: dialogScaleOut 120ms cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+}
+
+@keyframes dialogFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes dialogFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes dialogScaleIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes dialogScaleOut {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
 }

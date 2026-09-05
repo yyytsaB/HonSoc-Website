@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "hof-2025-dl-1",
+    "year": 2025,
+    "semester": "1st",
+    "name": "[Pending Dean's Office List] Honors Candidate 1",
+    "program": "BS Computer Science",
+    "category": "Dean's Lister"
+  },
+  {
+    "id": "hof-2025-top-1",
+    "year": 2025,
+    "name": "[Pending Archival List] Topnotcher Candidate 1",
+    "program": "BS Mathematics",
+    "category": "Topnotcher",
+    "rank": 1
+  },
+  {
+    "id": "hof-2024-dl-2",
+    "year": 2024,
+    "semester": "2nd",
+    "name": "[Pending Dean's Office List] Honors Candidate 2",
+    "program": "BS Applied Mathematics",
+    "category": "Dean's Lister"
+  },
+  {
+    "id": "hof-2024-top-3",
+    "year": 2024,
+    "name": "[Pending Archival List] Topnotcher Candidate 2",
+    "program": "BS Computer Science",
+    "category": "Topnotcher",
+    "rank": 3
+  },
+  {
+    "id": "hof-2024-dl-1",
+    "year": 2024,
+    "semester": "1st",
+    "name": "[Pending Dean's Office List] Honors Candidate 3",
+    "program": "BS Psychology",
+    "category": "Dean's Lister"
+  },
+  {
+    "id": "hof-2023-top-5",
+    "year": 2023,
+    "name": "[Pending Archival List] Topnotcher Candidate 3",
+    "program": "BS Computer Science",
+    "category": "Topnotcher",
+    "rank": 5
+  }
+]

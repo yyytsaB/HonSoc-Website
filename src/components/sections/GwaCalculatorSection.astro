@@ -1,0 +1,15 @@
+---
+import { GwaCalculator } from '../interactive/GwaCalculator';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section id="gwa-calculator" class:list={['section-padding container-gutter scroll-mt-20', className]}>
+  <div class="max-w-5xl mx-auto">
+    <GwaCalculator client:visible />
+  </div>
+</section>

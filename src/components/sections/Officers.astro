@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Card from '../primitives/Card.astro';
+import Pill from '../primitives/Pill.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const rawOfficers = await getCollection('officers');
+const officers = rawOfficers.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="officers" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border', className]}>
+  <div class="container-gutter max-w-5xl mx-auto space-y-8">
+    <SectionHeading
+      eyebrow="Society Leadership"
+      heading="Executive Board & Officers"
+      subheading="Elected student leaders and committee directors responsible for chapter governance and academic programming."
+    />
+
+    {/* Roster Notice */}
+    <div class="rounded-card border border-amber-200/80 bg-amber-50/60 p-4 text-amber-950 flex items-start gap-3" role="note">
+      <span class="font-ui font-bold text-label uppercase tracking-wider text-amber-900 shrink-0 mt-0.5">
+        Roster Notice:
+      </span>
+      <p class="text-body-sm text-amber-900/90 font-ui">
+        [Officer Directory — Pending Official Election Roster]. Verified officer records, biographies, and committee assignments will be published following certification by the electoral board.
+      </p>
+    </div>
+
+    {/* Responsive Grid: 1 col at 375px, 2 cols at 768px, 4 cols at 1280px */}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {officers.map((officer) => (
+        <Card as="article" variant="hover" class="flex flex-col items-center text-center p-6 justify-between">
+          <div class="flex flex-col items-center">
+            {/* Circular Avatar */}
+            <div class="relative w-24 h-24 rounded-full overflow-hidden border-2 border-border bg-stone mb-4 shrink-0 shadow-xs">
+              <img
+                src={officer.data.photo}
+                alt={`${officer.data.name} portrait`}
+                width={96}
+                height={96}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Officer Name & Position */}
+            <h3 class="font-heading text-h3 text-gray-900 leading-snug">
+              {officer.data.name}
+            </h3>
+            <p class="font-ui font-semibold text-body-sm text-maroon mt-1.5">
+              {officer.data.position}
+            </p>
+
+            {officer.data.committee && (
+              <div class="mt-2.5">
+                <Pill variant="outline" size="sm">
+                  {officer.data.committee}
+                </Pill>
+              </div>
+            )}
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-border/80 w-full">
+            <span class="text-body-xs font-body text-stone-muted block">
+              {officer.data.program}
+            </span>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

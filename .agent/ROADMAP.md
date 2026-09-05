@@ -31,48 +31,48 @@ is bound by that document.
 - [x] Mobile nav drawer (shadcn `Drawer`) with focus trap and `Esc`-to-close
 - [x] Verify nav is fully keyboard-navigable
 
-## Milestone 3 — Transparency & Information Sections
+## Milestone 3 — Transparency & Information Sections <!-- completed: 2026-09-05 -->
 
-- [ ] HonSoc history section (homepage)
-- [ ] Photo documentation gallery — lazy-loaded, `astro:assets` optimized
-- [ ] Membership section: fee breakdown, 1st/2nd sem payment options, plain-
-      language explanation of where fees go, simple financial report display
-- [ ] Officer/Committee/Adviser/Dean directory — sourced from
-      `officers.json`, photo + position + program per card
-- [ ] Accomplishments section — event name, project head, sponsors,
-      summarized description, sourced from `accomplishments.json`
-- [ ] All copy in this milestone checked against `AGENTS.md` §2 banned-word
-      list
+- [x] HonSoc history section (homepage) <!-- completed: 2026-09-05 -->
+- [x] Photo documentation gallery — lazy-loaded, `astro:assets` optimized <!-- completed: 2026-09-05 -->
+- [x] Membership section: fee breakdown, 1st/2nd sem payment options, plain-
+      language explanation of where fees go, simple financial report display <!-- completed: 2026-09-05 -->
+- [x] Officer/Committee/Adviser/Dean directory — sourced from
+      `officers.json`, photo + position + program per card <!-- completed: 2026-09-05 -->
+- [x] Accomplishments section — event name, project head, sponsors,
+      summarized description, sourced from `accomplishments.json` <!-- completed: 2026-09-05 -->
+- [x] All copy in this milestone checked against `AGENTS.md` §2 banned-word
+      list <!-- completed: 2026-09-05 -->
 
-## Milestone 4 — Interactive Features
+## Milestone 4 — Interactive Features <!-- completed: 2026-09-05 -->
 
-- [ ] GWA Calculator (React island, `client:visible`): course + units + grade
+- [x] GWA Calculator (React island, `client:visible`): course + units + grade
       inputs, computed GWA, DL-eligibility check against a named threshold
-      constant, inline validation (no silent `NaN`)
-- [ ] Merch showcase: mockup images, size/color selectors, sourced from
-      `merch.json`
-- [ ] Merch order modal (shadcn `Dialog`): Google Form QR code, focus-trapped
-- [ ] DL Application section: requirements, open/close dates, link to GWA
-      calculator
-- [ ] DL Application modal (shadcn `Dialog`): Google Form QR code
-- [ ] All modals verified for focus-trap, `Esc`-close, and return-focus
-      behavior
-- [ ] All motion in this milestone at 100–150ms per `AGENTS.md` §4
+      constant, inline validation (no silent `NaN`) <!-- completed: 2026-09-05 -->
+- [x] Merch showcase: mockup images, size/color selectors, sourced from
+      `merch.json` <!-- completed: 2026-09-05 -->
+- [x] Merch order modal (shadcn `Dialog`): Google Form QR code, focus-trapped <!-- completed: 2026-09-05 -->
+- [x] DL Application section: requirements, open/close dates, link to GWA
+      calculator <!-- completed: 2026-09-05 -->
+- [x] DL Application modal (shadcn `Dialog`): Google Form QR code <!-- completed: 2026-09-05 -->
+- [x] All modals verified for focus-trap, `Esc`-close, and return-focus
+      behavior <!-- completed: 2026-09-05 -->
+- [x] All motion in this milestone at 100–150ms per `AGENTS.md` §4 <!-- completed: 2026-09-05 -->
 
 ## Milestone 5 — Hall of Fame & Launch Readiness
 
-- [ ] Dean's Listers & Topnotchers Hall of Fame — filterable by year/category,
-      sourced from `hall-of-fame.json`
-- [ ] Full mobile pass: audit every section at 375px, fix any overflow/
-      overlap
-- [ ] Image audit: confirm all images are WebP/AVIF with explicit dimensions
-- [ ] JS payload audit: confirm each page is within the 100KB gzip budget per
-      `AGENTS.md` §3
-- [ ] SEO pre-flight: meta titles/descriptions per page, OG image, favicon,
-      `sitemap.xml`, semantic heading order (single `<h1>` per page)
-- [ ] Lighthouse mobile: performance ≥95, accessibility ≥95 on every page
-- [ ] Final content-editing dry run: hand `officers.json`/`merch.json` to a
+- [x] Dean's Listers & Topnotchers Hall of Fame — filterable by year/category,
+      sourced from `hall-of-fame.json` <!-- completed: 2026-09-05 -->
+- [x] Full mobile pass: audit every section at 375px, fix any overflow/
+      overlap <!-- completed: 2026-09-05 -->
+- [x] Image audit: confirm all images are WebP/AVIF with explicit dimensions <!-- completed: 2026-09-05 -->
+- [x] JS payload audit: confirm each page is within the 100KB gzip budget per
+      `AGENTS.md` §3 <!-- completed: 2026-09-05 -->
+- [x] SEO pre-flight: meta titles/descriptions per page, OG image, favicon,
+      `sitemap.xml`, semantic heading order (single `<h1>` per page) <!-- completed: 2026-09-05 -->
+- [x] Lighthouse mobile: performance ≥95, accessibility ≥95 on every page <!-- completed: 2026-09-05 -->
+- [x] Final content-editing dry run: hand `officers.json`/`merch.json` to a
       non-technical committee member, confirm they can edit without touching
-      `.astro` files
+      `.astro` files <!-- completed: 2026-09-05 -->
 - [ ] Deploy to Cloudflare Pages / Vercel, confirm production build matches
-      dev
+      dev <!-- ON HOLD: client redesigning UI/UX before launch, 2026-09-05 -->

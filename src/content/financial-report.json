@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ay-2025-2026-sem1",
+    "semester": "Academic Year 2025–2026, 1st Semester",
+    "feePerStudent": 250,
+    "totalCollected": 0,
+    "studentCount": 0,
+    "status": "pending",
+    "note": "Provisional placeholder breakdown — official audited financial statements and collection receipts will be published following Treasury Committee review.",
+    "breakdown": [
+      {
+        "category": "[Category 1 — Pending Official Audit: Review Materials & Mock Exams]",
+        "amount": 0,
+        "percent": 45,
+        "description": "Provisional allocation target for departmental reviewer handouts, practice problem sets, and diagnostic exam copies."
+      },
+      {
+        "category": "[Category 2 — Pending Official Audit: Academic Clinics & Workshops]",
+        "amount": 0,
+        "percent": 25,
+        "description": "Provisional allocation target for mentor honoraria, room logistics, and instructional sessions."
+      },
+      {
+        "category": "[Category 3 — Pending Official Audit: Student Assembly & Operations]",
+        "amount": 0,
+        "percent": 20,
+        "description": "Provisional allocation target for general assembly venue permits, registration materials, and documentation."
+      },
+      {
+        "category": "[Category 4 — Pending Official Audit: Student Assistance Fund]",
+        "amount": 0,
+        "percent": 10,
+        "description": "Provisional allocation target dedicated to emergency academic assessment assistance."
+      }
+    ]
+  }
+]

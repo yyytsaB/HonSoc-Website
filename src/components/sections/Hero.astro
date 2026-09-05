@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import heroImage from '../../assets/hero-bg.webp';
+import crestImage from '../../assets/crest.png';
+import HeroBackdrop from './HeroBackdrop.astro';
 import Button from '../primitives/Button.astro';
-import Pill from '../primitives/Pill.astro';
 
 export interface Props {
   class?: string;
@@ -14,86 +14,52 @@ const { class: className } = Astro.props;
 <section
   id="hero"
   class:list={[
-    'relative overflow-hidden -mt-16 sm:-mt-20 pt-24 sm:pt-32 pb-16 sm:pb-24 border-b border-border',
+    'relative overflow-hidden -mt-16 sm:-mt-20 pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 md:pb-28 border-b border-border',
     className,
   ]}
 >
-  {/* Background Hero Image with atmospheric overlays — extends behind sticky frosted navbar */}
-  <div class="absolute inset-0 -z-10 select-none pointer-events-none overflow-hidden">
-    <Image
-      src={heroImage}
-      alt=""
-      width={1376}
-      height={768}
-      widths={[375, 768, 1280, 1376]}
-      sizes="100vw"
-      format="avif"
-      quality={45}
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-      class="absolute inset-0 w-full h-full object-cover object-center scale-105"
-      aria-hidden="true"
-    />
-    {/* Multi-stage optical gradient to guarantee WCAG AAA contrast for text while keeping background visible */}
-    <div class="absolute inset-0 bg-gradient-to-b from-stone/75 via-stone/90 to-stone" />
-    <div class="absolute inset-0 bg-radial-gradient from-transparent via-stone/50 to-stone opacity-80" />
-  </div>
+  {/* Isolated atmospheric backdrop layer — swappable without modifying Hero layout */}
+  <HeroBackdrop />
 
-  <div class="max-w-5xl mx-auto container-gutter relative z-10 flex flex-col items-center text-center">
-    {/* Eyebrow badge */}
-    <div class="mb-4 sm:mb-6">
-      <Pill variant="maroon" size="md">
-        Honor Society &bull; College of Accountancy
-      </Pill>
+  <div class="max-w-4xl mx-auto container-gutter relative z-10 flex flex-col items-center text-center">
+    {/* Dominant Crest Anchor — Optically tuned across viewports to lead the visual hierarchy */}
+    <div class="mb-6 sm:mb-8 md:mb-10 flex items-center justify-center shrink-0">
+      <div class="relative filter-none sm:drop-shadow-[0_8px_24px_rgba(139,30,30,0.12)]">
+        <Image
+          src={crestImage}
+          alt="College of Arts and Sciences Honor Society Crest"
+          width={195}
+          height={145}
+          format="avif"
+          quality={80}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="w-[114px] h-[85px] sm:w-[155px] sm:h-[115px] md:w-[195px] md:h-[145px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.02]"
+        />
+      </div>
     </div>
 
-    {/* Headline: font-heading (Alice), size text-display */}
-    <h1 class="font-heading text-display text-stone-text tracking-tight max-w-3xl">
+    {/* Single H1 Headline: font-heading (Alice), size text-display, bold & focused */}
+    <h1 class="font-heading text-display text-stone-text tracking-tight max-w-3xl leading-[1.12]">
       Academic Distinction. Genuine Service.
     </h1>
 
-    {/* Subheading: font-ui, semibold, text-body-lg per AGENTS.md / impeccable */}
-    <p class="mt-4 sm:mt-6 font-ui font-semibold text-body-lg text-stone-muted max-w-2xl leading-relaxed">
-      The official student honor society of the College of Accountancy. Access Dean's List applications, transparent semestral financial reports, and officer records.
+    {/* Single-sentence Subtitle: font-ui, text-body-lg, quiet weight in warm stone-muted */}
+    <p class="mt-4 sm:mt-5 md:mt-6 font-ui text-body-lg text-stone-muted max-w-xl leading-relaxed">
+      The official student honor society of the College of Arts and Sciences, dedicated to scholarship, integrity, and student leadership.
     </p>
 
-    {/* CTAs using existing Button.astro primitive — optical spacing balanced by eye */}
-    <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-      <Button href="#dl-application" variant="primary" size="lg" class="w-full sm:w-auto">
+    {/* Single Primary Call-to-Action — Singular focus replacing competing actions */}
+    <div class="mt-8 sm:mt-9 md:mt-10 flex items-center justify-center w-full sm:w-auto">
+      <Button
+        href="#dl-application"
+        variant="primary"
+        size="lg"
+        class="w-full sm:w-auto shadow-sm hover:shadow-md transition-shadow duration-120"
+      >
         Apply for Dean's List
       </Button>
-      <Button href="#membership" variant="outline" size="lg" class="w-full sm:w-auto">
-        View Membership Details
-      </Button>
-    </div>
-
-    {/* Society Metrics Pill Badges */}
-    <div class="mt-12 sm:mt-16 pt-8 border-t border-border/80 w-full max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div class="flex flex-col items-center">
-        <span class="text-h2 font-heading text-maroon">100%</span>
-        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mt-1">
-          Passing Rate Focus
-        </span>
-      </div>
-      <div class="flex flex-col items-center">
-        <span class="text-h2 font-heading text-maroon">₱0</span>
-        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mt-1">
-          Hidden Fees
-        </span>
-      </div>
-      <div class="flex flex-col items-center">
-        <span class="text-h2 font-heading text-maroon">1st & 2nd</span>
-        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mt-1">
-          Semestral Cycles
-        </span>
-      </div>
-      <div class="flex flex-col items-center">
-        <span class="text-h2 font-heading text-maroon">Active</span>
-        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mt-1">
-          Peer Mentorship
-        </span>
-      </div>
     </div>
   </div>
 </section>

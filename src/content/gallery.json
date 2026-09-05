@@ -1,0 +1,62 @@
+[
+  {
+    "id": "gallery-01",
+    "title": "[Photo 1 — Pending Archive Upload: Induction Ceremony]",
+    "date": "2025-09-08",
+    "category": "Ceremony",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "Induction ceremony documentation placeholder image",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "id": "gallery-02",
+    "title": "[Photo 2 — Pending Archive Upload: Midterm Study Clinic]",
+    "date": "2025-10-15",
+    "category": "Academics",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "Study clinic documentation placeholder image",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "id": "gallery-03",
+    "title": "[Photo 3 — Pending Archive Upload: Coding Challenge]",
+    "date": "2025-11-20",
+    "category": "Competition",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "Coding challenge documentation placeholder image",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "id": "gallery-04",
+    "title": "[Photo 4 — Pending Archive Upload: Community Outreach]",
+    "date": "2025-12-05",
+    "category": "Outreach",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "Community outreach documentation placeholder image",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "id": "gallery-05",
+    "title": "[Photo 5 — Pending Archive Upload: General Assembly]",
+    "date": "2026-01-18",
+    "category": "Assembly",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "General assembly documentation placeholder image",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "id": "gallery-06",
+    "title": "[Photo 6 — Pending Archive Upload: Leadership Seminar]",
+    "date": "2026-02-12",
+    "category": "Leadership",
+    "image": "/images/gallery-placeholder.svg",
+    "alt": "Leadership seminar documentation placeholder image",
+    "width": 800,
+    "height": 600
+  }
+]

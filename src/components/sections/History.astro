@@ -1,0 +1,80 @@
+---
+import Card from '../primitives/Card.astro';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Pill from '../primitives/Pill.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section id="history" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border', className]}>
+  <div class="container-gutter max-w-5xl mx-auto">
+    <SectionHeading
+      eyebrow="Foundation & Heritage"
+      heading="Society History & Purpose"
+      subheading="Organized to maintain academic accountability, rigorous scholarship, and ethical student leadership."
+    />
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      {/* Editorial Narrative Column */}
+      <div class="md:col-span-2 space-y-4 text-stone-text font-body text-body leading-relaxed">
+        <div class="rounded-card border border-amber-200/80 bg-amber-50/60 p-4 mb-4 text-amber-950 flex items-start gap-3" role="note">
+          <span class="font-ui font-bold text-label uppercase tracking-wider text-amber-900 shrink-0 mt-0.5">
+            Archive Notice:
+          </span>
+          <p class="text-body-sm text-amber-900/90 font-ui">
+            [Official History & Charter Narrative — Pending Archive Verification]. The historical milestones below outline foundational society objectives established during preliminary constitutional assembly.
+          </p>
+        </div>
+
+        <p>
+          Founded as the premier student honors body within the College of Arts and Sciences, the society unites qualified student scholars committed to academic excellence and institutional integrity. Membership represents consistent semester-over-semester grade performance and verified compliance with collegiate standards.
+        </p>
+
+        <p>
+          Throughout each academic term, the society organizes structured peer review clinics, mock board examinations, and student assistance initiatives. Operations remain student-directed under faculty advisory oversight, ensuring every program directly benefits the academic advancement of the student body.
+        </p>
+
+        <p>
+          Constitutional documentation and archival records from prior academic years are being indexed in coordination with the college administration. Full historical rosters, founding charter documents, and annual reports will be published upon completion of formal records audit.
+        </p>
+      </div>
+
+      {/* Core Pillars / Society Values */}
+      <div class="space-y-4">
+        <Card class="bg-surface">
+          <div class="flex items-center gap-2 mb-2">
+            <Pill variant="maroon" size="sm">Pillar 1</Pill>
+            <h3 class="font-heading text-h3 text-gray-900">Academic Rigor</h3>
+          </div>
+          <p class="font-body text-body-sm text-stone-muted">
+            Continuous dedication to mastery across collegiate arts and sciences curricula, scholarly inquiry, and academic discipline.
+          </p>
+        </Card>
+
+        <Card class="bg-surface">
+          <div class="flex items-center gap-2 mb-2">
+            <Pill variant="gold" size="sm">Pillar 2</Pill>
+            <h3 class="font-heading text-h3 text-gray-900">Fiduciary Trust</h3>
+          </div>
+          <p class="font-body text-body-sm text-stone-muted">
+            100% auditable student dues, public financial statements, and open receipt reconciliations each semester.
+          </p>
+        </Card>
+
+        <Card class="bg-surface">
+          <div class="flex items-center gap-2 mb-2">
+            <Pill variant="outline" size="sm">Pillar 3</Pill>
+            <h3 class="font-heading text-h3 text-gray-900">Peer Service</h3>
+          </div>
+          <p class="font-body text-body-sm text-stone-muted">
+            Direct student-to-student instructional clinics designed to strengthen lower-division course performance.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </div>
+</section>

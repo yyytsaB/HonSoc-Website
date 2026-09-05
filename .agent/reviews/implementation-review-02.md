@@ -44,7 +44,7 @@
 | `vitest.config.ts` | CREATED | Vitest configuration with React plugin and JSDOM environment |
 | `tsconfig.json` | MODIFIED | Added `@testing-library/jest-dom/vitest` types |
 | `.agent/ROADMAP.md` | MODIFIED | Marked Milestone 2 items complete with timestamp |
-| `.agent/walkthroughs/walkthrough-02.md` | MODIFIED | Updated developer narrative tour; removed banned word "seamlessly" |
+| `.agent/walkthroughs/walkthrough-02.md` | MODIFIED | Updated developer narrative tour; eliminated banned marketing adverbs |
 | `lighthouse-baseline.json` | MODIFIED | Generated complete mobile Lighthouse audit scores |
 
 ### Risk & Debt Log

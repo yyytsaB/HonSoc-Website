@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Pill from '../primitives/Pill.astro';
+import Card from '../primitives/Card.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const galleryItems = await getCollection('gallery');
+---
+
+<section id="gallery" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border', className]}>
+  <div class="container-gutter max-w-5xl mx-auto">
+    <SectionHeading
+      eyebrow="Activity Archives"
+      heading="Photo Documentation"
+      subheading="Visual documentation of society orientations, review clinics, academic competitions, and community outreach."
+    />
+
+    {/* Archival Notice */}
+    <div class="mt-6 rounded-card border border-amber-200/80 bg-amber-50/60 p-4 text-amber-950 flex items-start gap-3" role="note">
+      <span class="font-ui font-bold text-label uppercase tracking-wider text-amber-900 shrink-0 mt-0.5">
+        Photo Archives:
+      </span>
+      <p class="text-body-sm text-amber-900/90 font-ui">
+        [Documentation Archive — Pending Media Uploads]. Event photography placeholders will be substituted with curated high-resolution event records upon archival review.
+      </p>
+    </div>
+
+    {/* Gallery Grid: 1 col on mobile, 2 cols on tablet, 3 cols on desktop */}
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item) => (
+        <Card as="article" variant="hover" class="overflow-hidden flex flex-col p-0">
+          <div class="relative aspect-[4/3] bg-stone border-b border-border overflow-hidden">
+            <img
+              src={item.data.image}
+              alt={item.data.alt}
+              width={item.data.width}
+              height={item.data.height}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
+            />
+            <div class="absolute top-3 left-3">
+              <Pill variant="gold" size="sm">
+                {item.data.category}
+              </Pill>
+            </div>
+          </div>
+
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <time datetime={item.data.date} class="text-label font-ui font-medium text-stone-muted">
+                {item.data.date}
+              </time>
+              <h3 class="font-heading text-h3 text-gray-900 mt-1 line-clamp-2">
+                {item.data.title}
+              </h3>
+            </div>
+            <p class="font-body text-body-xs text-stone-muted mt-2">
+              Official activity documentation entry.
+            </p>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

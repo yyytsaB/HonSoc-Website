@@ -1,0 +1,30 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+{/*
+  HeroBackdrop.astro
+  Isolated background layer for the Hero section.
+  Swapping in a future verified collegiate building/hall photograph is a single-file
+  change here without touching Hero.astro hierarchy or composition.
+*/}
+<div class:list={['absolute inset-0 -z-10 select-none pointer-events-none overflow-hidden', className]} aria-hidden="true">
+  {/* Base architectural tone */}
+  <div class="absolute inset-0 bg-stone" />
+
+  {/* Soft atmospheric radial glow centered behind the crest anchor */}
+  <div
+    class="absolute left-1/2 -translate-x-1/2 top-6 sm:top-8 md:top-10 w-[340px] sm:w-[500px] md:w-[680px] h-[340px] sm:h-[500px] md:h-[680px] pointer-events-none"
+    style="background: radial-gradient(circle at 50% 45%, rgba(216, 152, 45, 0.15) 0%, rgba(139, 30, 30, 0.08) 40%, rgba(247, 245, 240, 0) 70%);"
+  />
+
+  {/* Subtle upper vignetting that seamlessly blends behind sticky frosted navbar */}
+  <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-stone/80 to-transparent" />
+
+  {/* Bottom transitional floor leading into the section tabs */}
+  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-stone to-transparent" />
+</div>

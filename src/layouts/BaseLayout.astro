@@ -40,13 +40,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Fonts use font-display: swap in fonts.css -->
+    <link
+      rel="preload"
+      href="/fonts/alice-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     {preloadImage && (
       <link
         rel="preload"
         href={preloadImage}
         as="image"
-        type="image/avif"
+        type={preloadImage.endsWith('.avif') ? 'image/avif' : 'image/webp'}
         fetchpriority="high"
       />
     )}

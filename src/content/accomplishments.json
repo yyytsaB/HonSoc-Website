@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "accomplishment-01",
+    "eventName": "[Project 1 — Pending Official Documentation: Midterm Review Clinic]",
+    "date": "2025-10-15",
+    "projectHead": "[Project Lead — To Be Announced]",
+    "sponsors": [
+      "[Partner Department — Pending Confirmation]"
+    ],
+    "summary": "Provisional record for peer tutoring sessions conducted prior to departmental midterm examinations. Official attendee counts, schedule logs, and documentation notes will be updated upon final committee audit."
+  },
+  {
+    "id": "accomplishment-02",
+    "eventName": "[Project 2 — Pending Official Documentation: Collegiate Coding Challenge]",
+    "date": "2025-11-20",
+    "projectHead": "[Project Lead — To Be Announced]",
+    "sponsors": [
+      "[External Sponsor — Pending Confirmation]"
+    ],
+    "summary": "Provisional record for the collegiate algorithm competition hosted for lower-division students. Problem sets, finalist standings, and certificate issuances will be published following event verification."
+  },
+  {
+    "id": "accomplishment-03",
+    "eventName": "[Project 3 — Pending Official Documentation: General Assembly & Induction]",
+    "date": "2025-09-08",
+    "projectHead": "[Project Lead — To Be Announced]",
+    "sponsors": [],
+    "summary": "Provisional record for the annual society induction ceremony and semestral orientation. Formal minutes, financial reconciliations, and member attendance records are currently under secretariat review."
+  }
+]

@@ -1,9 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import crestImage from '../../assets/crest.png';
+
 export interface Props {
   href?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   showSubtitle?: boolean;
   class?: string;
+  loading?: 'eager' | 'lazy';
 }
 
 const {
@@ -11,18 +15,22 @@ const {
   size = 'md',
   showSubtitle = true,
   class: className,
+  loading = 'lazy',
 } = Astro.props;
 
-const emblemSizes = {
-  sm: 'w-8 h-8',
-  md: 'w-10 h-10',
-  lg: 'w-12 h-12',
+// Explicit pixel dimensions preserving exact 1704:1264 aspect ratio (1.348:1)
+const dimensions = {
+  sm: { width: 43, height: 32 },
+  md: { width: 54, height: 40 },
+  lg: { width: 70, height: 52 },
+  xl: { width: 108, height: 80 },
 };
 
 const textSizes = {
   sm: 'text-h3',
   md: 'text-h2',
   lg: 'text-h1',
+  xl: 'text-display',
 };
 ---
 
@@ -33,51 +41,18 @@ const textSizes = {
     className,
   ]}
 >
-  {/* Moodboard flower/lotus crest emblem rendered in brand gold & maroon */}
-  <div class:list={['relative shrink-0 flex items-center justify-center', emblemSizes[size]]}>
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-full drop-shadow-sm transition-transform duration-[120ms] ease-enter group-hover:scale-105"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id="crest-gold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F3CF7A" />
-          <stop offset="50%" stop-color="#D8982D" />
-          <stop offset="100%" stop-color="#C47F18" />
-        </linearGradient>
-      </defs>
-
-      {/* Gold outer crest ring */}
-      <circle cx="50" cy="50" r="46" stroke="url(#crest-gold)" stroke-width="3" fill="#FFFFFF" />
-      <circle cx="50" cy="50" r="41" stroke="#EAA838" stroke-width="1" stroke-dasharray="2 2" fill="none" opacity="0.6" />
-
-      {/* Stylized Maroon Petals / Lotus from moodboard */}
-      {/* Central tall petal */}
-      <path
-        d="M50 20 C42 36 40 54 50 72 C60 54 58 36 50 20 Z"
-        fill="#8B1E1E"
-      />
-      {/* Left petal */}
-      <path
-        d="M50 44 C34 38 24 50 30 68 C40 70 48 60 50 44 Z"
-        fill="#7A1919"
-      />
-      {/* Right petal */}
-      <path
-        d="M50 44 C66 38 76 50 70 68 C60 70 52 60 50 44 Z"
-        fill="#7A1919"
-      />
-      {/* Lower gold calyx wing base */}
-      <path
-        d="M26 64 C38 72 45 78 50 82 C55 78 62 72 74 64 C64 74 56 80 50 85 C44 80 36 74 26 64 Z"
-        fill="url(#crest-gold)"
-      />
-      {/* Center core highlight */}
-      <circle cx="50" cy="52" r="3" fill="#EAA838" />
-    </svg>
+  <div class="relative shrink-0 flex items-center justify-center">
+    <Image
+      src={crestImage}
+      alt="HonSoc Official Crest"
+      width={dimensions[size].width}
+      height={dimensions[size].height}
+      format="webp"
+      quality={80}
+      loading={loading}
+      decoding="async"
+      class="object-contain transition-transform duration-[120ms] ease-enter group-hover:scale-105"
+    />
   </div>
 
   <div class="flex flex-col text-left leading-tight">

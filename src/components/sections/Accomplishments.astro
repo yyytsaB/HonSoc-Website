@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Card from '../primitives/Card.astro';
+import Pill from '../primitives/Pill.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const rawAccomplishments = await getCollection('accomplishments');
+const accomplishments = rawAccomplishments.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<section id="accomplishments" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border', className]}>
+  <div class="container-gutter max-w-5xl mx-auto space-y-8">
+    <SectionHeading
+      eyebrow="Academic Milestones"
+      heading="Accomplishments & Initiatives"
+      subheading="Documented academic seminars, review workshops, and community service projects organized by the society."
+    />
+
+    {/* Project Archive Notice */}
+    <div class="rounded-card border border-amber-200/80 bg-amber-50/60 p-4 text-amber-950 flex items-start gap-3" role="note">
+      <span class="font-ui font-bold text-label uppercase tracking-wider text-amber-900 shrink-0 mt-0.5">
+        Initiative Archives:
+      </span>
+      <p class="text-body-sm text-amber-900/90 font-ui">
+        [Project Documentation — Pending Term Audit]. Event participant summaries, project chair reports, and administrative certifications will be published following semester closeout.
+      </p>
+    </div>
+
+    {/* Accomplishments Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {accomplishments.map((item) => (
+        <Card as="article" variant="hover" class="flex flex-col justify-between p-6">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <time datetime={item.data.date} class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider">
+                {item.data.date}
+              </time>
+              <Pill variant="gold" size="sm">
+                DOCUMENTED
+              </Pill>
+            </div>
+
+            <h3 class="font-heading text-h3 text-gray-900 leading-snug">
+              {item.data.eventName}
+            </h3>
+
+            <p class="font-body text-body-sm text-stone-text leading-relaxed">
+              {item.data.summary}
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-border/80 space-y-2">
+            <div class="text-body-xs font-body text-stone-muted">
+              <span class="font-ui font-semibold text-gray-900">Project Lead:</span> {item.data.projectHead}
+            </div>
+
+            {item.data.sponsors && item.data.sponsors.length > 0 && (
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                {item.data.sponsors.map((sponsor) => (
+                  <Pill variant="outline" size="sm">
+                    {sponsor}
+                  </Pill>
+                ))}
+              </div>
+            )}
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

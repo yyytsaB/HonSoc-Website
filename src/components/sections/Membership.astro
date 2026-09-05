@@ -1,0 +1,222 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Pill from '../primitives/Pill.astro';
+import Card from '../primitives/Card.astro';
+import Button from '../primitives/Button.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const reports = await getCollection('financial-reports');
+const activeReport = reports[0]?.data ?? {
+  semester: 'Academic Year 2025–2026, 1st Semester',
+  feePerStudent: 250,
+  totalCollected: 0,
+  studentCount: 0,
+  status: 'pending',
+  note: 'Provisional placeholder breakdown — official audited financial statements and collection receipts will be published following Treasury Committee review.',
+  breakdown: [],
+};
+
+const isPending = activeReport.status === 'pending';
+---
+
+<section id="membership" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border', className]}>
+  <div class="container-gutter max-w-5xl mx-auto space-y-10">
+    <SectionHeading
+      eyebrow="Financial Transparency"
+      heading="Membership & Dues Allocation"
+      subheading="Transparent semestral accounting of student society dues, allocation formulas, and official disbursement records."
+    />
+
+    {/* EXPLICIT BRANCHING: Status-based provisional warning banner if report is pending */}
+    {isPending && (
+      <div
+        id="financial-pending-banner"
+        class="rounded-card border-2 border-amber-300 bg-amber-50/95 p-4 sm:p-5 text-amber-950 flex items-start gap-3.5 shadow-sm"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="p-1.5 rounded-full bg-amber-200/80 text-amber-900 shrink-0 mt-0.5" aria-hidden="true">
+          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="space-y-1">
+          <p class="font-ui font-bold text-body-sm text-amber-950 uppercase tracking-wide">
+            Provisional Financial Statement &bull; Official Audit Pending
+          </p>
+          <p class="font-body text-body-sm text-amber-900/90 leading-relaxed">
+            {activeReport.note || 'The figures below represent provisional budget targets awaiting official Treasury Committee reconciliation and advisory sign-off.'}
+          </p>
+        </div>
+      </div>
+    )}
+
+    {/* Membership Overview & Payment Options Card */}
+    <div class="grid md:grid-cols-3 gap-6">
+      {/* Left Column: Semestral Dues & Pure-CSS Term Selector */}
+      <Card class="md:col-span-1 flex flex-col justify-between space-y-6">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-label font-ui font-bold text-stone-muted uppercase tracking-wider">
+              Membership Dues
+            </span>
+            <Pill variant={isPending ? 'gold' : 'maroon'} size="sm">
+              {isPending ? 'PENDING AUDIT' : 'OFFICIAL'}
+            </Pill>
+          </div>
+
+          <div class="flex items-baseline gap-1 text-gray-900">
+            <span class="text-display font-heading text-maroon">₱{activeReport.feePerStudent}</span>
+            <span class="font-ui text-body-sm text-stone-muted">/ semester</span>
+          </div>
+
+          <p class="font-body text-body-sm text-stone-muted mt-3">
+            Collected at the start of each academic semester to fund instructional reviewers, clinics, and official society ceremonies.
+          </p>
+        </div>
+
+        {/* Pure CSS Payment Options Switcher */}
+        <div class="border-t border-border pt-4">
+          <label class="block text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mb-2">
+            Payment Term Options
+          </label>
+          <div class="grid grid-cols-3 gap-1.5 p-1 rounded-card bg-stone border border-border">
+            <div>
+              <input type="radio" name="payment-option" id="opt-sem1" class="peer sr-only" checked />
+              <label
+                for="opt-sem1"
+                class="block text-center py-1.5 px-2 rounded-lg font-ui text-body-xs font-medium text-stone-muted cursor-pointer transition-colors peer-checked:bg-maroon peer-checked:text-white peer-checked:font-semibold peer-checked:shadow-sm"
+              >
+                1st Sem
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="payment-option" id="opt-sem2" class="peer sr-only" />
+              <label
+                for="opt-sem2"
+                class="block text-center py-1.5 px-2 rounded-lg font-ui text-body-xs font-medium text-stone-muted cursor-pointer transition-colors peer-checked:bg-maroon peer-checked:text-white peer-checked:font-semibold peer-checked:shadow-sm"
+              >
+                2nd Sem
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="payment-option" id="opt-annual" class="peer sr-only" />
+              <label
+                for="opt-annual"
+                class="block text-center py-1.5 px-2 rounded-lg font-ui text-body-xs font-medium text-stone-muted cursor-pointer transition-colors peer-checked:bg-maroon peer-checked:text-white peer-checked:font-semibold peer-checked:shadow-sm"
+              >
+                Full Year
+              </label>
+            </div>
+          </div>
+          <p class="font-body text-body-xs text-stone-muted mt-2">
+            Payment verified through collegiate treasury channels with official electronic receipts issued.
+          </p>
+        </div>
+      </Card>
+
+      {/* Right Column: Narrative of Fund Allocation & Governance */}
+      <Card class="md:col-span-2 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="font-heading text-h3 text-gray-900 mb-2">
+            Fiduciary Accountability & Allocation Policy
+          </h3>
+          <p class="font-body text-body text-stone-text leading-relaxed">
+            Every peso contributed by members is earmarked according to constitutional quotas approved by the executive committee and collegiate faculty advisers. The Treasury Committee maintains a complete ledger of operational disbursements, receipts, and bank deposit slips.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 pt-4 border-t border-border">
+          <div>
+            <span class="block text-label font-ui font-semibold text-stone-muted uppercase tracking-wider">
+              Term Schedule
+            </span>
+            <span class="font-heading text-body-lg text-gray-900 mt-1 block">
+              {activeReport.semester}
+            </span>
+          </div>
+          <div>
+            <span class="block text-label font-ui font-semibold text-stone-muted uppercase tracking-wider">
+              Total Collections
+            </span>
+            <span class="font-heading text-body-lg text-maroon mt-1 block">
+              {isPending ? '₱0.00 (Pending)' : `₱${activeReport.totalCollected.toLocaleString()}`}
+            </span>
+          </div>
+          <div>
+            <span class="block text-label font-ui font-semibold text-stone-muted uppercase tracking-wider">
+              Verification State
+            </span>
+            <span class="font-ui font-semibold text-body-sm text-gold-accessible mt-1 block">
+              {isPending ? 'Preliminary Target' : 'Audited & Reconciled'}
+            </span>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <Button href="#history" variant="outline" size="sm">
+            Read Treasury Guidelines
+          </Button>
+        </div>
+      </Card>
+    </div>
+
+    {/* Fee Breakdown Table with overflow safety */}
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-heading text-h3 text-gray-900">
+          Semestral Budget Distribution
+        </h3>
+        <span class="text-label font-ui font-medium text-stone-muted">
+          {activeReport.breakdown.length} Allocation Categories
+        </span>
+      </div>
+
+      <div class="rounded-card border border-border bg-surface overflow-hidden shadow-xs">
+        <div class="overflow-x-auto w-full">
+          <table class="w-full text-left border-collapse min-w-[540px]">
+            <thead>
+              <tr class="bg-stone border-b border-border text-label font-ui font-semibold text-stone-muted uppercase tracking-wider">
+                <th scope="col" class="py-3.5 px-4">Allocation Category</th>
+                <th scope="col" class="py-3.5 px-4 text-center">Share</th>
+                <th scope="col" class="py-3.5 px-4 text-right">Projected Amount</th>
+                <th scope="col" class="py-3.5 px-4">Operational Purpose</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border text-body-sm font-body text-stone-text">
+              {activeReport.breakdown.map((row) => (
+                <tr class="hover:bg-stone/50 transition-colors">
+                  <td class="py-3.5 px-4 font-ui font-semibold text-gray-900">
+                    {row.category}
+                  </td>
+                  <td class="py-3.5 px-4 text-center font-ui font-bold text-maroon">
+                    {row.percent}%
+                  </td>
+                  <td class="py-3.5 px-4 text-right font-ui text-stone-muted">
+                    {isPending ? '₱0.00' : `₱${row.amount.toLocaleString()}`}
+                  </td>
+                  <td class="py-3.5 px-4 text-stone-muted leading-relaxed">
+                    {row.description}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {isPending && (
+          <div class="p-3 bg-stone/70 border-t border-border text-center">
+            <span class="text-body-xs font-ui text-stone-muted">
+              Note: The allocation shares above represent target quota distributions. Actual monetary disbursements will be populated following final term audit.
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

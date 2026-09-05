@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "id": "officer-01",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "President",
+    "committee": "Executive Committee",
+    "program": "BS Computer Science",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 1
+  },
+  {
+    "id": "officer-02",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Vice President for Internal Affairs",
+    "committee": "Executive Committee",
+    "program": "BS Information Technology",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 2
+  },
+  {
+    "id": "officer-03",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Vice President for External Affairs",
+    "committee": "Executive Committee",
+    "program": "BS Information Systems",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 3
+  },
+  {
+    "id": "officer-04",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Secretary-General",
+    "committee": "Secretariat",
+    "program": "BS Computer Science",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 4
+  },
+  {
+    "id": "officer-05",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Treasurer",
+    "committee": "Finance & Treasury",
+    "program": "BS Computer Science",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 5
+  },
+  {
+    "id": "officer-06",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Auditor",
+    "committee": "Finance & Treasury",
+    "program": "BS Information Technology",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 6
+  },
+  {
+    "id": "officer-07",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Director for Academic Affairs",
+    "committee": "Academic Committee",
+    "program": "BS Computer Science",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 7
+  },
+  {
+    "id": "officer-08",
+    "name": "[Officer Name — Pending Official Roster]",
+    "position": "Director for Membership",
+    "committee": "Membership Committee",
+    "program": "BS Information Technology",
+    "photo": "/images/officer-placeholder.svg",
+    "order": 8
+  }
+]

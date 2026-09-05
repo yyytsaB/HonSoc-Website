@@ -1,0 +1,245 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Card from '../primitives/Card.astro';
+import Pill from '../primitives/Pill.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const rawItems = await getCollection('hall-of-fame');
+// Sort by year descending, then rank or name
+const items = rawItems.sort((a, b) => {
+  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  if (a.data.rank && b.data.rank) return a.data.rank - b.data.rank;
+  return a.data.name.localeCompare(b.data.name);
+});
+
+// Extract unique years
+const years = Array.from(new Set(items.map((i) => i.data.year))).sort((a, b) => b - a);
+---
+
+<section id="hall-of-fame" class:list={['scroll-mt-24 py-12 sm:py-16 border-b border-border bg-stone-light/40', className]}>
+  <div class="container-gutter max-w-5xl mx-auto space-y-8">
+    <SectionHeading
+      eyebrow="Academic Excellence"
+      heading="Hall of Fame"
+      subheading="Honoring our Dean's Listers and Licensure Examination Board Topnotchers."
+    />
+
+    {/* Archival Records Notice */}
+    <div
+      class="rounded-card border border-amber-200/80 bg-amber-50/60 p-4 text-amber-950 flex items-start gap-3"
+      role="note"
+      data-testid="hof-provisional-banner"
+    >
+      <span class="font-ui font-bold text-label uppercase tracking-wider text-amber-900 shrink-0 mt-0.5">
+        Archival Records Notice:
+      </span>
+      <p class="text-body-sm text-amber-900/90 font-ui">
+        Historical rosters are currently undergoing collegiate archive reconciliation.
+        Entries below represent provisional archival mockups pending official registrar confirmation.
+      </p>
+    </div>
+
+    {/* Filter Controls Toolbar */}
+    <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-card bg-surface border border-border">
+      {/* Category Filters */}
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mr-1">
+          Category:
+        </span>
+        <button
+          type="button"
+          data-cat-btn="all"
+          aria-pressed="true"
+          class="px-3 py-1.5 rounded-full text-body-xs font-ui font-semibold transition-colors bg-primary text-white border border-primary"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          data-cat-btn="deans-lister"
+          aria-pressed="false"
+          class="px-3 py-1.5 rounded-full text-body-xs font-ui font-semibold transition-colors bg-surface text-stone-text border border-border hover:border-maroon/40"
+        >
+          Dean's Lister
+        </button>
+        <button
+          type="button"
+          data-cat-btn="topnotcher"
+          aria-pressed="false"
+          class="px-3 py-1.5 rounded-full text-body-xs font-ui font-semibold transition-colors bg-surface text-stone-text border border-border hover:border-maroon/40"
+        >
+          Topnotcher
+        </button>
+      </div>
+
+      {/* Year Filters */}
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider mr-1">
+          Year:
+        </span>
+        <button
+          type="button"
+          data-yr-btn="all"
+          aria-pressed="true"
+          class="px-3 py-1.5 rounded-full text-body-xs font-ui font-semibold transition-colors bg-primary text-white border border-primary"
+        >
+          All Years
+        </button>
+        {years.map((yr) => (
+          <button
+            type="button"
+            data-yr-btn={String(yr)}
+            aria-pressed="false"
+            class="px-3 py-1.5 rounded-full text-body-xs font-ui font-semibold transition-colors bg-surface text-stone-text border border-border hover:border-maroon/40"
+          >
+            {yr}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* Hall of Fame Cards Grid */}
+    <div id="hof-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {items.map((item) => {
+        const catSlug = item.data.category.toLowerCase().replace(/[']/g, '').replace(/[\s-]+/g, '-');
+        return (
+          <Card
+            as="article"
+            variant="hover"
+            class="flex flex-col justify-between p-6"
+            data-hof-card
+            data-category={catSlug}
+            data-year={String(item.data.year)}
+          >
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <Pill variant={item.data.category === 'Topnotcher' ? 'gold' : 'neutral'} size="sm">
+                  {item.data.category}
+                </Pill>
+
+                {item.data.rank && (
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-body-xs font-ui font-semibold bg-amber-100 text-amber-900 border border-amber-300">
+                    [Provisional Rank {item.data.rank}]
+                  </span>
+                )}
+              </div>
+
+              <h3 class="font-heading text-h3 text-gray-900 leading-snug">
+                {item.data.name}
+              </h3>
+
+              <p class="font-body text-body-sm text-stone-text">
+                {item.data.program}
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-border/80 flex items-center justify-between text-body-xs font-body text-stone-muted">
+              <span>
+                {item.data.semester ? `${item.data.semester} Semester, ` : ''}AY {item.data.year}–{item.data.year + 1}
+              </span>
+              <span class="font-ui text-label uppercase tracking-wider text-stone-muted">
+                HONORS
+              </span>
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+
+    {/* Empty State when zero items match active filter */}
+    <div
+      data-hof-empty
+      data-testid="hof-empty-state"
+      class="hidden text-center py-12 text-stone-muted border border-dashed border-border/80 rounded-card p-8 bg-surface"
+    >
+      <p class="font-body text-body">
+        No honors records found matching the selected filter criteria.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initHallOfFame() {
+    const section = document.getElementById('hall-of-fame');
+    if (!section) return;
+
+    const catBtns = section.querySelectorAll<HTMLButtonElement>('[data-cat-btn]');
+    const yrBtns = section.querySelectorAll<HTMLButtonElement>('[data-yr-btn]');
+    const cards = section.querySelectorAll<HTMLElement>('[data-hof-card]');
+    const emptyState = section.querySelector<HTMLElement>('[data-hof-empty]');
+
+    let currentCat = 'all';
+    let currentYr = 'all';
+
+    function updateFilters() {
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const cardCat = card.getAttribute('data-category') || '';
+        const cardYr = card.getAttribute('data-year') || '';
+
+        const matchCat = currentCat === 'all' || cardCat === currentCat;
+        const matchYr = currentYr === 'all' || cardYr === currentYr;
+
+        if (matchCat && matchYr) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    function updateActiveStyles(btns: NodeListOf<HTMLButtonElement>, activeVal: string, attr: string) {
+      btns.forEach((btn) => {
+        const val = btn.getAttribute(attr);
+        const isActive = val === activeVal;
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) {
+          btn.classList.add('bg-primary', 'text-white', 'border-primary');
+          btn.classList.remove('bg-surface', 'text-stone-text', 'border-border');
+        } else {
+          btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+          btn.classList.add('bg-surface', 'text-stone-text', 'border-border');
+        }
+      });
+    }
+
+    catBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentCat = btn.getAttribute('data-cat-btn') || 'all';
+        updateActiveStyles(catBtns, currentCat, 'data-cat-btn');
+        updateFilters();
+      });
+    });
+
+    yrBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentYr = btn.getAttribute('data-yr-btn') || 'all';
+        updateActiveStyles(yrBtns, currentYr, 'data-yr-btn');
+        updateFilters();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHallOfFame);
+  } else {
+    initHallOfFame();
+  }
+</script>

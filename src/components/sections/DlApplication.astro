@@ -1,0 +1,135 @@
+---
+import SectionHeading from '../primitives/SectionHeading.astro';
+import Card from '../primitives/Card.astro';
+import Button from '../primitives/Button.astro';
+import Pill from '../primitives/Pill.astro';
+import { DlApplicationModal } from '../interactive/DlApplicationModal';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section id="dl-application" class:list={['section-padding container-gutter scroll-mt-20 bg-stone', className]}>
+  <div class="max-w-5xl mx-auto">
+    <SectionHeading
+      eyebrow="Academic Honors"
+      heading="Dean's List Application"
+      subheading="Collegiate honors submission guidelines, tentative calendar, and verification procedures."
+    />
+
+    {/* Section-level Provisional Banner */}
+    <div
+      role="status"
+      class="mt-6 flex items-start gap-3 rounded-card border border-amber-200 bg-amber-50/90 p-4 text-amber-900 text-body-sm"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5"
+        aria-hidden="true"
+      >
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+        <line x1="12" y1="9" x2="12" y2="13" />
+        <line x1="12" y1="17" x2="12.01" y2="17" />
+      </svg>
+      <div>
+        <span class="font-ui font-semibold text-label uppercase tracking-wider block text-amber-950">
+          Provisional Criteria Notice
+        </span>
+        <p class="mt-0.5 text-amber-850">
+          Official qualification guidelines, minimum credit unit loads, and grade retention policies are currently under review, pending confirmation from the Dean's Office / Registrar.
+        </p>
+      </div>
+    </div>
+
+    {/* Guidelines Card Grid */}
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card as="article" class="p-6 flex flex-col justify-between h-full">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="h-10 w-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center font-ui font-bold">
+              1
+            </span>
+            <Pill variant="neutral" size="sm">Self-Assessment</Pill>
+          </div>
+          <h3 class="text-h3 font-heading text-maroon">Compute GWA</h3>
+          <p class="text-body-sm text-stone-muted mt-2">
+            Calculate your semestral weighted average across all enrolled subjects to evaluate preliminary standing.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-border">
+          <a
+            href="#gwa-calculator"
+            class="text-label font-ui font-semibold text-maroon hover:underline inline-flex items-center gap-1"
+          >
+            Go to GWA Calculator &rarr;
+          </a>
+        </div>
+      </Card>
+
+      <Card as="article" class="p-6 flex flex-col justify-between h-full">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="h-10 w-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center font-ui font-bold">
+              2
+            </span>
+            <Pill variant="neutral" size="sm">Prerequisites</Pill>
+          </div>
+          <h3 class="text-h3 font-heading text-maroon">Prepare Records</h3>
+          <p class="text-body-sm text-stone-muted mt-2">
+            Obtain verified digital copies of your semestral Certificate of Grades and official enrollment registration form.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-border text-label text-stone-muted">
+          Issued by Collegiate Registrar
+        </div>
+      </Card>
+
+      <Card as="article" class="p-6 flex flex-col justify-between h-full">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="h-10 w-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center font-ui font-bold">
+              3
+            </span>
+            <Pill variant="gold" size="sm">Tentative Calendar</Pill>
+          </div>
+          <h3 class="text-h3 font-heading text-maroon">Intake Window</h3>
+          <p class="text-body-sm text-stone-muted mt-2">
+            Term 1 Window: October 15 – October 30, 2026. Official dates will align with the Registrar's memorandum.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-border text-label text-stone-muted">
+          Subject to Registrar Calendar
+        </div>
+      </Card>
+    </div>
+
+    {/* Action Callout */}
+    <div class="mt-8 p-6 sm:p-8 rounded-card border border-border bg-surface flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-card">
+      <div>
+        <h3 class="text-h3 font-heading text-maroon">Ready to Review the Application Steps?</h3>
+        <p class="text-body-sm text-stone-muted mt-1 max-w-xl">
+          Review the submission procedure, check the provisional calendar, and prepare your documentation ahead of the application deadline.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <a
+          href="#gwa-calculator"
+          class="inline-flex items-center justify-center px-4 py-2.5 rounded-pill border border-maroon text-maroon hover:bg-maroon-light font-ui text-body-sm font-semibold transition-[color,background-color] duration-120 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          Check GWA First
+        </a>
+        <DlApplicationModal client:visible triggerText="Open Application" triggerVariant="primary" />
+      </div>
+    </div>
+  </div>
+</section>

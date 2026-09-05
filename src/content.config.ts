@@ -68,9 +68,48 @@ const accomplishmentsCollection = defineCollection({
   }),
 });
 
+// ─── Financial Reports ──────────────────────────────────────────────────────
+const financialReportsCollection = defineCollection({
+  loader: file('src/content/financial-report.json'),
+  schema: z.object({
+    id: z.string().optional(),
+    semester: z.string().min(1),
+    feePerStudent: z.number().nonnegative(),
+    totalCollected: z.number().nonnegative(),
+    studentCount: z.number().int().nonnegative(),
+    status: z.enum(['official', 'pending']).default('pending'),
+    note: z.string().optional(),
+    breakdown: z.array(
+      z.object({
+        category: z.string().min(1),
+        amount: z.number().nonnegative(),
+        percent: z.number().min(0).max(100),
+        description: z.string().min(1),
+      })
+    ),
+  }),
+});
+
+// ─── Gallery ────────────────────────────────────────────────────────────────
+const galleryCollection = defineCollection({
+  loader: file('src/content/gallery.json'),
+  schema: z.object({
+    id: z.string().optional(),
+    title: z.string().min(1),
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Use ISO date: YYYY-MM-DD'),
+    category: z.string().min(1),
+    image: z.string().min(1),
+    alt: z.string().min(1),
+    width: z.number().int().positive().default(800),
+    height: z.number().int().positive().default(600),
+  }),
+});
+
 export const collections = {
   officers: officersCollection,
   merch: merchCollection,
   'hall-of-fame': hallOfFameCollection,
   accomplishments: accomplishmentsCollection,
+  'financial-reports': financialReportsCollection,
+  gallery: galleryCollection,
 };
