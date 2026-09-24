@@ -27,17 +27,34 @@ export interface MerchItem {
   available?: boolean;
 }
 
+const defaultMerchItem: MerchItem = {
+  id: 'varsity-jacket',
+  name: 'CAS Varsity Jacket',
+  description: 'Heavyweight collegiate varsity jacket with embroidered gold chest crest and striped ribbing.',
+  price: 650,
+  sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+  colors: [
+    { label: 'Maroon', hex: '#8B1E1E' },
+    { label: 'Gold', hex: '#EAA838' },
+  ],
+  images: ['/merch/jacket-front.webp'],
+  available: true,
+};
+
 export interface MerchModalProps {
-  item: MerchItem;
+  item?: MerchItem;
   triggerText?: string;
+  triggerVariant?: 'primary' | 'outline';
 }
 
 export const MerchModal: React.FC<MerchModalProps> = ({
-  item,
+  item = defaultMerchItem,
   triggerText = 'Pre-order Item',
+  triggerVariant = 'primary',
 }) => {
-  const [selectedSize, setSelectedSize] = useState<string>(item.sizes[0] || '');
-  const [selectedColor, setSelectedColor] = useState<string>(item.colors[0]?.label || '');
+  const currentItem = item || defaultMerchItem;
+  const [selectedSize, setSelectedSize] = useState<string>(currentItem.sizes?.[0] || '');
+  const [selectedColor, setSelectedColor] = useState<string>(currentItem.colors?.[0]?.label || '');
 
   return (
     <Dialog>
@@ -60,16 +77,16 @@ export const MerchModal: React.FC<MerchModalProps> = ({
               Draft Mockup
             </span>
           </div>
-          <DialogTitle className="mt-1">{item.name}</DialogTitle>
-          {item.description && (
-            <DialogDescription className="mt-1">{item.description}</DialogDescription>
+          <DialogTitle className="mt-1">{currentItem.name}</DialogTitle>
+          {currentItem.description && (
+            <DialogDescription className="mt-1">{currentItem.description}</DialogDescription>
           )}
         </DialogHeader>
 
         {/* Pricing Notice */}
         <div className="rounded-card border border-border bg-stone p-3 text-body-sm">
           <div className="font-ui font-bold text-maroon text-body-lg">
-            Estimated Target: ₱{item.price}
+            Estimated Target: ₱{currentItem.price}
           </div>
           <p className="text-stone-muted text-label mt-0.5">
             Subject to Executive Committee Approval — non-commercial demonstration figure.
@@ -77,13 +94,13 @@ export const MerchModal: React.FC<MerchModalProps> = ({
         </div>
 
         {/* Color Variants */}
-        {item.colors.length > 0 && (
+        {currentItem.colors && currentItem.colors.length > 0 && (
           <div>
             <label className="text-label font-ui font-semibold text-stone-muted uppercase block mb-2">
               Color Option: <span className="text-gray-900 normal-case">{selectedColor}</span>
             </label>
             <div className="flex flex-wrap gap-2">
-              {item.colors.map((color) => {
+              {currentItem.colors.map((color) => {
                 const isSelected = selectedColor === color.label;
                 return (
                   <button
@@ -112,13 +129,13 @@ export const MerchModal: React.FC<MerchModalProps> = ({
         )}
 
         {/* Size Selection */}
-        {item.sizes.length > 0 && (
+        {currentItem.sizes && currentItem.sizes.length > 0 && (
           <div>
             <label className="text-label font-ui font-semibold text-stone-muted uppercase block mb-2">
               Size Selection: <span className="text-gray-900 normal-case">{selectedSize}</span>
             </label>
             <div className="flex flex-wrap gap-2">
-              {item.sizes.map((size) => {
+              {currentItem.sizes.map((size) => {
                 const isSelected = selectedSize === size;
                 return (
                   <button
@@ -180,3 +197,5 @@ export const MerchModal: React.FC<MerchModalProps> = ({
     </Dialog>
   );
 };
+
+export default MerchModal;

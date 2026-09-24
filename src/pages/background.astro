@@ -1,0 +1,317 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import SubpageHeader from '../components/sections/SubpageHeader.astro';
+import CrossPageBanner from '../components/sections/CrossPageBanner.astro';
+import Footer from '../components/navigation/Footer.astro';
+
+const goals = [
+  {
+    clause: '§ 1.1',
+    title: 'Academic Community',
+    text: 'To bring together a group of academics and scholars that will serve as the members of the academic community of the College of Arts and Sciences.',
+  },
+  {
+    clause: '§ 1.2',
+    title: 'Integrity & Responsibility',
+    text: 'To instill among its members the importance of maintaining their integrity and responsibility in all their endeavors.',
+  },
+  {
+    clause: '§ 1.3',
+    title: 'Way of Life',
+    text: 'To promote the organization as a way of life, which may further improve their social, emotional and physical well-being.',
+  },
+  {
+    clause: '§ 1.4',
+    title: 'Knowledge & Productive Action',
+    text: 'To provide knowledge and deliver productive and effective activities that will help the members.',
+  },
+  {
+    clause: '§ 1.5',
+    title: 'Camaraderie & Fellowship',
+    text: 'To promote fellowship and camaraderie among the students of the College of Arts and Sciences.',
+  },
+  {
+    clause: '§ 1.6',
+    title: 'Dean’s Listers Assistance',
+    text: 'To continuously recognize the hard work and labor of the students by providing assistance in the Dean’s Listers applications and other related events.',
+  },
+  {
+    clause: '§ 1.7',
+    title: 'Resource Stewardship',
+    text: 'To generate funds to support the events and activities of the organization.',
+  },
+];
+
+const objectives = [
+  {
+    pillar: 'PILLAR 01',
+    title: 'Higher Learning & Academic Continuity',
+    text: 'To develop and encourage higher learning among its members, as a way to maintain the academic community of the department.',
+  },
+  {
+    pillar: 'PILLAR 02',
+    title: 'Upholding Integrity & Intellect',
+    text: 'To uphold the integrity and intellect of its members and the community in all university and civic endeavors.',
+  },
+  {
+    pillar: 'PILLAR 03',
+    title: 'Institutional Pride & Advancement',
+    text: 'To continuously endeavor to improve and nurture pride in the College of Arts and Sciences and the University.',
+  },
+];
+
+const constitutionalArticles = [
+  {
+    article: 'Article II: Scholastic Mandate',
+    badge: 'Ratified',
+    text: 'Section 1 defines the society as the sole recognized scholastic umbrella organization of the College of Arts and Sciences, vested with the authority to curate, evaluate, and endorse candidate rosters for Dean’s List honors to the University Registrar.',
+  },
+  {
+    article: 'Article IV: General Assembly',
+    badge: 'Ratified',
+    text: 'Section 3 mandates bi-annual plenary sessions of all enrolled honor roll recipients to deliberate upon society fiscal budgets, constitutional amendments, and election protocols for the incoming Student Executive Secretariat.',
+  },
+  {
+    article: 'Article VII: Student Welfare',
+    badge: 'Ratified',
+    text: 'Section 2 establishes the Scholar Welfare Fund, allocating a minimum of 25% of all society revenue directly to indigent student grants, academic review allowances, and community educational drives across Batangas province.',
+  },
+];
+---
+
+<BaseLayout
+  title="Background & Charter — CAS Honor Society"
+  description="Institutional origins, founding philosophy, operational mandate, and verified charter of the College of Arts and Sciences Honor Society at BatStateU Pablo Borbon."
+>
+  <Navbar currentPath="/background" />
+
+  <SubpageHeader
+    title="Background of the Organization"
+    eyebrow="Accredited Academic Organization • Est. 2020"
+    description="Institutional origins, founding philosophy, operational mandate, and verified charter of the College of Arts and Sciences Honor Society."
+    breadcrumbCurrent="Background"
+    dossierCode="CAS-HS-CHARTER-2025"
+    dossierLabel="RE-ACCREDITATION CHARTER"
+  />
+
+  <main class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto" id="background">
+    {/* 1. Formal Institutional Masthead Header */}
+    <div class="border-t-2 border-b border-border py-3 mb-12 flex flex-wrap items-center justify-between gap-4 text-label font-ui tracking-wider uppercase text-gray-600">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-maroon rounded-full inline-block" aria-hidden="true"></span>
+        <span class="font-bold text-maroon">BatStateU The NEU</span>
+        <span class="text-stone-muted">•</span>
+        <span>College of Arts &amp; Sciences</span>
+        <span class="text-stone-muted">•</span>
+        <span class="text-stone-muted">Pablo Borbon Main I</span>
+      </div>
+      <div class="flex items-center gap-3 font-mono text-[0.75rem]">
+        <span class="bg-stone text-gray-700 px-2 py-0.5 border border-border">ATTACHMENT C</span>
+        <span class="text-stone-muted">OFFICIAL RE-ACCREDITATION CHARTER</span>
+      </div>
+    </div>
+
+    {/* 2. Dual-Flank Editorial Hero: Profile & Proclamation */}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pb-16 border-b border-border">
+      {/* Left 7 cols: Primary Narrative */}
+      <div class="lg:col-span-7 space-y-4">
+        <div class="text-label font-ui font-bold uppercase tracking-widest text-maroon flex items-center gap-2">
+          <span class="w-6 h-px bg-maroon" aria-hidden="true"></span>
+          <span>Institutional Profile</span>
+        </div>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight leading-tight">
+          Background of the Organization
+        </h2>
+        <p class="font-body text-body text-gray-700 leading-relaxed">
+          The official governing body of academics and scholars under the College of Arts and Sciences at Batangas State University Pablo Borbon Main I Campus. Consigned to uphold intellectual rigor, scholarly integrity, and institutional honor across all degree disciplines.
+        </p>
+        <p class="font-body text-body-sm text-gray-600 leading-relaxed">
+          Established as an autonomous scholastic organization, the society unites honor roll recipients, university scholars, and academic achievers into a collegial community committed to high scholarship, peer mentorship, and civic transformation across Batangas province.
+        </p>
+      </div>
+
+      {/* Right 5 cols: Illuminated Academic Proclamation */}
+      <div class="lg:col-span-5 bg-maroon-dark text-white p-7 sm:p-9 border-l-4 border-gold shadow-card relative flex flex-col justify-between rounded-r-card">
+        <div>
+          <div class="flex items-center justify-between text-gold text-label font-ui font-bold uppercase tracking-widest mb-4">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+              <span>Guiding Philosophy</span>
+            </span>
+            <span class="text-label text-gold-lightGold/60 font-mono">CHARTER § 0.1</span>
+          </div>
+          <blockquote class="font-heading text-h2 italic text-stone-100 font-normal leading-relaxed mt-2">
+            “Upholding excellence, integrity and responsibility to become productive and cooperative members of the academic community.”
+          </blockquote>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-gold/20 flex items-center justify-between text-label text-stone-200 font-ui">
+          <span>College of Arts and Sciences</span>
+          <span class="text-gold font-semibold tracking-wide">BatStateU The NEU</span>
+        </div>
+      </div>
+    </div>
+
+    {/* 3. Dual Columns: Vision & Mission */}
+    <div class="py-16 border-b border-border">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Vision */}
+        <div class="space-y-4 lg:pr-6 lg:border-r lg:border-border">
+          <div class="flex items-baseline gap-3 border-b border-border pb-3">
+            <span class="font-mono text-body-sm font-bold text-maroon">01.</span>
+            <h3 class="font-heading text-h2 text-gray-900 tracking-tight">Vision of the Society</h3>
+          </div>
+          <p class="font-body text-body text-gray-700 leading-relaxed">
+            A functioning and governing body of students from the College of Arts and Sciences department consigned to uphold the intellectual excellence of the students, as well as to improve and nurture pride in and for the academic community.
+          </p>
+
+          <div class="rounded-card border border-border p-4 bg-stone mt-6">
+            <span class="text-label font-mono text-stone-muted uppercase tracking-wider block mb-1">Archive Focus</span>
+            <p class="text-body-sm text-gray-700 font-body">
+              General Assembly &amp; Scholar Inductions held semi-annually at the Pablo Borbon Main I Amphitheater.
+            </p>
+          </div>
+        </div>
+
+        {/* Mission */}
+        <div class="space-y-4 lg:pl-2">
+          <div class="flex items-baseline gap-3 border-b border-border pb-3">
+            <span class="font-mono text-body-sm font-bold text-maroon">02.</span>
+            <h3 class="font-heading text-h2 text-gray-900 tracking-tight">Mission of the Society</h3>
+          </div>
+          <p class="font-body text-body text-gray-700 leading-relaxed">
+            The organization intends to be the governing force for the academic community of the College of Arts and Sciences, by maintaining academic integrity and scholarly standards in all their future scholarly endeavors inside and outside of the University. It promotes the dissemination of acquired knowledge and encourages its members to continue to hone their intellect and abilities in order to be vital members of a working and productive community.
+          </p>
+
+          <div class="rounded-card border border-border p-4 bg-stone mt-6">
+            <span class="text-label font-mono text-stone-muted uppercase tracking-wider block mb-1">Archive Focus</span>
+            <p class="text-body-sm text-gray-700 font-body">
+              Academic Colloquia &amp; Research Mentorship workshops conducted across CAS Lecture Halls.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* 4. Strategic Charter: 7 Goals & 3 Objectives */}
+    <div class="pt-16 pb-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* 7 Goals */}
+        <div class="lg:col-span-7">
+          <div class="flex items-baseline justify-between mb-6 pb-2 border-b-2 border-gray-900">
+            <div>
+              <span class="font-mono text-label font-bold text-maroon uppercase tracking-wider block">Directives</span>
+              <h3 class="font-heading text-h2 text-gray-900">Goals of the Organization</h3>
+            </div>
+            <span class="text-label font-mono font-medium text-stone-muted">7 Strategic Clauses</span>
+          </div>
+
+          <div class="divide-y divide-border font-body">
+            {goals.map((g) => (
+              <div class="py-3.5 flex items-start gap-4 hover:bg-stone/60 -mx-3 px-3 rounded-md transition-colors duration-120 ease-enter">
+                <span class="font-mono text-label font-bold text-maroon mt-0.5 w-8 shrink-0">{g.clause}</span>
+                <div class="text-body-sm text-gray-700 leading-relaxed">
+                  <strong class="text-gray-900 font-ui font-semibold block sm:inline mr-1.5">{g.title}:</strong>
+                  {g.text}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3 Objectives */}
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <div class="flex items-baseline justify-between mb-6 pb-2 border-b-2 border-gray-900">
+              <div>
+                <span class="font-mono text-label font-bold text-maroon uppercase tracking-wider block">Foundations</span>
+                <h3 class="font-heading text-h2 text-gray-900">Objectives</h3>
+              </div>
+              <span class="text-label font-mono font-medium text-stone-muted">Core Pillars</span>
+            </div>
+
+            <div class="space-y-6 pt-2">
+              {objectives.map((o) => (
+                <div class="border-l-2 border-maroon pl-4 py-1">
+                  <span class="text-[0.6875rem] font-mono font-bold uppercase tracking-wider text-maroon block mb-1">
+                    {o.pillar}
+                  </span>
+                  <h4 class="font-heading text-h3 text-gray-900 font-semibold">{o.title}</h4>
+                  <p class="font-body text-body-sm text-gray-600 mt-1 leading-relaxed">
+                    {o.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Institutional Accreditation Docket */}
+          <div class="border-t border-b border-border py-4 font-ui">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 border border-maroon/30 text-maroon flex items-center justify-center text-sm font-serif">
+                  §
+                </div>
+                <div>
+                  <span class="text-label font-bold uppercase tracking-wider text-stone-muted block">Accredited Student Organization</span>
+                  <span class="text-body-sm font-bold text-gray-900 font-heading">Batangas State University The NEU</span>
+                </div>
+              </div>
+              <div class="text-right font-mono text-label text-stone-muted">
+                <span>DOC: CAS-HS-PB</span><br />
+                <span class="text-emerald-700 font-semibold">VALIDATED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* 5. Constitutional Charter & By-Laws Highlights */}
+    <div class="py-16 border-t border-border mt-10">
+      <div class="mb-10 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Legal &amp; Institutional Basis
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Constitutional Charter &amp; By-Laws
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Ratified by the General Assembly under the supervision of the Office of Student Organizations (OSO).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {constitutionalArticles.map((art) => (
+          <div class="bg-stone border border-border rounded-card p-6 shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color] duration-120 ease-enter flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <h3 class="font-heading text-h3 text-gray-900">{art.article}</h3>
+                <span class="text-label font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-pill border border-gold/40 text-maroon uppercase">
+                  {art.badge}
+                </span>
+              </div>
+              <p class="font-body text-body-sm text-gray-600 leading-relaxed">
+                {art.text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <CrossPageBanner
+        eyebrow="Explore Society Leadership"
+        heading="Meet the Executive Officers &amp; Institutional Directorate"
+        description="Discover the supervisory mentors and student leaders driving the society forward."
+        buttonText="View Officers"
+        buttonHref="/officers"
+      />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

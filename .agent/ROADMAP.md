@@ -76,3 +76,12 @@ is bound by that document.
       `.astro` files <!-- completed: 2026-09-05 -->
 - [ ] Deploy to Cloudflare Pages / Vercel, confirm production build matches
       dev <!-- ON HOLD: client redesigning UI/UX before launch, 2026-09-05 -->
+
+## Milestone 6 — Design Prototype Port & Multi-Page Architecture <!-- completed: 2026-09-25 -->
+
+- [x] Phase 1 Audit: Complete inventory of `./Design/`, mapped shared components, token alignment, and violation fixes logged <!-- completed: 2026-09-25 -->
+- [x] Multi-Page Route Architecture: 6 dedicated routes (`/`, `/background`, `/officers`, `/deans-list`, `/fees`, `/merch`) <!-- completed: 2026-09-25 -->
+- [x] Shared Navigation & Layouts: Sticky frosted navbar with 6-route active states, mobile drawer, SubpageHeader, CrossPageBanner, broadsheet Footer <!-- completed: 2026-09-25 -->
+- [x] Interactive Islands: GwaCalculator with named thresholds, accessible FaqAccordion, DlApplicationModal, MerchModal <!-- completed: 2026-09-25 -->
+- [x] Content Integration: Typed Content Collections for officers, merch, hall-of-fame, accomplishments with zero banned words <!-- completed: 2026-09-25 -->
+- [x] Quality & Standards Verification: All 33 unit/component tests pass, 100% clean production build with 0 errors, no `./Design/` leak <!-- completed: 2026-09-25 -->

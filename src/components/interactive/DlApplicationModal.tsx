@@ -160,3 +160,5 @@ export const DlApplicationModal: React.FC<DlApplicationModalProps> = ({
     </Dialog>
   );
 };
+
+export default DlApplicationModal;

@@ -326,3 +326,5 @@ export const GwaCalculator: React.FC<GwaCalculatorProps> = ({
     </div>
   );
 };
+
+export default GwaCalculator;

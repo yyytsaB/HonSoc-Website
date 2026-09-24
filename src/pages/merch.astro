@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import SubpageHeader from '../components/sections/SubpageHeader.astro';
+import CrossPageBanner from '../components/sections/CrossPageBanner.astro';
+import Footer from '../components/navigation/Footer.astro';
+import MerchModal from '../components/interactive/MerchModal';
+import { getCollection } from 'astro:content';
+
+const merchItems = await getCollection('merch');
+
+const sizeChart = [
+  { size: 'XS', chest: '19.0"', length: '25.0"', sleeve: '23.0"', fit: 'Slim / Petite' },
+  { size: 'S', chest: '20.0"', length: '26.0"', sleeve: '24.0"', fit: "Regular 5'0\" – 5'4\"" },
+  { size: 'M', chest: '21.0"', length: '27.0"', sleeve: '25.0"', fit: "Regular 5'4\" – 5'7\"" },
+  { size: 'L', chest: '22.0"', length: '28.0"', sleeve: '26.0"', fit: "Regular 5'7\" – 5'10\"" },
+  { size: 'XL', chest: '23.5"', length: '29.0"', sleeve: '27.0"', fit: 'Relaxed Fit' },
+  { size: '2XL', chest: '25.0"', length: '30.0"', sleeve: '28.0"', fit: 'Oversized' },
+  { size: '3XL', chest: '26.5"', length: '31.0"', sleeve: '28.5"', fit: 'Custom Order' },
+];
+---
+
+<BaseLayout
+  title="Official Collegiate Merchandise — CAS Honor Society"
+  description="Order official collegiate regalia, custom society lanyards, and metallic insignia pins at BatStateU Pablo Borbon. All proceeds fund scholar welfare."
+>
+  <Navbar currentPath="/merch" />
+
+  <SubpageHeader
+    title="Official Collegiate Merchandise"
+    eyebrow="Authentic Chapter Regalia • A.Y. 2024–2025"
+    description="Order official collegiate regalia, custom society lanyards, and metallic insignia pins. All proceeds directly fund the indigent scholar assistance initiative."
+    breadcrumbCurrent="Merchandise"
+    dossierCode="CAS-HS-MERCH-2025"
+    dossierLabel="COLLEGIATE COLLECTION"
+  />
+
+  <main class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto space-y-20" id="merch-catalog">
+    {/* ── 1. Merchandise Collection Showcase ── */}
+    <div>
+      <div class="mb-12 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Collegiate Apparel &amp; Insignia
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Honor Society Chapter Regalia
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Official limited-run batch items authorized by the College Executive Secretariat.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {merchItems.map((item) => (
+          <div class="bg-surface border border-border rounded-card p-6 shadow-card hover:shadow-card-hover transition-[box-shadow,border-color] duration-120 ease-enter flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-label font-ui font-bold uppercase tracking-wider text-maroon bg-maroon-light px-2.5 py-0.5 rounded-pill">
+                  {item.data.badge || 'Official Regalia'}
+                </span>
+                <span class="font-mono text-label text-stone-muted">
+                  Batch 2024–2025
+                </span>
+              </div>
+
+              <div>
+                <h3 class="font-heading text-h2 text-gray-900">
+                  {item.data.name}
+                </h3>
+                <div class="text-h1 font-heading text-maroon my-2">
+                  ₱{item.data.price.toFixed(2)}
+                </div>
+                <p class="text-body-sm font-body text-gray-600 leading-relaxed">
+                  {item.data.description}
+                </p>
+              </div>
+
+              {item.data.sizes && item.data.sizes.length > 0 && (
+                <div class="pt-2">
+                  <span class="text-label font-ui font-semibold text-stone-muted uppercase tracking-wider block mb-1.5">
+                    Available Sizes:
+                  </span>
+                  <div class="flex flex-wrap gap-1.5">
+                    {item.data.sizes.map((s: string) => (
+                      <span class="px-2 py-0.5 rounded-pill border border-border bg-stone font-mono text-label text-gray-700">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-border flex items-center justify-between">
+              <span class="text-label font-ui font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-pill border border-emerald-200">
+                Pre-Order Active
+              </span>
+              <a href="#size-guide" class="text-body-sm font-ui font-semibold text-maroon hover:underline">
+                Size Guide &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 rounded-card bg-stone border border-border flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1 text-center sm:text-left">
+          <h3 class="font-heading text-h2 text-gray-900">Ready to place your pre-order reservation?</h3>
+          <p class="text-body-sm font-body text-gray-600">Access the official order portal docket to confirm your sizing and reservation batch.</p>
+        </div>
+        <MerchModal client:visible triggerText="Access Pre-Order Portal" triggerVariant="primary" />
+      </div>
+    </div>
+
+    {/* ── 2. Size Guide & Distribution Protocol ── */}
+    <div class="pt-10 border-t border-border" id="size-guide">
+      <div class="mb-12 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Specifications &amp; Logistics
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Sizing Chart &amp; Claiming Protocol
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Ensure proper fit before submitting pre-orders. All production batches are strictly made-to-order.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        {/* Left: Size Specification Table */}
+        <div class="lg:col-span-7 bg-surface border border-border rounded-card p-6 sm:p-8 shadow-card">
+          <div class="flex items-center justify-between gap-4 pb-4 border-b border-border mb-6">
+            <div>
+              <h3 class="font-heading text-h2 text-gray-900">Varsity Jacket Unisex Size Chart</h3>
+              <p class="text-label text-stone-muted font-body mt-0.5">All measurements are provided in inches (Standard Asian Regular Fit)</p>
+            </div>
+            <span class="text-label font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-pill border border-amber-300 text-maroon">
+              TOLERANCE ±0.5"
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-body-sm border-collapse font-body">
+              <thead>
+                <tr class="border-b border-border text-stone-muted uppercase tracking-wider font-ui text-label bg-stone/70">
+                  <th class="py-3 px-3">Size</th>
+                  <th class="py-3 px-3">Chest Width</th>
+                  <th class="py-3 px-3">Body Length</th>
+                  <th class="py-3 px-3">Sleeve Length</th>
+                  <th class="py-3 px-3 text-right">Recommended Fit</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border text-gray-700">
+                {sizeChart.map((row) => (
+                  <tr class="hover:bg-stone/50 transition-colors duration-120 ease-enter">
+                    <td class="py-3 px-3 font-bold font-ui text-maroon">{row.size}</td>
+                    <td class="py-3 px-3 font-mono">{row.chest}</td>
+                    <td class="py-3 px-3 font-mono">{row.length}</td>
+                    <td class="py-3 px-3 font-mono">{row.sleeve}</td>
+                    <td class="py-3 px-3 text-right text-stone-muted font-ui">{row.fit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-border flex items-center gap-2 text-stone-muted text-label font-body">
+            <span>&#9432;</span>
+            <span>If you prefer a loose, layered collegiate look over hoodies, we recommend sizing up one step.</span>
+          </div>
+        </div>
+
+        {/* Right: Claiming Guidelines */}
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block mb-1">
+              Claiming Guidelines
+            </span>
+            <h3 class="font-heading text-h2 text-gray-900 tracking-tight">
+              Distribution Protocol
+            </h3>
+            <p class="font-body text-body-sm text-gray-600 mt-1">
+              Authorized merchandise claiming instructions for verified CAS students.
+            </p>
+          </div>
+
+          <div class="space-y-4 font-body">
+            <div class="p-4 rounded-card bg-stone border border-border shadow-xs">
+              <div class="text-maroon font-bold text-body-sm font-ui mb-1 flex items-center gap-2">
+                <span>Venue</span>
+              </div>
+              <p class="text-body-sm text-gray-700 font-medium">
+                CAS Student Pavilion &amp; Council Secretariat, Ground Floor, Pablo Borbon Main I Campus
+              </p>
+            </div>
+
+            <div class="p-4 rounded-card bg-stone border border-border shadow-xs">
+              <div class="text-maroon font-bold text-body-sm font-ui mb-1 flex items-center gap-2">
+                <span>Identification</span>
+              </div>
+              <p class="text-body-sm text-gray-600 leading-relaxed">
+                Present your validated BatStateU Student Identification Card and the digital payment confirmation receipt upon claiming.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-card bg-stone border border-border shadow-xs">
+              <div class="text-maroon font-bold text-body-sm font-ui mb-1 flex items-center gap-2">
+                <span>Proxy Authorization</span>
+              </div>
+              <p class="text-body-sm text-gray-600 leading-relaxed">
+                If claiming via a representative, provide a signed authorization letter, a photocopy of your student ID, and the representative’s valid university ID.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CrossPageBanner
+        eyebrow="Ready to Return"
+        heading="Return to the Society Homepage"
+        description="Access the full 8-module portal, honors benchmarks, and live academic updates."
+        buttonText="Go to Homepage"
+        buttonHref="/"
+      />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

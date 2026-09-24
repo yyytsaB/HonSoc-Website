@@ -1,0 +1,43 @@
+---
+export interface Props {
+  eyebrow: string;
+  heading: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  heading,
+  description,
+  buttonText,
+  buttonHref,
+  class: className = '',
+} = Astro.props;
+---
+
+<aside class:list={['mt-12 sm:mt-16 p-6 sm:p-8 rounded-card bg-gradient-to-r from-maroon-wine via-maroon-dark to-maroon text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-gold/35 shadow-card-hover', className]} aria-label="Related Section">
+  <div class="space-y-1.5 max-w-2xl">
+    <span class="text-label font-ui font-bold uppercase tracking-wider text-gold-lightGold block">
+      {eyebrow}
+    </span>
+    <h2 class="font-heading text-h2 text-white font-normal leading-tight">
+      {heading}
+    </h2>
+    <p class="text-body-sm font-body text-stone-100/90 leading-relaxed">
+      {description}
+    </p>
+  </div>
+
+  <a
+    href={buttonHref}
+    class="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-pill bg-shimmer text-maroon-dark font-ui text-body-sm font-bold shadow hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-[transform,box-shadow] duration-120 ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+  >
+    <span>{buttonText}</span>
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+  </a>
+</aside>

@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import SubpageHeader from '../components/sections/SubpageHeader.astro';
+import CrossPageBanner from '../components/sections/CrossPageBanner.astro';
+import Footer from '../components/navigation/Footer.astro';
+
+const fundAllocation = [
+  {
+    category: 'Student Academic Awards & Medals',
+    percentage: 45,
+    barColor: 'bg-maroon',
+    textColor: 'text-maroon',
+  },
+  {
+    category: 'Community Outreach & Extension',
+    percentage: 25,
+    barColor: 'bg-gold',
+    textColor: 'text-gold-deep',
+  },
+  {
+    category: 'Leadership Workshops & Review Kits',
+    percentage: 20,
+    barColor: 'bg-gray-700',
+    textColor: 'text-gray-700',
+  },
+  {
+    category: 'Operational Logistics & Certificates',
+    percentage: 10,
+    barColor: 'bg-gray-400',
+    textColor: 'text-gray-500',
+  },
+];
+---
+
+<BaseLayout
+  title="Membership Fees & Transparency — CAS Honor Society"
+  description="Complete disclosure of semestral membership dues, audited fund allocations, executive resolutions, and remittance protocols at BatStateU Pablo Borbon."
+>
+  <Navbar currentPath="/fees" />
+
+  <SubpageHeader
+    title="Membership & Fee Transparency"
+    eyebrow="Fiscal Integrity & Audit • A.Y. 2024–2025"
+    description="We uphold complete fiscal integrity. Every peso collected is audited, documented, and channeled into student academic enrichment."
+    breadcrumbCurrent="Fees & Transparency"
+    dossierCode="AUDIT RES. NO. 2024-03"
+    dossierLabel="FISCAL INTEGRITY"
+  />
+
+  <main class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto space-y-20" id="membership-fees">
+    {/* ── 1. Asymmetric Financial Layout ── */}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      {/* Left 7 cols: Membership Options */}
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Semester Option */}
+          <div class="bg-surface border border-border rounded-card p-6 shadow-card flex flex-col justify-between hover:border-maroon/30 transition-colors duration-120 ease-enter">
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-label font-ui font-bold uppercase tracking-wider text-stone-muted">Flexible Plan</span>
+                <span class="text-label font-ui font-semibold text-maroon bg-maroon-light px-2.5 py-0.5 rounded-pill">
+                  Per Semester
+                </span>
+              </div>
+              <div class="flex items-baseline gap-1 my-2">
+                <span class="text-h1 font-heading font-bold text-gray-900">₱75.00</span>
+                <span class="text-body-sm font-ui text-stone-muted">/ sem</span>
+              </div>
+              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
+                Designed for scholars renewing status or completing mid-year requirements.
+              </p>
+              <ul class="mt-5 space-y-2.5 text-body-sm font-body text-gray-700">
+                <li class="flex items-center gap-2">
+                  <span class="text-maroon font-bold">&#10003;</span>
+                  <span>Validated E-Certificate of Membership</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-maroon font-bold">&#10003;</span>
+                  <span>Semestral Review Mentor Sessions</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-maroon font-bold">&#10003;</span>
+                  <span>General Assembly Voting Rights</span>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="https://dione.batstate-u.edu.ph"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 w-full py-2.5 rounded-pill border border-maroon text-maroon font-ui font-semibold text-body-sm text-center hover:bg-maroon hover:text-white transition duration-120 ease-enter block"
+            >
+              Select Per-Semester
+            </a>
+          </div>
+
+          {/* Full AY Option (Featured) */}
+          <div class="bg-gradient-to-br from-maroon-wine via-maroon-dark to-maroon text-white rounded-card p-6 shadow-card relative flex flex-col justify-between border-2 border-gold/70">
+            <div class="absolute -top-3 right-6 bg-shimmer text-maroon-dark font-ui font-bold text-[0.6875rem] tracking-wider uppercase px-3 py-0.5 rounded-pill shadow-xs">
+              Recommended
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-label font-ui font-bold uppercase tracking-wider text-gold-lightGold">Full Year Plan</span>
+                <span class="text-label font-ui font-semibold bg-white/20 px-2.5 py-0.5 rounded-pill text-white">
+                  Full A.Y.
+                </span>
+              </div>
+              <div class="flex items-baseline gap-1 my-2">
+                <span class="text-h1 font-heading font-bold text-white">₱130.00</span>
+                <span class="text-body-sm font-ui text-gold-lightGold/90">/ academic year</span>
+              </div>
+              <p class="text-body-sm font-body text-stone-100 mt-2 leading-relaxed">
+                Complete annual credentials with full society perks and merchandise savings.
+              </p>
+              <ul class="mt-5 space-y-2.5 text-body-sm font-body text-stone-100">
+                <li class="flex items-center gap-2">
+                  <span class="text-gold font-bold">&#10003;</span>
+                  <span>Full Year Certificate of Distinction</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-gold font-bold">&#10003;</span>
+                  <span>Priority Dean's List Endorsement</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-gold font-bold">&#10003;</span>
+                  <span>Exclusive Merch Discounts (Hoodies &amp; Pins)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-gold font-bold">&#10003;</span>
+                  <span>Free Entry to Academic Leadership Summits</span>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="https://dione.batstate-u.edu.ph"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 w-full py-2.5 rounded-pill bg-shimmer text-maroon-dark font-ui font-bold text-body-sm text-center shadow hover:shadow-card transition duration-120 ease-enter uppercase tracking-wider block"
+            >
+              Apply Full Academic Year
+            </a>
+          </div>
+        </div>
+
+        {/* Quick notice below plans */}
+        <div class="p-4 rounded-card bg-stone border border-border text-body-sm font-body text-gray-600 flex flex-wrap items-center justify-between gap-3">
+          <span class="flex items-center gap-2">
+            <span class="text-maroon font-bold">&sect;</span>
+            <span>Dues exempt students under verified institutional financial assistance programs.</span>
+          </span>
+          <a href="/officers#consultation" class="font-ui font-semibold text-maroon hover:underline">
+            Inquire with Secretariat &rarr;
+          </a>
+        </div>
+      </div>
+
+      {/* Right 5 cols: Audited Fiscal Transparency Statement */}
+      <div class="lg:col-span-5 bg-stone border border-border rounded-card p-6 sm:p-7 shadow-card flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center mb-3">
+            <h3 class="font-heading text-h2 text-gray-900">Audited Fund Allocation</h3>
+            <span class="text-label font-ui font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-pill border border-emerald-200">
+              Audited Ledger
+            </span>
+          </div>
+          <p class="text-body-sm font-body text-gray-600 leading-relaxed">
+            Collections are held in trust and disbursed strictly through documented resolution vouchers approved by the Executive Council and Adviser.
+          </p>
+
+          {/* Progress Meters */}
+          <div class="mt-6 space-y-4 font-ui">
+            {fundAllocation.map((item) => (
+              <div>
+                <div class="flex justify-between text-body-sm font-semibold mb-1">
+                  <span class="text-gray-800">{item.category}</span>
+                  <span class={`font-bold font-mono ${item.textColor}`}>{item.percentage}%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-pill h-2 overflow-hidden">
+                  <div class={`${item.barColor} h-2 rounded-pill`} style={`width: ${item.percentage}%`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-border flex items-center justify-between text-body-sm font-ui">
+          <span class="text-stone-muted">Certified by Council Auditor</span>
+          <a
+            class="inline-flex items-center gap-1.5 text-maroon font-semibold hover:underline"
+            href="mailto:cas.pb@g.batstate-u.edu.ph?subject=Request:%20CAS%20Honor%20Society%20Audit%20Report%20A.Y.%202024-2025"
+          >
+            <span>Request Audit Report</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* ── 2. Audit Resolution & Remittance Protocol ── */}
+    <div class="pt-10 border-t border-border" id="audit-docket">
+      <div class="mb-12 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Fiscal Governance
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Audit Resolution &amp; Remittance Protocol
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Full disclosure of executive resolutions, payment verification steps, and authorized channels.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left: Certified Audit Resolution Plaque */}
+        <div class="lg:col-span-6 bg-stone border border-border rounded-card p-6 sm:p-8 shadow-card">
+          <div class="flex items-center justify-between gap-4 pb-4 border-b border-border mb-6">
+            <div class="flex items-center gap-2">
+              <span class="font-heading text-h3 font-bold text-gray-900">Executive Audit Docket</span>
+            </div>
+            <span class="text-label font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-pill border border-gold/40 text-maroon uppercase">
+              RES. NO. 2024-03
+            </span>
+          </div>
+
+          <div class="space-y-4 text-body-sm font-body text-gray-700 leading-relaxed">
+            <p class="italic text-stone-muted font-serif">
+              "Be it enacted by the Student Executive Secretariat of the College of Arts and Sciences Honor Society, with concurrence from the Office of Student Organizations..."
+            </p>
+            <p>
+              <strong class="text-gray-900 font-ui font-semibold">SECTION 1. ZERO PERSONAL PECUNIARY BENEFIT.</strong> In adherence to University Student Handbook Chapter IV, no officer, adviser, or member shall receive any stipend, honorarium, or personal benefit from the membership dues collection. 100% of realized collections are restricted to direct academic operations.
+            </p>
+            <p>
+              <strong class="text-gray-900 font-ui font-semibold">SECTION 2. SEMESTRAL AUDIT DISCLOSURE.</strong> A certified financial ledger detailing all expenditures, bank balances, and disbursements shall be published on this portal within fifteen (15) calendar days following the conclusion of each academic semester.
+            </p>
+            <p>
+              <strong class="text-gray-900 font-ui font-semibold">SECTION 3. INDIGENT SCHOLAR EXEMPTION.</strong> Any student classified as an active 4Ps beneficiary, university student assistant, or barangay indigent scholar is automatically granted a 100% dues waiver upon submission of a Certificate of Eligibility.
+            </p>
+          </div>
+
+          {/* Signatures Docket */}
+          <div class="mt-8 pt-6 border-t border-border grid grid-cols-2 gap-4 text-center font-ui">
+            <div>
+              <span class="font-heading font-bold text-gray-900 text-body-sm block">Cristal B. Coliat</span>
+              <span class="text-label text-stone-muted uppercase tracking-wider block">Secretary &amp; Records Officer</span>
+              <span class="text-[0.6875rem] font-mono text-emerald-700 mt-1 block">Certified True Copy</span>
+            </div>
+            <div>
+              <span class="font-heading font-bold text-gray-900 text-body-sm block">Lian Beatrice S. Catipon</span>
+              <span class="text-label text-stone-muted uppercase tracking-wider block">President &amp; Chief Executive</span>
+              <span class="text-[0.6875rem] font-mono text-emerald-700 mt-1 block">Approved &amp; Enacted</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Step-by-Step Remittance & Verification Guide */}
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block mb-1">
+              Official Remittance Protocol
+            </span>
+            <h3 class="font-heading text-h2 text-gray-900 tracking-tight">
+              How to Verify Your Membership
+            </h3>
+            <p class="font-body text-body-sm text-gray-600 mt-1">
+              Follow this 3-step verification process to receive your official electronic receipt and active status certification.
+            </p>
+          </div>
+
+          <div class="space-y-4 font-body">
+            <div class="flex items-start gap-4 p-4 rounded-card bg-surface border border-border shadow-xs">
+              <div class="w-8 h-8 rounded-pill bg-maroon text-white flex items-center justify-center font-bold text-body-sm shrink-0 font-ui">
+                1
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-bold text-body-sm text-gray-900 font-ui">Remit via Authorized Channel</h4>
+                <p class="text-body-sm text-gray-600 leading-relaxed">
+                  Pay ₱75 (Semestral) or ₱130 (Annual) over-the-counter at CAS Secretariat Desk (Room 302, CAS Building) or via authorized university remittance channels with your Student SR-Code as the payment note.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-card bg-surface border border-border shadow-xs">
+              <div class="w-8 h-8 rounded-pill bg-maroon text-white flex items-center justify-center font-bold text-body-sm shrink-0 font-ui">
+                2
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-bold text-body-sm text-gray-900 font-ui">Submit Verification Slip</h4>
+                <p class="text-body-sm text-gray-600 leading-relaxed">
+                  Upload a clear screenshot of the transaction slip or physical receipt through the official portal verification gateway or present it directly to the Secretariat Desk within 48 hours of payment.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-card bg-surface border border-border shadow-xs">
+              <div class="w-8 h-8 rounded-pill bg-maroon text-white flex items-center justify-center font-bold text-body-sm shrink-0 font-ui">
+                3
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-bold text-body-sm text-gray-900 font-ui">Claim Official Stamped E-Receipt</h4>
+                <p class="text-body-sm text-gray-600 leading-relaxed">
+                  The Committee on Records audits your reference number within 3 business days, updating your status in the active Honor Scholar Directory and releasing your e-receipt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CrossPageBanner
+        eyebrow="Official Society Merch"
+        heading="Explore the CAS Honor Society Collegiate Collection"
+        description="Wear your academic distinction with varsity jackets, golden lapel pins, and satin lanyards."
+        buttonText="View Merch Collection"
+        buttonHref="/merch"
+      />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

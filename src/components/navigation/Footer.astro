@@ -8,26 +8,87 @@ export interface Props {
 const { class: className } = Astro.props;
 ---
 
-<footer class:list={['bg-surface border-t border-border mt-auto py-12', className]}>
-  <div class="max-w-7xl mx-auto container-gutter flex flex-col sm:flex-row items-center justify-between gap-6">
-    <div class="flex flex-col items-center sm:items-start gap-2">
-      <Logo size="sm" />
-      <p class="text-body-sm text-gray-600 font-body text-center sm:text-left">
-        College of Arts and Sciences Honor Society. Dedicated to scholarship and integrity.
-      </p>
+<footer class:list={['border-t border-border bg-stone py-12 text-body-sm font-body text-gray-600', className]}>
+  <div class="max-w-7xl mx-auto container-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-8 pb-8 border-b border-border">
+      
+      {/* Brand & University Attribution */}
+      <div class="md:col-span-5 space-y-3">
+        <Logo size="md" />
+        <p class="text-body-sm text-gray-600 leading-relaxed max-w-sm pt-1">
+          The premier academic governing body consigned to nurture intellectual excellence, civic responsibility, and institutional pride at Batangas State University The National Engineering University.
+        </p>
+        <div class="font-mono text-label text-stone-muted pt-1">
+          DOC: CAS-HS-PB-2025 • Pablo Borbon Main I Campus
+        </div>
+      </div>
+
+      {/* Quick Directory Navigation (44px tap targets) */}
+      <div class="md:col-span-4 grid grid-cols-2 gap-4">
+        <div>
+          <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
+            Society Pages
+          </span>
+          <ul class="space-y-1 text-body-sm text-gray-700 font-ui">
+            <li>
+              <a href="/" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Home</a>
+            </li>
+            <li>
+              <a href="/background" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Background &amp; Charter</a>
+            </li>
+            <li>
+              <a href="/officers" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Executive Officers</a>
+            </li>
+            <li>
+              <a href="/fees" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Fees &amp; Transparency</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
+            Student Services
+          </span>
+          <ul class="space-y-1 text-body-sm text-gray-700 font-ui">
+            <li>
+              <a href="/deans-list" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Dean's List Guidelines</a>
+            </li>
+            <li>
+              <a href="/deans-list#gwa-calc" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">GWA Calculator</a>
+            </li>
+            <li>
+              <a href="/deans-list#honor-roll" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Roll of Honor</a>
+            </li>
+            <li>
+              <a href="/merch" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Official Merch</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Institutional Office Location */}
+      <div class="md:col-span-3 space-y-2">
+        <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
+          Secretariat Office
+        </span>
+        <p class="text-body-sm text-gray-600 leading-relaxed font-body">
+          Room 304, CAS Building<br />
+          Batangas State University Pablo Borbon<br />
+          Rizal Avenue, Batangas City 4200
+        </p>
+        <p class="text-label text-stone-muted pt-1">
+          Inquiries: cas.honorsociety@g.batstate-u.edu.ph
+        </p>
+      </div>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-6 text-body-sm font-ui font-semibold text-gray-600">
-      <a href="#hero" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Overview</a>
-      <a href="#membership" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Membership</a>
-      <a href="#officers" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Officers</a>
-      <a href="#accomplishments" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Accomplishments</a>
-      <a href="#merch" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Merch</a>
-      <a href="#dl-application" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">DL Application</a>
-      <a href="#hall-of-fame" class="hover:text-maroon transition-colors duration-[120ms] ease-enter">Hall of Fame</a>
+    {/* Bottom Legal / Accreditation Bar */}
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-label text-stone-muted font-body">
+      <div>
+        &copy; {new Date().getFullYear()} College of Arts and Sciences Honor Society, BatStateU Pablo Borbon. All rights reserved.
+      </div>
+      <div class="font-mono text-[0.75rem]">
+        Accreditation Docket Ref: CAS-ORG-2024-C
+      </div>
     </div>
-  </div>
-  <div class="max-w-7xl mx-auto container-gutter mt-8 pt-6 border-t border-border/60 text-center text-label text-gray-600 font-body">
-    &copy; {new Date().getFullYear()} HonSoc. All rights reserved.
   </div>
 </footer>

@@ -1,40 +1,48 @@
 [
   {
-    "id": "fleece-jacket",
-    "name": "[Provisional] Chapter Fleece Jacket",
-    "description": "Heavyweight collegiate zip fleece featuring embroidered society crest. Design mockup subject to executive committee specification.",
-    "price": 950,
-    "sizes": ["S", "M", "L", "XL", "2XL"],
-    "colors": [
-      { "label": "Maroon", "hex": "#8B1E1E" },
-      { "label": "Stone", "hex": "#FAFAF9" }
-    ],
-    "images": ["/images/merch-placeholder.svg"],
-    "available": true
-  },
-  {
-    "id": "polo-shirt",
-    "name": "[Provisional] Embroidered Polo Shirt",
-    "description": "Pique cotton collared polo with gold collar piping and chest insignia. Production batch pending order volume.",
-    "price": 550,
-    "sizes": ["XS", "S", "M", "L", "XL"],
+    "id": "varsity-jacket",
+    "name": "CAS Varsity Jacket",
+    "badge": "Embroidered Crest Badge",
+    "description": "Premium tailored collegiate varsity jacket with official gold stitch embroidery, heavy knit cuffs, and dual side pockets. Standard Asian regular fit.",
+    "price": 650,
+    "sizes": ["XS", "S", "M", "L", "XL", "2XL", "3XL"],
     "colors": [
       { "label": "Maroon", "hex": "#8B1E1E" },
       { "label": "Gold", "hex": "#EAA838" }
     ],
     "images": ["/images/merch-placeholder.svg"],
-    "available": true
+    "image": "/images/merch-placeholder.svg",
+    "available": true,
+    "order": 1
+  },
+  {
+    "id": "society-lanyard",
+    "name": "Society Lanyard",
+    "badge": "Sublimated Satin",
+    "description": "Double-sided satin collegiate lanyard with authentic CAS Honor Society crest typography, zinc-alloy swivel trigger clasp, and safety breakaway clip.",
+    "price": 120,
+    "sizes": ["Standard"],
+    "colors": [
+      { "label": "Maroon", "hex": "#8B1E1E" }
+    ],
+    "images": ["/images/merch-placeholder.svg"],
+    "image": "/images/merch-placeholder.svg",
+    "available": true,
+    "order": 2
   },
   {
     "id": "lapel-pin",
-    "name": "[Provisional] Commemorative Lapel Pin Set",
-    "description": "Die-cast metallic enamel pin pair in polished gold finish with rubber clutch backing. Batch allocation pending committee sign-off.",
-    "price": 220,
+    "name": "Golden Lotus Lapel Pin",
+    "badge": "Brass Die-Cast Finish",
+    "description": "Precision die-cast metallic enamel lapel pin in polished brass gold finish with dual rubber clutch backing. Official university insignia emblem.",
+    "price": 80,
     "sizes": ["Standard"],
     "colors": [
       { "label": "Gold", "hex": "#EAA838" }
     ],
     "images": ["/images/merch-placeholder.svg"],
-    "available": true
+    "image": "/images/merch-placeholder.svg",
+    "available": true,
+    "order": 3
   }
 ]

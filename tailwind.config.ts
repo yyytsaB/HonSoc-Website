@@ -12,11 +12,17 @@ const config: Config = {
           DEFAULT: '#8B1E1E', // primary
           hover:   '#7A1919', // computed: darken 8%
           light:   '#F5ECEC', // tint at 5% for subtle backgrounds
+          dark:    '#2A0406', // deep dark crimson for headers and banners
+          wine:    '#3B0709', // rich wine tone for navbar and cards
+          crimson: '#4D090B', // mid-tone dark maroon
         },
         gold: {
-          DEFAULT: '#EAA838', // secondary / brand accent
-          hover:   '#D4962F', // computed: darken 8%
-          light:   '#FDF6E7', // tint at 5%
+          DEFAULT:   '#EAA838', // secondary / brand accent
+          hover:     '#D4962F', // computed: darken 8%
+          light:     '#FDF6E7', // tint at 5%
+          lightGold: '#F5E4A8', // light champagne gold for accents
+          deep:      '#B8860B', // deep bronze gold
+          amber:     '#E0A838', // vibrant amber gold
         },
         // Semantic accessible gold tokens for small text & eyebrows on light backgrounds (WCAG AA ≥ 4.5:1)
         'gold-accessible': '#8A5E00',

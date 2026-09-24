@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'inverted';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -44,6 +44,7 @@ const variants = {
   // Note: secondary uses gradient bg — 'bg-shimmer' maps to backgroundImage.shimmer
   outline:   'border border-maroon text-maroon hover:bg-maroon hover:text-white',
   ghost:     'text-maroon hover:bg-maroon-light',
+  inverted:  'bg-surface text-maroon hover:bg-gold-light hover:text-maroon-hover shadow-md',
 };
 
 const classes = [base, sizes[size], variants[variant], className].filter(Boolean).join(' ');

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import SubpageHeader from '../components/sections/SubpageHeader.astro';
+import CrossPageBanner from '../components/sections/CrossPageBanner.astro';
+import Footer from '../components/navigation/Footer.astro';
+import GwaCalculator from '../components/interactive/GwaCalculator';
+import FaqAccordion from '../components/interactive/FaqAccordion';
+import DlApplicationModal from '../components/interactive/DlApplicationModal';
+import { getCollection } from 'astro:content';
+
+const honorees = await getCollection('hall-of-fame');
+---
+
+<BaseLayout
+  title="Dean's List Guidelines & GWA Calculator — CAS Honor Society"
+  description="Official qualification standards, interactive GWA matrix calculator, verification pathways, and semester honors roster at BatStateU Pablo Borbon."
+>
+  <Navbar currentPath="/deans-list" />
+
+  <SubpageHeader
+    title="Dean's List Gazette & Guidelines"
+    eyebrow="Academic Evaluation & Criteria • A.Y. 2024–2025"
+    description="Official qualification standards, interactive GWA matrix calculator, verification pathways, and semester honors roster."
+    breadcrumbCurrent="Dean's List"
+    dossierCode="CAS-HS-DL-2025"
+    dossierLabel="HONORS GAZETTE"
+  />
+
+  <main class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto space-y-20">
+    {/* ── 1. Academic Distinction Benchmarks (3 Columns) ── */}
+    <section id="benchmarks">
+      <div class="mb-12 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Collegiate Evaluation Matrix
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Academic Distinction Benchmarks
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Official qualification criteria for First and Second Honors under the College of Arts and Sciences.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* First Honors */}
+        <div class="bg-surface border-2 border-gold/70 rounded-card p-6 sm:p-8 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="text-label font-ui font-bold uppercase tracking-wider text-maroon border-b border-maroon/40 pb-0.5">
+                Chancellor's Tier
+              </span>
+              <span class="text-gold font-bold font-mono text-body-sm">First Honors</span>
+            </div>
+            <h3 class="font-heading text-h2 text-gray-900 mb-1">First Honors Dean's List</h3>
+            <div class="text-h1 font-heading text-maroon my-3">
+              1.00 – 1.45 <span class="text-body-sm font-ui text-stone-muted font-normal">GWA</span>
+            </div>
+            <ul class="space-y-2.5 text-body-sm font-body text-gray-600">
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Minimum 15 credit-bearing academic units</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>No semestral grade lower than 2.00 in any course</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Zero INC, 4.00, 5.00, or Dropped courses</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Regular full-time curriculum enrollment</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-border text-label font-mono text-stone-muted">
+            Status: Priority University Endorsement
+          </div>
+        </div>
+
+        {/* Second Honors */}
+        <div class="bg-surface border border-border rounded-card p-6 sm:p-8 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="text-label font-ui font-bold uppercase tracking-wider text-stone-muted border-b border-border pb-0.5">
+                Dean's Tier
+              </span>
+              <span class="text-stone-muted font-bold font-mono text-body-sm">Second Honors</span>
+            </div>
+            <h3 class="font-heading text-h2 text-gray-900 mb-1">Second Honors Dean's List</h3>
+            <div class="text-h1 font-heading text-maroon my-3">
+              1.46 – 1.75 <span class="text-body-sm font-ui text-stone-muted font-normal">GWA</span>
+            </div>
+            <ul class="space-y-2.5 text-body-sm font-body text-gray-600">
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Minimum 15 credit-bearing academic units</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>No semestral grade lower than 2.50 in any course</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Zero INC, 4.00, 5.00, or Dropped courses</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold font-bold mt-0.5">&#10003;</span>
+                <span>Regular full-time curriculum enrollment</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-border text-label font-mono text-stone-muted">
+            Status: College Academic Distinction
+          </div>
+        </div>
+
+        {/* Disqualifications */}
+        <div class="bg-stone border border-red-200 rounded-card p-6 sm:p-8 shadow-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="text-label font-ui font-bold uppercase tracking-wider text-red-700 border-b border-red-300 pb-0.5">
+                Academic Disqualification
+              </span>
+              <span class="text-red-600 font-bold font-mono text-body-sm">Strict Rule</span>
+            </div>
+            <h3 class="font-heading text-h2 text-gray-900 mb-1">Ineligibility Conditions</h3>
+            <div class="text-h1 font-heading text-gray-700 my-3">
+              Non-Qualifying <span class="text-body-sm font-ui text-stone-muted font-normal">Status</span>
+            </div>
+            <ul class="space-y-2.5 text-body-sm font-body text-gray-600">
+              <li class="flex items-start gap-2 text-red-900">
+                <span class="text-red-600 font-bold mt-0.5">&#10007;</span>
+                <span>Underload (&lt;15 units without formal certification)</span>
+              </li>
+              <li class="flex items-start gap-2 text-red-900">
+                <span class="text-red-600 font-bold mt-0.5">&#10007;</span>
+                <span>Any semestral grade of 4.00 (Conditional) or 5.00 (Failed)</span>
+              </li>
+              <li class="flex items-start gap-2 text-red-900">
+                <span class="text-red-600 font-bold mt-0.5">&#10007;</span>
+                <span>Unresolved Incomplete (INC) or Dropped courses</span>
+              </li>
+              <li class="flex items-start gap-2 text-red-900">
+                <span class="text-red-600 font-bold mt-0.5">&#10007;</span>
+                <span>Disciplinary sanction on university student records</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-red-200 text-label font-mono text-red-700">
+            Enforced by BatStateU University Code
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── 2. GWA Calculator & Application Pathway ── */}
+    <section class="pt-10 border-t border-border" id="gwa-calc">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        {/* Left 7 cols: Interactive Calculator Island */}
+        <div class="lg:col-span-7">
+          <GwaCalculator client:visible />
+        </div>
+
+        {/* Right 5 cols: 3-Phase Pathway & Gateway Docket */}
+        <div class="lg:col-span-5 space-y-8" id="apply-dl">
+          <div>
+            <div class="pb-3 mb-6 border-b-2 border-gray-900 flex items-baseline justify-between">
+              <div>
+                <span class="font-mono text-label font-bold text-maroon uppercase tracking-wider block">
+                  Official Protocol
+                </span>
+                <h3 class="font-heading text-h2 text-gray-900">Application Pathway</h3>
+              </div>
+              <span class="font-mono text-label text-stone-muted">3 PHASES</span>
+            </div>
+
+            <div class="space-y-6 font-body">
+              <div class="border-l-2 border-maroon pl-4 py-1">
+                <span class="font-mono text-[0.6875rem] font-bold text-maroon uppercase tracking-wider block">PHASE 01</span>
+                <h4 class="font-heading text-h3 text-gray-900 font-bold">Secure Certified COG</h4>
+                <p class="text-body-sm text-gray-600 mt-1 leading-relaxed">
+                  Obtain official Certificate of Grades stamped and certified by your CAS Department Chairperson or the University Registrar.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-gold pl-4 py-1">
+                <span class="font-mono text-[0.6875rem] font-bold text-maroon uppercase tracking-wider block">PHASE 02</span>
+                <h4 class="font-heading text-h3 text-gray-900 font-bold">Submit Verification Dossier</h4>
+                <p class="text-body-sm text-gray-600 mt-1 leading-relaxed">
+                  Fill out the digital submission portal with your student number, scanned COG, and regular load Student Registration Form (SRF).
+                </p>
+              </div>
+
+              <div class="border-l-2 border-gray-800 pl-4 py-1">
+                <span class="font-mono text-[0.6875rem] font-bold text-maroon uppercase tracking-wider block">PHASE 03</span>
+                <h4 class="font-heading text-h3 text-gray-900 font-bold">Committee Verification &amp; Release</h4>
+                <p class="text-body-sm text-gray-600 mt-1 leading-relaxed">
+                  The Committee on Records audits your credentials, submits the endorsed list to the Dean's Office, and issues your certificate.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Submission Modal Trigger Box */}
+          <div class="p-6 rounded-card bg-stone border border-border space-y-4">
+            <span class="text-label font-ui font-bold uppercase tracking-wider text-maroon block">
+              Application Gateway
+            </span>
+            <p class="text-body-sm text-gray-600 leading-relaxed font-body">
+              Ready to submit your verified semestral credentials? Open the submission gateway docket to access instructions and links.
+            </p>
+            <div class="pt-2">
+              <DlApplicationModal client:visible triggerText="Open DL Submission Docket" triggerVariant="primary" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── 3. Distinction Roster Table ── */}
+    <section class="pt-10 border-t border-border" id="honor-roll">
+      <div class="mb-10 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Collegiate Registry
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          AY 2023–2024 Distinction Roster
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Students recognized for First and Second Honors distinction under College of Arts and Sciences evaluation standards.
+        </p>
+      </div>
+
+      <div class="bg-surface border border-border rounded-card overflow-hidden shadow-card">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-body-sm border-collapse font-body">
+            <thead>
+              <tr class="border-b border-border text-stone-muted uppercase tracking-wider font-ui text-label bg-stone/70">
+                <th class="py-3.5 px-6">Honoree</th>
+                <th class="py-3.5 px-6">Degree Program</th>
+                <th class="py-3.5 px-6">GWA</th>
+                <th class="py-3.5 px-6">Classification</th>
+                <th class="py-3.5 px-6 text-right">Academic Standing</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border text-gray-700">
+              {honorees.map((item) => (
+                <tr class="hover:bg-stone/50 transition-colors duration-120 ease-enter">
+                  <td class="py-3.5 px-6 font-semibold text-gray-900 font-ui">
+                    {item.data.name}
+                  </td>
+                  <td class="py-3.5 px-6 text-gray-600 font-body">
+                    {item.data.program}
+                  </td>
+                  <td class="py-3.5 px-6 font-mono font-bold text-maroon">
+                    {item.data.gwa ? item.data.gwa.toFixed(2) : '—'}
+                  </td>
+                  <td class="py-3.5 px-6">
+                    <span class="inline-flex items-center gap-1.5 text-label font-ui font-semibold text-maroon">
+                      {item.data.classification || item.data.category}
+                    </span>
+                  </td>
+                  <td class="py-3.5 px-6 text-right font-mono text-label text-stone-muted">
+                    {item.data.rank ? `Rank ${item.data.rank}` : item.data.badge || 'Honor Roll'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p-4 bg-stone/60 border-t border-border text-center">
+          <a
+            class="text-body-sm font-ui font-semibold text-maroon hover:underline inline-flex items-center gap-1"
+            href="https://dione.batstate-u.edu.ph"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Access Verified Semester Honor Archive on Student Portal</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* ── 4. Scholastic FAQ ── */}
+    <section class="pt-10 border-t border-border" id="dl-faq">
+      <div class="mb-10 text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
+          Clarifications &amp; Policies
+        </span>
+        <h2 class="font-heading text-h1 text-gray-900 tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        <p class="font-body text-body-sm text-gray-600">
+          Official guidelines and resolutions concerning academic evaluation, grade verification, and qualifications.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <FaqAccordion client:visible />
+      </div>
+
+      <CrossPageBanner
+        eyebrow="Fiscal Transparency"
+        heading="Review Membership Fees &amp; Financial Aid Waivers"
+        description="View the audited semestral dues schedule, 100% indigency waiver, and fund allocation ledger."
+        buttonText="View Fees &amp; Dues"
+        buttonHref="/fees"
+      />
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

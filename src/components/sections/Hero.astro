@@ -1,8 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-import crestImage from '../../assets/crest.png';
-import HeroBackdrop from './HeroBackdrop.astro';
-import Button from '../primitives/Button.astro';
+import { Image } from "astro:assets";
+import crestImage from "../../assets/crest.png";
+import casShieldImage from "../../assets/cas-shield.png";
+import HeroBackdrop from "./HeroBackdrop.astro";
+import Button from "../primitives/Button.astro";
 
 export interface Props {
   class?: string;
@@ -14,49 +15,94 @@ const { class: className } = Astro.props;
 <section
   id="hero"
   class:list={[
-    'relative overflow-hidden -mt-16 sm:-mt-20 pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 md:pb-28 border-b border-border',
+    "relative overflow-hidden -mt-16 sm:-mt-20 pt-16 sm:pt-20 min-h-[100dvh] w-full flex flex-col justify-center items-center",
     className,
   ]}
 >
-  {/* Isolated atmospheric backdrop layer — swappable without modifying Hero layout */}
+  {
+    /* Atmospheric backdrop: Full-bleed red gradient layered over Pablo Borbon campus landmark */
+  }
   <HeroBackdrop />
 
-  <div class="max-w-4xl mx-auto container-gutter relative z-10 flex flex-col items-center text-center">
-    {/* Dominant Crest Anchor — Optically tuned across viewports to lead the visual hierarchy */}
-    <div class="mb-6 sm:mb-8 md:mb-10 flex items-center justify-center shrink-0">
-      <div class="relative filter-none sm:drop-shadow-[0_8px_24px_rgba(139,30,30,0.12)]">
+  {/* Vertically centered unified content block */}
+  <div
+    class="max-w-5xl mx-auto container-gutter relative z-10 flex flex-col items-center text-center py-6 sm:py-8"
+  >
+    {
+      /* Dual Emblem Focal Center — CAS Shield and Crescent Lotus Crest side-by-side */
+    }
+    <div
+      class="mb-6 sm:mb-8 flex flex-row items-center justify-center gap-6 sm:gap-10 md:gap-14 shrink-0"
+    >
+      {/* CAS Honor Society Shield Emblem */}
+      <div
+        class="relative drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)] flex items-center justify-center"
+      >
         <Image
-          src={crestImage}
-          alt="College of Arts and Sciences Honor Society Crest"
-          width={195}
-          height={145}
-          format="avif"
-          quality={80}
+          src={casShieldImage}
+          alt="College of Arts and Sciences Honor Society Shield"
+          width={480}
+          height={480}
+          format="webp"
+          quality={92}
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          class="w-[114px] h-[85px] sm:w-[155px] sm:h-[115px] md:w-[195px] md:h-[145px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.02]"
+          class="w-[140px] h-[140px] sm:w-[190px] sm:h-[190px] md:w-[230px] md:h-[230px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.03]"
+        />
+      </div>
+
+      {/* Crescent Lotus Crest Emblem */}
+      <div
+        class="relative drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)] flex items-center justify-center"
+      >
+        <Image
+          src={crestImage}
+          alt="College of Arts and Sciences Honor Society Crescent Crest"
+          width={500}
+          height={370}
+          format="webp"
+          quality={92}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="w-[140px] h-[104px] sm:w-[190px] sm:h-[141px] md:w-[235px] md:h-[174px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.03]"
         />
       </div>
     </div>
 
-    {/* Single H1 Headline: font-heading (Alice), size text-display, bold & focused */}
-    <h1 class="font-heading text-display text-stone-text tracking-tight max-w-3xl leading-[1.12]">
-      Academic Distinction. Genuine Service.
+    {
+      /* Heading: College of Arts and Sciences / Honor Society (gradiented left -> light gold to right -> darker shade) */
+    }
+    <h1
+      class="font-heading text-h1 sm:text-[2.6rem] md:text-[3.25rem] text-white tracking-tight leading-[1.14] drop-shadow-md max-w-4xl"
+    >
+      <span class="block">College of Arts and Sciences</span>
+      <span
+        class="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FDF0C8] via-[#EAA838] to-[#945C04] drop-shadow-[0_2px_14px_rgba(234,168,56,0.30)]"
+      >
+        Honor Society
+      </span>
     </h1>
 
-    {/* Single-sentence Subtitle: font-ui, text-body-lg, quiet weight in warm stone-muted */}
-    <p class="mt-4 sm:mt-5 md:mt-6 font-ui text-body-lg text-stone-muted max-w-xl leading-relaxed">
-      The official student honor society of the College of Arts and Sciences, dedicated to scholarship, integrity, and student leadership.
+    {
+      /* Subheading: The premier academic organization of the College of Arts and Sciences at Pablo Borbon Campus */
+    }
+    <p
+      class="mt-4 sm:mt-5 font-ui text-body sm:text-body-lg text-white/90 max-w-2xl leading-relaxed drop-shadow-sm"
+    >
+      The premier academic organization of the College of Arts and Sciences at
+      Pablo Borbon Campus. Cultivating scholar-leaders devoted to academic
+      excellence, social responsibility, and integrity.
     </p>
 
-    {/* Single Primary Call-to-Action — Singular focus replacing competing actions */}
-    <div class="mt-8 sm:mt-9 md:mt-10 flex items-center justify-center w-full sm:w-auto">
+    {/* Single Primary Call-to-Action — High-contrast white pill button */}
+    <div class="mt-7 sm:mt-8 flex items-center justify-center w-full sm:w-auto">
       <Button
         href="#dl-application"
-        variant="primary"
+        variant="inverted"
         size="lg"
-        class="w-full sm:w-auto shadow-sm hover:shadow-md transition-shadow duration-120"
+        class="w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98]"
       >
         Apply for Dean's List
       </Button>

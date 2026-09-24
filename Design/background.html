@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Background & Charter | CAS Honor Society - BatStateU</title>
+<meta name="description" content="Discover the institutional history, founding philosophy, ratified constitution, and operational bylaws of the CAS Honor Society at Batangas State University Pablo Borbon.">
+<!-- Google Fonts: Alice & Montserrat -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<!-- FontAwesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            maroon: '#7A1315',
+            darkMaroon: '#4D090B',
+            deepCrimson: '#520B0D',
+            wine: '#3B0709',
+            gold: '#D4AF37',
+            lightGold: '#F5E4A8',
+            deepGold: '#B8860B',
+            amber: '#E0A838',
+            charcoal: '#1F2937',
+            softGray: '#F8FAFC',
+            borderGold: '#E8DFD8'
+          }
+        },
+        fontFamily: {
+          alice: ['Alice', 'serif'],
+          montserrat: ['Montserrat', 'sans-serif'],
+        },
+        boxShadow: {
+          'gold-glow': '0 0 30px -5px rgba(212, 175, 55, 0.45)',
+          'gold-inner': 'inset 0 0 20px 0 rgba(212, 175, 55, 0.25)',
+          'card-soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+          'card-hover': '0 12px 28px -4px rgba(122, 19, 21, 0.12)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  }
+  
+  /* Strict Typography Enforcement */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alice', serif;
+    letter-spacing: -0.01em;
+  }
+  body, p, li, input, select, button, td, th {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .subheading-montserrat {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+  .body-montserrat {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Emil Kowalski: Responsive Pressable Feedback */
+  button, 
+  a[role="button"], 
+  .btn-pressable,
+  .gold-cta-btn,
+  #gwa-add-row-btn,
+  #gwa-reset-btn,
+  #mobile-menu-btn,
+  .gwa-remove-btn {
+    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms var(--ease-out), border-color 160ms var(--ease-out);
+  }
+  button:active, 
+  a[role="button"]:active, 
+  .btn-pressable:active,
+  .gold-cta-btn:active,
+  #gwa-add-row-btn:active,
+  #gwa-reset-btn:active,
+  #mobile-menu-btn:active,
+  .gwa-remove-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Focus indicator for keyboard accessibility (WCAG 2.1 SC 2.4.7) */
+  :focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .gold-cta-btn {
+    background: linear-gradient(135deg, #F5E4A8 0%, #D4AF37 50%, #B8860B 100%);
+  }
+  .gold-cta-btn:hover {
+    background: linear-gradient(135deg, #FFF0B8 0%, #E5C158 50%, #C99718 100%);
+    transform: translateY(-1px);
+  }
+
+  .module-card {
+    transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  }
+  .module-card:hover {
+    transform: translateY(-3px);
+  }
+  .module-card:active {
+    transform: scale(0.98);
+  }
+
+  #mobile-nav-drawer {
+    transform-origin: top right;
+    transition: transform 240ms var(--ease-drawer), opacity 200ms var(--ease-out);
+  }
+
+  .gwa-pulse {
+    animation: gwaValuePulse 220ms var(--ease-out);
+  }
+  @keyframes gwaValuePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  /* Accessibility: Respect Reduced Motion (WCAG 2.1 SC 2.3.3) */
+  @media (prefers-reduced-motion: reduce) {
+    .module-card { transition: none !important; }
+    .module-card:hover { transform: none !important; }
+    .module-card:active { transform: none !important; }
+    .gold-cta-btn:hover { transform: none !important; }
+    img:hover, .group:hover img { transform: none !important; }
+    html { scroll-behavior: auto !important; }
+    #mobile-nav-drawer { transition: none !important; }
+    .gwa-pulse { animation: none !important; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-white text-gray-800 font-montserrat min-h-screen selection:bg-brand-maroon selection:text-white antialiased">
+<div id="scroll-sentinel" class="absolute top-0 left-0 w-full h-10 pointer-events-none opacity-0" aria-hidden="true"></div>
+<!-- BEGIN: MainHeader -->
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all duration-300">
+<div class="max-w-7xl mx-auto">
+<nav id="main-nav" class="rounded-2xl px-4 sm:px-6 py-2 sm:py-2.5 shadow-2xl flex items-center justify-between transition-all duration-300 bg-[#3B0709]/95 backdrop-blur-xl border border-brand-gold/40">
+  <!-- Left: Authentic Brand Crest and Typography (Links to index.html) -->
+  <a class="flex items-center gap-2.5 sm:gap-3 group rounded-xl" href="index.html" title="CAS Honor Society Homepage">
+    <div class="flex items-center gap-1.5">
+      <img alt="CAS Honor Society Crest" class="h-8 w-8 sm:h-9 sm:w-9 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3E3S0B9Pg2qKtNeFXISCcYrqCtT3AbMOpZHuvtiEwtxYWtRYnLJ3eE-HYyaFR1t3rKwWibpB6gp10h9hfj8D6UwajaRwQFnMsB5dKszw03iowYzNpRdRfYFn3z6ALLk8CJYs8w7LHhzYiKTpOmXiOM54BOWRgfg-RwHSlq5fMurM1xaTipyIdmMLVgVtUIOWBYJXLJrmZo2updsmHgvvSS03MGdDy-WoQ7LzWN40DzfgeguvU2q_dMNH_leDCIBBeEQ">
+      <img alt="CAS Floral Lotus Emblem" class="h-7 w-7 sm:h-8 sm:w-8 object-contain drop-shadow-[0_2px_8px_rgba(212,175,55,0.6)] group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq1lWKzcHgE5jXTRliqxe5WDOhg66PzpWOYEphK9wju7rbb-LydZUgF6rW9jCbxE-ksPX44Xg7fY_WEU7V7uMj553jMZPPA5W6YHsMCqeamk6Egj9_3VQfbSn9gAsVsmSXtQNOBKpJRxge21KtkrXwAxx5JEszbKdXEB4Ciqu2Kbvbi4yhwCi2t-0PluaMj5zuv_5NpNdg17KEpT17PAOq02RMxIXY0lCk_QxxeogXQcY_DY7zqUGd4jvVVUMMJZ7M7g">
+    </div>
+    <div class="text-left flex flex-col justify-center">
+      <span class="font-alice text-xs sm:text-sm lg:text-base font-bold tracking-wider text-amber-100 uppercase group-hover:text-brand-gold transition-colors leading-tight">CAS HONOR SOCIETY</span>
+      <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-brand-gold/90 font-medium -mt-0.5 hidden sm:block">BatStateU • Pablo Borbon</span>
+    </div>
+  </a>
+
+  <!-- Center: Reciprocal Navigation Links -->
+  <ul class="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-montserrat tracking-wide">
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-gray-200 hover:text-brand-lightGold hover:bg-white/10 transition-all font-medium inline-flex items-center min-h-[44px]" href="index.html">Home</a></li>
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-brand-lightGold bg-white/15 transition-all shadow-sm font-semibold border-b border-brand-gold/60 inline-flex items-center min-h-[44px]" href="background.html">Background</a></li>
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-gray-200 hover:text-brand-lightGold hover:bg-white/10 transition-all font-medium inline-flex items-center min-h-[44px]" href="officers.html">Officers</a></li>
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-gray-200 hover:text-brand-lightGold hover:bg-white/10 transition-all font-medium inline-flex items-center min-h-[44px]" href="deans-list.html">Dean's List &amp; Calc</a></li>
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-gray-200 hover:text-brand-lightGold hover:bg-white/10 transition-all font-medium inline-flex items-center min-h-[44px]" href="fees.html">Fees</a></li>
+    <li><a class="nav-link px-3.5 py-2 rounded-lg text-gray-200 hover:text-brand-lightGold hover:bg-white/10 transition-all font-medium inline-flex items-center min-h-[44px]" href="merch.html">Merch</a></li>
+  </ul>
+
+  <!-- Right: Calculator & Application CTA -->
+  <div class="flex items-center gap-2 sm:gap-3">
+    <a class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-amber-100 hover:text-brand-lightGold bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-brand-gold/30 transition-all" href="deans-list.html#gwa-calc">
+      <i class="fa-solid fa-calculator text-[10px] text-brand-gold"></i>
+      <span>GWA Calc</span>
+    </a>
+    <a class="gold-cta-btn text-brand-darkMaroon text-xs font-bold px-3.5 sm:px-4 py-1.5 rounded-lg shadow hover:shadow-gold-glow uppercase tracking-wider flex items-center gap-1.5" href="deans-list.html#apply">
+      <span>Apply DL</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+    </a>
+    <!-- Mobile Menu Toggle Button (44x44px min tap target) -->
+    <button aria-controls="mobile-nav-drawer" aria-expanded="false" aria-label="Toggle Navigation" class="lg:hidden w-11 h-11 rounded-lg text-amber-200 hover:text-white hover:bg-white/15 transition-colors flex items-center justify-center" id="mobile-menu-btn" type="button">
+      <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-drawer" class="lg:hidden fixed top-16 right-4 sm:right-6 w-64 bg-[#2A0507]/95 backdrop-blur-2xl border border-brand-gold/40 rounded-2xl shadow-2xl p-4 flex flex-col gap-1 z-50 transform scale-95 opacity-0 pointer-events-none">
+  <a href="index.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium text-gray-200 hover:text-brand-lightGold hover:bg-white/10">
+    <i class="fa-solid fa-house text-brand-gold text-xs w-4"></i><span>Home</span>
+  </a>
+  <a href="background.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-bold text-brand-lightGold bg-white/15 border-l-2 border-brand-gold">
+    <i class="fa-solid fa-landmark text-brand-gold text-xs w-4"></i><span>Background &amp; Charter</span>
+  </a>
+  <a href="officers.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium text-gray-200 hover:text-brand-lightGold hover:bg-white/10">
+    <i class="fa-solid fa-users text-brand-gold text-xs w-4"></i><span>Executive Officers</span>
+  </a>
+  <a href="deans-list.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium text-gray-200 hover:text-brand-lightGold hover:bg-white/10">
+    <i class="fa-solid fa-award text-brand-gold text-xs w-4"></i><span>Dean's List &amp; GWA Calc</span>
+  </a>
+  <a href="fees.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium text-gray-200 hover:text-brand-lightGold hover:bg-white/10">
+    <i class="fa-solid fa-receipt text-brand-gold text-xs w-4"></i><span>Fees &amp; Dues</span>
+  </a>
+  <a href="merch.html" class="mobile-nav-link flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg text-xs font-medium text-gray-200 hover:text-brand-lightGold hover:bg-white/10">
+    <i class="fa-solid fa-shirt text-brand-gold text-xs w-4"></i><span>Official Merch</span>
+  </a>
+  <div class="pt-2 mt-2 border-t border-brand-gold/20">
+    <a href="deans-list.html#apply" class="w-full py-2 rounded-lg gold-cta-btn text-brand-darkMaroon font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
+      <span>Apply for Dean's List</span>
+      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+    </a>
+  </div>
+</div>
+<div id="mobile-menu-backdrop" class="lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-200"></div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: Subpage Header Banner (Broadsheet Style - No Pill Containers) -->
+<section class="pt-28 pb-12 bg-gradient-to-b from-[#2A0406] via-[#3B0709] to-[#4D090B] text-white border-b border-brand-gold/30 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs font-montserrat text-amber-200 mb-4 tracking-wider uppercase">
+      <a href="index.html" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-house text-[10px]"></i> Home</a>
+      <span class="text-brand-gold">/</span>
+      <span class="text-white font-semibold">Background of the Organization</span>
+    </nav>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs uppercase font-bold tracking-[0.22em] text-brand-lightGold font-montserrat block mb-2">ACCREDITED ACADEMIC ORGANIZATION • EST. 2020</span>
+        <h1 class="font-alice text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+          Background of the Organization
+        </h1>
+        <p class="font-montserrat text-xs sm:text-sm text-gray-300 max-w-2xl mt-2 leading-relaxed font-light">
+          Institutional origins, founding philosophy, operational mandate, and verified charter of the College of Arts and Sciences Honor Society.
+        </p>
+      </div>
+      <div class="hidden md:flex flex-col items-end gap-1 border-b border-brand-gold/40 pb-1.5">
+        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold font-montserrat">Document Dossier</span>
+        <div class="flex items-center gap-2 text-xs font-mono text-amber-200">
+          <i class="fa-solid fa-shield-halved text-brand-gold text-xs"></i>
+          <span>CAS-HS-CHARTER-2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: Subpage Header Banner -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="background">
+  
+  <!-- 1. Formal Institutional Masthead Header -->
+  <div class="border-t-2 border-b border-brand-maroon/20 py-3 mb-10 flex flex-wrap items-center justify-between gap-4 text-xs font-montserrat tracking-wider uppercase text-gray-600">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 bg-brand-maroon rounded-lg inline-block"></span>
+      <span class="font-bold text-brand-maroon">BatStateU The NEU</span>
+      <span class="text-gray-300">•</span>
+      <span>College of Arts &amp; Sciences</span>
+      <span class="text-gray-300">•</span>
+      <span class="text-gray-500">Pablo Borbon Main I</span>
+    </div>
+    <div class="flex items-center gap-3 font-mono text-[11px]">
+      <span class="bg-gray-100 text-gray-700 px-2 py-0.5 rounded-none border border-gray-300">ATTACHMENT C</span>
+      <span class="text-gray-600">OFFICIAL RE-ACCREDITATION CHARTER</span>
+    </div>
+  </div>
+
+  <!-- 2. Dual-Flank Editorial Hero: Profile & Proclamation -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pb-14 border-b border-gray-200">
+    <!-- Left 7 cols: Primary Narrative -->
+    <div class="lg:col-span-7 space-y-4">
+      <div class="text-xs font-montserrat font-bold uppercase tracking-widest text-brand-maroon flex items-center gap-2">
+        <span class="w-6 h-px bg-brand-maroon"></span>
+        <span>Institutional Profile</span>
+      </div>
+      <h2 class="font-alice text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-[1.15]">
+        Background of the Organization
+      </h2>
+      <p class="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+        The official governing body of academics and scholars under the College of Arts and Sciences at Batangas State University Pablo Borbon Main I Campus. Consigned to uphold intellectual rigor, scholarly integrity, and institutional honor across all degree disciplines.
+      </p>
+      <p class="font-montserrat text-xs sm:text-sm text-gray-600 leading-relaxed font-light">
+        Established as an autonomous scholastic organization, the society unites honor roll recipients, university scholars, and academic achievers into a collegial community committed to high scholarship, peer mentorship, and civic transformation across Batangas province.
+      </p>
+    </div>
+
+    <!-- Right 5 cols: Illuminated Academic Proclamation (Dignified architectural placard, NOT a bubble card) -->
+    <div class="lg:col-span-5 bg-[#2A0608] text-white p-7 sm:p-9 border-l-4 border-brand-gold relative flex flex-col justify-between shadow-lg">
+      <div class="relative z-10">
+        <div class="flex items-center justify-between text-brand-gold text-xs font-montserrat font-bold uppercase tracking-widest mb-4">
+          <span class="flex items-center gap-2"><i class="fa-solid fa-compass"></i> Guiding Philosophy</span>
+          <span class="text-[10px] text-amber-200/50 font-mono">CHARTER § 0.1</span>
+        </div>
+        <div class="text-brand-gold/20 text-4xl font-alice leading-none mb-1 select-none">“</div>
+        <blockquote class="font-alice text-lg sm:text-xl italic text-amber-50 font-normal leading-relaxed -mt-3">
+          Upholding excellence, integrity and responsibility to become productive and cooperative members of the academic community.
+        </blockquote>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-brand-gold/20 flex items-center justify-between text-xs text-amber-200/70 font-montserrat">
+        <span>College of Arts and Sciences</span>
+        <span class="text-brand-gold font-semibold tracking-wide">BatStateU The NEU</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Dual Columns: Vision & Mission with Archival Gallery Plates -->
+  <div class="py-14 border-b border-gray-200">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      
+      <!-- Vision Editorial Feature -->
+      <div class="space-y-5 lg:pr-6 lg:border-r lg:border-gray-200">
+        <div class="flex items-baseline gap-3 border-b border-gray-200 pb-3">
+          <span class="font-mono text-sm font-bold text-brand-maroon">01.</span>
+          <h3 class="font-alice text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Vision of the Society</h3>
+        </div>
+        <p class="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+          A functioning and governing body of students from the College of Arts and Sciences department consigned to uphold the intellectual excellence of the students, as well as to improve and nurture pride in and for the academic community.
+        </p>
+        
+        <!-- Archival Photographic Plate (Sharp museum matting, clean frame, NO rounded bubble corners) -->
+        <figure class="mt-6 pt-2">
+          <div class="border border-gray-300 p-1.5 bg-white shadow-sm">
+            <div class="relative overflow-hidden h-64 sm:h-72">
+              <img alt="General Assembly &amp; Induction of CAS Scholars" class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8kNVsXahRPW2yP0HDRqgKZuWUQN7fl-fT0C1EPtLoOP8gKP8_hdhDBkZgSmarzaYuKz6SvardbX3iSAaa7aASn-b06seTSQw0WoWuHaqejWggupFR0yog2aZofrUbyNqbL6H6HGt0TQra33h0sFTLsslY569InBxeTbqsw1mnhDYrgbT4NVicet98WvH953sYvJaKIWZzWgrJpSxCTnDt2dDZCcLBp5CmLWPBcrQYJJY54ZcyrwH">
+              <div class="absolute top-3 left-3 bg-black/75 text-white font-mono text-[10px] px-2 py-0.5 uppercase tracking-wider">
+                Archive Plate I
+              </div>
+            </div>
+          </div>
+          <figcaption class="mt-2.5 flex items-baseline justify-between text-xs text-gray-500 font-montserrat">
+            <span class="font-medium text-gray-700">General Assembly &amp; Scholar Inductions</span>
+            <span class="font-mono text-[10px]">PB Main I Amphitheater</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Mission Editorial Feature -->
+      <div class="space-y-5 lg:pl-2">
+        <div class="flex items-baseline gap-3 border-b border-gray-200 pb-3">
+          <span class="font-mono text-sm font-bold text-brand-maroon">02.</span>
+          <h3 class="font-alice text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Mission of the Society</h3>
+        </div>
+        <p class="font-montserrat text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+          The organization intends to be the governing force for the academic community of the College of Arts and Sciences, by uplifting the integrity of the students in all their future scholarly endeavors inside and outside of the University. It promotes the dissemination of acquired knowledge and encourages its members to continue to hone their intellect and abilities in order to be vital members of a working and productive community.
+        </p>
+
+        <!-- Archival Photographic Plate (Sharp museum matting, clean frame) -->
+        <figure class="mt-6 pt-2">
+          <div class="border border-gray-300 p-1.5 bg-white shadow-sm">
+            <div class="relative overflow-hidden h-64 sm:h-72">
+              <img alt="Academic Colloquium &amp; Research Workshops" class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbyMcK01XOQNOi6YD8moQrUN-JjuunMdEtvpsejUKAP2MSP3763d1hnWWcvGiQC6JA7PFTi7KJJLCBD_H6pxLmy3bcNLjvn9HcEnNyH41TiqMp6atnDqsmun6-dawtD1eZnPs71aXFm8qYPiupfwNEmYM6AP1J4lLXEVhTBnw5FhQ2xRUxiAokanfmJa-H3vCdEno-FgADNIHf1R3otvsk6N2hG2r5gQbL37MSq1ceRkMva8P8Po62">
+              <div class="absolute top-3 left-3 bg-black/75 text-white font-mono text-[10px] px-2 py-0.5 uppercase tracking-wider">
+                Archive Plate II
+              </div>
+            </div>
+          </div>
+          <figcaption class="mt-2.5 flex items-baseline justify-between text-xs text-gray-500 font-montserrat">
+            <span class="font-medium text-gray-700">Academic Colloquia &amp; Research Mentorship</span>
+            <span class="font-mono text-[10px]">CAS Lecture Halls</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Strategic Charter: 7 Goals & 3 Objectives (Architectural Ledger - Zero nested cards) -->
+  <div class="pt-14 pb-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- 7 Goals: Clean tabular ledger with hairline rules and hover highlight -->
+      <div class="lg:col-span-7">
+        <div class="flex items-baseline justify-between mb-4 pb-2 border-b-2 border-gray-900">
+          <div>
+            <span class="font-mono text-[11px] font-bold text-brand-maroon uppercase tracking-wider block">Directives</span>
+            <h3 class="font-alice text-2xl sm:text-3xl font-bold text-gray-900">Goals of the Organization</h3>
+          </div>
+          <span class="text-xs font-mono font-medium text-gray-500">7 Strategic Clauses</span>
+        </div>
+
+        <div class="divide-y divide-gray-200 font-montserrat">
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.1</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Academic Community:</strong>
+              To bring together a group of academics and scholars that will serve as the members of the academic community of the College of Arts and Sciences.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.2</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Integrity &amp; Responsibility:</strong>
+              To instill among its members the importance of maintaining their integrity and responsibility in all their endeavors.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.3</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Way of Life:</strong>
+              To promote the organization as a way of life, which may further improve their social, emotional and physical well-being.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.4</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Knowledge &amp; Productive Action:</strong>
+              To provide knowledge and deliver productive and effective activities that will help the members.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.5</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Camaraderie &amp; Fellowship:</strong>
+              To promote fellowship and camaraderie among the students of the College of Arts and Sciences.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.6</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Dean’s Listers Assistance:</strong>
+              To continuously recognize the hard work and labor of the students by providing assistance in the Dean’s Listers applications and other related events.
+            </div>
+          </div>
+
+          <div class="py-3.5 flex items-start gap-4 hover:bg-amber-50/40 -mx-3 px-3 transition-colors">
+            <span class="font-mono text-xs font-bold text-brand-maroon mt-0.5 w-7 shrink-0">§ 1.7</span>
+            <div class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900 font-semibold block sm:inline mr-1.5">Resource Stewardship:</strong>
+              To generate funds to support the events and activities of the organization.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Objectives: Structural architectural columns (zero radius boxes, distinct editorial rhythm) -->
+      <div class="lg:col-span-5 space-y-8">
+        <div>
+          <div class="flex items-baseline justify-between mb-4 pb-2 border-b-2 border-gray-900">
+            <div>
+              <span class="font-mono text-[11px] font-bold text-brand-maroon uppercase tracking-wider block">Foundations</span>
+              <h3 class="font-alice text-2xl sm:text-3xl font-bold text-gray-900">Objectives</h3>
+            </div>
+            <span class="text-xs font-mono font-medium text-gray-500">Core Pillars</span>
+          </div>
+
+          <div class="space-y-6 pt-2">
+            <!-- Objective A -->
+            <div class="border-l-2 border-brand-maroon pl-5 py-1">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-maroon block mb-1">PILLAR 01</span>
+              <h4 class="font-alice text-base font-bold text-gray-900">Higher Learning &amp; Academic Continuity</h4>
+              <p class="font-montserrat text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+                To develop and encourage higher learning among its members, as a way to maintain the academic community of the department.
+              </p>
+            </div>
+
+            <!-- Objective B -->
+            <div class="border-l-2 border-brand-gold pl-5 py-1">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-maroon block mb-1">PILLAR 02</span>
+              <h4 class="font-alice text-base font-bold text-gray-900">Upholding Integrity &amp; Intellect</h4>
+              <p class="font-montserrat text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+                To uphold the integrity and intellect of its members and the community in all university and civic endeavors.
+              </p>
+            </div>
+
+            <!-- Objective C -->
+            <div class="border-l-2 border-gray-800 pl-5 py-1">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-maroon block mb-1">PILLAR 03</span>
+              <h4 class="font-alice text-base font-bold text-gray-900">Institutional Pride &amp; Advancement</h4>
+              <p class="font-montserrat text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+                To continuously endeavor to improve and nurture pride in the College of Arts and Sciences and the University.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institutional Accreditation Docket (Engraved certificate style, sharp hairline rules) -->
+        <div class="border-t border-b border-gray-200 py-4 font-montserrat">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-none border border-brand-maroon/30 text-brand-maroon flex items-center justify-center text-sm font-serif">
+                §
+              </div>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500 block">Accredited Student Organization</span>
+                <span class="text-xs font-bold text-gray-900 font-alice">Batangas State University The NEU</span>
+              </div>
+            </div>
+            <div class="text-right font-mono text-[10px] text-gray-500">
+              <span>DOC: CAS-HS-PB</span><br>
+              <span class="text-emerald-700 font-semibold">VALIDATED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+<!-- BEGIN: Constitutional Framework & By-Laws Highlights (With Clear Placeholders) -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-200">
+  <div class="mb-10 text-center max-w-3xl mx-auto">
+    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-maroon font-montserrat block mb-2">Legal &amp; Institutional Basis</span>
+    <h2 class="font-alice text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+      Constitutional Charter &amp; By-Laws
+    </h2>
+    <p class="font-montserrat text-xs sm:text-sm text-gray-600 mt-2">
+      Ratified by the General Assembly under the supervision of the Office of Student Organizations (OSO).
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-brand-softGray border border-gray-200 rounded-2xl p-6 hover:shadow-card-hover transition-all">
+      <div class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-brand-maroon text-base mb-4 shadow-sm">
+        <i class="fa-solid fa-scroll"></i>
+      </div>
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="font-alice text-lg font-bold text-gray-900">Article II: Scholastic Mandate</h3>
+        <span class="text-[10px] font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-sm border border-brand-gold/40 text-brand-maroon uppercase">Ratified</span>
+      </div>
+      <p class="text-xs text-gray-600 leading-relaxed">
+        Section 1 defines the society as the sole recognized scholastic umbrella organization of the College of Arts and Sciences, vested with the authority to curate, evaluate, and endorse candidate rosters for Dean’s List honors to the University Registrar.
+      </p>
+    </div>
+
+    <div class="bg-brand-softGray border border-gray-200 rounded-2xl p-6 hover:shadow-card-hover transition-all">
+      <div class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-brand-maroon text-base mb-4 shadow-sm">
+        <i class="fa-solid fa-users-viewfinder"></i>
+      </div>
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="font-alice text-lg font-bold text-gray-900">Article IV: General Assembly</h3>
+        <span class="text-[10px] font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-sm border border-brand-gold/40 text-brand-maroon uppercase">Ratified</span>
+      </div>
+      <p class="text-xs text-gray-600 leading-relaxed">
+        Section 3 mandates bi-annual plenary sessions of all enrolled honor roll recipients to deliberate upon society fiscal budgets, constitutional amendments, and election protocols for the incoming Student Executive Secretariat.
+      </p>
+    </div>
+
+    <div class="bg-brand-softGray border border-gray-200 rounded-2xl p-6 hover:shadow-card-hover transition-all">
+      <div class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-brand-maroon text-base mb-4 shadow-sm">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="font-alice text-lg font-bold text-gray-900">Article VII: Student Welfare</h3>
+        <span class="text-[10px] font-mono font-bold bg-amber-50 px-2 py-0.5 rounded-sm border border-brand-gold/40 text-brand-maroon uppercase">Ratified</span>
+      </div>
+      <p class="text-xs text-gray-600 leading-relaxed">
+        Section 2 establishes the Scholar Welfare Fund, allocating a minimum of 25% of all society revenue directly to indigent student grants, academic review allowances, and community educational drives across Batangas province.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Cross-Page Routing Banner -->
+  <div class="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-brand-wine via-brand-darkMaroon to-brand-maroon text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-brand-gold/30">
+    <div class="space-y-1.5 text-center sm:text-left">
+      <span class="text-xs text-brand-lightGold font-semibold uppercase tracking-wider">Explore Society Leadership</span>
+      <h3 class="font-alice text-xl sm:text-2xl font-bold">Meet the Executive Officers &amp; Institutional Directorate</h3>
+      <p class="text-xs text-gray-300 max-w-xl">Discover the supervisory mentors and student leaders driving the society forward.</p>
+    </div>
+    <a href="officers.html" class="gold-cta-btn text-brand-darkMaroon px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider shadow hover:shadow-gold-glow flex items-center gap-2 whitespace-nowrap shrink-0">
+      <span>View Officers</span>
+      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+    </a>
+  </div>
+</section>
+<!-- END: Constitutional Framework & By-Laws Highlights -->
+<!-- BEGIN: Universal Broadsheet Footer -->
+<footer class="border-t border-gray-200 bg-brand-softGray py-12 text-xs font-montserrat text-gray-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-8 pb-8 border-b border-gray-200">
+      
+      <!-- Brand & University Attribution -->
+      <div class="md:col-span-5 space-y-3">
+        <div class="flex items-center gap-2.5">
+          <img alt="CAS Shield" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh4Ok4AKVSvNWhOPZ_7P5jdHNcxEXqbHxmRZL0NTpd78jzksCEWdR-mXoCXu5dAK7Ws8cguMK06eZwO30oHMR0ctRlXLTxjeK0GkMmvjLcLuTemZYeC94lnrKSd0kVWPxh67QnKzaNoeo8JjgR8zzE5hXWqzG8z3Ac6gWnc6C82jlQXyucb1g5AbqRZmFsDyVkEYmaD4Qi1H6tVOwXCo6d73T49Zl2PPtoQE23Do77P-pfYWEDFYmyiJ2QNCv1uoLESA">
+          <img alt="Floral Lotus" class="h-7 w-7 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0kVlqFDQWtaJLeWxLPPoOvvyH0g6ESXCr4Jlru8oT7o9bZCt5zcr1SnmVxJL0YyLQQ-g_7KesZiQq__KiFuKFBdjVLGmyY4wcSoqDsttEd_qWx8aunpefgTjSHLr8XWP7oggVWLMtNFcgcfGigfSS0kBNoR6CsYooPJ4gSNSB41oMqWZz0YX5cbggzf7HdnGGB8Dpfb-um7WnOaa-en2Go9Dx2j_zAQvl4SixWvtYCA9vG55nghOX5A5VSp4CPHEe9w">
+          <span class="font-alice font-bold text-gray-900 text-sm">College of Arts and Sciences Honor Society</span>
+        </div>
+        <p class="text-xs text-gray-500 leading-relaxed max-w-sm">
+          The premier academic governing body consigned to nurture intellectual excellence, civic responsibility, and institutional pride at Batangas State University The National Engineering University.
+        </p>
+        <div class="font-mono text-[11px] text-gray-400">
+          DOC: CAS-HS-PB-2025 • Pablo Borbon Main I Campus
+        </div>
+      </div>
+
+      <!-- Quick Directory Navigation (44px tap targets) -->
+      <div class="md:col-span-4 grid grid-cols-2 gap-4">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gray-900 font-montserrat block mb-2.5">Society Pages</span>
+          <ul class="space-y-1 text-xs text-gray-700">
+            <li><a href="index.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Home</a></li>
+            <li><a href="background.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Background &amp; Charter</a></li>
+            <li><a href="officers.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Executive Officers</a></li>
+            <li><a href="fees.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Fees &amp; Transparency</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gray-900 font-montserrat block mb-2.5">Student Services</span>
+          <ul class="space-y-1 text-xs text-gray-700">
+            <li><a href="deans-list.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Dean's List Guidelines</a></li>
+            <li><a href="deans-list.html#gwa-calc" class="py-1.5 inline-block hover:text-brand-maroon transition">GWA Calculator</a></li>
+            <li><a href="deans-list.html#honor-roll" class="py-1.5 inline-block hover:text-brand-maroon transition">Roll of Honor</a></li>
+            <li><a href="merch.html" class="py-1.5 inline-block hover:text-brand-maroon transition">Official Merch</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Channels & Contacts (44x44px min tap targets) -->
+      <div class="md:col-span-3 space-y-3">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-gray-900 font-montserrat block mb-1">Connect with Secretariat</span>
+        <div class="flex items-center gap-2.5 text-brand-maroon">
+          <a class="w-11 h-11 rounded-xl bg-white border border-gray-200 flex items-center justify-center hover:bg-brand-maroon hover:text-white transition shadow-sm text-base" href="https://www.facebook.com/BatStateUTheNEU" target="_blank" rel="noopener noreferrer" title="Official BatStateU Facebook" aria-label="Official BatStateU Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="w-11 h-11 rounded-xl bg-white border border-gray-200 flex items-center justify-center hover:bg-brand-maroon hover:text-white transition shadow-sm text-base" href="mailto:cas.pb@g.batstate-u.edu.ph" title="Email Secretariat" aria-label="Email CAS Honor Society Secretariat"><i class="fa-solid fa-envelope"></i></a>
+          <a class="w-11 h-11 rounded-xl bg-white border border-gray-200 flex items-center justify-center hover:bg-brand-maroon hover:text-white transition shadow-sm text-base" href="https://dione.batstate-u.edu.ph" target="_blank" rel="noopener noreferrer" title="BatStateU Student Portal" aria-label="Batangas State University Student Portal"><i class="fa-solid fa-globe"></i></a>
+        </div>
+        <p class="text-xs text-gray-600">Dean's Office, College of Arts &amp; Sciences<br>Rizal Avenue, Batangas City, Philippines</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom Attribution Strip -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 text-xs">
+      <p>© 2025 CAS Honor Society • Batangas State University The NEU. All rights reserved.</p>
+      <p>Certified Autonomous Student Organization under Office of Student Organizations</p>
+    </div>
+  </div>
+</footer>
+<!-- Interactive Script: Navigation & Mobile Drawer -->
+<script>
+  (function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+    const menuIcon = document.getElementById('menu-icon');
+
+    function toggleMobileMenu(open) {
+      if (!mobileDrawer) return;
+      const isCurrentlyClosed = mobileDrawer.classList.contains('pointer-events-none');
+      const shouldOpen = open !== undefined ? open : isCurrentlyClosed;
+      if (shouldOpen) {
+        mobileDrawer.classList.remove('scale-95', 'opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
+        if (mobileBackdrop) {
+          mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+          mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-xmark');
+        }
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileDrawer.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+        mobileDrawer.classList.add('scale-95', 'opacity-0', 'pointer-events-none');
+        if (mobileBackdrop) {
+          mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        }
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        }
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+    }
+    if (mobileBackdrop) {
+      mobileBackdrop.addEventListener('click', () => toggleMobileMenu(false));
+    }
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    // Header Dynamic Elevation (IntersectionObserver for high performance, eliminating scroll lag)
+    const mainNav = document.getElementById('main-nav');
+    const scrollSentinel = document.getElementById('scroll-sentinel');
+    if (mainNav && scrollSentinel && 'IntersectionObserver' in window) {
+      const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            mainNav.classList.add('bg-[#2A0406]/95', 'border-brand-gold/60', 'shadow-[0_12px_36px_rgba(0,0,0,0.7)]');
+            mainNav.classList.remove('bg-[#3B0709]/95', 'border-brand-gold/40');
+          } else {
+            mainNav.classList.remove('bg-[#2A0406]/95', 'border-brand-gold/60', 'shadow-[0_12px_36px_rgba(0,0,0,0.7)]');
+            mainNav.classList.add('bg-[#3B0709]/95', 'border-brand-gold/40');
+          }
+        });
+      }, { rootMargin: '0px', threshold: 0 });
+      headerObserver.observe(scrollSentinel);
+    }
+  })();
+</script>
+</body>
+</html>

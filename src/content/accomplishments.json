@@ -1,30 +1,35 @@
 [
   {
-    "id": "accomplishment-01",
-    "eventName": "[Project 1 — Pending Official Documentation: Midterm Review Clinic]",
-    "date": "2025-10-15",
-    "projectHead": "[Project Lead — To Be Announced]",
-    "sponsors": [
-      "[Partner Department — Pending Confirmation]"
-    ],
-    "summary": "Provisional record for peer tutoring sessions conducted prior to departmental midterm examinations. Official attendee counts, schedule logs, and documentation notes will be updated upon final committee audit."
+    "id": "proj-dunong",
+    "eventName": "Project Dunong: Rural Tutoring Initiative",
+    "tag": "Community Extension",
+    "date": "2024-11-15",
+    "projectHead": "Christian Ramos",
+    "status": "Completed",
+    "sponsors": ["CAS Department of Social Sciences", "BatStateU Extension Services"],
+    "summary": "Volunteer scholar tutorials teaching over 350 public school elementary students in foundational math and reading comprehension.",
+    "image": "/images/gallery-placeholder.svg"
   },
   {
-    "id": "accomplishment-02",
-    "eventName": "[Project 2 — Pending Official Documentation: Collegiate Coding Challenge]",
-    "date": "2025-11-20",
-    "projectHead": "[Project Lead — To Be Announced]",
-    "sponsors": [
-      "[External Sponsor — Pending Confirmation]"
-    ],
-    "summary": "Provisional record for the collegiate algorithm competition hosted for lower-division students. Problem sets, finalist standings, and certificate issuances will be published following event verification."
+    "id": "proj-colloquium",
+    "eventName": "Red Spartan Research Colloquium",
+    "tag": "Academic Summit",
+    "date": "2025-02-28",
+    "projectHead": "Angela Santos",
+    "status": "Annual Flagship",
+    "sponsors": ["College of Arts and Sciences", "Research and Development Office"],
+    "summary": "Annual multidisciplinary research symposium showcasing 42 undergraduate scholarly papers with inter-campus peer reviewers.",
+    "image": "/images/gallery-placeholder.svg"
   },
   {
-    "id": "accomplishment-03",
-    "eventName": "[Project 3 — Pending Official Documentation: General Assembly & Induction]",
-    "date": "2025-09-08",
-    "projectHead": "[Project Lead — To Be Announced]",
-    "sponsors": [],
-    "summary": "Provisional record for the annual society induction ceremony and semestral orientation. Formal minutes, financial reconciliations, and member attendance records are currently under secretariat review."
+    "id": "proj-padayon",
+    "eventName": "Padayon Financial Assistance Aid",
+    "tag": "Sponsorship & Grants",
+    "date": "2025-01-10",
+    "projectHead": "Lian Beatrice S. Catipon",
+    "status": "Active Grant",
+    "sponsors": ["CAS Alumni Association & Partners"],
+    "summary": "Partnered with alumni benefactors and corporate sponsors to provide book & connectivity grants to 25 deserving CAS students.",
+    "image": "/images/gallery-placeholder.svg"
   }
 ]
