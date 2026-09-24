@@ -47,8 +47,8 @@ const leadershipSpotlight = [
   <Navbar currentPath="/" />
 
   <main id="main-content">
-    {/* ── 1. Clocktower Hero Section ── */}
-    <section class="relative min-h-[92vh] sm:min-h-[95vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 px-4 overflow-hidden" id="hero">
+    {/* ── 1. Clocktower Hero Section (Single Viewport Fold) ── */}
+    <section class="relative min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-5rem)] flex flex-col justify-center items-center pt-1 sm:pt-2 md:pt-3 pb-3 sm:pb-4 px-4 overflow-hidden" id="hero">
       <div class="absolute inset-0 z-0">
         <Image
           src={bsuAsset}
@@ -65,9 +65,9 @@ const leadershipSpotlight = [
         ></div>
       </div>
 
-      <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* LOGOS AS THE CENTRAL ATTRACTION — exact fluid clamp sizes from Design/index.html */}
-        <div class="relative flex items-center justify-center mb-2 sm:mb-3 group">
+      <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center justify-center w-full my-auto">
+        {/* LOGOS AS THE CENTRAL ATTRACTION — full grand scale restored */}
+        <div class="relative flex items-center justify-center mb-1 sm:mb-2 group">
           <div class="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 px-4">
             <Image
               src={shieldAsset}
@@ -90,13 +90,13 @@ const leadershipSpotlight = [
           </div>
         </div>
 
-        {/* Hero Typography — elevated upward via negative margin matching Design/index.html */}
-        <div class="-mt-2 sm:-mt-5 md:-mt-7 space-y-3 sm:space-y-4 max-w-4xl px-3 relative z-10">
-          <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+        {/* Hero Typography — elevated upward via negative margin to eliminate dead vertical space */}
+        <div class="-mt-4 sm:-mt-7 md:-mt-9 space-y-1.5 sm:space-y-2 max-w-4xl px-3 relative z-10">
+          <h1 class="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             College of Arts and Sciences <br />
             <span class="text-gold font-heading font-bold drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">Honor Society</span>
           </h1>
-          <p class="font-ui text-sm sm:text-lg font-semibold text-amber-100 max-w-2xl mx-auto tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+          <p class="font-ui text-xs sm:text-base font-semibold text-amber-100 max-w-2xl mx-auto tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             Leading Innovations, Transforming Lives, Building the Nation
           </p>
           <p class="font-body text-xs sm:text-sm text-gray-100 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
@@ -106,10 +106,10 @@ const leadershipSpotlight = [
         </div>
 
         {/* Hero CTAs */}
-        <div class="pt-5 sm:pt-6 flex flex-wrap items-center justify-center gap-3">
+        <div class="pt-2.5 sm:pt-3.5 flex flex-wrap items-center justify-center gap-3">
           <a
             href="/background"
-            class="px-6 py-3 rounded-pill bg-shimmer text-maroon-dark font-ui text-body-sm font-bold shadow hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-[transform,box-shadow] duration-120 ease-enter uppercase tracking-wider flex items-center gap-2"
+            class="px-5 sm:px-6 py-2 sm:py-2.5 rounded-pill bg-shimmer text-maroon-dark font-ui text-xs sm:text-body-sm font-bold shadow hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-[transform,box-shadow] duration-120 ease-enter uppercase tracking-wider flex items-center gap-2"
           >
             <span>Explore Society Charter</span>
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -118,7 +118,7 @@ const leadershipSpotlight = [
           </a>
           <a
             href="/deans-list"
-            class="px-6 py-3 rounded-pill bg-white/15 hover:bg-white/25 text-white border border-gold/40 font-ui text-body-sm font-semibold backdrop-blur-md transition-colors duration-120 ease-enter flex items-center gap-2"
+            class="px-5 sm:px-6 py-2 sm:py-2.5 rounded-pill bg-white/15 hover:bg-white/25 text-white border border-gold/40 font-ui text-xs sm:text-body-sm font-semibold backdrop-blur-md transition-colors duration-120 ease-enter flex items-center gap-2"
           >
             <span>Dean's List &amp; GWA Calc</span>
             <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -137,21 +137,21 @@ const leadershipSpotlight = [
         </div>
 
         {/* Institutional Quick Highlights */}
-        <div class="mt-10 pt-5 border-t border-gold/25 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-label font-ui text-gold-lightGold font-medium">
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <div class="mt-3.5 sm:mt-5 pt-2.5 sm:pt-3.5 border-t border-gold/25 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-[11px] sm:text-xs font-ui text-gold-lightGold font-medium">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Official CAS Accredited Society</span>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
             <span>A.Y. 2024–2025 Active Portal</span>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <span>Pablo Borbon Red Spartans</span>
