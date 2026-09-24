@@ -32,43 +32,37 @@ const { class: className } = Astro.props;
       /* Dual Emblem Focal Center — CAS Shield and Crescent Lotus Crest side-by-side */
     }
     <div
-      class="mb-6 sm:mb-8 flex flex-row items-center justify-center gap-6 sm:gap-10 md:gap-14 shrink-0"
+      class="mb-2 sm:mb-3 flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 px-4 shrink-0"
     >
       {/* CAS Honor Society Shield Emblem */}
-      <div
-        class="relative drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)] flex items-center justify-center"
-      >
-        <Image
-          src={casShieldImage}
-          alt="College of Arts and Sciences Honor Society Shield"
-          width={480}
-          height={480}
-          format="webp"
-          quality={92}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="w-[140px] h-[140px] sm:w-[190px] sm:h-[190px] md:w-[230px] md:h-[230px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.03]"
-        />
-      </div>
+      <Image
+        src={casShieldImage}
+        alt="College of Arts and Sciences Honor Society Shield"
+        width={420}
+        height={420}
+        format="webp"
+        quality={90}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        style="width: clamp(160px, 28vw, 420px); height: auto;"
+        class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.95)] hover:scale-105 transition-transform duration-300"
+      />
 
       {/* Crescent Lotus Crest Emblem */}
-      <div
-        class="relative drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)] flex items-center justify-center"
-      >
-        <Image
-          src={crestImage}
-          alt="College of Arts and Sciences Honor Society Crescent Crest"
-          width={500}
-          height={370}
-          format="webp"
-          quality={92}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="w-[140px] h-[104px] sm:w-[190px] sm:h-[141px] md:w-[235px] md:h-[174px] object-contain transition-transform duration-300 ease-enter hover:scale-[1.03]"
-        />
-      </div>
+      <Image
+        src={crestImage}
+        alt="College of Arts and Sciences Honor Society Crescent Crest"
+        width={368}
+        height={273}
+        format="webp"
+        quality={90}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        style="width: clamp(140px, 24.5vw, 368px); height: auto;"
+        class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(212,175,55,0.6)] hover:scale-105 transition-transform duration-300"
+      />
     </div>
 
     {

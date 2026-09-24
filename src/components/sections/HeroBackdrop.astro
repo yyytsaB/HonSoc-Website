@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import heroBg from '../../assets/hero-bg.jpg';
+import heroBg from '../../assets/bsu.jpg';
 
 export interface Props {
   class?: string;
@@ -13,26 +13,22 @@ const { class: className } = Astro.props;
   HeroBackdrop.astro
   Full-bleed dramatic, saturated collegiate maroon backdrop combined with the
   landmark Pablo Borbon campus clock tower architecture.
-  Single continuous pure CSS radial gradient layered over architectural photography.
 */}
 <div class:list={['absolute inset-0 -z-10 select-none pointer-events-none overflow-hidden', className]} aria-hidden="true">
   {/* Campus landmark building photograph layer */}
   <Image
     src={heroBg}
-    alt=""
-    class="absolute inset-0 w-full h-full object-cover object-[center_35%] opacity-22 mix-blend-luminosity filter contrast-125"
+    alt="Batangas State University Pablo Borbon Campus Clocktower"
+    class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-[1.05]"
     format="webp"
-    quality={85}
+    quality={80}
     loading="eager"
     fetchpriority="high"
   />
 
-  {/* Saturated collegiate maroon radial gradient radiating outward from behind the dual logos */}
+  {/* Deep Crimson Gradient Overlay matching Design/index.html */}
   <div
-    class="absolute inset-0 w-full h-full"
-    style="background: radial-gradient(ellipse 140% 105% at 50% 36%, rgba(247, 214, 142, 0.40) 0%, rgba(240, 192, 102, 0.32) 7%, rgba(226, 154, 62, 0.28) 14%, rgba(206, 88, 48, 0.42) 23%, rgba(175, 42, 42, 0.65) 34%, rgba(139, 30, 30, 0.88) 46%, rgba(122, 25, 25, 0.94) 56%, #661414 66%, #520F0F 76%, #3E0B0B 86%, #280606 100%);"
+    class="absolute inset-0"
+    style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(160, 25, 30, 0.65) 42%, rgba(42, 4, 6, 0.98) 100%);"
   />
-
-  {/* Vignette depth layer ensuring high contrast and pristine readability */}
-  <div class="absolute inset-0 bg-[#280606]/35" />
 </div>

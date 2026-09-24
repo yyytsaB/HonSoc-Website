@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import crestImage from '../../assets/crest.png';
+import shieldImage from '../../assets/cas-shield.png';
 
 export interface Props {
   href?: string;
@@ -17,51 +18,48 @@ const {
   class: className,
   loading = 'lazy',
 } = Astro.props;
-
-// Explicit pixel dimensions preserving exact 1704:1264 aspect ratio (1.348:1)
-const dimensions = {
-  sm: { width: 43, height: 32 },
-  md: { width: 54, height: 40 },
-  lg: { width: 70, height: 52 },
-  xl: { width: 108, height: 80 },
-};
-
-const textSizes = {
-  sm: 'text-h3',
-  md: 'text-h3 sm:text-[1.375rem]',
-  lg: 'text-h1',
-  xl: 'text-display',
-};
 ---
 
 <a
   href={href}
+  title="CAS Honor Society Homepage"
   class:list={[
-    'group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-pill pr-2',
+    'group inline-flex items-center gap-2.5 sm:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-xl pr-2 transition-all duration-120 ease-enter',
     className,
   ]}
 >
-  <div class="relative shrink-0 flex items-center justify-center">
+  <div class="flex items-center gap-1.5 shrink-0">
     <Image
-      src={crestImage}
-      alt="HonSoc Official Crest"
-      width={dimensions[size].width}
-      height={dimensions[size].height}
+      src={shieldImage}
+      alt="CAS Honor Society Shield"
+      width={36}
+      height={36}
       format="webp"
-      quality={80}
+      quality={85}
       loading={loading}
       decoding="async"
-      class="object-contain transition-transform duration-[120ms] ease-enter group-hover:scale-105"
+      class="h-8 w-8 sm:h-9 sm:w-9 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-300"
+    />
+    <Image
+      src={crestImage}
+      alt="CAS Floral Lotus Emblem"
+      width={32}
+      height={24}
+      format="webp"
+      quality={85}
+      loading={loading}
+      decoding="async"
+      class="h-7 w-7 sm:h-8 sm:w-8 object-contain drop-shadow-[0_2px_8px_rgba(212,175,55,0.6)] group-hover:scale-105 transition-transform duration-300"
     />
   </div>
 
-  <div class="flex flex-col text-left leading-tight">
-    <span class:list={['font-heading font-semibold text-gray-900 group-hover:text-maroon transition-colors duration-[120ms] ease-enter', textSizes[size]]}>
-      HonSoc
+  <div class="text-left flex flex-col justify-center">
+    <span class="font-heading text-xs sm:text-sm lg:text-base font-bold tracking-wider text-gray-900 group-hover:text-maroon uppercase transition-colors leading-tight">
+      CAS HONOR SOCIETY
     </span>
     {showSubtitle && (
-      <span class="text-label font-ui font-semibold text-gold-accessible uppercase tracking-wider">
-        Honor Society
+      <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-gold-accessible font-medium -mt-0.5 hidden sm:block">
+        BatStateU • Pablo Borbon
       </span>
     )}
   </div>

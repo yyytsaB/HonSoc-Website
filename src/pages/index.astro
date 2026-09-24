@@ -4,16 +4,16 @@ import Navbar from '../components/navigation/Navbar.astro';
 import Footer from '../components/navigation/Footer.astro';
 import { Image, getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import heroBgAsset from '../assets/hero-bg.webp';
+import bsuAsset from '../assets/bsu.jpg';
 import crestAsset from '../assets/crest.png';
 import shieldAsset from '../assets/cas-shield.png';
 
 const preloadedHero = await getImage({
-  src: heroBgAsset,
+  src: bsuAsset,
   width: 1920,
   height: 1080,
   format: 'webp',
-  quality: 85,
+  quality: 80,
 });
 
 const accomplishments = await getCollection('accomplishments');
@@ -48,48 +48,59 @@ const leadershipSpotlight = [
 
   <main id="main-content">
     {/* ── 1. Clocktower Hero Section ── */}
-    <section class="relative min-h-[90vh] sm:min-h-[94vh] flex items-center justify-center pt-20 pb-16 px-4 overflow-hidden" id="hero">
+    <section class="relative min-h-[92vh] sm:min-h-[95vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 px-4 overflow-hidden" id="hero">
       <div class="absolute inset-0 z-0">
         <Image
-          src={heroBgAsset}
-          alt="Batangas State University Pablo Borbon Clocktower"
+          src={bsuAsset}
+          alt="Batangas State University Pablo Borbon Campus Clocktower"
           width={1920}
           height={1080}
           priority
           class="w-full h-full object-cover object-center filter brightness-90 contrast-[1.05]"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-maroon-wine/75 to-maroon-dark/98" aria-hidden="true"></div>
+        <div
+          class="absolute inset-0"
+          style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(160, 25, 30, 0.65) 42%, rgba(42, 4, 6, 0.98) 100%);"
+          aria-hidden="true"
+        ></div>
       </div>
 
       <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* Dual Crests */}
-        <div class="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-4">
-          <Image
-            src={crestAsset}
-            alt="CAS Honor Society Crest Shield"
-            width={180}
-            height={134}
-            class="h-24 sm:h-32 md:h-36 w-auto object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.85)] hover:scale-105 transition-transform duration-120 ease-enter"
-          />
-          <Image
-            src={shieldAsset}
-            alt="CAS Official Shield Emblem"
-            width={160}
-            height={160}
-            class="h-20 sm:h-28 md:h-32 w-auto object-contain filter drop-shadow-[0_12px_24px_rgba(234,168,56,0.4)] hover:scale-105 transition-transform duration-120 ease-enter"
-          />
+        {/* LOGOS AS THE CENTRAL ATTRACTION — exact fluid clamp sizes from Design/index.html */}
+        <div class="relative flex items-center justify-center mb-2 sm:mb-3 group">
+          <div class="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 px-4">
+            <Image
+              src={shieldAsset}
+              alt="CAS Honor Society Crest Shield"
+              width={420}
+              height={420}
+              priority
+              style="width: clamp(160px, 28vw, 420px); height: auto;"
+              class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.95)] hover:scale-105 transition-transform duration-300"
+            />
+            <Image
+              src={crestAsset}
+              alt="CAS Floral Lotus Emblem"
+              width={368}
+              height={273}
+              priority
+              style="width: clamp(140px, 24.5vw, 368px); height: auto;"
+              class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(212,175,55,0.6)] hover:scale-105 transition-transform duration-300"
+            />
+          </div>
         </div>
 
-        {/* Hero Typography */}
-        <div class="space-y-3 sm:space-y-4 max-w-4xl px-3">
-          <h1 class="font-heading text-display sm:text-6xl text-white font-normal leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+        {/* Hero Typography — elevated upward via negative margin matching Design/index.html */}
+        <div class="-mt-2 sm:-mt-5 md:-mt-7 space-y-3 sm:space-y-4 max-w-4xl px-3 relative z-10">
+          <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
             College of Arts and Sciences <br />
-            <span class="text-gold font-heading drop-shadow-[0_2px_12px_rgba(234,168,56,0.4)]">Honor Society</span>
+            <span class="text-gold font-heading font-bold drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">Honor Society</span>
           </h1>
-          <p class="font-ui text-sm sm:text-base md:text-lg font-semibold text-gold-lightGold max-w-2xl mx-auto tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-            Official Academic Society of the College of Arts and Sciences, Batangas State University Pablo Borbon.
+          <p class="font-ui text-sm sm:text-lg font-semibold text-amber-100 max-w-2xl mx-auto tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+            Leading Innovations, Transforming Lives, Building the Nation
           </p>
-          <p class="font-body text-xs sm:text-sm text-stone-100 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <p class="font-body text-xs sm:text-sm text-gray-100 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            The premier academic organization of the College of Arts and Sciences at Pablo Borbon Campus.
             Cultivating scholar-leaders devoted to academic excellence, social responsibility, and integrity.
           </p>
         </div>
