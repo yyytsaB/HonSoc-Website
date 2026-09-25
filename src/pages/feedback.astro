@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+import Footer from '../components/navigation/Footer.astro';
+---
+
+<BaseLayout title="Feedback & Inquiries | CASHONSITE">
+  <Navbar currentPath="/feedback" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <div class="relative w-full overflow-hidden py-space-xl lg:py-margin-lg px-margin-sm lg:px-margin-lg">
+        <div class="absolute -top-32 -right-24 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-28 w-80 h-80 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto flex flex-col gap-space-xl relative z-10">
+          <!-- Editorial Header Section inspired by the mock -->
+          <section class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+            <div class="flex flex-col max-w-xl">
+              <div class="flex items-center gap-space-xs mb-space-xs">
+                <span class="w-6 h-[2px] bg-secondary"></span>
+                <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold">CAS Public Portal &amp; Engagement</span>
+              </div>
+              <h1 class="font-headline-xl text-headline-xl text-primary font-normal tracking-tight">YOUR VOICE MATTERS</h1>
+              <p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm leading-relaxed">
+                We value your feedback, suggestions, and concerns. Help us improve and continue serving the CAS community better.
+              </p>
+            </div>
+
+            <!-- Custom Crisp SVG Speech Bubbles Graphic Matching Mockup -->
+            <div class="relative w-44 h-36 shrink-0 self-center md:self-auto drop-shadow-sm select-none" aria-hidden="true">
+              <!-- Secondary warm parchment speech bubble behind -->
+              <svg class="absolute bottom-0 right-0 w-28 h-24 transform translate-x-1 translate-y-1 text-surface-container-high" fill="currentColor" viewBox="0 0 100 85">
+                <path d="M12 4C5.373 4 0 9.373 0 16v38c0 6.627 5.373 12 12 12h14v15l20-15h42c6.627 0 12-5.373 12-12V16c0-6.627-5.373-12-12-12H12z"></path>
+                <!-- 3 Muted Dots -->
+                <circle cx="36" cy="35" fill="#dfbfbc" opacity="0.8" r="3.5"></circle>
+                <circle cx="50" cy="35" fill="#dfbfbc" opacity="0.8" r="3.5"></circle>
+                <circle cx="64" cy="35" fill="#dfbfbc" opacity="0.8" r="3.5"></circle>
+              </svg>
+              <!-- Primary maroon speech bubble foreground -->
+              <svg class="absolute top-0 left-0 w-32 h-28 text-primary shadow-sm" fill="currentColor" viewBox="0 0 100 85">
+                <path d="M14 4C6.268 4 0 10.268 0 18v34c0 7.732 6.268 14 14 14h36l22 15V66h14c7.732 0 14-6.268 14-14V18c0-7.732-6.268-14-14-14H14z"></path>
+                <!-- 3 Light dots -->
+                <circle cx="36" cy="35" fill="#fff8f5" r="4"></circle>
+                <circle cx="50" cy="35" fill="#fff8f5" r="4"></circle>
+                <circle cx="64" cy="35" fill="#fff8f5" r="4"></circle>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Main Feedback Cards Grid / Mosaic -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-stretch">
+            <!-- CARD 1: YOU CAN SHARE -->
+            <section class="md:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+              <div class="flex flex-col">
+                <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                  <h2 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface font-semibold">YOU CAN SHARE</h2>
+                  <span class="material-symbols-outlined text-secondary text-[20px]">forum</span>
+                </div>
+                <ul class="flex flex-col gap-space-sm font-body-md text-body-md text-on-surface">
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Suggestions</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Feedback</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Concerns</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Questions</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Recommendations</span>
+                  </li>
+                  <li class="flex items-center gap-space-sm">
+                    <span class="material-symbols-outlined text-primary text-[20px] font-bold">check</span>
+                    <span class="font-medium">Requests for information/records</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-space-xl pt-space-md flex flex-col items-center justify-center">
+                <button
+                  type="button"
+                  id="open-feedback-modal-btn"
+                  class="w-full sm:w-auto px-space-xl py-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider font-semibold rounded-lg shadow-sm transition-all duration-200 transform active:scale-[0.99] flex items-center justify-center gap-space-xs cursor-pointer"
+                >
+                  <span class="material-symbols-outlined text-[18px]">send</span>
+                  <span>SUBMIT FEEDBACK</span>
+                </button>
+                <span class="font-label-xs text-label-xs text-on-surface-variant mt-space-xs text-center">
+                  Standard processing window: 1-3 academic days
+                </span>
+              </div>
+            </section>
+
+            <!-- CARD 2: REMINDERS & REGISTRY NOTICES -->
+            <section class="md:col-span-5 flex flex-col gap-space-md">
+              <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col h-full justify-between transition-all duration-300 hover:shadow-md">
+                <div>
+                  <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                    <h2 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface font-semibold">REMINDERS</h2>
+                    <span class="material-symbols-outlined text-secondary text-[20px]">info</span>
+                  </div>
+                  <ul class="flex flex-col gap-space-md font-body-sm text-body-sm text-on-surface-variant">
+                    <li class="flex items-start gap-space-sm">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5 font-bold shrink-0">check</span>
+                      <span class="leading-relaxed"><strong class="text-on-surface font-semibold">Official Review:</strong> All submissions are reviewed by the organization and logged in the academic correspondence ledger.</span>
+                    </li>
+                    <li class="flex items-start gap-space-sm">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5 font-bold shrink-0">check</span>
+                      <span class="leading-relaxed"><strong class="text-on-surface font-semibold">Priority Routing:</strong> For urgent concerns, please indicate in the form to notify the council executive on duty.</span>
+                    </li>
+                    <li class="flex items-start gap-space-sm">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5 font-bold shrink-0">check</span>
+                      <span class="leading-relaxed"><strong class="text-on-surface font-semibold">Full Confidentiality:</strong> Your identity can be kept strictly confidential if requested, protected under university privacy standards.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-surface-container rounded-lg p-space-sm mt-space-md flex items-center gap-space-sm">
+                  <span class="material-symbols-outlined text-secondary text-[22px]">verified_user</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-xs text-label-xs uppercase font-bold text-on-surface">CAS Governance Policy</span>
+                    <span class="font-body-sm text-[11px] leading-tight text-on-surface-variant">Protected under the Honor Guild Transparency Act of 2024.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Additional Context: Response Protocol Metrics & Visual Ledger -->
+          <section class="bg-surface-container-low rounded-xl p-space-lg shadow-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <div class="bg-surface-container-lowest rounded-lg p-space-md flex items-center gap-space-md shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+                  <span class="material-symbols-outlined text-[24px]">speed</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-headline-sm text-headline-sm text-primary font-normal leading-tight">24-48 hrs</span>
+                  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Average Response Time</span>
+                </div>
+              </div>
+
+              <div class="bg-surface-container-lowest rounded-lg p-space-md flex items-center gap-space-md shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-tertiary shrink-0">
+                  <span class="material-symbols-outlined text-[24px]">lock_reset</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-headline-sm text-headline-sm text-primary font-normal leading-tight">100% Secure</span>
+                  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Anonymity Guaranteed</span>
+                </div>
+              </div>
+
+              <div class="bg-surface-container-lowest rounded-lg p-space-md flex items-center gap-space-md shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+                  <span class="material-symbols-outlined text-[24px]">assignment_turned_in</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-headline-sm text-headline-sm text-primary font-normal leading-tight">98.4%</span>
+                  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Action Resolution Rate</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Interactive Submission Drawer Modal -->
+      <div id="feedback-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-space-md opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
+        <div id="feedback-modal-content" class="bg-surface-container-lowest w-full max-w-2xl rounded-xl shadow-xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[921px] flex flex-col">
+          <!-- Modal Header -->
+          <div class="bg-primary text-on-primary px-space-lg py-space-md flex items-center justify-between">
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-secondary-fixed">rate_review</span>
+              <div>
+                <h3 id="feedback-modal-title" class="font-headline-sm text-headline-sm leading-tight text-surface-bright">Submit Official CAS Feedback</h3>
+                <p class="font-label-xs text-label-xs text-secondary-fixed uppercase tracking-wider">College of Arts and Sciences Guild Database</p>
+              </div>
+            </div>
+            <button id="close-feedback-modal-btn" class="text-on-primary hover:text-secondary-fixed transition-colors cursor-pointer" aria-label="Close dialog">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <!-- Modal Form Body -->
+          <form id="feedback-form" class="p-space-lg overflow-y-auto flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <label for="feedback-nature" class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Feedback Nature</label>
+              <select id="feedback-nature" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg p-space-sm focus:outline-none focus:bg-surface-container-lowest transition-colors border border-outline-variant/30">
+                <option value="suggestions">Suggestion for Operations or Events</option>
+                <option value="feedback">General Institutional Feedback</option>
+                <option value="concerns">Specific Grievance or Concern</option>
+                <option value="questions">Inquiry on Society Standards &amp; Policies</option>
+                <option value="recommendations">Scholastic Recommendation</option>
+                <option value="records">Request for Records Clarification</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <div class="flex flex-col gap-space-xs">
+                <label for="feedback-name" class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Full Name (Optional)</label>
+                <input id="feedback-name" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg p-space-sm focus:outline-none focus:bg-surface-container-lowest transition-colors border border-outline-variant/30" placeholder="Leave blank to remain anonymous" type="text" />
+              </div>
+              <div class="flex flex-col gap-space-xs">
+                <label for="feedback-email" class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Email or Student ID (Optional)</label>
+                <input id="feedback-email" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg p-space-sm focus:outline-none focus:bg-surface-container-lowest transition-colors border border-outline-variant/30" placeholder="For resolution notifications" type="text" />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-space-xs">
+              <label class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Urgency Classification</label>
+              <div class="flex flex-wrap gap-space-sm items-center">
+                <label class="flex items-center gap-space-xs cursor-pointer">
+                  <input checked class="accent-primary" name="urgency" type="radio" value="standard" />
+                  <span class="font-body-sm text-body-sm text-on-surface">Standard Review</span>
+                </label>
+                <label class="flex items-center gap-space-xs cursor-pointer ml-space-sm">
+                  <input class="accent-primary" name="urgency" type="radio" value="urgent" />
+                  <span class="font-body-sm text-body-sm text-error font-medium">Urgent Concern</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-space-xs">
+              <label for="feedback-message" class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-semibold">Detailed Message</label>
+              <textarea id="feedback-message" class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg p-space-sm focus:outline-none focus:bg-surface-container-lowest transition-colors resize-none border border-outline-variant/30" placeholder="Describe your perspective, suggestion, or query clearly..." required rows="4"></textarea>
+            </div>
+
+            <div class="bg-surface-container p-space-sm rounded-lg flex items-center gap-space-sm">
+              <input checked class="accent-primary w-4 h-4 rounded cursor-pointer" id="confidential-check" type="checkbox" />
+              <label class="font-body-sm text-body-sm text-on-surface select-none cursor-pointer" for="confidential-check">
+                Keep my submission strictly confidential within the CAS Honor Review Panel.
+              </label>
+            </div>
+
+            <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+              <button id="cancel-modal-btn" type="button" class="px-space-md py-space-sm font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+                Cancel
+              </button>
+              <button type="submit" class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-lg hover:bg-primary-container shadow-sm transition-colors cursor-pointer">
+                Transmit Submission
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Notification Toast -->
+      <div id="feedback-toast" class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-sm rounded-lg shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <span class="material-symbols-outlined text-secondary-container">check_circle</span>
+        <div class="flex flex-col">
+          <span class="font-label-md text-label-md font-semibold">Submission Transmitted</span>
+          <span class="font-body-sm text-[12px] text-surface-container">Your input has been indexed in the CAS Registry.</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    function initFeedback() {
+      const openBtn = document.getElementById('open-feedback-modal-btn');
+      const closeBtn = document.getElementById('close-feedback-modal-btn');
+      const cancelBtn = document.getElementById('cancel-modal-btn');
+      const modal = document.getElementById('feedback-modal');
+      const modalContent = document.getElementById('feedback-modal-content');
+      const feedbackForm = document.getElementById('feedback-form') as HTMLFormElement | null;
+      const toast = document.getElementById('feedback-toast');
+
+      function openModal() {
+        modal?.classList.remove('opacity-0', 'pointer-events-none');
+        modalContent?.classList.remove('scale-95');
+        modalContent?.classList.add('scale-100');
+      }
+
+      function closeModal() {
+        modal?.classList.add('opacity-0', 'pointer-events-none');
+        modalContent?.classList.add('scale-95');
+        modalContent?.classList.remove('scale-100');
+      }
+
+      function showToast() {
+        toast?.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          toast?.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        }, 4000);
+      }
+
+      openBtn?.addEventListener('click', openModal);
+      closeBtn?.addEventListener('click', closeModal);
+      cancelBtn?.addEventListener('click', closeModal);
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+          closeModal();
+        }
+      });
+
+      feedbackForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal();
+        feedbackForm.reset();
+        showToast();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFeedback);
+    } else {
+      initFeedback();
+    }
+  </script>
+</BaseLayout>

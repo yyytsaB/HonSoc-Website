@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <defs>
+    <linearGradient id="stoleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4D090B"/>
+      <stop offset="50%" stop-color="#2A0406"/>
+      <stop offset="100%" stop-color="#1E1B19"/>
+    </linearGradient>
+    <linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F5E4A8"/>
+      <stop offset="50%" stop-color="#EAA838"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFDD80" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FFDD80" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="600" fill="url(#stoleBg)"/>
+  <circle cx="400" cy="300" r="280" fill="url(#glow)"/>
+
+  <!-- Archival Podium Contour -->
+  <rect x="150" y="440" width="500" height="160" rx="8" fill="#1E1B19" stroke="#33302D" stroke-width="2"/>
+  <line x1="150" y1="460" x2="650" y2="460" stroke="#8B716E" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Academic Stole Shape -->
+  <!-- Left stole sash -->
+  <path d="M340 100 C350 200, 310 320, 290 480 L350 495 C370 340, 390 220, 380 100 Z" fill="#6A020A" stroke="url(#goldTrim)" stroke-width="3"/>
+  <!-- Right stole sash -->
+  <path d="M460 100 C450 200, 490 320, 510 480 L450 495 C430 340, 410 220, 420 100 Z" fill="#6A020A" stroke="url(#goldTrim)" stroke-width="3"/>
+  <!-- Neck collar drape -->
+  <path d="M340 100 C370 140, 430 140, 460 100 C435 80, 365 80, 340 100 Z" fill="#8B1E1E" stroke="url(#goldTrim)" stroke-width="2"/>
+
+  <!-- Gold Embroidery Accents -->
+  <circle cx="320" cy="380" r="16" fill="none" stroke="url(#goldTrim)" stroke-width="2"/>
+  <path d="M320 370 L320 390 M310 380 L330 380" stroke="url(#goldTrim)" stroke-width="2"/>
+  <circle cx="480" cy="380" r="16" fill="none" stroke="url(#goldTrim)" stroke-width="2"/>
+  <path d="M480 370 L480 390 M470 380 L490 380" stroke="url(#goldTrim)" stroke-width="2"/>
+
+  <!-- Fringe Trim -->
+  <line x1="290" y1="480" x2="350" y2="495" stroke="url(#goldTrim)" stroke-width="6" stroke-dasharray="3 3"/>
+  <line x1="510" y1="480" x2="450" y2="495" stroke="url(#goldTrim)" stroke-width="6" stroke-dasharray="3 3"/>
+
+  <!-- Central Insignia Medal -->
+  <circle cx="400" cy="220" r="34" fill="#6A020A" stroke="url(#goldTrim)" stroke-width="3"/>
+  <polygon points="400,198 406,214 423,214 409,224 414,240 400,230 386,240 391,224 377,214 394,214" fill="url(#goldTrim)"/>
+
+  <!-- Typography Label -->
+  <text x="400" y="550" text-anchor="middle" fill="#FFBA49" font-family="sans-serif" font-size="14" font-weight="600" letter-spacing="4">OFFICIAL CEREMONIAL ACADEMIC STOLE</text>
+  <text x="400" y="575" text-anchor="middle" fill="#DFBFBC" font-family="sans-serif" font-size="11" letter-spacing="2">COLLEGE OF ARTS AND SCIENCES • HONOR SOCIETY</text>
+</svg>

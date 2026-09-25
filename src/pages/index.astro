@@ -2,615 +2,191 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/navigation/Navbar.astro';
 import Footer from '../components/navigation/Footer.astro';
-import { Image, getImage } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import bsuAsset from '../assets/bsu.jpg';
-import crestAsset from '../assets/crest.png';
-import shieldAsset from '../assets/cas-shield.png';
-
-const preloadedHero = await getImage({
-  src: bsuAsset,
-  width: 1920,
-  height: 1080,
-  format: 'webp',
-  quality: 80,
-});
-
-const accomplishments = await getCollection('accomplishments');
-const leadershipSpotlight = [
-  {
-    name: 'Dr. Anna Maria V. Rivera',
-    position: 'Dean & Chief Patron',
-    role: 'College of Arts and Sciences',
-    description: 'Ensuring academic rigor, university accreditation standards, and collegiate excellence.',
-  },
-  {
-    name: 'Dr. Jonelyn B. Sandoval',
-    position: 'Faculty Adviser',
-    role: 'CAS Honor Society',
-    description: 'Supervising student welfare, research initiatives, and academic integrity across departments.',
-  },
-  {
-    name: 'Lian Beatrice S. Catipon',
-    position: 'Society President',
-    role: 'Student Executive Secretariat',
-    description: 'Presiding over student scholar welfare, academic committees, and institutional assemblies.',
-  },
-];
+import { Image } from 'astro:assets';
+import shieldImage from '../assets/cas-shield.png';
+import heroBg from '../assets/hero-bg.jpg';
 ---
 
-<BaseLayout
-  title="CAS Honor Society — Batangas State University Pablo Borbon"
-  description="Official portal of the College of Arts and Sciences Honor Society, Batangas State University Pablo Borbon. Access Dean's List benchmarks, GWA matrix calculator, fee transparency, and leadership archives."
-  preloadImage={preloadedHero.src}
->
+<BaseLayout title="CASHONSITE — A Public Database of CAS Honor Society">
   <Navbar currentPath="/" />
 
-  <main id="main-content">
-    {/* ── 1. Clocktower Hero Section (Single Viewport Fold) ── */}
-    <section class="relative min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-5rem)] flex flex-col justify-center items-center pt-1 sm:pt-2 md:pt-3 pb-3 sm:pb-4 px-4 overflow-hidden" id="hero">
-      <div class="absolute inset-0 z-0">
-        <Image
-          src={bsuAsset}
-          alt="Batangas State University Pablo Borbon Campus Clocktower"
-          width={1920}
-          height={1080}
-          priority
-          class="w-full h-full object-cover object-center filter brightness-90 contrast-[1.05]"
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)] flex flex-col">
+    <!-- 1. Hero Section with hero-bg.jpg and Gold-Yellow Linear Gradient -->
+    <section aria-labelledby="heroHeading" class="relative w-full overflow-hidden pt-space-xl lg:pt-margin-lg pb-32 lg:pb-40 px-margin-sm lg:px-margin-lg bg-surface-container-low">
+      <!-- Background Image with Gold-Yellow Linear Gradient Overlay -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <!-- hero-bg.jpg image with enhanced presence, anchored to the top to show the clock tower crown -->
+        <img
+          src={heroBg.src}
+          alt=""
+          role="presentation"
+          class="w-full h-full object-cover object-top opacity-45 mix-blend-multiply filter contrast-105"
         />
-        <div
-          class="absolute inset-0"
-          style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(160, 25, 30, 0.65) 42%, rgba(42, 4, 6, 0.98) 100%);"
-          aria-hidden="true"
-        ></div>
+        <!-- Linear gradient of gold-yellowish accenting the colors with clear architectural visibility -->
+        <div class="absolute inset-0 bg-gradient-to-b from-secondary-fixed/40 via-surface-container-low/65 to-surface"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary-fixed/25 via-transparent to-secondary-fixed-dim/20"></div>
+
+        <!-- Ambient Gold & Crimson Glows -->
+        <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-secondary-container/25 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-28 w-80 h-80 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none"></div>
       </div>
 
-      <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center justify-center w-full my-auto">
-        {/* LOGOS AS THE CENTRAL ATTRACTION — full grand scale restored */}
-        <div class="relative flex items-center justify-center mb-1 sm:mb-2 group">
-          <div class="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 px-4">
-            <Image
-              src={shieldAsset}
-              alt="CAS Honor Society Crest Shield"
-              width={420}
-              height={420}
-              priority
-              style="width: clamp(160px, 28vw, 420px); height: auto;"
-              class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.95)] hover:scale-105 transition-transform duration-300"
-            />
-            <Image
-              src={crestAsset}
-              alt="CAS Floral Lotus Emblem"
-              width={368}
-              height={273}
-              priority
-              style="width: clamp(140px, 24.5vw, 368px); height: auto;"
-              class="relative z-10 object-contain filter drop-shadow-[0_16px_36px_rgba(212,175,55,0.6)] hover:scale-105 transition-transform duration-300"
-            />
+      <!-- Hero Centerpiece: Text and Logo brought closer together with centered layout and balanced gap -->
+      <div class="max-w-5xl xl:max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 xl:gap-10 relative z-10">
+        <!-- Hero Content Column (Order 1 on desktop) -->
+        <div class="w-full lg:max-w-lg xl:max-w-xl flex flex-col items-start text-left order-2 lg:order-1">
+          <div class="flex items-center gap-space-xs mb-space-xs">
+            <span class="w-6 h-[2px] bg-secondary"></span>
+            <span class="font-label-md text-[11px] sm:text-label-md uppercase tracking-widest text-secondary font-bold">
+              Official Public Database
+            </span>
           </div>
-        </div>
 
-        {/* Hero Typography — elevated upward via negative margin to eliminate dead vertical space */}
-        <div class="-mt-4 sm:-mt-7 md:-mt-9 space-y-1.5 sm:space-y-2 max-w-4xl px-3 relative z-10">
-          <h1 class="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
-            College of Arts and Sciences <br />
-            <span class="text-gold font-heading font-bold drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">Honor Society</span>
+          <h1 id="heroHeading" class="font-headline-xl text-[40px] sm:text-[48px] lg:text-[56px] xl:text-[62px] text-primary font-normal tracking-tight uppercase leading-[0.98]">
+            CASHONSITE
           </h1>
-          <p class="font-ui text-xs sm:text-base font-semibold text-amber-100 max-w-2xl mx-auto tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
-            Leading Innovations, Transforming Lives, Building the Nation
+
+          <div class="font-serif text-[22px] sm:text-[28px] lg:text-[32px] xl:text-[36px] text-primary-container font-normal leading-tight mt-space-xs mb-space-sm">
+            A Public Database of<br class="hidden sm:inline" /> CAS Honor Society
+          </div>
+
+          <p class="font-body-lg text-[16px] sm:text-[17px] xl:text-[18px] text-on-surface-variant max-w-lg leading-relaxed mb-space-lg">
+            A platform dedicated to transparency, accountability, and academic excellence. Explore our records, activities, and updates—all in one place.
           </p>
-          <p class="font-body text-xs sm:text-sm text-gray-100 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            The premier academic organization of the College of Arts and Sciences at Pablo Borbon Campus.
-            Cultivating scholar-leaders devoted to academic excellence, social responsibility, and integrity.
-          </p>
-        </div>
 
-        {/* Hero CTAs */}
-        <div class="pt-2.5 sm:pt-3.5 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="/background"
-            class="px-5 sm:px-6 py-2 sm:py-2.5 rounded-pill bg-shimmer text-maroon-dark font-ui text-xs sm:text-body-sm font-bold shadow hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-[transform,box-shadow] duration-120 ease-enter uppercase tracking-wider flex items-center gap-2"
+            href="/transparency"
+            class="inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider font-semibold shadow-sm hover:bg-primary-container transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0"
           >
-            <span>Explore Society Charter</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-          <a
-            href="/deans-list"
-            class="px-5 sm:px-6 py-2 sm:py-2.5 rounded-pill bg-white/15 hover:bg-white/25 text-white border border-gold/40 font-ui text-xs sm:text-body-sm font-semibold backdrop-blur-md transition-colors duration-120 ease-enter flex items-center gap-2"
-          >
-            <span>Dean's List &amp; GWA Calc</span>
-            <svg class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-              <line x1="8" y1="6" x2="16" y2="6"></line>
-              <line x1="16" y1="14" x2="16" y2="18"></line>
-              <path d="M16 10h.01"></path>
-              <path d="M12 10h.01"></path>
-              <path d="M8 10h.01"></path>
-              <path d="M12 14h.01"></path>
-              <path d="M8 14h.01"></path>
-              <path d="M12 18h.01"></path>
-              <path d="M8 18h.01"></path>
-            </svg>
+            <span>EXPLORE RECORDS</span>
+            <span class="text-base leading-none">›</span>
           </a>
         </div>
 
-        {/* Institutional Quick Highlights */}
-        <div class="mt-3.5 sm:mt-5 pt-2.5 sm:pt-3.5 border-t border-gold/25 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-[11px] sm:text-xs font-ui text-gold-lightGold font-medium">
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Official CAS Accredited Society</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            <span>A.Y. 2024–2025 Active Portal</span>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span>Pablo Borbon Red Spartans</span>
-          </div>
+        <!-- Hero Crest Image (Order 2 on desktop) — Sized in the ideal sweet spot -->
+        <div class="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[540px] flex items-center justify-center order-1 lg:order-2 shrink-0">
+          <!-- Soft golden halo glow behind crest -->
+          <div class="absolute w-[90%] h-[90%] rounded-full bg-secondary-fixed/50 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+          <Image
+            src={shieldImage}
+            alt="CAS Honor Society Crest Banner and Shield"
+            width={580}
+            height={536}
+            format="webp"
+            quality={95}
+            loading="eager"
+            class="relative z-10 w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(106,2,10,0.3)] transition-transform duration-300 hover:scale-[1.02]"
+          />
         </div>
       </div>
     </section>
 
-    {/* ── 2. Portal Hub Modules ── */}
-    <section class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto border-b border-border" id="portal-hub">
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
-          Collegiate Platform
-        </span>
-        <h2 class="text-h1 font-heading text-gray-900 tracking-tight">
-          CAS Honor Society Portal Modules
-        </h2>
-        <p class="text-body font-body text-gray-600">
-          Access organizational archives, financial audits, leadership registries, merchandise, and academic computation utilities.
-        </p>
-      </div>
-
-      <div class="space-y-6">
-        {/* Primary Scholar Workbenches */}
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Featured 1: GWA Calculator Matrix */}
-          <div class="bg-gradient-to-br from-maroon-wine via-maroon-dark to-maroon text-white p-6 sm:p-8 rounded-card border-2 border-gold shadow-card flex flex-col justify-between relative overflow-hidden group">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between gap-3">
-                <span class="inline-flex items-center gap-1.5 bg-shimmer text-maroon-dark text-label font-ui font-bold uppercase tracking-wider px-3 py-1 rounded-pill shadow-xs">
-                  <span>Primary Scholar Tool</span>
-                </span>
-                <span class="text-label font-mono text-gold-lightGold">BatStateU Scale</span>
-              </div>
-              <h3 class="font-heading text-h2 text-white">Interactive GWA Matrix Calculator</h3>
-              <p class="text-body-sm font-body text-gray-200 leading-relaxed">
-                Simulate semestral grades, compute weighted averages matching official BatStateU grading policies, and evaluate qualification for Chancellor's and Dean's honors.
-              </p>
-              <div class="flex flex-wrap gap-2 text-label font-ui text-gold-lightGold pt-2">
-                <span class="bg-white/10 px-2.5 py-1 rounded-pill border border-gold/30">1.00 – 1.45 First Honors</span>
-                <span class="bg-white/10 px-2.5 py-1 rounded-pill border border-gold/30">1.46 – 1.75 Second Honors</span>
-              </div>
-            </div>
-            <div class="mt-8 pt-5 border-t border-gold/30 flex items-center justify-between">
-              <a
-                href="/deans-list#gwa-calc"
-                class="px-5 py-2.5 rounded-pill bg-shimmer text-maroon-dark font-ui text-body-sm font-bold shadow hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 transition-[transform,box-shadow] duration-120 ease-enter inline-flex items-center gap-2"
-              >
-                <span>Launch Calculator</span>
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-              <span class="text-label font-mono text-gold-lightGold hidden sm:inline">Instant Evaluation</span>
-            </div>
-          </div>
-
-          {/* Featured 2: Dean's List Application */}
-          <div class="bg-surface border-2 border-gold/60 p-6 sm:p-8 rounded-card shadow-card flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between gap-3">
-                <span class="inline-flex items-center gap-1.5 bg-maroon text-white text-label font-ui font-bold uppercase tracking-wider px-3 py-1 rounded-pill shadow-xs">
-                  <span>Official Application</span>
-                </span>
-                <span class="text-label font-ui font-semibold text-maroon">A.Y. 2024–2025</span>
-              </div>
-              <h3 class="font-heading text-h2 text-gray-900">Dean's List Verification &amp; Filing</h3>
-              <p class="text-body-sm font-body text-gray-600 leading-relaxed">
-                Complete official certification requirements, review documentary benchmarks, access the submission portal, and view scheduled validation deadlines across CAS departments.
-              </p>
-              <div class="flex flex-wrap gap-2 text-label font-ui text-gray-700 pt-2">
-                <span class="bg-stone border border-border px-2.5 py-1 rounded-pill">15 Units Minimum</span>
-                <span class="bg-stone border border-border px-2.5 py-1 rounded-pill">No Grade &lt; 2.00/2.50</span>
-                <span class="bg-stone border border-border px-2.5 py-1 rounded-pill">Zero Incomplete</span>
-              </div>
-            </div>
-            <div class="mt-8 pt-5 border-t border-border flex items-center justify-between">
-              <a
-                href="/deans-list#apply-dl"
-                class="px-5 py-2.5 rounded-pill bg-maroon text-white hover:bg-maroon-hover font-ui text-body-sm font-bold shadow transition-colors duration-120 ease-enter inline-flex items-center gap-2"
-              >
-                <span>Apply for Dean's List</span>
-                <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-              <a href="/deans-list" class="text-body-sm font-ui font-semibold text-maroon hover:underline">
-                View Rubric &rarr;
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Secondary 6-Module Grid */}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
-          {/* Module 1 */}
-          <a href="/background" class="group bg-stone hover:bg-surface border border-border hover:border-maroon/40 p-6 rounded-card shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color,background-color] duration-120 ease-enter flex flex-col justify-between">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center mb-4 group-hover:bg-maroon group-hover:text-white transition-colors duration-120 ease-enter">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-                Organization Profile
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
-                Official institutional background, philosophy, vision, mission, strategic charter, and scholar roster.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border/60 flex items-center text-body-sm font-ui font-semibold text-maroon gap-1.5">
-              <span>View Background</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-
-          {/* Module 2 */}
-          <a href="/officers" class="group bg-stone hover:bg-surface border border-border hover:border-maroon/40 p-6 rounded-card shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color,background-color] duration-120 ease-enter flex flex-col justify-between">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center mb-4 group-hover:bg-maroon group-hover:text-white transition-colors duration-120 ease-enter">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-                Executive Officers
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
-                Meet our student executive secretariat, standing working committees, faculty advisers, and College Dean.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border/60 flex items-center text-body-sm font-ui font-semibold text-maroon gap-1.5">
-              <span>Meet Leadership</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-
-          {/* Module 3 */}
-          <a href="/fees" class="group bg-stone hover:bg-surface border border-border hover:border-maroon/40 p-6 rounded-card shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color,background-color] duration-120 ease-enter flex flex-col justify-between">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center mb-4 group-hover:bg-maroon group-hover:text-white transition-colors duration-120 ease-enter">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-                Membership &amp; Fees
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
-                Per-semester and full-year dues with complete transparent fund audits across student activities and welfare.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border/60 flex items-center text-body-sm font-ui font-semibold text-maroon gap-1.5">
-              <span>View Fee Details</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-
-          {/* Module 4 */}
-          <a href="#accomplishments" class="group bg-stone hover:bg-surface border border-border hover:border-maroon/40 p-6 rounded-card shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color,background-color] duration-120 ease-enter flex flex-col justify-between">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center mb-4 group-hover:bg-maroon group-hover:text-white transition-colors duration-120 ease-enter">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-                Accomplishments
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
-                Community extension drives, annual research colloquiums, educational grants, and university projects.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border/60 flex items-center text-body-sm font-ui font-semibold text-maroon gap-1.5">
-              <span>Review Projects</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-
-          {/* Module 5 */}
-          <a href="/merch" class="group bg-stone hover:bg-surface border border-border hover:border-maroon/40 p-6 rounded-card shadow-xs hover:shadow-card-hover transition-[box-shadow,border-color,background-color] duration-120 ease-enter flex flex-col justify-between">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-maroon-light text-maroon flex items-center justify-center mb-4 group-hover:bg-maroon group-hover:text-white transition-colors duration-120 ease-enter">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-                Society Merch
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 mt-2 leading-relaxed">
-                Exclusive CAS varsity jackets, custom society lanyards, metal insignia pins, and order reservation portal.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-border/60 flex items-center text-body-sm font-ui font-semibold text-maroon gap-1.5">
-              <span>Browse Catalog</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-
-          {/* Module 6 */}
-          <a href="/deans-list#honor-roll" class="group bg-maroon-wine text-white p-6 rounded-card shadow-card hover:shadow-card-hover transition-[box-shadow,border-color] duration-120 ease-enter flex flex-col justify-between border border-gold/40">
-            <div>
-              <div class="w-10 h-10 rounded-pill bg-shimmer text-maroon-dark flex items-center justify-center mb-4 shadow-xs">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-              <h3 class="font-heading text-h3 text-gold-lightGold">
-                Roll of Honor
-              </h3>
-              <p class="text-body-sm font-body text-stone-100/90 mt-2 leading-relaxed">
-                Celebrating BatStateU Pablo Borbon Dean's Listers, Latin Honors graduates, and academic distinction recipients.
-              </p>
-            </div>
-            <div class="mt-5 pt-3 border-t border-gold/30 flex items-center text-body-sm font-ui font-semibold text-gold-amber gap-1.5">
-              <span>View Honorees</span>
-              <span class="group-hover:translate-x-1 transition-transform duration-120 ease-enter">&rarr;</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    {/* ── 3. Society Overview & Philosophy Broadside Plaque ── */}
-    <section class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto border-b border-border">
-      <div class="bg-gradient-to-br from-maroon-wine via-maroon-dark to-maroon text-white rounded-card p-8 sm:p-12 border border-gold/40 shadow-card relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 space-y-4">
-            <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-gold-lightGold block">
-              Founding Philosophy
-            </span>
-            <h2 class="font-heading text-h1 text-white leading-tight">
-              "In Scientia Veritas, In Virtute Prudentia"
-            </h2>
-            <p class="font-body text-body-sm text-stone-200 max-w-2xl leading-relaxed">
-              In Knowledge, Truth; In Virtue, Wisdom. Established in 2020 at the College of Arts and Sciences, Batangas State University Pablo Borbon, the CAS Honor Society is the recognized autonomous governing body dedicated to evaluating, recognizing, and maintaining scholastic excellence.
-            </p>
-            <div class="pt-2 flex flex-wrap gap-4 text-label font-ui text-gold-lightGold">
-              <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true"></span>
-                <span>1,150+ Honor Scholars</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true"></span>
-                <span>Autonomous Student Body</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden="true"></span>
-                <span>Accredited Academic Organization</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center lg:items-end justify-center gap-3">
-            <a
-              href="/background"
-              class="w-full sm:w-auto lg:w-full text-center px-6 py-3 rounded-pill bg-shimmer text-maroon-dark font-ui text-body-sm font-bold shadow hover:shadow-card transition duration-120 ease-enter flex items-center justify-center gap-2 uppercase tracking-wider"
-            >
-              <span>Read Charter</span>
-              <span>&rarr;</span>
-            </a>
-            <a
-              href="/officers"
-              class="w-full sm:w-auto lg:w-full text-center px-6 py-3 rounded-pill bg-white/10 hover:bg-white/20 text-white border border-gold/30 font-ui text-body-sm font-semibold transition-colors duration-120 ease-enter flex items-center justify-center gap-2"
-            >
-              <span>Executive Directorate</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── 4. Dean's List Academic Benchmarks Preview ── */}
-    <section class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto border-b border-border">
-      <div class="text-center max-w-3xl mx-auto mb-10 space-y-2">
-        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
-          Evaluation Standards
-        </span>
-        <h2 class="text-h1 font-heading text-gray-900 tracking-tight">
-          Dean’s List Academic Benchmarks
-        </h2>
-        <p class="text-body font-body text-gray-600">
-          Official qualification criteria for First and Second Honors under the College of Arts and Sciences.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {/* First Honors */}
-        <div class="bg-surface border-2 border-gold/60 rounded-card p-6 sm:p-8 shadow-card flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between gap-4 mb-4">
-              <span class="text-label font-ui font-bold uppercase tracking-wider text-maroon border-b border-maroon/40 pb-0.5">
-                Chancellor's Tier
-              </span>
-              <span class="text-gold font-bold font-mono text-body-sm">Top Tier</span>
-            </div>
-            <h3 class="font-heading text-h2 text-gray-900 mb-1">First Honors Dean's List</h3>
-            <div class="text-h1 font-heading text-maroon my-3">
-              1.00 – 1.45 <span class="text-body-sm font-ui text-stone-muted font-normal">GWA</span>
-            </div>
-            <ul class="space-y-2 text-body-sm font-body text-gray-600">
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>Minimum 15 credit-bearing academic units</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>No semestral grade lower than 2.00</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>Zero INC, 4.00, 5.00, or Dropped courses</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-6 pt-4 border-t border-border">
-            <a href="/deans-list" class="font-ui font-bold text-body-sm text-maroon hover:text-maroon-hover flex items-center justify-between">
-              <span>View Detailed Evaluation Guidelines</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Second Honors */}
-        <div class="bg-surface border border-border rounded-card p-6 sm:p-8 shadow-card flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between gap-4 mb-4">
-              <span class="text-label font-ui font-bold uppercase tracking-wider text-stone-muted border-b border-border pb-0.5">
-                Dean's Tier
-              </span>
-              <span class="text-stone-muted font-bold font-mono text-body-sm">Honors Tier</span>
-            </div>
-            <h3 class="font-heading text-h2 text-gray-900 mb-1">Second Honors Dean's List</h3>
-            <div class="text-h1 font-heading text-maroon my-3">
-              1.46 – 1.75 <span class="text-body-sm font-ui text-stone-muted font-normal">GWA</span>
-            </div>
-            <ul class="space-y-2 text-body-sm font-body text-gray-600">
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>Minimum 15 credit-bearing academic units</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>No semestral grade lower than 2.50</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-gold font-bold">&#10003;</span>
-                <span>Zero INC, 4.00, 5.00, or Dropped courses</span>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-6 pt-4 border-t border-border">
-            <a href="/deans-list" class="font-ui font-bold text-body-sm text-maroon hover:text-maroon-hover flex items-center justify-between">
-              <span>View Detailed Evaluation Guidelines</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 text-center">
+    <!-- 2. Four Feature Cards (Overlapping Bottom of Hero) -->
+    <section aria-label="Quick Access Services" class="relative z-20 max-w-7xl mx-auto px-margin-sm lg:px-margin-lg -mt-20 lg:-mt-24 mb-space-xl w-full">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-gutter">
+        <!-- Card 1: Transparency Reports -->
         <a
-          href="/deans-list#gwa-calc"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-pill bg-shimmer text-maroon-dark font-ui text-body-sm font-bold shadow hover:shadow-card transition duration-120 ease-enter uppercase tracking-wider"
+          href="/transparency"
+          class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-space-lg lg:py-space-xl lg:px-space-md flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 group cursor-pointer"
         >
-          <span>Launch Interactive GWA Matrix Calculator</span>
-          <span>&rarr;</span>
+          <div class="w-14 h-14 flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+            <!-- Document with folded corner icon from mockup -->
+            <svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" x2="8" y1="13" y2="13"></line>
+              <line x1="16" x2="8" y1="17" y2="17"></line>
+              <line x1="10" x2="8" y1="9" y2="9"></line>
+            </svg>
+          </div>
+          <h2 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary group-hover:text-primary-container transition-colors mb-space-xs leading-snug">
+            TRANSPARENCY<br />REPORTS
+          </h2>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-[230px] leading-relaxed">
+            View financial reports, resolutions, minutes and other records.
+          </p>
+        </a>
+
+        <!-- Card 2: Request A Document -->
+        <a
+          href="/request"
+          class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-space-lg lg:py-space-xl lg:px-space-md flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 group cursor-pointer"
+        >
+          <div class="w-14 h-14 flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+            <!-- Document with text lines icon from mockup -->
+            <svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="9" x2="15" y1="12" y2="12"></line>
+              <line x1="9" x2="15" y1="16" y2="16"></line>
+              <line x1="9" x2="10" y1="9" y2="9"></line>
+            </svg>
+          </div>
+          <h2 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary group-hover:text-primary-container transition-colors mb-space-xs leading-snug">
+            REQUEST<br />A DOCUMENT
+          </h2>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-[230px] leading-relaxed">
+            Need a certificate or official document? Submit a request.
+          </p>
+        </a>
+
+        <!-- Card 3: Activities & Accomplishments -->
+        <a
+          href="/activities"
+          class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-space-lg lg:py-space-xl lg:px-space-md flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 group cursor-pointer"
+        >
+          <div class="w-14 h-14 flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+            <!-- Calendar with check marks icon from mockup -->
+            <svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+              <polyline points="9 14 11 16 15 12"></polyline>
+            </svg>
+          </div>
+          <h2 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary group-hover:text-primary-container transition-colors mb-space-xs leading-snug">
+            ACTIVITIES &amp;<br />ACCOMPLISHMENTS
+          </h2>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-[230px] leading-relaxed">
+            See our activities, projects, and accomplishment reports.
+          </p>
+        </a>
+
+        <!-- Card 4: Give Feedback -->
+        <a
+          href="/feedback"
+          class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-space-lg lg:py-space-xl lg:px-space-md flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-200 transform hover:-translate-y-1 group cursor-pointer"
+        >
+          <div class="w-14 h-14 flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+            <!-- Two speech bubbles icon from mockup -->
+            <svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M14 9h.01"></path>
+              <path d="M10 9h.01"></path>
+              <path d="M6 9h.01"></path>
+            </svg>
+          </div>
+          <h2 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary group-hover:text-primary-container transition-colors mb-space-xs leading-snug">
+            GIVE<br />FEEDBACK
+          </h2>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-[230px] leading-relaxed">
+            We want to hear from you! Share your thoughts.
+          </p>
         </a>
       </div>
     </section>
 
-    {/* ── 5. Executive Leadership Spotlight ── */}
-    <section class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto border-b border-border">
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
-          Governance
-        </span>
-        <h2 class="text-h1 font-heading text-gray-900 tracking-tight">
-          Institutional Directorate &amp; Student Secretariat
+    <!-- 3. Commitment Band (Full Width, Consistent with other pages) -->
+    <section aria-labelledby="commitmentHeading" class="w-full bg-primary text-on-primary py-space-xl border-t border-primary-container/40 mt-auto text-center">
+      <div class="max-w-3xl mx-auto px-margin-sm lg:px-margin-lg flex flex-col items-center">
+        <h2 id="commitmentHeading" class="font-headline-sm text-headline-sm text-surface-bright uppercase tracking-wider mb-space-sm font-normal">
+          OUR COMMITMENT TO TRANSPARENCY
         </h2>
-        <p class="text-body font-body text-gray-600">
-          Under the executive stewardship of the College Dean, Faculty Advisers, and the Student Executive Secretariat.
+        <p class="font-body-md text-body-md text-surface-container-high/90 leading-relaxed max-w-2xl font-normal">
+          CASHONSITE is built on the principle that organizational information should be accessible to the community it serves. Through the publication of our records and activities, we promote openness, accountability, and meaningful student engagement.
         </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-        {leadershipSpotlight.map((leader) => (
-          <div class="flex flex-col items-center group">
-            <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 border-2 border-gold/60 shadow-card mb-4 bg-maroon-light flex items-center justify-center">
-              <span class="font-heading text-h2 text-maroon select-none font-bold">
-                {leader.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-              </span>
-            </div>
-            <h3 class="font-heading text-h3 text-gray-900 group-hover:text-maroon transition-colors duration-120 ease-enter">
-              {leader.name}
-            </h3>
-            <span class="text-body-sm font-ui font-bold text-maroon mt-0.5">
-              {leader.position}
-            </span>
-            <p class="text-label font-body text-stone-muted mt-0.5">
-              {leader.role}
-            </p>
-            <p class="text-label font-body text-gray-600 mt-2 max-w-xs leading-relaxed">
-              {leader.description}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div class="mt-10 text-center">
-        <a
-          href="/officers"
-          class="inline-flex items-center gap-2 font-ui font-bold text-body-sm text-maroon hover:text-maroon-hover border border-maroon/20 hover:border-maroon px-6 py-2.5 rounded-pill bg-surface transition duration-120 ease-enter"
-        >
-          <span>Meet the Full Directorate &amp; Standing Committees</span>
-          <span>&rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    {/* ── 6. Accomplishments Showcase ── */}
-    <section class="py-16 sm:py-20 container-gutter max-w-7xl mx-auto" id="accomplishments">
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
-        <span class="text-label font-ui font-bold uppercase tracking-[0.2em] text-maroon block">
-          Institutional Impact
-        </span>
-        <h2 class="text-h1 font-heading text-gray-900 tracking-tight">
-          Flagship Projects &amp; Accomplishments
-        </h2>
-        <p class="text-body font-body text-gray-600">
-          Academic workshops, community extension initiatives, and scholarship assistance across Batangas.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {accomplishments.map((item) => (
-          <div class="bg-surface border border-border rounded-card overflow-hidden shadow-xs hover:shadow-card-hover transition-[box-shadow,transform] duration-120 ease-enter flex flex-col justify-between">
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between gap-2">
-                <span class="bg-maroon-light text-maroon text-label font-ui font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-pill">
-                  {item.data.tag || 'Academic Initiative'}
-                </span>
-                <span class="text-label font-mono font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-pill border border-emerald-200">
-                  {item.data.status || 'Completed'}
-                </span>
-              </div>
-              <h3 class="font-heading text-h3 text-gray-900">
-                {item.data.eventName}
-              </h3>
-              <p class="text-body-sm font-body text-gray-600 leading-relaxed">
-                {item.data.summary}
-              </p>
-            </div>
-            <div class="px-6 py-3 border-t border-border/60 bg-stone/50 flex justify-between items-center text-label text-stone-muted font-ui">
-              <span>Project Head: {item.data.projectHead}</span>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   </main>

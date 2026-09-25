@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="convoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4D090B"/>
+      <stop offset="100%" stop-color="#3B0709"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#convoBg)"/>
+  <circle cx="400" cy="210" r="140" fill="#FFBA49" opacity="0.18"/>
+  <!-- Medal and Ribbon -->
+  <path d="M375 140 L400 200 L425 140 Z" fill="#EAA838"/>
+  <circle cx="400" cy="225" r="42" fill="#8B1E1E" stroke="#FFBA49" stroke-width="3"/>
+  <polygon points="400,198 406,214 423,214 409,224 414,240 400,230 386,240 391,224 377,214 394,214" fill="#FFBA49"/>
+  <rect x="250" y="320" width="300" height="120" rx="6" fill="#1E1B19" stroke="#DFBFBC" stroke-width="1" opacity="0.8"/>
+  <text x="400" y="380" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="600" letter-spacing="3">HONORS CONVOCATION CEREMONY</text>
+  <text x="400" y="410" text-anchor="middle" fill="#FFBA49" font-family="sans-serif" font-size="12" letter-spacing="2">ANNUAL SCHOLASTIC RECOGNITION</text>
+</svg>

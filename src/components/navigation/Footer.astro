@@ -1,5 +1,6 @@
 ---
-import Logo from './Logo.astro';
+import { Image } from 'astro:assets';
+import shieldImage from '../../assets/cas-shield.png';
 
 export interface Props {
   class?: string;
@@ -8,87 +9,101 @@ export interface Props {
 const { class: className } = Astro.props;
 ---
 
-<footer class:list={['border-t border-border bg-stone py-12 text-body-sm font-body text-gray-600', className]}>
-  <div class="max-w-7xl mx-auto container-gutter">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-8 pb-8 border-b border-border">
-      
-      {/* Brand & University Attribution */}
-      <div class="md:col-span-5 space-y-3">
-        <Logo size="md" />
-        <p class="text-body-sm text-gray-600 leading-relaxed max-w-sm pt-1">
-          The premier academic governing body consigned to nurture intellectual excellence, civic responsibility, and institutional pride at Batangas State University The National Engineering University.
-        </p>
-        <div class="font-mono text-label text-stone-muted pt-1">
-          DOC: CAS-HS-PB-2025 • Pablo Borbon Main I Campus
-        </div>
-      </div>
-
-      {/* Quick Directory Navigation (44px tap targets) */}
-      <div class="md:col-span-4 grid grid-cols-2 gap-4">
-        <div>
-          <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
-            Society Pages
+<footer class:list={['w-full bg-primary text-on-primary py-space-xl border-t border-primary-container/40 mt-auto', className]}>
+  <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg grid grid-cols-1 md:grid-cols-12 gap-gutter-lg">
+    {/* Left Column: Brand & Manifesto */}
+    <div class="md:col-span-5 flex flex-col gap-space-md">
+      <div class="flex items-center gap-space-md">
+        <Image
+          src={shieldImage}
+          alt="CAS Honor Society Crest"
+          width={48}
+          height={48}
+          format="webp"
+          quality={90}
+          class="w-12 h-12 rounded-full object-contain p-1 border border-secondary-container bg-surface shadow-sm"
+        />
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-surface-bright font-semibold leading-tight">
+            CASHONSITE
           </span>
-          <ul class="space-y-1 text-body-sm text-gray-700 font-ui">
-            <li>
-              <a href="/" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Home</a>
-            </li>
-            <li>
-              <a href="/background" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Background &amp; Charter</a>
-            </li>
-            <li>
-              <a href="/officers" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Executive Officers</a>
-            </li>
-            <li>
-              <a href="/fees" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Fees &amp; Transparency</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
-            Student Services
+          <span class="font-label-xs text-label-xs text-secondary-fixed uppercase tracking-wider">
+            A Public Database of CAS Honor Society
           </span>
-          <ul class="space-y-1 text-body-sm text-gray-700 font-ui">
-            <li>
-              <a href="/deans-list" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Dean's List Guidelines</a>
-            </li>
-            <li>
-              <a href="/deans-list#gwa-calc" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">GWA Calculator</a>
-            </li>
-            <li>
-              <a href="/deans-list#honor-roll" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Roll of Honor</a>
-            </li>
-            <li>
-              <a href="/merch" class="py-1.5 inline-block hover:text-maroon transition-colors duration-120 ease-enter">Official Merch</a>
-            </li>
-          </ul>
         </div>
       </div>
-
-      {/* Institutional Office Location */}
-      <div class="md:col-span-3 space-y-2">
-        <span class="text-label font-bold uppercase tracking-wider text-gray-900 font-ui block mb-2.5">
-          Secretariat Office
-        </span>
-        <p class="text-body-sm text-gray-600 leading-relaxed font-body">
-          Room 304, CAS Building<br />
-          Batangas State University Pablo Borbon<br />
-          Rizal Avenue, Batangas City 4200
-        </p>
-        <p class="text-label text-stone-muted pt-1">
-          Inquiries: cas.honorsociety@g.batstate-u.edu.ph
-        </p>
-      </div>
+      <p class="font-body-sm text-body-sm text-surface-container-high/80 max-w-sm leading-relaxed">
+        An archival and public registry dedicated to scholarly distinction, research excellence, and institutional transparency across the College of Arts and Sciences.
+      </p>
     </div>
 
-    {/* Bottom Legal / Accreditation Bar */}
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-label text-stone-muted font-body">
-      <div>
-        &copy; {new Date().getFullYear()} College of Arts and Sciences Honor Society, BatStateU Pablo Borbon. All rights reserved.
-      </div>
-      <div class="font-mono text-[0.75rem]">
-        Accreditation Docket Ref: CAS-ORG-2024-C
+    {/* Center Column: Quick Navigation Links */}
+    <div class="md:col-span-3 flex flex-col gap-space-sm">
+      <span class="font-label-md text-label-md text-secondary-fixed tracking-wider uppercase font-semibold">
+        Quick Links
+      </span>
+      <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/about">
+            About the Society
+          </a>
+        </li>
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/transparency">
+            Institutional Transparency
+          </a>
+        </li>
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/academic-recognition">
+            Academic Recognition
+          </a>
+        </li>
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/activities">
+            Convocations &amp; Activities
+          </a>
+        </li>
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/request">
+            Document Verification Request
+          </a>
+        </li>
+        <li class="flex">
+          <a class="text-surface-container-high/90 hover:text-surface-bright transition-colors" href="/feedback">
+            Feedback &amp; Inquiries
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    {/* Right Column: Institutional Contacts */}
+    <div class="md:col-span-4 flex flex-col gap-space-sm">
+      <span class="font-label-md text-label-md text-secondary-fixed tracking-wider uppercase font-semibold">
+        Connect With Us
+      </span>
+      <div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-surface-container-high/90">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-fixed">mail</span>
+          <span>cashonsite@cas.edu.ph</span>
+        </div>
+        <div class="flex items-start gap-space-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-fixed mt-0.5">location_on</span>
+          <span>CAS Building, College of Arts and Sciences</span>
+        </div>
+        <div class="flex items-center gap-space-xs mt-space-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-fixed">verified</span>
+          <span>Official University Honor Guild Repository</span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg mt-space-lg pt-space-md border-t border-primary-container/60 flex flex-col sm:flex-row justify-between items-center gap-space-sm text-center sm:text-left">
+    <span class="font-label-xs text-label-xs text-surface-container-high/60">
+      © CAS Honor Society Database. Preserving Academic Excellence and Institutional Truth.
+    </span>
+    <span class="font-label-xs text-label-xs text-secondary-fixed/80 uppercase tracking-widest">
+      Office of the Dean &amp; Academic Council
+    </span>
   </div>
 </footer>

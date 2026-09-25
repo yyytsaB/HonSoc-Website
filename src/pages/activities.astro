@@ -1,0 +1,382 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+---
+
+<BaseLayout title="Activities & Accomplishments | CASHONSITE">
+  <Navbar currentPath="/activities" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <div class="max-w-7xl mx-auto w-full px-margin-sm lg:px-margin-lg py-space-xl">
+        <!-- Title Header -->
+        <div class="flex flex-col items-center text-center mb-space-lg">
+          <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-semibold mb-space-xs">
+            Official Archival Records &amp; Portfolio
+          </span>
+          <h1 class="font-headline-xl text-headline-xl text-primary font-normal tracking-tight">
+            ACTIVITIES &amp; ACCOMPLISHMENTS
+          </h1>
+          <div class="w-16 h-1 bg-secondary-container mt-space-xs rounded-full"></div>
+        </div>
+
+        <!-- Activity Status Tabs -->
+        <div class="w-full flex items-center justify-center mb-space-lg overflow-x-auto pb-space-xs">
+          <div class="inline-flex items-center gap-space-xs p-1.5 bg-surface-container rounded-xl shadow-sm">
+            <button
+              id="tab-current"
+              type="button"
+              class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
+            >
+              CURRENT ACTIVITIES
+            </button>
+            <button
+              id="tab-completed"
+              type="button"
+              class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all bg-primary text-on-primary shadow-sm font-semibold"
+            >
+              COMPLETED ACTIVITIES
+            </button>
+            <button
+              id="tab-partnerships"
+              type="button"
+              class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
+            >
+              PARTNERSHIPS
+            </button>
+            <button
+              id="tab-engagements"
+              type="button"
+              class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
+            >
+              EXTERNAL ENGAGEMENTS
+            </button>
+            <button
+              id="tab-calendar"
+              type="button"
+              class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
+            >
+              CALENDAR
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid Layout: 8-column main activity list + 4-column sidebar -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+          <div class="lg:col-span-8 flex flex-col gap-space-md">
+            
+            <!-- Panel: Completed Activities (Default Active) -->
+            <div class="tab-panel flex flex-col gap-space-md" id="panel-completed">
+              <!-- Activity 1: Leadership Seminar -->
+              <div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row gap-space-md items-start">
+                  <div class="w-full sm:w-56 aspect-[4/3] rounded-lg overflow-hidden shrink-0 bg-surface-container">
+                    <img
+                      src="/images/activity-convention.svg"
+                      alt="Leadership Seminar 2026 collegiate convention"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="flex flex-col justify-between flex-1 h-full min-w-0">
+                    <div>
+                      <div class="flex items-center gap-space-xs mb-space-xs">
+                        <span class="px-2 py-0.5 rounded-full bg-surface-container font-label-xs text-label-xs text-on-surface-variant font-medium">SY 2025-2026</span>
+                        <span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 font-label-xs text-label-xs text-on-secondary-fixed font-medium">Archived Report</span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-on-surface font-normal mb-1">LEADERSHIP SEMINAR 2026</h3>
+                      <div class="flex items-center gap-1.5 font-body-sm text-body-sm text-secondary font-medium mb-space-xs">
+                        <span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+                        <span>June 5, 2026</span>
+                        <span class="text-outline-variant">•</span>
+                        <span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                        <span>CAS AVR</span>
+                      </div>
+                      <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                        A seminar aimed at developing the leadership potential of CAS Honor Society members through peer ethics, research stewardship, and collegiate governance workshops.
+                      </p>
+                    </div>
+                    <div>
+                      <a
+                        href="/request"
+                        class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
+                      >
+                        <span>VIEW ACCOMPLISHMENT REPORT</span>
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity 2: Outreach Program -->
+              <div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row gap-space-md items-start">
+                  <div class="w-full sm:w-56 aspect-[4/3] rounded-lg overflow-hidden shrink-0 bg-surface-container">
+                    <img
+                      src="/images/activity-outreach.svg"
+                      alt="Educational community outreach initiative"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="flex flex-col justify-between flex-1 h-full min-w-0">
+                    <div>
+                      <div class="flex items-center gap-space-xs mb-space-xs">
+                        <span class="px-2 py-0.5 rounded-full bg-surface-container font-label-xs text-label-xs text-on-surface-variant font-medium">Community Engagement</span>
+                        <span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 font-label-xs text-label-xs text-on-secondary-fixed font-medium">Civic Portfolio</span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-on-surface font-normal mb-1">OUTREACH PROGRAM</h3>
+                      <div class="flex items-center gap-1.5 font-body-sm text-body-sm text-secondary font-medium mb-space-xs">
+                        <span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+                        <span>July 12, 2026</span>
+                        <span class="text-outline-variant">•</span>
+                        <span class="material-symbols-outlined text-[16px] text-secondary">pin_drop</span>
+                        <span>Brgy. San Isidro</span>
+                      </div>
+                      <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                        An outreach activity to extend help and promote community involvement, delivering foundational literacy kits and mentorship to secondary school scholars.
+                      </p>
+                    </div>
+                    <div>
+                      <a
+                        href="/request"
+                        class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
+                      >
+                        <span>VIEW ACCOMPLISHMENT REPORT</span>
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity 3: Recognition Day -->
+              <div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row gap-space-md items-start">
+                  <div class="w-full sm:w-56 aspect-[4/3] rounded-lg overflow-hidden shrink-0 bg-surface-container">
+                    <img
+                      src="/images/activity-convocation.svg"
+                      alt="Annual Recognition Day Honors Rites"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="flex flex-col justify-between flex-1 h-full min-w-0">
+                    <div>
+                      <div class="flex items-center gap-space-xs mb-space-xs">
+                        <span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">Flagship Event</span>
+                        <span class="px-2 py-0.5 rounded-full bg-surface-container font-label-xs text-label-xs text-on-surface-variant font-medium">Annual Rites</span>
+                      </div>
+                      <h3 class="font-headline-sm text-headline-sm text-on-surface font-normal mb-1">RECOGNITION DAY 2026</h3>
+                      <div class="flex items-center gap-1.5 font-body-sm text-body-sm text-secondary font-medium mb-space-xs">
+                        <span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+                        <span>August 8, 2026</span>
+                        <span class="text-outline-variant">•</span>
+                        <span class="material-symbols-outlined text-[16px] text-secondary">account_balance</span>
+                        <span>CAS Auditorium</span>
+                      </div>
+                      <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                        An event recognizing the academic excellence and dedication of CAS students, conferring distinction medals and publication honorarium awards.
+                      </p>
+                    </div>
+                    <div>
+                      <a
+                        href="/request"
+                        class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
+                      >
+                        <span>VIEW ACCOMPLISHMENT REPORT</span>
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel: Current Activities -->
+            <div class="tab-panel hidden flex-col gap-space-md" id="panel-current">
+              <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                <div class="flex items-center gap-space-sm mb-space-sm text-primary">
+                  <span class="material-symbols-outlined text-[24px]">pending_actions</span>
+                  <h3 class="font-headline-sm text-headline-sm">Ongoing Cohort Projects</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+                  Current semester initiatives undergoing active execution, research reviews, and community stakeholder consultations.
+                </p>
+                <div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between">
+                  <div>
+                    <span class="font-title-md text-title-md text-on-surface block">Scholastic Tutoring Hub 2026</span>
+                    <span class="font-body-sm text-body-sm text-secondary">In Progress • CAS Room 304</span>
+                  </div>
+                  <span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">Active</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel: Partnerships -->
+            <div class="tab-panel hidden flex-col gap-space-md" id="panel-partnerships">
+              <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                <div class="flex items-center gap-space-sm mb-space-sm text-primary">
+                  <span class="material-symbols-outlined text-[24px]">handshake</span>
+                  <h3 class="font-headline-sm text-headline-sm">Institutional Partners</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  The CAS Honor Society coordinates with domestic academic leagues, international honor society chapters, and corporate research fellowships.
+                </p>
+              </div>
+            </div>
+
+            <!-- Panel: External Engagements -->
+            <div class="tab-panel hidden flex-col gap-space-md" id="panel-engagements">
+              <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                <div class="flex items-center gap-space-sm mb-space-sm text-primary">
+                  <span class="material-symbols-outlined text-[24px]">public</span>
+                  <h3 class="font-headline-sm text-headline-sm">External Research &amp; Symposia</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Inter-university colloquiums, research presentation grants, and regional collegiate debates archived under the Academic Dean's registry.
+                </p>
+              </div>
+            </div>
+
+            <!-- Panel: Calendar -->
+            <div class="tab-panel hidden flex-col gap-space-md" id="panel-calendar">
+              <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+                <div class="flex items-center gap-space-sm mb-space-sm text-primary">
+                  <span class="material-symbols-outlined text-[24px]">calendar_month</span>
+                  <h3 class="font-headline-sm text-headline-sm">Academic Calendar 2025–2026</h3>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  View deadlines for membership dossier submission, induction rehearsals, and faculty committee peer evaluations.
+                </p>
+              </div>
+            </div>
+
+            <!-- View All Footer Link -->
+            <div class="flex items-center justify-center pt-space-md">
+              <a
+                href="/transparency"
+                class="inline-flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary hover:text-primary-container font-semibold transition-colors px-space-md py-space-sm rounded-lg hover:bg-surface-container"
+              >
+                <span>VIEW ALL ACTIVITIES</span>
+                <span class="material-symbols-outlined text-[18px]">read_more</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 4-Column Sidebar -->
+          <div class="lg:col-span-4 flex flex-col gap-space-md">
+            <!-- Impact Metrics Card -->
+            <div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+              <div class="flex items-center justify-between mb-space-sm">
+                <span class="font-label-xs text-label-xs text-secondary uppercase font-bold tracking-wider">ANNUAL IMPACT</span>
+                <span class="material-symbols-outlined text-secondary text-[20px]">analytics</span>
+              </div>
+              <h4 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Accomplishment Metrics</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                Audited execution statistics for academic and community initiatives conducted across the current calendar cycle.
+              </p>
+              <div class="space-y-space-sm">
+                <div>
+                  <div class="flex justify-between font-label-xs text-label-xs mb-1">
+                    <span class="text-on-surface-variant font-medium">Leadership Modules Completed</span>
+                    <span class="font-bold text-primary">100%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 100%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-xs text-label-xs mb-1">
+                    <span class="text-on-surface-variant font-medium">Community Civic Outreach</span>
+                    <span class="font-bold text-secondary">92%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                    <div class="h-full bg-secondary-container rounded-full" style="width: 92%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-label-xs text-label-xs mb-1">
+                    <span class="text-on-surface-variant font-medium">Dean's Honor Recognition Target</span>
+                    <span class="font-bold text-primary">96%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 96%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-space-xs mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-sm text-center">
+                <div>
+                  <span class="font-headline-md text-headline-md text-primary font-normal block leading-none">24</span>
+                  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Reports Filed</span>
+                </div>
+                <div>
+                  <span class="font-headline-md text-headline-md text-secondary font-normal block leading-none">1.4k+</span>
+                  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Participants</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verification Guarantee Box -->
+            <div class="bg-primary text-on-primary rounded-xl p-space-lg shadow-sm">
+              <div class="flex items-center gap-space-xs mb-space-xs">
+                <span class="material-symbols-outlined text-secondary-fixed text-[22px]">policy</span>
+                <span class="font-label-xs text-label-xs text-secondary-fixed tracking-wider uppercase font-semibold">Verification Guarantee</span>
+              </div>
+              <h4 class="font-headline-sm text-headline-sm text-surface-bright mb-space-xs">Need Certified Documentation?</h4>
+              <p class="font-body-sm text-body-sm text-surface-container-high/90 mb-space-md">
+                All accomplishment records are reviewed and verified by the CAS Secretariat. Official certificate transcripts and event citations can be formally requested.
+              </p>
+              <a
+                href="/request"
+                class="inline-flex w-full items-center justify-center gap-space-xs py-2.5 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md tracking-wider uppercase font-semibold hover:bg-secondary-fixed transition-colors"
+              >
+                <span>REQUEST OFFICIAL CITATION</span>
+                <span class="material-symbols-outlined text-[18px]">verified</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    function setupActivityTabs() {
+      const tabKeys = ['current', 'completed', 'partnerships', 'engagements', 'calendar'];
+      tabKeys.forEach(function(key) {
+        const btn = document.getElementById('tab-' + key);
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          tabKeys.forEach(function(k) {
+            const b = document.getElementById('tab-' + k);
+            const p = document.getElementById('panel-' + k);
+            if (b) {
+              if (k === key) {
+                b.className = 'tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all bg-primary text-on-primary shadow-sm font-semibold';
+              } else {
+                b.className = 'tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright';
+              }
+            }
+            if (p) {
+              if (k === key) {
+                p.classList.remove('hidden');
+                p.classList.add('flex');
+              } else {
+                p.classList.remove('flex');
+                p.classList.add('hidden');
+              }
+            }
+          });
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupActivityTabs);
+    } else {
+      setupActivityTabs();
+    }
+  </script>
+</BaseLayout>

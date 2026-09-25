@@ -1,0 +1,408 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+---
+
+<BaseLayout title="Document Request Portal | CASHONSITE">
+  <Navbar currentPath="/request" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <div class="w-full max-w-7xl mx-auto px-margin-sm lg:px-margin-lg py-space-xl">
+        <!-- Top Decorative Badge -->
+        <div class="flex items-center gap-space-xs mb-space-md">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/50 text-tertiary-container font-label-md text-label-md tracking-wider uppercase shadow-sm">
+            <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Official University Repository
+          </span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">
+            Registry Clearance • A.Y. 2026–2027
+          </span>
+        </div>
+
+        <!-- Header Block: Two Columns -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center mb-space-xl">
+          <div class="lg:col-span-8 flex flex-col gap-space-sm">
+            <h1 class="font-headline-xl text-headline-xl text-primary font-normal tracking-tight">
+              DOCUMENT REQUEST PORTAL
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              Need an official document or certificate? Submit your verified request through the institutional repository intake form below.
+            </p>
+            
+            <!-- Quick Status Metrics Bar -->
+            <div class="grid grid-cols-3 gap-space-sm mt-space-md pt-space-md max-w-xl">
+              <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col shadow-sm">
+                <span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">Turnaround</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface font-medium">3–5 Days</span>
+              </div>
+              <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col shadow-sm">
+                <span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">Security Tier</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface font-medium">Encrypted</span>
+              </div>
+              <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col shadow-sm">
+                <span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">Authentication</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface font-medium">Dean's Seal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Stylized Document & Pen SVG Illustration -->
+          <div class="lg:col-span-4 flex justify-center lg:justify-end">
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-md flex items-center justify-center shadow-md">
+              <div class="absolute -top-4 -right-4 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute -bottom-4 -left-4 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+              
+              <svg class="w-44 h-44 sm:w-52 sm:h-52 drop-shadow-lg" fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M42 34C42 27.3726 47.3726 22 54 22H122L156 56V164C156 170.627 150.627 176 144 176H54C47.3726 176 42 170.627 42 164V34Z" fill="#6A020A" fill-opacity="0.9"></path>
+                <path d="M122 22V50C122 53.3137 124.686 56 128 56H156" fill="#8B1E1E"></path>
+                <path d="M122 22L156 56H128C124.686 56 122 53.3137 122 50V22Z" fill="#FFDAD6" fill-opacity="0.35"></path>
+                <rect fill="#FFF8F5" fill-opacity="0.85" height="7" rx="3.5" width="80" x="58" y="74"></rect>
+                <rect fill="#FFF8F5" fill-opacity="0.5" height="6" rx="3" width="60" x="58" y="92"></rect>
+                <rect fill="#FFF8F5" fill-opacity="0.5" height="6" rx="3" width="70" x="58" y="108"></rect>
+                <rect fill="#FFF8F5" fill-opacity="0.5" height="6" rx="3" width="46" x="58" y="124"></rect>
+                <circle cx="126" cy="140" fill="#FFBA49" r="14"></circle>
+                <circle cx="126" cy="140" fill="#805600" r="10"></circle>
+                <path d="M126 133L128 138L133 138.5L129 142L130.5 147L126 144L121.5 147L123 142L119 138.5L124 138L126 133Z" fill="#FFDDB0"></path>
+                <g transform="rotate(-36 150 120)">
+                  <rect fill="#FFDDB0" height="76" rx="4" width="16" x="138" y="52"></rect>
+                  <rect fill="#FFFFFF" fill-opacity="0.35" height="76" width="6" x="140" y="52"></rect>
+                  <rect fill="#AA3531" height="20" width="16" x="138" y="108"></rect>
+                  <path d="M138 128L146 146L154 128H138Z" fill="#6A020A"></path>
+                  <circle cx="146" cy="144" fill="#FFBA49" r="2"></circle>
+                  <rect fill="#805600" height="4" rx="1.5" width="20" x="136" y="60"></rect>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Section: Structured Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+          <!-- Primary Card: WHAT YOU CAN REQUEST -->
+          <div class="lg:col-span-8 bg-surface-container-lowest rounded-2xl p-space-lg lg:p-space-xl shadow-md flex flex-col gap-space-lg transition-transform hover:-translate-y-0.5 duration-300">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm border-b-2 border-surface-container">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">assignment</span>
+                </span>
+                <h2 class="font-title-md text-title-md text-primary font-semibold tracking-wide uppercase">
+                  What You Can Request
+                </h2>
+              </div>
+              <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">
+                Clearance Type: Official Archival Copies
+              </span>
+            </div>
+
+            <!-- Requestable Categories Detailed List -->
+            <div class="flex flex-col gap-space-md">
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors">
+                <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-on-secondary-fixed font-bold">check</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-on-surface font-semibold">Certificates</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">
+                    Membership, Academic Participation, General Recognition, Officer Credentials, and Dean’s Honor Roll citations.
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors">
+                <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-on-secondary-fixed font-bold">check</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-on-surface font-semibold">Resolutions, Minutes, and Other Records</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">
+                    Executive session transcripts, ratified legislative charters, convocation resolutions, and society constitution amendments.
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors">
+                <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-on-secondary-fixed font-bold">check</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-on-surface font-semibold">Accomplishment Reports</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">
+                    Semester-end institutional project evaluations, research publication portfolios, and outreach impact dossiers.
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors">
+                <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-on-secondary-fixed font-bold">check</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-on-surface font-semibold">Financial Reports</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">
+                    Audited society financial statements, endowment ledger summaries, grant allocations, and transparency audits.
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors">
+                <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span class="material-symbols-outlined text-[16px] text-on-secondary-fixed font-bold">check</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-lg text-label-lg text-on-surface font-semibold">Other Organizational Documents</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">
+                    Official seals of endorsement, verification letters for scholarship panels, and university cross-enrollment clearances.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Area: Centered Primary Button -->
+            <div class="pt-space-md flex flex-col items-center justify-center gap-space-xs mt-space-sm border-t border-surface-container">
+              <button
+                id="trigger-form-btn"
+                type="button"
+                class="w-full sm:w-auto px-10 py-3.5 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-center transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <span>GO TO REQUEST FORM</span>
+                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
+              <span class="font-label-xs text-label-xs text-on-surface-variant mt-1 text-center">
+                Secured institutional single-sign-on verification via University CAS ID
+              </span>
+            </div>
+          </div>
+
+          <!-- Secondary Right Column: Reminders Card & Archival Notice -->
+          <div class="lg:col-span-4 flex flex-col gap-space-lg">
+            <!-- REMINDERS Card -->
+            <div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md flex flex-col gap-space-md">
+              <div class="flex items-center gap-space-xs pb-space-xs border-b border-surface-container">
+                <span class="w-7 h-7 rounded-md bg-secondary/10 flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined text-[18px]">info</span>
+                </span>
+                <h3 class="font-title-md text-title-md text-primary font-semibold uppercase tracking-wide">
+                  Reminders
+                </h3>
+              </div>
+              <div class="flex flex-col gap-space-sm">
+                <div class="flex items-start gap-space-sm p-space-xs">
+                  <span class="material-symbols-outlined text-[20px] text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <p class="font-body-md text-body-md text-on-surface">
+                    Allow <strong class="font-semibold text-primary">3–5 working days</strong> for validation, administrative signatures, and archival stamping.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm p-space-xs">
+                  <span class="material-symbols-outlined text-[20px] text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <p class="font-body-md text-body-md text-on-surface">
+                    Provide accurate student ID numbers and email coordinates to avoid administrative verification delays.
+                  </p>
+                </div>
+                <div class="flex items-start gap-space-sm p-space-xs">
+                  <span class="material-symbols-outlined text-[20px] text-secondary flex-shrink-0 mt-0.5">check_circle</span>
+                  <p class="font-body-md text-body-md text-on-surface">
+                    You will be notified via email once your digitally certified or physical document package is ready for retrieval.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Processing Protocol Note -->
+              <div class="mt-space-xs p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+                <span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">Office Hours Notice</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  The Document Registry Desk accommodates releasing from Monday to Friday, 8:00 AM – 5:00 PM at the CAS Dean's Wing.
+                </p>
+              </div>
+            </div>
+
+            <!-- Archival Verification Support Card -->
+            <div class="bg-surface-container-high rounded-2xl p-space-lg flex flex-col gap-space-sm">
+              <div class="flex items-center gap-space-xs text-primary">
+                <span class="material-symbols-outlined text-[20px]">help_center</span>
+                <span class="font-label-md text-label-md uppercase tracking-wider font-semibold">Need Assistance?</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                For urgent apostille, legal notarization, or prior-year cohort queries, please contact the Council Records Custodian directly.
+              </p>
+              <a
+                href="mailto:records@cas-honorsociety.org"
+                class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold transition-colors mt-space-xs"
+              >
+                <span>records@cas-honorsociety.org</span>
+                <span class="material-symbols-outlined text-[16px]">north_east</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Request Intake Modal -->
+        <div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm p-margin-sm" id="request-dialog">
+          <div class="bg-surface-container-lowest max-w-xl w-full rounded-2xl shadow-2xl p-space-lg lg:p-space-xl flex flex-col gap-space-md relative">
+            <div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[18px]">description</span>
+                </span>
+                <h3 class="font-headline-sm text-headline-sm text-primary font-medium">New Document Request</h3>
+              </div>
+              <button
+                type="button"
+                id="close-modal-btn"
+                class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
+
+            <form class="flex flex-col gap-space-md" id="intake-form">
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Full Scholar Name</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Juana Patricia L. Dela Rosa"
+                  class="w-full px-4 py-2.5 rounded-lg bg-surface border border-outline-variant/50 focus:border-primary focus:outline-none text-body-md text-on-surface"
+                />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Student ID No.</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="2024-08912"
+                    class="w-full px-4 py-2.5 rounded-lg bg-surface border border-outline-variant/50 focus:border-primary focus:outline-none text-body-md text-on-surface"
+                  />
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Academic Program</label>
+                  <select class="w-full px-4 py-2.5 rounded-lg bg-surface border border-outline-variant/50 focus:border-primary focus:outline-none text-body-md text-on-surface cursor-pointer">
+                    <option>BS Psychology</option>
+                    <option>BS Biology</option>
+                    <option>BA Political Science</option>
+                    <option>BA Literature</option>
+                    <option>BS Applied Physics</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Document Type</label>
+                <select class="w-full px-4 py-2.5 rounded-lg bg-surface border border-outline-variant/50 focus:border-primary focus:outline-none text-body-md text-on-surface cursor-pointer">
+                  <option>Certificate of Membership</option>
+                  <option>Dean’s Honor Roll Citation</option>
+                  <option>Resolution / Minutes Extract</option>
+                  <option>Financial Statement Copy</option>
+                  <option>Officer Service Verification</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Purpose of Request</label>
+                <textarea
+                  rows="3"
+                  placeholder="State reason (e.g. Scholarship application, Employment clearance, Graduate school dossier)"
+                  class="w-full px-4 py-2 rounded-lg bg-surface border border-outline-variant/50 focus:border-primary focus:outline-none text-body-md text-on-surface"
+                ></textarea>
+              </div>
+              <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+                <button
+                  id="cancel-btn"
+                  type="button"
+                  class="px-5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md text-label-md uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  class="px-6 py-2.5 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-md text-label-md uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+                >
+                  Submit Intake Request
+                </button>
+              </div>
+            </form>
+
+            <div class="hidden flex-col items-center text-center gap-space-md py-space-md" id="confirmation-view">
+              <div class="w-14 h-14 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+                <span class="material-symbols-outlined text-[32px]">task_alt</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h4 class="font-headline-sm text-headline-sm text-primary">Request Docket Generated</h4>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                  Your request docket <strong class="text-primary font-mono">#CAS-2026-0491</strong> has been lodged. An acknowledgment has been transmitted to your student email.
+                </p>
+              </div>
+              <button
+                id="ok-btn"
+                type="button"
+                class="px-8 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md uppercase tracking-wider cursor-pointer"
+              >
+                Close Panel
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    function setupRequestModal() {
+      const triggerBtn = document.getElementById('trigger-form-btn');
+      const modal = document.getElementById('request-dialog');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const cancelBtn = document.getElementById('cancel-btn');
+      const intakeForm = document.getElementById('intake-form') as HTMLFormElement | null;
+      const confirmationView = document.getElementById('confirmation-view');
+      const okBtn = document.getElementById('ok-btn');
+
+      function openModal(e?: Event) {
+        if (e) e.preventDefault();
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+      }
+
+      function closeModal() {
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          setTimeout(() => {
+            intakeForm?.classList.remove('hidden');
+            confirmationView?.classList.add('hidden');
+            intakeForm?.reset();
+          }, 200);
+        }
+      }
+
+      if (triggerBtn) triggerBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+      if (okBtn) okBtn.addEventListener('click', closeModal);
+
+      if (intakeForm) {
+        intakeForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          intakeForm.classList.add('hidden');
+          confirmationView?.classList.remove('hidden');
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupRequestModal);
+    } else {
+      setupRequestModal();
+    }
+  </script>
+</BaseLayout>

@@ -66,10 +66,10 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 href={item.href}
                 onClick={() => setOpen(false)}
                 aria-current={isActive ? 'page' : undefined}
-                className={`flex items-center px-4 py-3 rounded-pill text-body font-ui transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                className={`flex items-center px-4 py-3 rounded-lg text-body-md font-ui transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                   isActive
-                    ? 'bg-maroon-light text-maroon font-bold'
-                    : 'text-gray-800 font-semibold hover:bg-maroon-light/60 hover:text-maroon'
+                    ? 'bg-primary text-on-primary font-bold'
+                    : 'text-on-surface-variant font-semibold hover:bg-surface-container hover:text-primary'
                 }`}
               >
                 {item.label}
@@ -78,22 +78,20 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
           })}
         </nav>
 
-        <div className="pt-4 border-t border-border flex flex-col gap-2.5">
+        <div className="pt-4 border-t border-outline-variant/30 flex flex-col gap-2.5">
           <a
-            href="/deans-list#gwa-calc"
+            href="/request"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-pill border border-border bg-stone font-ui text-body-sm font-semibold text-gray-800 hover:bg-white transition-colors duration-120 ease-enter"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-outline-variant/40 bg-surface-container font-ui text-body-sm font-semibold text-on-surface hover:bg-surface-bright transition-colors duration-120 ease-enter"
           >
-            <Calculator className="w-4 h-4 text-gold" aria-hidden="true" />
-            <span>GWA Calculator</span>
+            <span>Document Request Portal</span>
           </a>
           <a
-            href="/deans-list#apply-dl"
+            href="/feedback"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-pill bg-maroon text-white font-ui text-body-sm font-semibold hover:bg-maroon-hover transition-colors duration-120 ease-enter"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-ui text-body-sm font-semibold hover:bg-primary/90 transition-colors duration-120 ease-enter"
           >
-            <Award className="w-4 h-4 text-gold" aria-hidden="true" />
-            <span>Dean's List Portal</span>
+            <span>Send Feedback &amp; Inquiries</span>
           </a>
         </div>
       </DrawerContent>

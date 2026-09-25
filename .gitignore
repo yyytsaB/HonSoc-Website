@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# scratch scripts and reference mockups
+scratch/
+revised_mockup/

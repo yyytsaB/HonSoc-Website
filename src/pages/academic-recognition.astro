@@ -1,0 +1,333 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+
+const col1 = [
+  { name: "Adelina, Marie Claire D.", gwa: "1.18" },
+  { name: "Aguilar, Mikaela R.", gwa: "1.25" },
+  { name: "Alvarez, John Paul C.", gwa: "1.30" },
+  { name: "Bautista, Sophia Anne T.", gwa: "1.21" },
+  { name: "Cabrera, Angelika M.", gwa: "1.35" },
+  { name: "Cruz, Andrei J.", gwa: "1.40" },
+  { name: "Dela Peña, Luis Miguel P.", gwa: "1.28" },
+];
+
+const col2 = [
+  { name: "Dela Rosa, Juana Patricia L.", gwa: "1.15" },
+  { name: "Domingo, Alexa Marie B.", gwa: "1.22" },
+  { name: "Gonzales, Maria Isabel D.", gwa: "1.34" },
+  { name: "Llamas, Hannah Coleen S.", gwa: "1.29" },
+  { name: "Lopez, Krisha Mae T.", gwa: "1.31" },
+  { name: "Manalo, Erika Shane D.", gwa: "1.19" },
+  { name: "Marquez, Paul Vincent L.", gwa: "1.41" },
+];
+
+const col3 = [
+  { name: "Mercado, Isabella F.", gwa: "1.14" },
+  { name: "Natividad, John Matthew R.", gwa: "1.33" },
+  { name: "Panganiban, Daniela S.", gwa: "1.26" },
+  { name: "Reyes, Maria Angelica P.", gwa: "1.23" },
+  { name: "Ramos, Adrian Kyle T.", gwa: "1.37" },
+  { name: "Sison, Gabrielle E.", gwa: "1.27" },
+  { name: "Tiu, Patricia Mae Y.", gwa: "1.17" },
+];
+---
+
+<BaseLayout title="Academic Recognition | CASHONSITE">
+  <Navbar currentPath="/academic-recognition" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-container-lowest py-space-xl">
+        <div class="absolute -top-32 right-12 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-48 -left-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg relative z-10 flex flex-col items-center">
+          <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container shadow-sm mb-space-sm">
+            <span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+            <span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant font-semibold">Official Collegiate Rolls</span>
+          </div>
+          
+          <h1 class="font-headline-xl text-headline-xl text-primary tracking-tight text-center font-normal mb-space-sm">
+            ACADEMIC RECOGNITION
+          </h1>
+          
+          <p class="font-body-md text-body-md text-on-surface-variant text-center max-w-2xl mb-space-xl">
+            A verified registry celebrating sustained scholarly excellence, peerless research acumen, and rigorous intellectual integrity across all College of Arts and Sciences programs.
+          </p>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap justify-center items-center gap-space-xs p-1.5 rounded-full bg-surface-container-high/80 shadow-inner max-w-2xl w-full mb-space-xl" role="tablist">
+            <button
+              id="tab-deans-list"
+              role="tab"
+              aria-selected="true"
+              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-primary bg-primary shadow-sm hover:opacity-95 transition-all text-center"
+            >
+              DEAN'S LISTERS
+            </button>
+            <button
+              id="tab-achievers"
+              role="tab"
+              aria-selected="false"
+              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center"
+            >
+              TOP ACADEMIC ACHIEVERS
+            </button>
+            <button
+              id="tab-distinctions"
+              role="tab"
+              aria-selected="false"
+              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center"
+            >
+              OTHER DISTINCTIONS
+            </button>
+          </div>
+
+          <!-- Main Registry Showcase Card -->
+          <div class="w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-space-md lg:p-space-xl transition-all">
+            <!-- Header & Filter Toolbar -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-space-md pb-space-lg">
+              <div>
+                <div class="flex items-center gap-space-xs mb-1">
+                  <h2 class="font-headline-md text-headline-md text-primary tracking-tight font-medium">
+                    DEAN'S LISTERS
+                  </h2>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs">Verified</span>
+                </div>
+                <p class="font-label-md text-label-md uppercase tracking-wider text-secondary font-semibold">
+                  A.Y. 2026–2027 • 1ST SEMESTER
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                  We recognize the following CAS students for their outstanding academic performance and scholarly distinction.
+                </p>
+              </div>
+
+              <!-- Controls -->
+              <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm w-full lg:w-auto">
+                <div class="relative w-full sm:w-48">
+                  <select
+                    id="program-filter"
+                    class="w-full appearance-none bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-md py-2.5 pr-8 rounded-lg shadow-sm focus:outline-none focus:bg-surface-container transition-colors cursor-pointer"
+                  >
+                    <option value="all">All Programs</option>
+                    <option value="psych" selected>BS Psychology</option>
+                    <option value="bio">BS Biology</option>
+                    <option value="comm">BA Communication</option>
+                    <option value="polsci">BA Political Science</option>
+                    <option value="lit">BA Literature</option>
+                  </select>
+                  <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+                </div>
+                <div class="relative w-full sm:w-64">
+                  <span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-[20px]">search</span>
+                  <input
+                    id="name-search"
+                    type="text"
+                    placeholder="Search name..."
+                    class="w-full bg-surface-container-low text-on-surface placeholder-on-surface-variant/60 font-body-sm text-body-sm pl-10 pr-space-md py-2.5 rounded-full shadow-sm focus:outline-none focus:bg-surface-container transition-all"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Academic Metrics Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm py-space-md mb-space-lg rounded-lg bg-surface-container-low px-space-md">
+              <div class="flex flex-col">
+                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Selected Program</span>
+                <span class="font-title-md text-title-md text-primary font-semibold">BS Psychology</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Class Honor Roll</span>
+                <span class="font-title-md text-title-md text-on-surface font-semibold" id="roster-count">21 Confirmed</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Min. Weighted Avg.</span>
+                <span class="font-title-md text-title-md text-secondary font-semibold">1.450 / 94.5%</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Certification Code</span>
+                <span class="font-title-md text-title-md text-on-surface-variant font-mono">DL-CAS-2627-1</span>
+              </div>
+            </div>
+
+            <!-- Department Section Banner -->
+            <div class="flex items-center justify-between mb-space-md pb-space-xs">
+              <div class="flex items-center gap-space-xs">
+                <span class="material-symbols-outlined text-primary text-[22px]">psychology</span>
+                <h3 class="font-title-md text-title-md font-bold uppercase tracking-wider text-primary">
+                  BS PSYCHOLOGY
+                </h3>
+              </div>
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">21 Scholars</span>
+            </div>
+
+            <!-- 3-Column Names Directory -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-space-xs bg-surface-container-low/50 p-space-md lg:p-space-lg rounded-xl" id="honorees-container">
+              <!-- Column 1 -->
+              <div class="flex flex-col gap-space-xs honor-column">
+                {col1.map((student) => (
+                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
+                    <div class="flex items-center gap-space-xs min-w-0">
+                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
+                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                    </div>
+                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Column 2 -->
+              <div class="flex flex-col gap-space-xs honor-column">
+                {col2.map((student) => (
+                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
+                    <div class="flex items-center gap-space-xs min-w-0">
+                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
+                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                    </div>
+                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Column 3 -->
+              <div class="flex flex-col gap-space-xs honor-column">
+                {col3.map((student) => (
+                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
+                    <div class="flex items-center gap-space-xs min-w-0">
+                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
+                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                    </div>
+                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- No Results Fallback -->
+            <div class="hidden flex-col items-center justify-center py-space-xl text-center" id="no-search-results">
+              <span class="material-symbols-outlined text-primary/40 text-[48px] mb-2">person_search</span>
+              <p class="font-title-md text-title-md text-on-surface font-medium">No honor scholar found matching the query</p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Please ensure the student's legal surname or given name is spelled accurately.</p>
+            </div>
+
+            <!-- Bottom Action CTA -->
+            <div class="mt-space-xl pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+              <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                <span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+                <span>Archival record verified by CAS Honor Society Governance Council</span>
+              </div>
+              <a
+                href="/archive"
+                class="inline-flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary hover:text-primary-container px-space-md py-space-sm rounded-full bg-surface-container hover:bg-surface-container-high transition-all shadow-sm"
+              >
+                <span>VIEW FULL LIST (ALL PROGRAMS)</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Scholarly Verification & Document Link Banner -->
+          <div class="w-full mt-space-lg grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
+              <div class="p-2 rounded-lg bg-primary text-on-primary shrink-0">
+                <span class="material-symbols-outlined text-[24px]">policy</span>
+              </div>
+              <div>
+                <h4 class="font-title-md text-title-md text-primary font-semibold">Eligibility Standards</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Minimum GPA of 1.450 with no single grade lower than 2.0 and at least 18 regular academic units completed.</p>
+              </div>
+            </div>
+            
+            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
+              <div class="p-2 rounded-lg bg-secondary text-on-secondary shrink-0">
+                <span class="material-symbols-outlined text-[24px]">history_edu</span>
+              </div>
+              <div>
+                <h4 class="font-title-md text-title-md text-primary font-semibold">Official Transcript Seals</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Inscribed directly upon semester permanent records and eligible for university convocation recognition honors.</p>
+              </div>
+            </div>
+            
+            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
+              <div class="p-2 rounded-lg bg-surface-container-highest text-primary shrink-0">
+                <span class="material-symbols-outlined text-[24px]">assignment_turned_in</span>
+              </div>
+              <div class="flex flex-col">
+                <h4 class="font-title-md text-title-md text-primary font-semibold">Need Proof of Distinction?</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Official certificates and verification letters can be ordered through the digital request bureau.</p>
+                <a href="/request" class="mt-2 inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold">
+                  Go to Document Request
+                  <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    function setupRecognitionSearch() {
+      const searchInput = document.getElementById('name-search') as HTMLInputElement | null;
+      const studentCards = document.querySelectorAll('.student-entry');
+      const noResults = document.getElementById('no-search-results');
+      const rosterCount = document.getElementById('roster-count');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+          let visibleCount = 0;
+
+          studentCards.forEach(function(card) {
+            const nameEl = card.querySelector('.student-name');
+            const nameText = nameEl ? nameEl.textContent?.toLowerCase() || '' : '';
+            if (nameText.includes(query)) {
+              card.classList.remove('hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+
+          if (visibleCount === 0) {
+            noResults?.classList.remove('hidden');
+            noResults?.classList.add('flex');
+          } else {
+            noResults?.classList.add('hidden');
+            noResults?.classList.remove('flex');
+          }
+
+          if (rosterCount) {
+            rosterCount.textContent = visibleCount + ' Confirmed';
+          }
+        });
+      }
+
+      const tabs = document.querySelectorAll('.recognition-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            t.classList.add('text-on-surface-variant');
+            t.setAttribute('aria-selected', 'false');
+          });
+          this.classList.remove('text-on-surface-variant');
+          this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          this.setAttribute('aria-selected', 'true');
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupRecognitionSearch);
+    } else {
+      setupRecognitionSearch();
+    }
+  </script>
+</BaseLayout>

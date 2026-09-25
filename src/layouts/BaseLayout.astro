@@ -10,7 +10,7 @@ export interface Props {
 
 const {
   title,
-  description = 'HonSoc — Honor Society of the College of [College Name].',
+  description = 'CASHONSITE — A Public Database of CAS Honor Society. A platform dedicated to transparency, accountability, and academic excellence across the College of Arts and Sciences.',
   ogImage = '/og-default.png',
   preloadImage,
 } = Astro.props;
@@ -36,13 +36,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Favicon placeholder — replace with final asset -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Fonts use font-display: swap in fonts.css -->
     <link
       rel="preload"
-      href="/fonts/alice-latin-400-normal.woff2"
+      href="/fonts/newsreader-latin-400-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -53,6 +53,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
       as="font"
       type="font/woff2"
       crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
     />
 
     {preloadImage && (

@@ -1,7 +1,6 @@
 ---
 import Logo from './Logo.astro';
 import MobileNavDrawer from './MobileNavDrawer';
-import Button from '../primitives/Button.astro';
 
 export interface Props {
   currentPath?: string;
@@ -17,32 +16,32 @@ const {
 const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Background', href: '/background' },
-  { label: 'Officers', href: '/officers' },
-  { label: 'Dean’s List', href: '/deans-list' },
-  { label: 'Fees', href: '/fees' },
-  { label: 'Merchandise', href: '/merch' },
+  { label: 'HOME', href: '/' },
+  { label: 'ABOUT', href: '/about' },
+  { label: 'TRANSPARENCY', href: '/transparency' },
+  { label: 'ACTIVITIES', href: '/activities' },
+  { label: 'ACADEMIC RECOGNITION', href: '/academic-recognition' },
+  { label: 'ARCHIVE', href: '/archive' },
+  { label: 'REQUEST', href: '/request' },
+  { label: 'FEEDBACK', href: '/feedback' },
 ];
 ---
 
 <header
   id="main-header"
   class:list={[
-    'sticky top-0 z-40 w-full h-16 sm:h-20 box-border border-t-0 outline-none',
-    // Frosted glass: semi-transparent surface with backdrop-blur — visually tested over hero image
-    'bg-surface/90 backdrop-blur-md border-b border-border/80 shadow-sm transition-[background-color,border-color] duration-[120ms] ease-enter',
+    'fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_1px_8px_rgba(42,4,6,0.04)]',
     className,
   ]}
 >
-  <div class="max-w-7xl mx-auto container-gutter h-full flex items-center justify-between gap-4">
-    {/* Left: Brand Logo */}
-    <div class="flex items-center">
+  <div class="h-[78px] max-w-[1440px] mx-auto px-margin-sm lg:px-margin-md xl:px-margin-lg flex items-center justify-between">
+    {/* Left: Brand Logo with generous right margin */}
+    <div class="flex items-center shrink-0 mr-6 lg:mr-10 2xl:mr-16">
       <Logo size="md" loading="eager" />
     </div>
 
-    {/* Center: Desktop Navigation Links — whitespace-nowrap prevents line wrapping on all desktop widths */}
-    <nav aria-label="Main Navigation" class="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
+    {/* Center / Right: Desktop Navigation Links */}
+    <nav aria-label="Main Navigation" class="hidden xl:flex items-center gap-1 2xl:gap-space-xs shrink-0">
       {navLinks.map((link) => {
         const isActive =
           normalizedPath === link.href ||
@@ -53,10 +52,10 @@ const navLinks = [
             href={link.href}
             aria-current={isActive ? 'page' : undefined}
             class:list={[
-              'whitespace-nowrap px-3 py-1.5 rounded-pill text-[0.8125rem] xl:text-body-sm font-ui transition-[color,background-color,border-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold',
+              'px-2.5 2xl:px-space-sm py-1.5 font-label-md text-[11px] 2xl:text-label-md uppercase tracking-wider transition-colors duration-120 ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary whitespace-nowrap',
               isActive
-                ? 'font-bold text-maroon bg-maroon-light/80 border border-maroon/20 shadow-xs'
-                : 'font-semibold text-stone-text/80 hover:text-maroon hover:bg-maroon-light/50',
+                ? 'bg-primary text-on-primary rounded-lg font-bold shadow-xs'
+                : 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg font-semibold',
             ]}
           >
             {link.label}
@@ -65,37 +64,16 @@ const navLinks = [
       })}
     </nav>
 
-    {/* Right: Quick CTA & Mobile Drawer */}
-    <div class="flex items-center gap-2.5">
-      <div class="hidden xl:inline-flex">
-        <a
-          href="/deans-list#gwa-calc"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill text-[0.8125rem] font-ui font-semibold text-gray-700 hover:text-maroon hover:bg-stone transition-colors duration-120 ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-        >
-          <svg class="w-3.5 h-3.5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-            <line x1="8" y1="6" x2="16" y2="6"></line>
-            <line x1="16" y1="14" x2="16" y2="18"></line>
-            <path d="M16 10h.01"></path>
-            <path d="M12 10h.01"></path>
-            <path d="M8 10h.01"></path>
-            <path d="M12 14h.01"></path>
-            <path d="M8 14h.01"></path>
-            <path d="M12 18h.01"></path>
-            <path d="M8 18h.01"></path>
-          </svg>
-          <span>GWA Calc</span>
-        </a>
-      </div>
-
-      <div class="hidden sm:inline-flex">
-        <Button href="/deans-list#apply-dl" variant="primary" size="sm">
-          Apply DL
-        </Button>
+    {/* Right: Quick Action / Profile Indicator & Mobile Menu Toggle */}
+    <div class="flex items-center gap-space-sm shrink-0 ml-4 xl:ml-6">
+      <div class="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/40 text-primary">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
       </div>
 
       {/* Mobile Nav Drawer Island — client:load per AGENTS.md §1 (above-the-fold nav toggle) */}
-      <div class="lg:hidden">
+      <div class="xl:hidden">
         <MobileNavDrawer client:load items={navLinks} currentPath={normalizedPath} />
       </div>
     </div>

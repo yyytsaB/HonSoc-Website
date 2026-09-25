@@ -1,0 +1,257 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+
+const officers = [
+  {
+    name: "JUAN DELA CRUZ",
+    role: "President",
+    roleClass: "text-secondary",
+    badgeIcon: "workspace_premium",
+    badgeClass: "bg-primary/90 text-surface-bright",
+  },
+  {
+    name: "MARIA SANTOS",
+    role: "Vice President",
+    roleClass: "text-on-surface-variant",
+    badgeIcon: "star",
+    badgeClass: "bg-surface-container-lowest/90 text-primary",
+  },
+  {
+    name: "ANDREA REYES",
+    role: "Secretary",
+    roleClass: "text-on-surface-variant",
+    badgeIcon: "edit_note",
+    badgeClass: "bg-surface-container-lowest/90 text-primary",
+  },
+  {
+    name: "LUIS GARCIA",
+    role: "Treasurer",
+    roleClass: "text-on-surface-variant",
+    badgeIcon: "account_balance_wallet",
+    badgeClass: "bg-surface-container-lowest/90 text-primary",
+  },
+  {
+    name: "PATRICIA LOPEZ",
+    role: "Auditor",
+    roleClass: "text-on-surface-variant",
+    badgeIcon: "fact_check",
+    badgeClass: "bg-surface-container-lowest/90 text-primary",
+    containerClass: "col-span-2 md:col-span-1 mx-auto w-full max-w-[240px] md:max-w-none",
+  },
+];
+
+const committees = [
+  { code: "COC", name: "Constitutional" },
+  { code: "COB", name: "Budget & Finance" },
+  { code: "CPL", name: "Programs & Logistics" },
+  { code: "CSG", name: "Student Grievances" },
+  { code: "COD", name: "Documentation" },
+  { code: "CPR", name: "Public Relations" },
+  { code: "COTA", name: "Technical Affairs", containerClass: "col-span-2 sm:col-span-1" },
+];
+---
+
+<BaseLayout title="About CAS Honor Society | CASHONSITE">
+  <Navbar currentPath="/about" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <!-- Decorative ambient background glows contained within section -->
+      <div class="relative w-full overflow-hidden">
+        <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg pt-space-lg pb-space-xl">
+          <!-- Section 1: Hero Editorial Layout -->
+          <div class="max-w-3xl flex flex-col gap-space-md mb-space-xl text-left">
+            <div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 bg-surface-container-high text-primary rounded-full shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+              <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-semibold">College of Arts and Sciences Official Guild</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-headline-xl text-headline-xl text-primary font-normal leading-tight">ABOUT</span>
+              <span class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight tracking-tight">CAS HONOR SOCIETY</span>
+            </div>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-xs leading-relaxed">
+              The CAS Honor Society is the official academic recognition organization of the College of Arts and Sciences. It recognizes academic excellence, promotes leadership, and encourages service among CAS students.
+            </p>
+            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+              <div class="flex items-center gap-space-xs text-secondary">
+                <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                <span class="font-label-md text-label-md text-on-surface font-medium">Chartered Academic Guild</span>
+              </div>
+              <div class="w-1.5 h-1.5 rounded-full bg-outline-variant"></div>
+              <div class="flex items-center gap-space-xs text-secondary">
+                <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                <span class="font-label-md text-label-md text-on-surface font-medium">Archival Heritage &amp; Merit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: 4 Connected Foundation Pillar Cards -->
+          <div class="mb-space-xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-sm bg-surface-container-low p-space-md rounded-xl shadow-sm">
+              <!-- Pillar 1: Vision -->
+              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
+                  <span class="material-symbols-outlined text-[30px]">visibility</span>
+                </div>
+                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">VISION</h3>
+                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  To be a recognized organization that upholds academic excellence, leadership, and service.
+                </p>
+              </div>
+
+              <!-- Pillar 2: Mission -->
+              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
+                  <span class="material-symbols-outlined text-[30px]">track_changes</span>
+                </div>
+                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">MISSION</h3>
+                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                  To recognize and develop academically outstanding students and empower them to serve the community.
+                </p>
+              </div>
+
+              <!-- Pillar 3: Core Values -->
+              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
+                  <span class="material-symbols-outlined text-[30px]">diamond</span>
+                </div>
+                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">CORE VALUES</h3>
+                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
+                <ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-1 text-left w-full max-w-[190px] mx-auto">
+                  <li class="flex items-center gap-space-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span>Excellence</span>
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span>Integrity</span>
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span>Leadership</span>
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span>Service</span>
+                  </li>
+                  <li class="flex items-center gap-space-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span>Responsibility</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pillar 4: Goals -->
+              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
+                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
+                  <span class="material-symbols-outlined text-[30px]">flag</span>
+                </div>
+                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">GOALS</h3>
+                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
+                <ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-2 text-left w-full">
+                  <li class="flex items-start gap-space-xs">
+                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span>Promote academic excellence</span>
+                  </li>
+                  <li class="flex items-start gap-space-xs">
+                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span>Develop future leaders</span>
+                  </li>
+                  <li class="flex items-start gap-space-xs">
+                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span>Foster honor and community integrity</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Meet the Officers -->
+          <div class="mb-space-xl">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-lg">
+              <div class="flex flex-col">
+                <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">MEET THE OFFICERS</h2>
+                <span class="font-label-md text-label-md text-on-surface-variant font-medium uppercase tracking-wider mt-1">Academic Year 2026–2027</span>
+              </div>
+              <a
+                href="#officers-roster"
+                class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-secondary-fixed shadow-md hover:bg-primary-container transition-all self-start sm:self-auto font-label-md text-label-md uppercase tracking-wider font-semibold"
+              >
+                <span>VIEW ALL OFFICERS</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+            </div>
+
+            <div id="officers-roster" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-gutter-sm">
+              {officers.map((officer) => (
+                <div class:list={["flex flex-col bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md transition-all group", officer.containerClass]}>
+                  <div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high mb-space-sm relative">
+                    <img
+                      src="/images/officer-placeholder.svg"
+                      alt={officer.name}
+                      class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div class:list={["absolute top-2 right-2 p-1 rounded-full shadow-sm", officer.badgeClass]}>
+                      <span class="material-symbols-outlined text-[14px] block">{officer.badgeIcon}</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center text-center p-space-xs">
+                    <span class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-tight">{officer.name}</span>
+                    <span class:list={["font-body-sm text-body-sm font-medium mt-0.5", officer.roleClass]}>{officer.role}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Section 4: Our Committees -->
+          <div class="mb-space-lg">
+            <div class="flex items-center justify-between mb-space-md">
+              <div class="flex flex-col">
+                <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">OUR COMMITTEES</h2>
+                <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-0.5">Operational Standing Councils</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-gutter-sm">
+              {committees.map((comm) => (
+                <div class:list={["bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-center text-center min-h-[110px] group cursor-default", comm.containerClass]}>
+                  <span class="font-label-lg text-label-lg text-secondary font-bold tracking-wider mb-1 group-hover:text-primary transition-colors">{comm.code}</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">{comm.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Institutional Transparency Callout Banner -->
+          <div class="bg-surface-container p-space-lg rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mt-space-lg">
+            <div class="flex items-center gap-space-md">
+              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+                <span class="material-symbols-outlined text-[24px]">policy</span>
+              </div>
+              <div class="flex flex-col">
+                <h4 class="font-title-md text-title-md text-on-surface font-semibold">Society Operations &amp; Financial Governance</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">All organizational activities, disbursements, and executive council minutes are subject to full transparency guidelines.</p>
+              </div>
+            </div>
+            <a
+              href="/transparency"
+              class="px-space-md py-2.5 rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md uppercase tracking-wider font-semibold hover:bg-primary hover:text-on-primary transition-colors whitespace-nowrap shadow-sm"
+            >
+              Inspect Transparency Reports
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -84,4 +84,23 @@ is bound by that document.
 - [x] Shared Navigation & Layouts: Sticky frosted navbar with 6-route active states, mobile drawer, SubpageHeader, CrossPageBanner, broadsheet Footer <!-- completed: 2026-09-25 -->
 - [x] Interactive Islands: GwaCalculator with named thresholds, accessible FaqAccordion, DlApplicationModal, MerchModal <!-- completed: 2026-09-25 -->
 - [x] Content Integration: Typed Content Collections for officers, merch, hall-of-fame, accomplishments with zero banned words <!-- completed: 2026-09-25 -->
-- [x] Quality & Standards Verification: All 33 unit/component tests pass, 100% clean production build with 0 errors, no `./Design/` leak <!-- completed: 2026-09-25 -->
+- [x] Quality & Standards Verification: All 33 unit/component tests pass, 100% clean production build with 0 errors, no `./Design/` leak <!-- completed: 2026-09-25 -->
+
+## Milestone 7 — Revised Mockup Overhaul & CASHONSITE Architecture <!-- completed: 2026-09-26 -->
+
+- [x] Design System Port: Integrated Material Design 3 Academic Heritage tokens from `revised_mockup/academic_heritage/DESIGN.md` (`primary: #6a020a`, `secondary: #805600`, `surface: #fff8f5`, `on-surface: #1e1b19`).
+- [x] Self-Hosted Typography: Downloaded and wired `Newsreader` (weights 400, 500, 600) + `Montserrat` fonts locally as `.woff2` with zero external Google font requests.
+- [x] Home Page Harmonization: Redesigned `/index.astro` to eliminate design discrepancies, aligning its color palette, typography, badges, and layout with the rest of the site.
+- [x] Route Architecture: Ported all 7 provided mockup sections into dedicated static routes:
+  - `/` — CASHONSITE Portal & Search Registry
+  - `/about` — About CAS Honor Society, Founding Pillars, Leadership Roster, Standing Committees, Stole Heritage
+  - `/transparency` — Audited Financial Ledger, Budget Allocations, Resolutions, Board Minutes
+  - `/activities` — Convocations, Outreach, General Assemblies, Document Verification
+  - `/academic-recognition` — Collegiate Honor Rolls, Distinction Benchmarks, Live Search Roster
+  - `/request` — Document Request Portal with accessible modal dialog
+  - `/feedback` — Society Inquiries & Incident Ticketing with accessible feedback modal dialog
+  - `/404` — Archival Record Not Found registry error page
+- [x] Media Sanitization: Replaced all remote Google User Content image URLs with clean local vector SVGs (`officer-placeholder.svg`, `stole-placeholder.svg`, `activity-*.svg`).
+- [x] Scope Guardrails: Unprovided legacy features (GWA calculator, merch shop, etc.) retired into `legacy_pages/` to route naturally to `/404` pending dedicated mockups.
+- [x] Verification: 39 unit/layout tests passing in Vitest, 8/8 static HTML pages generated cleanly in ~10s with zero errors.
+

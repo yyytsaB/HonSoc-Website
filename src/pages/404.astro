@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+---
+
+<BaseLayout
+  title="404 — Record Not Located in Archival Registry | CASHONSITE"
+  description="The requested entry, collegiate gazette, or registry ledger could not be reconciled within the CASHONSITE repository."
+>
+  <Navbar activePath="404" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <!-- 404 Hero Section -->
+      <section class="relative w-full py-space-xl lg:py-space-xl px-margin-sm lg:px-margin-lg overflow-hidden">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute top-1/3 -right-24 w-80 h-80 bg-secondary-fixed-dim/20 rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+          <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-primary mb-space-md shadow-sm">
+            <span class="material-symbols-outlined text-[16px] text-secondary">history_edu</span>
+            <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary font-semibold">Archival Record Error • Registry Code 404</span>
+          </div>
+
+          <div class="relative flex items-center justify-center my-space-xs">
+            <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none select-none">
+              <svg class="w-64 h-64 text-primary" fill="none" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-dasharray="6 4" stroke-width="2.5"></circle>
+                <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="1"></circle>
+                <path d="M100 28 L100 172 M28 100 L172 100" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1"></path>
+                <polygon fill="currentColor" fill-opacity="0.2" points="100,42 114,84 158,84 122,110 136,152 100,126 64,152 78,110 42,84 86,84"></polygon>
+              </svg>
+            </div>
+            <span class="font-headline-xl text-[104px] sm:text-[144px] md:text-[172px] leading-none tracking-tight font-light text-primary select-none drop-shadow-sm">
+              404
+            </span>
+          </div>
+
+          <div class="flex items-center gap-space-sm mb-space-sm">
+            <div class="w-8 h-[1px] bg-secondary-fixed-dim"></div>
+            <span class="font-label-md text-label-md text-secondary uppercase tracking-widest font-semibold">Index Query Fault</span>
+            <div class="w-8 h-[1px] bg-secondary-fixed-dim"></div>
+          </div>
+
+          <h1 class="font-headline-lg text-headline-lg text-on-surface max-w-2xl font-normal leading-tight">
+            Record Not Located in Archival Registry
+          </h1>
+
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-sm mb-space-lg leading-relaxed">
+            The requested entry, collegiate gazette, or registry ledger could not be reconciled within the CASHONSITE repository. It may have been cataloged under a revised academic term, transferred to cold storage, or unindexed.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-space-md w-full max-w-md">
+            <a
+              href="/"
+              class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider text-center shadow-md hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs group"
+            >
+              <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+              <span>Return to Repository Home</span>
+            </a>
+            <a
+              href="/transparency"
+              class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md uppercase tracking-wider text-center shadow-sm hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-space-xs"
+            >
+              <span class="material-symbols-outlined text-[18px] text-secondary">account_balance</span>
+              <span>Transparency Ledger</span>
+            </a>
+          </div>
+
+          <!-- Quick Query Search Box -->
+          <div class="mt-space-lg w-full max-w-xl">
+            <form class="relative flex items-center shadow-sm rounded-full bg-surface-container-lowest" onsubmit="event.preventDefault(); window.location.href = '/academic-recognition';">
+              <span class="material-symbols-outlined absolute left-space-md text-secondary text-[20px] pointer-events-none">search</span>
+              <input
+                type="search"
+                placeholder="Search archival ID, honor roll, or resolutions..."
+                class="w-full pl-12 pr-28 py-space-sm text-body-sm font-body-sm text-on-surface bg-transparent rounded-full focus:outline-none placeholder:text-on-surface-variant/60"
+              />
+              <button
+                type="submit"
+                class="absolute right-1 px-space-md py-1.5 rounded-full bg-primary text-on-primary text-label-xs font-label-xs uppercase tracking-wider hover:bg-primary-container transition-colors"
+              >
+                Query
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Archival Recovery Assistance Navigation Grid -->
+      <section class="max-w-6xl mx-auto w-full px-margin-sm lg:px-margin-lg pb-space-xl">
+        <div class="bg-surface-container-lowest rounded-xl p-space-md lg:p-space-lg shadow-sm border border-outline-variant/30">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-md mb-space-md border-b border-outline-variant/20 gap-space-xs">
+            <div class="flex flex-col">
+              <span class="font-label-xs text-label-xs text-secondary uppercase tracking-widest font-semibold">Archival Recovery Assistance</span>
+              <h2 class="font-headline-sm text-headline-sm text-on-surface font-normal">Looking for specific collegiate records?</h2>
+            </div>
+            <span class="font-label-xs text-label-xs text-on-surface-variant bg-surface-container px-space-sm py-1 rounded-full self-start sm:self-auto">
+              CASHONSITE Index System v4.2
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <a
+              href="/request"
+              class="group flex flex-col p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"
+            >
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-space-sm group-hover:bg-primary group-hover:text-on-primary transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+              </div>
+              <span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Document Request</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-sm leading-snug">
+                Need official authenticated copies of society honors, certificates, or registry verification?
+              </p>
+              <div class="mt-auto flex items-center gap-1 text-primary font-label-xs text-label-xs uppercase font-semibold">
+                <span>Access Form</span>
+                <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+              </div>
+            </a>
+
+            <a
+              href="/transparency"
+              class="group flex flex-col p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"
+            >
+              <div class="w-10 h-10 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary mb-space-sm group-hover:bg-secondary group-hover:text-on-secondary transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+              </div>
+              <span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Transparency Reports</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-sm leading-snug">
+                Audit releases, verified balance sheets, fiscal vouchers, and Executive Board meeting minutes.
+              </p>
+              <div class="mt-auto flex items-center gap-1 text-secondary font-label-xs text-label-xs uppercase font-semibold">
+                <span>Open Folio</span>
+                <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+              </div>
+            </a>
+
+            <a
+              href="/academic-recognition"
+              class="group flex flex-col p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"
+            >
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-space-sm group-hover:bg-primary group-hover:text-on-primary transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+              </div>
+              <span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Academic Recognition</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-sm leading-snug">
+                Dean's List rosters, Chancellor Honor rolls, departmental medallions, and distinction annals.
+              </p>
+              <div class="mt-auto flex items-center gap-1 text-primary font-label-xs text-label-xs uppercase font-semibold">
+                <span>Inspect Rosters</span>
+                <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+              </div>
+            </a>
+
+            <a
+              href="/feedback"
+              class="group flex flex-col p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"
+            >
+              <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant mb-space-sm group-hover:bg-on-surface group-hover:text-surface transition-colors shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">contact_support</span>
+              </div>
+              <span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Report Broken Record</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-sm leading-snug">
+                Inform the archivist of a broken URL, outdated citation index, or misfiled semester dossier.
+              </p>
+              <div class="mt-auto flex items-center gap-1 text-on-surface-variant font-label-xs text-label-xs uppercase font-semibold">
+                <span>File Ticket</span>
+                <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="mt-space-lg p-space-md rounded-lg bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md border border-outline-variant/20">
+            <div class="flex items-center gap-space-sm">
+              <div class="w-9 h-9 rounded-full bg-secondary-fixed/40 flex items-center justify-center text-secondary shrink-0">
+                <span class="material-symbols-outlined text-[20px]">verified_user</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Need official university certification?</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Archival staff can retrieve physical accession records within 2 university business days.</span>
+              </div>
+            </div>
+            <a
+              href="/request"
+              class="px-space-md py-1.5 rounded-full bg-primary text-on-primary text-label-xs font-label-xs uppercase tracking-wider hover:bg-primary-container transition-colors whitespace-nowrap shadow-sm"
+            >
+              Expedite Registry Request
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

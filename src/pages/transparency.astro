@@ -1,0 +1,555 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/navigation/Footer.astro";
+---
+
+<BaseLayout title="Transparency Reports | CASHONSITE">
+  <Navbar currentPath="/transparency" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+    <div class="flex flex-col w-full">
+      <!-- Subpage Banner -->
+      <div class="w-full bg-primary py-space-xl px-margin-sm lg:px-margin-lg border-b border-primary-container/30 relative overflow-hidden text-center">
+        <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/50 blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-space-xs relative z-10">
+          <div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-bright/10 backdrop-blur-sm text-secondary-fixed text-label-xs font-label-xs tracking-widest uppercase mb-space-xs">
+            <span class="material-symbols-outlined text-[15px]">account_balance</span>
+            Institutional Accountability Archive
+          </div>
+          <h1 class="font-headline-xl text-headline-xl text-on-primary tracking-tight font-medium">
+            TRANSPARENCY REPORTS
+          </h1>
+          <p class="font-headline-sm text-headline-sm text-secondary-fixed-dim italic mt-0.5">
+            Financial Transparency
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Content Container -->
+      <div class="w-full max-w-7xl mx-auto px-margin-sm lg:px-margin-lg py-space-lg flex flex-col gap-space-xl">
+        <!-- Tabbed Navigation Ribbon -->
+        <div class="w-full overflow-x-auto pb-space-xs">
+          <nav class="w-full flex items-center justify-center gap-space-xs min-w-max p-1.5 bg-surface-container-high rounded-xl shadow-xs">
+            <button class="tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all bg-primary text-on-primary shadow-sm" data-target="financial" type="button">
+              FINANCIAL REPORTS
+            </button>
+            <button class="tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container-highest" data-target="resolutions" type="button">
+              RESOLUTIONS
+            </button>
+            <button class="tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container-highest" data-target="minutes" type="button">
+              MEETING MINUTES
+            </button>
+            <button class="tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container-highest" data-target="accomplishments" type="button">
+              ACCOMPLISHMENT REPORTS
+            </button>
+            <button class="tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container-highest" data-target="organizational" type="button">
+              ORGANIZATIONAL RECORDS
+            </button>
+          </nav>
+        </div>
+
+        <!-- 1. Financial Reports Tab Content -->
+        <div class="tab-content flex flex-col gap-space-xl" id="financial-panel">
+          <!-- Section Title & Filter Toolbar -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">General Ledger &amp; Disbursals</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight font-medium">
+                FINANCIAL REPORTS
+              </h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                A verified summary of the honor society's income, official project appropriations, operational disbursements, and current fiscal utilization.
+              </p>
+            </div>
+            
+            <form class="flex flex-wrap items-center gap-space-sm bg-surface-container-lowest p-space-xs rounded-xl shadow-sm" id="filter-form">
+              <div class="relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3 text-[18px] text-secondary">calendar_month</span>
+                <select aria-label="Academic Year" class="appearance-none pl-9 pr-10 py-space-sm rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container cursor-pointer" id="academic-year-select">
+                  <option value="all">All Academic Years</option>
+                  <option value="2026-2027" selected>A.Y. 2026–2027</option>
+                  <option value="2025-2026">A.Y. 2025–2026</option>
+                  <option value="2024-2025">A.Y. 2024–2025</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-2.5 pointer-events-none text-[18px] text-on-surface-variant">arrow_drop_down</span>
+              </div>
+              <button class="px-space-lg py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md tracking-wider uppercase transition-colors shadow-sm flex items-center gap-space-xs" type="submit">
+                <span class="material-symbols-outlined text-[16px]">filter_list</span>
+                Filter
+              </button>
+            </form>
+          </div>
+
+          <!-- Financial Table Module -->
+          <div class="w-full bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-surface-container-high text-on-surface-variant">
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary">DATE</th>
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary">DESCRIPTION / PURPOSE</th>
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary text-right">INCOME (₱)</th>
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary text-right">EXPENSES (₱)</th>
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary text-right">REMAINING BALANCE (₱)</th>
+                    <th scope="col" class="py-space-md px-space-lg font-label-md text-label-md uppercase tracking-wider text-primary text-center">DOCUMENT</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container" id="financial-table-body">
+                  <tr class="transition-colors hover:bg-surface-container-low group">
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface font-medium whitespace-nowrap">May 10, 2026</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface">
+                      <div class="flex flex-col">
+                        <span class="font-medium text-on-surface">General Assembly Fund</span>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">Annual membership induction &amp; orientation packs</span>
+                      </div>
+                    </td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface text-right tabular-nums">15,000.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-error text-right tabular-nums">8,320.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-secondary text-right font-semibold tabular-nums">6,680.00</td>
+                    <td class="py-space-md px-space-lg text-center">
+                      <button type="button" aria-label="View General Assembly Fund document voucher" class="p-2 rounded-lg text-primary hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">description</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="transition-colors hover:bg-surface-container-low group">
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface font-medium whitespace-nowrap">June 5, 2026</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface">
+                      <div class="flex flex-col">
+                        <span class="font-medium text-on-surface">Leadership Seminar</span>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">Inter-collegiate guest speakers and venue accommodation</span>
+                      </div>
+                    </td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface text-right tabular-nums">25,000.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-error text-right tabular-nums">21,450.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-secondary text-right font-semibold tabular-nums">3,550.00</td>
+                    <td class="py-space-md px-space-lg text-center">
+                      <button type="button" aria-label="View Leadership Seminar budget clearance" class="p-2 rounded-lg text-primary hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">description</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="transition-colors hover:bg-surface-container-low group">
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface font-medium whitespace-nowrap">July 12, 2026</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface">
+                      <div class="flex flex-col">
+                        <span class="font-medium text-on-surface">Outreach Program</span>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">Community literacy workshops and book endowment drive</span>
+                      </div>
+                    </td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface text-right tabular-nums">18,500.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-error text-right tabular-nums">16,780.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-secondary text-right font-semibold tabular-nums">1,720.00</td>
+                    <td class="py-space-md px-space-lg text-center">
+                      <button type="button" aria-label="View Outreach Program voucher receipt" class="p-2 rounded-lg text-primary hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">description</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="transition-colors hover:bg-surface-container-low group">
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface font-medium whitespace-nowrap">Aug 8, 2026</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface">
+                      <div class="flex flex-col">
+                        <span class="font-medium text-on-surface">Recognition Day</span>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">Scholastic honor medallions, sash confers, and certificates</span>
+                      </div>
+                    </td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-on-surface text-right tabular-nums">22,000.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-error text-right tabular-nums">19,260.00</td>
+                    <td class="py-space-md px-space-lg font-body-md text-body-md text-secondary text-right font-semibold tabular-nums">2,740.00</td>
+                    <td class="py-space-md px-space-lg text-center">
+                      <button type="button" aria-label="View Recognition Day audited report" class="p-2 rounded-lg text-primary hover:bg-surface-container-high transition-colors inline-flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">description</span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr class="bg-surface-container font-semibold text-on-surface">
+                    <td colspan="2" class="py-space-md px-space-lg font-label-lg text-label-lg uppercase tracking-wider text-primary">
+                      TOTAL AUDITED ALLOCATION
+                    </td>
+                    <td class="py-space-md px-space-lg font-title-md text-title-md text-right tabular-nums text-primary">
+                      80,500.00
+                    </td>
+                    <td class="py-space-md px-space-lg font-title-md text-title-md text-right tabular-nums text-error">
+                      65,810.00
+                    </td>
+                    <td class="py-space-md px-space-lg font-title-md text-title-md text-right tabular-nums text-secondary">
+                      14,690.00
+                    </td>
+                    <td class="py-space-md px-space-lg text-center">
+                      <span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <!-- Allocation Breakdown Section -->
+          <div class="w-full bg-surface-container-lowest rounded-xl p-space-lg lg:p-space-xl shadow-sm flex flex-col gap-space-lg">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm">
+              <div class="flex flex-col gap-1">
+                <span class="font-label-xs text-label-xs text-secondary font-semibold uppercase tracking-widest">Appropriation Architecture</span>
+                <h2 class="font-headline-md text-headline-md text-primary font-medium tracking-tight">
+                  BUDGET OVERVIEW A.Y. 2026–2027
+                </h2>
+              </div>
+              <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm bg-surface-container px-space-md py-1.5 rounded-lg">
+                <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+                <span>Signed by CAS Auditing Guild</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+              <div class="lg:col-span-6 flex flex-col items-center justify-center relative py-space-sm">
+                <div class="relative w-64 h-64 sm:w-72 sm:h-72">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle class="transition-all duration-700 hover:opacity-90" cx="50" cy="50" fill="none" r="38" stroke="#6a020a" stroke-dasharray="107.44 238.76" stroke-dashoffset="0" stroke-width="16"></circle>
+                    <circle class="transition-all duration-700 hover:opacity-90" cx="50" cy="50" fill="none" r="38" stroke="#ffba49" stroke-dasharray="59.69 238.76" stroke-dashoffset="-107.44" stroke-width="16"></circle>
+                    <circle class="transition-all duration-700 hover:opacity-90" cx="50" cy="50" fill="none" r="38" stroke="#ffddb0" stroke-dasharray="47.75 238.76" stroke-dashoffset="-167.13" stroke-width="16"></circle>
+                    <circle class="transition-all duration-700 hover:opacity-90" cx="50" cy="50" fill="none" r="38" stroke="#e0d8d5" stroke-dasharray="23.88 238.76" stroke-dashoffset="-214.88" stroke-width="16"></circle>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none p-4">
+                    <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider font-semibold">TOTAL BUDGET</span>
+                    <span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">₱80,500.00</span>
+                    <span class="font-body-sm text-body-sm text-secondary font-medium">Fiscal Balance 100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6 flex flex-col gap-space-sm">
+                <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between gap-space-md">
+                  <div class="flex items-center gap-space-md">
+                    <div class="w-5 h-5 rounded bg-primary shrink-0"></div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface font-medium">Programs &amp; Activities</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Convocations, colloquia, scholarly forums</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end">
+                    <span class="font-title-md text-title-md text-primary font-bold">45%</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant tabular-nums">₱36,225.00</span>
+                  </div>
+                </div>
+
+                <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between gap-space-md">
+                  <div class="flex items-center gap-space-md">
+                    <div class="w-5 h-5 rounded bg-secondary-container shrink-0"></div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface font-medium">Operations</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Archival systems, logistics, communication</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end">
+                    <span class="font-title-md text-title-md text-primary font-bold">25%</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant tabular-nums">₱20,125.00</span>
+                  </div>
+                </div>
+
+                <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between gap-space-md">
+                  <div class="flex items-center gap-space-md">
+                    <div class="w-5 h-5 rounded bg-secondary-fixed shrink-0"></div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface font-medium">Membership &amp; Recognition</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Guild insignia, certificates, pin confers</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end">
+                    <span class="font-title-md text-title-md text-primary font-bold">20%</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant tabular-nums">₱16,100.00</span>
+                  </div>
+                </div>
+
+                <div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between gap-space-md">
+                  <div class="flex items-center gap-space-md">
+                    <div class="w-5 h-5 rounded bg-surface-dim shrink-0"></div>
+                    <div class="flex flex-col">
+                      <span class="font-title-md text-title-md text-on-surface font-medium">Contingency</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">Emergency project reserve &amp; relief grants</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-end">
+                    <span class="font-title-md text-title-md text-primary font-bold">10%</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant tabular-nums">₱8,050.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Audit Confidence Indicators -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Internal Audit Status</span>
+                <span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+              </div>
+              <span class="font-headline-sm text-headline-sm text-primary font-semibold">100% Cleared</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">All 4 major disbursements passed secondary verification with physical ledger receipts.</p>
+            </div>
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Budget Burn Efficiency</span>
+                <span class="material-symbols-outlined text-secondary text-[20px]">trending_up</span>
+              </div>
+              <span class="font-headline-sm text-headline-sm text-primary font-semibold">81.75%</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Healthy fiscal pacing leaving an uncommitted balance of ₱14,690.00 for upcoming initiatives.</p>
+            </div>
+            <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Public Vouchers</span>
+                <span class="material-symbols-outlined text-secondary text-[20px]">folder_shared</span>
+              </div>
+              <span class="font-headline-sm text-headline-sm text-primary font-semibold">4 / 4 Archived</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Digital PDF duplicates archived with SHA-256 integrity signatures on University repository.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Resolutions Tab Content -->
+        <div class="tab-content hidden flex flex-col gap-space-lg" id="resolutions-panel">
+          <div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary">Council Resolutions</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary">Academic &amp; Governance Resolutions</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Archived policy votes, charter revisions, and honorary appointments approved by the Executive Council.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-sm">
+              <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-xs text-label-xs text-primary font-semibold">RES-2026-004</span>
+                  <span class="text-body-sm text-on-surface-variant">Aug 1, 2026</span>
+                </div>
+                <span class="font-title-md text-title-md text-on-surface">Ratification of 2026–2027 Operational Budget</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Unanimously approved financial appropriation model and allocation caps for the scholastic year.</p>
+              </div>
+              <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-xs text-label-xs text-primary font-semibold">RES-2026-003</span>
+                  <span class="text-body-sm text-on-surface-variant">Jul 8, 2026</span>
+                </div>
+                <span class="font-title-md text-title-md text-on-surface">Special Grant for CAS Scholastic Research Fellowship</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Authorization of supplemental stipends for undergraduate fellows presenting at national fora.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Meeting Minutes Tab Content -->
+        <div class="tab-content hidden flex flex-col gap-space-lg" id="minutes-panel">
+          <div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary">Official Proceedings</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary">Meeting Minutes &amp; Deliberations</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Transcripts and summary records of regular officer councils, adviser consultations, and assemblies.</p>
+            </div>
+            <div class="flex flex-col gap-space-sm divide-y divide-surface-container">
+              <div class="py-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+                <div>
+                  <h3 class="font-title-md text-title-md text-on-surface">4th Regular Executive Committee Assembly</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Agenda: Mid-year audit, recognition awards shortlist, semester turnover plans.</p>
+                </div>
+                <span class="font-label-md text-label-md text-primary bg-surface-container px-3 py-1 rounded-full whitespace-nowrap">Aug 14, 2026</span>
+              </div>
+              <div class="py-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+                <div>
+                  <h3 class="font-title-md text-title-md text-on-surface">3rd Joint Meeting with Faculty Advisers</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Agenda: Review of candidate grade cutoffs and membership appeals process.</p>
+                </div>
+                <span class="font-label-md text-label-md text-primary bg-surface-container px-3 py-1 rounded-full whitespace-nowrap">Jul 20, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Accomplishments Tab Content -->
+        <div class="tab-content hidden flex flex-col gap-space-lg" id="accomplishments-panel">
+          <div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary">Mission Delivery</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary">Accomplishment Reports</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Quantified results, program outcomes, and community service reach for the College of Arts and Sciences.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-sm">
+              <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                <span class="font-label-xs text-label-xs text-secondary font-semibold uppercase">Key Milestone</span>
+                <span class="font-title-md text-title-md text-on-surface">148 Undergraduates Conferred with Academic Honors</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Highest induction turnout in 5 years across 6 departments, achieving 94% retention.</p>
+              </div>
+              <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+                <span class="font-label-xs text-label-xs text-secondary font-semibold uppercase">Community Reach</span>
+                <span class="font-title-md text-title-md text-on-surface">350+ Students Benefited from Free Peer Tutoring</span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Over 120 tutoring hours dedicated to prerequisite sciences and higher mathematics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Organizational Records Tab Content -->
+        <div class="tab-content hidden flex flex-col gap-space-lg" id="organizational-panel">
+          <div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col gap-space-md">
+            <div class="flex flex-col gap-space-xs">
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary">Guild Architecture</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary">Organizational Records</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Constitution, by-laws, university accreditations, and official officer rosters.</p>
+            </div>
+            <div class="flex flex-col gap-space-sm">
+              <div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+                <div class="flex items-center gap-space-md">
+                  <span class="material-symbols-outlined text-primary text-[24px]">gavel</span>
+                  <div>
+                    <span class="font-title-md text-title-md text-on-surface">CAS Honor Society Constitution &amp; By-Laws</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Amended Version 2025 – Registered with Office of Student Affairs</p>
+                  </div>
+                </div>
+                <button class="px-space-md py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-primary hover:bg-surface-container-highest transition-colors" type="button">
+                  Inspect
+                </button>
+              </div>
+              <div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+                <div class="flex items-center gap-space-md">
+                  <span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+                  <div>
+                    <span class="font-title-md text-title-md text-on-surface">Certificate of University Accreditation</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Level 1 Outstanding Student Guild Recognition</p>
+                  </div>
+                </div>
+                <button class="px-space-md py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-primary hover:bg-surface-container-highest transition-colors" type="button">
+                  Inspect
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Preview Modal Dialog -->
+      <div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-4 hidden" id="document-modal">
+        <div class="bg-surface-container-lowest max-w-lg w-full rounded-2xl p-space-xl shadow-xl flex flex-col gap-space-md relative">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+              <span class="font-headline-sm text-headline-sm text-primary font-semibold">Official Document Voucher</span>
+            </div>
+            <button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" id="close-modal-btn" type="button">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+          <div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+            <span class="font-title-md text-title-md text-on-surface font-semibold" id="modal-doc-title">General Assembly Fund Voucher</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant" id="modal-doc-meta">Archived: May 10, 2026 • Ref #VCH-2026-0510</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface">
+            This document has been digitally notarized and cross-referenced with university treasury records. You may review the ledger snapshot or download the stamped digital replica.
+          </p>
+          <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+            <button class="px-space-md py-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors" id="modal-dismiss" type="button">
+              Dismiss
+            </button>
+            <button class="px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase transition-colors shadow-sm flex items-center gap-space-xs" type="button">
+              <span class="material-symbols-outlined text-[16px]">download</span>
+              Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script>
+    function setupTransparencyTabs() {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = {
+        financial: document.getElementById('financial-panel'),
+        resolutions: document.getElementById('resolutions-panel'),
+        minutes: document.getElementById('minutes-panel'),
+        accomplishments: document.getElementById('accomplishments-panel'),
+        organizational: document.getElementById('organizational-panel')
+      };
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.getAttribute('data-target');
+          if (!target) return;
+          
+          tabs.forEach(t => {
+            t.className = 'tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all text-on-surface-variant hover:text-primary hover:bg-surface-container-highest';
+          });
+          tab.className = 'tab-btn px-space-lg py-space-sm rounded-lg font-label-md text-label-md tracking-wider uppercase transition-all bg-primary text-on-primary shadow-sm';
+
+          Object.keys(panels).forEach(key => {
+            const p = panels[key as keyof typeof panels];
+            if (p) {
+              if (key === target) {
+                p.classList.remove('hidden');
+              } else {
+                p.classList.add('hidden');
+              }
+            }
+          });
+        });
+      });
+
+      const modal = document.getElementById('document-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const modalDismiss = document.getElementById('modal-dismiss');
+      const modalTitle = document.getElementById('modal-doc-title');
+      const modalMeta = document.getElementById('modal-doc-meta');
+
+      const docButtons = document.querySelectorAll('button[aria-label*="document"], button[aria-label*="clearance"], button[aria-label*="receipt"], button[aria-label*="report"]');
+      docButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const row = btn.closest('tr');
+          if (row && modalTitle && modalMeta) {
+            const date = row.cells[0]?.innerText.trim() || '2026';
+            const purpose = row.cells[1]?.querySelector('span')?.innerText.trim() || 'Disbursement Record';
+            modalTitle.innerText = purpose + ' Official Voucher';
+            modalMeta.innerText = 'Archived: ' + date + ' • Verified CAS Ledger Entry';
+          }
+          modal?.classList.remove('hidden');
+        });
+      });
+
+      function closeModal() {
+        modal?.classList.add('hidden');
+      }
+
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (modalDismiss) modalDismiss.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      const filterForm = document.getElementById('filter-form');
+      if (filterForm) {
+        filterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const tbody = document.getElementById('financial-table-body');
+          if (tbody) {
+            tbody.style.opacity = '0.5';
+            setTimeout(() => {
+              tbody.style.opacity = '1';
+            }, 250);
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupTransparencyTabs);
+    } else {
+      setupTransparencyTabs();
+    }
+  </script>
+</BaseLayout>

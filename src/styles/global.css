@@ -34,9 +34,12 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
   html {
-    /* Fluid font size root: 16px at 375px → 18px at 1280px */
-    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.125rem);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -44,8 +47,16 @@
   }
 
   body {
-    @apply font-body text-body bg-stone text-gray-900;
+    overscroll-behavior: none;
+    @apply font-body text-body-md bg-surface text-on-surface antialiased;
     min-height: 100vh;
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
   }
 
   /* ─── Heading defaults ───────────────────────────────────────────────────── */
