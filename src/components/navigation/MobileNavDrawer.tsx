@@ -32,17 +32,17 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
         <button
           type="button"
           aria-label="Open navigation menu"
-          className="inline-flex items-center justify-center p-2 rounded-pill text-gray-700 hover:text-maroon hover:bg-maroon-light transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 lg:hidden"
+          className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-primary hover:text-primary-container hover:bg-surface-container transition-colors duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 shrink-0"
         >
           <Menu className="w-6 h-6" aria-hidden="true" />
         </button>
       </DrawerTrigger>
 
-      <DrawerContent className="max-h-[85vh] p-6">
-        <DrawerHeader className="flex items-center justify-between p-0 mb-6 border-b border-border pb-4 text-left">
+      <DrawerContent className="max-h-[88vh] p-5 overflow-y-auto">
+        <div className="flex items-center justify-between p-0 mb-4 border-b border-outline-variant/30 pb-3 text-left">
           <div>
-            <DrawerTitle className="text-h3 font-heading text-maroon font-normal">Navigation</DrawerTitle>
-            <DrawerDescription className="text-body-sm text-stone-muted font-body">
+            <DrawerTitle className="text-title-md font-heading text-primary font-bold">Navigation</DrawerTitle>
+            <DrawerDescription className="text-body-sm text-on-surface-variant font-body">
               Select a section or collegiate service
             </DrawerDescription>
           </div>
@@ -50,12 +50,12 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
             <button
               type="button"
               aria-label="Close navigation menu"
-              className="p-2 rounded-pill text-stone-muted hover:text-gray-900 hover:bg-stone transition-[color,background-color] duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+              className="p-2 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-[120ms] ease-enter focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <X className="w-5 h-5" aria-hidden="true" />
             </button>
           </DrawerClose>
-        </DrawerHeader>
+        </div>
 
         <nav aria-label="Mobile Navigation" className="flex flex-col gap-1 pb-4">
           {items.map((item) => {
