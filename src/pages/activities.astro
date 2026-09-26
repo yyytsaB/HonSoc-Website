@@ -7,7 +7,7 @@ import Footer from "../components/navigation/Footer.astro";
 <BaseLayout title="Activities & Accomplishments | CASHONSITE">
   <Navbar currentPath="/activities" />
 
-  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)] overflow-x-clip">
     <div class="flex flex-col w-full">
       <div class="max-w-7xl mx-auto w-full px-margin-sm lg:px-margin-lg py-space-xl">
         <!-- Title Header -->
@@ -15,48 +15,48 @@ import Footer from "../components/navigation/Footer.astro";
           <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-semibold mb-space-xs">
             Official Archival Records &amp; Portfolio
           </span>
-          <h1 class="font-headline-xl text-headline-xl text-primary font-normal tracking-tight">
+          <h1 class="font-headline-xl text-[24px] sm:text-[32px] md:text-headline-xl text-primary font-normal tracking-tight text-center">
             ACTIVITIES &amp; ACCOMPLISHMENTS
           </h1>
           <div class="w-16 h-1 bg-secondary-container mt-space-xs rounded-full"></div>
         </div>
 
         <!-- Activity Status Tabs -->
-        <div class="w-full overflow-x-auto pb-space-xs mb-space-lg -mx-margin-sm px-margin-sm sm:mx-0 sm:px-0">
-          <div class="w-full flex items-center justify-start sm:justify-center min-w-max">
+        <div class="w-full overflow-x-auto pb-space-xs mb-space-lg">
+          <div class="w-full flex items-center justify-center min-w-max">
             <div class="inline-flex items-center gap-space-xs p-1.5 bg-surface-container rounded-xl shadow-sm">
               <button
                 id="tab-current"
                 type="button"
-                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright shrink-0"
+                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
               >
                 CURRENT ACTIVITIES
               </button>
               <button
                 id="tab-completed"
                 type="button"
-                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all bg-primary text-on-primary shadow-sm font-semibold shrink-0"
+                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all bg-primary text-on-primary shadow-sm font-semibold"
               >
                 COMPLETED ACTIVITIES
               </button>
               <button
                 id="tab-partnerships"
                 type="button"
-                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright shrink-0"
+                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
               >
                 PARTNERSHIPS
               </button>
               <button
                 id="tab-engagements"
                 type="button"
-                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright shrink-0"
+                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
               >
                 EXTERNAL ENGAGEMENTS
               </button>
               <button
                 id="tab-calendar"
                 type="button"
-                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright shrink-0"
+                class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md tracking-wider transition-all text-on-surface-variant hover:text-primary hover:bg-surface-bright"
               >
                 CALENDAR
               </button>
@@ -98,10 +98,10 @@ import Footer from "../components/navigation/Footer.astro";
                         A seminar aimed at developing the leadership potential of CAS Honor Society members through peer ethics, research stewardship, and collegiate governance workshops.
                       </p>
                     </div>
-                    <div class="w-full sm:w-auto">
+                    <div>
                       <a
                         href="/request"
-                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-[13px] sm:text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm text-center"
+                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
                       >
                         <span>VIEW ACCOMPLISHMENT REPORT</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -139,10 +139,10 @@ import Footer from "../components/navigation/Footer.astro";
                         An outreach activity to extend help and promote community involvement, delivering foundational literacy kits and mentorship to secondary school scholars.
                       </p>
                     </div>
-                    <div class="w-full sm:w-auto">
+                    <div>
                       <a
                         href="/request"
-                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-[13px] sm:text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm text-center"
+                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
                       >
                         <span>VIEW ACCOMPLISHMENT REPORT</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -180,10 +180,10 @@ import Footer from "../components/navigation/Footer.astro";
                         An event recognizing the academic excellence and dedication of CAS students, conferring distinction medals and publication honorarium awards.
                       </p>
                     </div>
-                    <div class="w-full sm:w-auto">
+                    <div>
                       <a
                         href="/request"
-                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-[13px] sm:text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm text-center"
+                        class="inline-flex w-full sm:w-auto items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase hover:bg-primary-container transition-colors shadow-sm"
                       >
                         <span>VIEW ACCOMPLISHMENT REPORT</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -330,7 +330,7 @@ import Footer from "../components/navigation/Footer.astro";
               </p>
               <a
                 href="/request"
-                class="inline-flex w-full items-center justify-center gap-space-xs px-2 py-2.5 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-[13px] sm:text-label-md tracking-wider uppercase font-semibold hover:bg-secondary-fixed transition-colors text-center"
+                class="inline-flex w-full items-center justify-center gap-space-xs py-2.5 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md tracking-wider uppercase font-semibold hover:bg-secondary-fixed transition-colors"
               >
                 <span>REQUEST OFFICIAL CITATION</span>
                 <span class="material-symbols-outlined text-[18px]">verified</span>
