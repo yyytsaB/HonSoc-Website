@@ -47,7 +47,6 @@
   }
 
   body {
-    overscroll-behavior: none;
     @apply font-body text-body-md bg-surface text-on-surface antialiased;
     min-height: 100vh;
   }
