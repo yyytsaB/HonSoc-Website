@@ -75,4 +75,15 @@ describe('CASHONSITE Architectural Pages & Layout Integrity', () => {
       expect(fs.existsSync(path.join(fontsDir, font))).toBe(true);
     }
   });
+
+  it('ensures officers directory page exists and renders full council structure', () => {
+    const officersPage = path.resolve(__dirname, '../src/pages/about/officers.astro');
+    expect(fs.existsSync(officersPage)).toBe(true);
+    const content = fs.readFileSync(officersPage, 'utf-8');
+    expect(content).toContain('DR. JONELYN B. SANDOVAL');
+    expect(content).toContain('LIAN BEATRICE S. CATIPON');
+    expect(content).toContain('JENNYLYN M. CANINO');
+    expect(content).toContain('LAURENCE DANIELLE D. CATAPANG');
+    expect(content).toContain('BaseLayout');
+  });
 });

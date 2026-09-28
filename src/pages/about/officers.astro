@@ -1,0 +1,445 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/navigation/Navbar.astro";
+import Footer from "../../components/navigation/Footer.astro";
+
+// Complete Official Society Roster for A.Y. 2026–2027
+const adviser = {
+  name: "DR. JONELYN B. SANDOVAL",
+  role: "Faculty Adviser",
+  department: "College of Arts and Sciences",
+  badgeIcon: "school",
+  badgeClass: "bg-primary text-secondary-fixed border border-secondary-fixed/30",
+  bio: "Guiding the CAS Honor Society with scholarly integrity, academic stewardship, and leadership governance.",
+};
+
+const sections = [
+  {
+    id: "executive-positions",
+    title: "Executive Positions",
+    officers: [
+      {
+        name: "LIAN BEATRICE S. CATIPON",
+        role: "President",
+        badgeIcon: "workspace_premium",
+        badgeClass: "bg-primary/95 text-secondary-fixed border border-secondary/30",
+        roleClass: "text-secondary font-bold",
+        tag: "Presidium",
+      },
+      {
+        name: "ALVIE KENSHLY H. BIEN",
+        role: "Vice President for Internal Affairs",
+        badgeIcon: "star",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Internal Affairs",
+      },
+      {
+        name: "ARON JAMES G. SAMONTE",
+        role: "Vice President for External Affairs",
+        badgeIcon: "public",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "External Linkages",
+      },
+      {
+        name: "CRISTAL B. COLIAT",
+        role: "Secretary",
+        badgeIcon: "history_edu",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Secretariat & Records",
+      },
+    ],
+  },
+  {
+    id: "senior-positions",
+    title: "Senior Positions",
+    officers: [
+      {
+        name: "JENNYLYN M. CANINO",
+        role: "Treasurer",
+        badgeIcon: "account_balance_wallet",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Treasury & Finance",
+      },
+      {
+        name: "RAJIVE VLADESLAW D. JOSOL",
+        role: "Auditor",
+        badgeIcon: "fact_check",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Audit & Oversight",
+      },
+      {
+        name: "APPLE JHOY D. BUNYI",
+        role: "Business Manager",
+        badgeIcon: "storefront",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Enterprise & Logistics",
+      },
+      {
+        name: "JOSIAH EMMANUEL P. TALAIN",
+        role: "Public Information Officer",
+        badgeIcon: "campaign",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "Communications & Press",
+      },
+    ],
+  },
+  {
+    id: "program-representatives",
+    title: "Program Representatives",
+    officers: [
+      {
+        name: "LAURENCE DANIELLE D. CATAPANG",
+        role: "BAELS Representative",
+        tier: "Bachelor of Arts in English Language Studies",
+        badgeIcon: "translate",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BAELS",
+      },
+      {
+        name: "HANS GEO C. VALENTON",
+        role: "BS Biology Representative",
+        tier: "Bachelor of Science in Biology",
+        badgeIcon: "biotech",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BS Bio",
+      },
+      {
+        name: "MAE ANN M. MACALINAO",
+        role: "BS Chemistry Representative",
+        tier: "Bachelor of Science in Chemistry",
+        badgeIcon: "science",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BS Chem",
+      },
+      {
+        name: "FRANCES MEI-LI TRINIDAD",
+        role: "BS DevCom Representative",
+        tier: "Bachelor of Science in Development Communication",
+        badgeIcon: "connect_without_contact",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BS DevCom",
+      },
+      {
+        name: "SIGRID GWEN M. IDEA",
+        role: "BS Math Representative",
+        tier: "Bachelor of Science in Mathematics",
+        badgeIcon: "calculate",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BS Math",
+      },
+      {
+        name: "VICTORIA SABELLE P. GARING",
+        role: "BS Psychology Representative",
+        tier: "Bachelor of Science in Psychology",
+        badgeIcon: "psychology",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "BS Psych",
+      },
+    ],
+  },
+  {
+    id: "committee-leadership",
+    title: "Committee Leadership",
+    officers: [
+      {
+        name: "PIA ANDREI DIMAYUGA",
+        role: "Committee Head",
+        tier: "Committee on Technical Affairs (COTA)",
+        badgeIcon: "terminal",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "COTA",
+      },
+      {
+        name: "PRECIOUS PILAR",
+        role: "Committee Head",
+        tier: "Committee on Public Relations (CPR)",
+        badgeIcon: "record_voice_over",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CPR",
+      },
+      {
+        name: "RAIZEN DIMAANO",
+        role: "Committee Head",
+        tier: "Committee on Documentation (COD)",
+        badgeIcon: "description",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "COD",
+      },
+      {
+        name: "JANNA SACULAR",
+        role: "Committee Head",
+        tier: "Committee on Procurement and Logistics (CPL)",
+        badgeIcon: "local_shipping",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CPL",
+      },
+      {
+        name: "GEOEFF ANDREI GUTIERREZ",
+        role: "Committee Head",
+        tier: "Disaster Risk Reduction and Management (CDRRM)",
+        badgeIcon: "shield",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CDRRM",
+      },
+      {
+        name: "QUENNY RAINE PETALLO",
+        role: "Committee Head",
+        tier: "Committee on Sustainable Development (CSD)",
+        badgeIcon: "eco",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CSD",
+      },
+      {
+        name: "SAIZA VALEROSO",
+        role: "Committee Head",
+        tier: "Committee on Student Grievances (CSG)",
+        badgeIcon: "gavel",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CSG",
+      },
+      {
+        name: "GREEVAN LACORTE",
+        role: "Committee Head",
+        tier: "Committee on Branding (COB)",
+        badgeIcon: "palette",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "COB",
+      },
+      {
+        name: "SHYRILLE MEIGH",
+        role: "Committee Head",
+        tier: "Committee on Creative Arts (CCA)",
+        badgeIcon: "brush",
+        badgeClass: "bg-surface-container-lowest text-primary border border-outline-variant/30",
+        roleClass: "text-on-surface-variant font-medium",
+        tag: "CCA",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Officers of the Society | CAS Honor Society | CASHONSITE">
+  <Navbar currentPath="/about/officers" />
+
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)] relative z-10">
+    <div class="flex flex-col w-full">
+      <div class="relative w-full">
+        <!-- Ambient decorative background glows -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none"></div>
+          <div class="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg pt-space-md pb-32 sm:pb-40 relative z-10">
+          <!-- Back navigation breadcrumb -->
+          <div class="flex items-center gap-space-xs text-on-surface-variant text-body-sm font-medium mb-space-md">
+            <a
+              href="/about"
+              class="inline-flex items-center gap-1 text-primary hover:text-primary-container font-semibold transition-colors group"
+            >
+              <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">
+                arrow_back
+              </span>
+              <span>Back to About Society</span>
+            </a>
+            <span class="text-outline-variant">/</span>
+            <span class="text-on-surface-variant">Officers Directory</span>
+          </div>
+
+          <!-- Editorial Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-lg border-b border-outline-variant/30 mb-space-xl">
+            <div class="flex flex-col max-w-2xl">
+              <div class="inline-flex items-center gap-1.5 self-start px-space-sm py-1 bg-surface-container-high text-primary rounded-full shadow-xs mb-space-xs">
+                <span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+                <span class="font-label-xs text-label-xs uppercase tracking-wider font-semibold">
+                  Academic Year 2026–2027 Roster
+                </span>
+              </div>
+              <h1 class="font-headline-lg sm:font-headline-xl text-headline-lg sm:text-headline-xl text-primary font-normal tracking-tight">
+                OFFICERS OF THE SOCIETY
+              </h1>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1.5 leading-relaxed">
+                The student leaders, program representatives, and faculty advisers dedicated to academic excellence, student representation, and institutional integrity across the College of Arts and Sciences.
+              </p>
+            </div>
+
+            <!-- Total Count Badge -->
+            <div class="flex items-center gap-space-xs self-start md:self-auto px-space-md py-2 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs">
+              <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+              <span class="font-label-md text-label-md text-on-surface font-bold tracking-tight">
+                23 Society Officers
+              </span>
+            </div>
+          </div>
+
+          <!-- Faculty Adviser Spotlight Banner (Honorary Place) -->
+          <div class="bg-surface-container-lowest rounded-2xl border border-secondary/30 shadow-md p-space-md sm:p-space-lg flex flex-col md:flex-row items-center gap-space-lg relative overflow-hidden group">
+            <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-secondary-fixed/20 blur-2xl pointer-events-none"></div>
+
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-surface-container-high shrink-0 relative border-2 border-secondary/40 shadow-sm">
+              <img
+                src="/images/officer-placeholder.svg"
+                alt={adviser.name}
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-1.5 right-1.5 p-1 rounded-full bg-primary text-secondary-fixed shadow-xs">
+                <span class="material-symbols-outlined text-[14px] block">school</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col text-center md:text-left flex-1">
+              <div class="inline-flex items-center justify-center md:justify-start gap-1.5 text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider mb-0.5">
+                <span class="material-symbols-outlined text-[16px]">military_tech</span>
+                <span>Honor Society Stewardship</span>
+              </div>
+              <h2 class="font-headline-md text-headline-md text-on-surface font-bold uppercase tracking-tight">
+                {adviser.name}
+              </h2>
+              <span class="font-body-md text-body-md text-primary font-semibold mt-0.5">
+                {adviser.role} • {adviser.department}
+              </span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-2 max-w-xl leading-relaxed">
+                {adviser.bio}
+              </p>
+            </div>
+
+            <div class="shrink-0 self-center md:self-auto">
+              <span class="px-space-md py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm text-label-sm font-bold uppercase tracking-wider">
+                Official Faculty Adviser
+              </span>
+            </div>
+          </div>
+
+          <!-- Position Sections with Differentiated Grand Headings -->
+          <div class="flex flex-col w-full">
+            {
+              sections.map((section) => (
+                <section
+                  id={section.id}
+                  class="w-full"
+                  style="margin-top: clamp(3.5rem, 6vw, 4.75rem);"
+                >
+                  <!-- Grand Position Distinction Heading Burgered by Ornate Designed Lines -->
+                  <div
+                    class="w-full flex flex-col items-center justify-center text-center px-4"
+                    style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);"
+                  >
+                    <!-- Top Burger Line with Guaranteed Visible Solid/Tapered Gold Bar and Design -->
+                    <div
+                      style="width: 100%; max-width: 720px; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);"
+                    >
+                      <div
+                        style="flex: 1 1 0%; height: 2px; min-height: 2px; background: linear-gradient(90deg, rgba(128, 86, 0, 0.05) 0%, rgba(128, 86, 0, 0.7) 20%, #805600 40%, #805600 100%); border-radius: 1px;"
+                      ></div>
+                      <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                        <span style="display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background-color: #805600;"></span>
+                        <span style="display: inline-block; width: 10px; height: 10px; transform: rotate(45deg); border: 2px solid #805600; background-color: #ffddb0; box-shadow: 0 1px 2px rgba(0,0,0,0.1);"></span>
+                        <span style="display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background-color: #805600;"></span>
+                      </div>
+                      <div
+                        style="flex: 1 1 0%; height: 2px; min-height: 2px; background: linear-gradient(90deg, #805600 0%, #805600 60%, rgba(128, 86, 0, 0.7) 80%, rgba(128, 86, 0, 0.05) 100%); border-radius: 1px;"
+                      ></div>
+                    </div>
+
+                    <!-- Centered Grand Headline with Zero Unwanted Vertical Drift -->
+                    <h2
+                      class="font-headline-xl font-serif text-primary font-normal tracking-tight uppercase text-center"
+                      style="font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; text-align: center; margin: 0; padding: 0;"
+                    >
+                      {section.title}
+                    </h2>
+
+                    <!-- Bottom Burger Line with Guaranteed Visible Solid/Tapered Gold Bar and Design -->
+                    <div
+                      style="width: 100%; max-width: 720px; display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: clamp(1.25rem, 2.5vw, 1.75rem);"
+                    >
+                      <div
+                        style="flex: 1 1 0%; height: 2px; min-height: 2px; background: linear-gradient(90deg, rgba(128, 86, 0, 0.05) 0%, rgba(128, 86, 0, 0.7) 20%, #805600 40%, #805600 100%); border-radius: 1px;"
+                      ></div>
+                      <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                        <span style="display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background-color: #805600;"></span>
+                        <span style="display: inline-block; width: 10px; height: 10px; transform: rotate(45deg); border: 2px solid #805600; background-color: #ffddb0; box-shadow: 0 1px 2px rgba(0,0,0,0.1);"></span>
+                        <span style="display: inline-block; width: 6px; height: 6px; transform: rotate(45deg); background-color: #805600;"></span>
+                      </div>
+                      <div
+                        style="flex: 1 1 0%; height: 2px; min-height: 2px; background: linear-gradient(90deg, #805600 0%, #805600 60%, rgba(128, 86, 0, 0.7) 80%, rgba(128, 86, 0, 0.05) 100%); border-radius: 1px;"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Officers Roster Grid for this Position Tier -->
+                  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter-sm">
+                    {section.officers.map((officer) => (
+                      <div class="officer-card flex flex-col bg-surface-container-lowest p-space-sm rounded-xl border border-outline-variant/20 shadow-xs hover:shadow-md transition-all group">
+                        <div class="w-full h-40 sm:h-44 rounded-lg overflow-hidden bg-surface-container-high mb-space-sm relative">
+                          <img
+                            src="/images/officer-placeholder.svg"
+                            alt={officer.name}
+                            class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div class:list={["absolute top-2 right-2 p-1 rounded-full shadow-xs", officer.badgeClass]}>
+                            <span class="material-symbols-outlined text-[14px] block">
+                              {officer.badgeIcon}
+                            </span>
+                          </div>
+                          <div class="absolute bottom-2 left-2">
+                            <span class="px-2 py-0.5 rounded-md bg-inverse-surface/80 backdrop-blur-xs text-inverse-on-surface text-[10px] font-bold uppercase tracking-wider">
+                              {officer.tag}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="flex flex-col items-center text-center p-space-xs flex-1 justify-center">
+                          <div>
+                            <h3 class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-tight line-clamp-2">
+                              {officer.name}
+                            </h3>
+                            <span class:list={["font-body-sm text-body-sm mt-1 block", officer.roleClass]}>
+                              {officer.role}
+                            </span>
+                          </div>
+
+                          {officer.tier && (
+                            <div class="mt-2.5 w-full pt-2 border-t border-outline-variant/15 flex items-center justify-center">
+                              <span class="text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant truncate">
+                                {officer.tier}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer class="relative z-0" />
+</BaseLayout>
