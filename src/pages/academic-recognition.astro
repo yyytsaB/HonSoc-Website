@@ -2,36 +2,43 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/navigation/Navbar.astro";
 import Footer from "../components/navigation/Footer.astro";
+import {
+  TOP_ACHIEVERS_DATA,
+  OTHER_DISTINCTIONS_DATA,
+} from "../lib/academic-recognition";
 
 const col1 = [
-  { name: "Adelina, Marie Claire D.", gwa: "1.18" },
-  { name: "Aguilar, Mikaela R.", gwa: "1.25" },
-  { name: "Alvarez, John Paul C.", gwa: "1.30" },
-  { name: "Bautista, Sophia Anne T.", gwa: "1.21" },
-  { name: "Cabrera, Angelika M.", gwa: "1.35" },
-  { name: "Cruz, Andrei J.", gwa: "1.40" },
-  { name: "Dela Peña, Luis Miguel P.", gwa: "1.28" },
+  { name: "Adelina, Marie Claire D.", gwa: "1.18", program: "psych" },
+  { name: "Aguilar, Mikaela R.", gwa: "1.25", program: "baels" },
+  { name: "Alvarez, John Paul C.", gwa: "1.30", program: "math" },
+  { name: "Bautista, Sophia Anne T.", gwa: "1.21", program: "math" },
+  { name: "Cabrera, Angelika M.", gwa: "1.35", program: "psych" },
+  { name: "Cruz, Andrei J.", gwa: "1.40", program: "bio" },
+  { name: "Dela Peña, Luis Miguel P.", gwa: "1.28", program: "psych" },
 ];
 
 const col2 = [
-  { name: "Dela Rosa, Juana Patricia L.", gwa: "1.15" },
-  { name: "Domingo, Alexa Marie B.", gwa: "1.22" },
-  { name: "Gonzales, Maria Isabel D.", gwa: "1.34" },
-  { name: "Llamas, Hannah Coleen S.", gwa: "1.29" },
-  { name: "Lopez, Krisha Mae T.", gwa: "1.31" },
-  { name: "Manalo, Erika Shane D.", gwa: "1.19" },
-  { name: "Marquez, Paul Vincent L.", gwa: "1.41" },
+  { name: "Dela Rosa, Juana Patricia L.", gwa: "1.15", program: "bio" },
+  { name: "Domingo, Alexa Marie B.", gwa: "1.22", program: "chem" },
+  { name: "Gonzales, Maria Isabel D.", gwa: "1.34", program: "devcom" },
+  { name: "Llamas, Hannah Coleen S.", gwa: "1.29", program: "psych" },
+  { name: "Lopez, Krisha Mae T.", gwa: "1.31", program: "bio" },
+  { name: "Manalo, Erika Shane D.", gwa: "1.19", program: "bio" },
+  { name: "Marquez, Paul Vincent L.", gwa: "1.41", program: "math" },
 ];
 
 const col3 = [
-  { name: "Mercado, Isabella F.", gwa: "1.14" },
-  { name: "Natividad, John Matthew R.", gwa: "1.33" },
-  { name: "Panganiban, Daniela S.", gwa: "1.26" },
-  { name: "Reyes, Maria Angelica P.", gwa: "1.23" },
-  { name: "Ramos, Adrian Kyle T.", gwa: "1.37" },
-  { name: "Sison, Gabrielle E.", gwa: "1.27" },
-  { name: "Tiu, Patricia Mae Y.", gwa: "1.17" },
+  { name: "Mercado, Isabella F.", gwa: "1.14", program: "psych" },
+  { name: "Natividad, John Matthew R.", gwa: "1.33", program: "psych" },
+  { name: "Panganiban, Daniela S.", gwa: "1.26", program: "chem" },
+  { name: "Reyes, Maria Angelica P.", gwa: "1.23", program: "devcom" },
+  { name: "Ramos, Adrian Kyle T.", gwa: "1.37", program: "math" },
+  { name: "Sison, Gabrielle E.", gwa: "1.27", program: "baels" },
+  { name: "Tiu, Patricia Mae Y.", gwa: "1.17", program: "math" },
 ];
+
+const podiumAchievers = TOP_ACHIEVERS_DATA.filter((a) => a.isPodium);
+const departmentalAchievers = TOP_ACHIEVERS_DATA.filter((a) => !a.isPodium);
 ---
 
 <BaseLayout title="Academic Recognition | CASHONSITE">
@@ -44,26 +51,28 @@ const col3 = [
         <div class="absolute top-48 -left-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg relative z-10 flex flex-col items-center">
-          <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container shadow-sm mb-space-sm">
+          <!-- Academic Pill Badge -->
+          <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container shadow-xs mb-space-sm">
             <span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
             <span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant font-semibold">Official Collegiate Rolls</span>
           </div>
           
-          <h1 class="font-headline-xl text-[24px] sm:text-[32px] md:text-headline-xl text-primary tracking-tight text-center font-normal mb-space-sm">
+          <h1 class="font-headline-xl text-[24px] sm:text-[32px] md:text-headline-xl text-primary tracking-tight text-center font-normal mb-space-xs">
             ACADEMIC RECOGNITION
           </h1>
           
-          <p class="font-body-md text-body-md text-on-surface-variant text-center max-w-2xl mb-space-xl">
-            A verified registry celebrating sustained scholarly excellence, peerless research acumen, and rigorous intellectual integrity across all College of Arts and Sciences programs.
+          <p class="font-body-md text-body-md text-on-surface-variant text-center max-w-xl mb-space-lg">
+            A verified registry celebrating sustained scholarly excellence, peerless research acumen, and rigorous intellectual integrity across the College of Arts and Sciences.
           </p>
 
-          <!-- Category Filter Tabs -->
-          <div class="flex flex-wrap justify-center items-center gap-space-xs p-1.5 rounded-full bg-surface-container-high/80 shadow-inner max-w-2xl w-full mb-space-xl" role="tablist">
+          <!-- Category Filter Tabs (Dean's Listers, Top Academic Achievers, Other Distinctions) -->
+          <div class="flex flex-wrap justify-center items-center gap-1.5 p-1.5 rounded-full bg-surface-container-high/70 shadow-inner max-w-xl w-full mb-space-lg" role="tablist">
             <button
               id="tab-deans-list"
               role="tab"
               aria-selected="true"
-              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-primary bg-primary shadow-sm hover:opacity-95 transition-all text-center"
+              aria-controls="panel-deans-list"
+              class="recognition-tab flex-1 min-w-[150px] py-2 px-space-md rounded-full font-label-sm text-label-sm font-semibold text-on-primary bg-primary shadow-xs hover:opacity-95 transition-all text-center cursor-pointer"
             >
               DEAN'S LISTERS
             </button>
@@ -71,196 +80,478 @@ const col3 = [
               id="tab-achievers"
               role="tab"
               aria-selected="false"
-              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center"
+              aria-controls="panel-achievers"
+              class="recognition-tab flex-1 min-w-[150px] py-2 px-space-md rounded-full font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center cursor-pointer"
             >
-              TOP ACADEMIC ACHIEVERS
+              TOP ACHIEVERS
             </button>
             <button
               id="tab-distinctions"
               role="tab"
               aria-selected="false"
-              class="recognition-tab flex-1 min-w-[170px] py-2.5 px-space-md rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center"
+              aria-controls="panel-distinctions"
+              class="recognition-tab flex-1 min-w-[150px] py-2 px-space-md rounded-full font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all text-center cursor-pointer"
             >
-              OTHER DISTINCTIONS
+              DISTINCTIONS
             </button>
           </div>
 
-          <!-- Main Registry Showcase Card -->
-          <div class="w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-space-md lg:p-space-xl transition-all">
-            <!-- Header & Filter Toolbar -->
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-space-md pb-space-lg">
+          <!-- ========================================================================= -->
+          <!-- TABPANEL 1: DEAN'S LISTERS (Editorial Honor Ledger)                       -->
+          <!-- ========================================================================= -->
+          <div
+            id="panel-deans-list"
+            role="tabpanel"
+            aria-labelledby="tab-deans-list"
+            class="recognition-panel block w-full bg-surface-container-lowest rounded-2xl border border-outline-variant/25 shadow-sm p-space-md sm:p-space-lg lg:p-space-xl transition-all"
+          >
+            <!-- Streamlined Header & Filter Toolbar -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md pb-space-md border-b border-outline-variant/20 mb-space-md">
               <div>
-                <div class="flex items-center gap-space-xs mb-1">
-                  <h2 class="font-headline-md text-headline-md text-primary tracking-tight font-medium">
-                    DEAN'S LISTERS
+                <div class="flex items-center gap-2">
+                  <h2 class="font-headline-md text-headline-md text-primary font-serif font-normal">
+                    Dean's Listers
                   </h2>
-                  <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs">Verified</span>
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-bold tracking-wide">A.Y. 2026–2027</span>
                 </div>
-                <p class="font-label-md text-label-md uppercase tracking-wider text-secondary font-semibold">
-                  A.Y. 2026–2027 • 1ST SEMESTER
-                </p>
-                <p class="font-body-md text-body-md text-on-surface-variant mt-1">
-                  We recognize the following CAS students for their outstanding academic performance and scholarly distinction.
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Scholars recognized for maintaining a cumulative term weighted average of 1.450 or higher.
                 </p>
               </div>
 
               <!-- Controls -->
-              <div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm w-full lg:w-auto">
-                <div class="relative w-full sm:w-48">
+              <div class="flex items-center gap-2 w-full md:w-auto">
+                <div class="relative flex-1 md:w-44">
                   <select
                     id="program-filter"
-                    class="w-full appearance-none bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-md py-2.5 pr-8 rounded-lg shadow-sm focus:outline-none focus:bg-surface-container transition-colors cursor-pointer"
+                    class="w-full appearance-none bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-sm py-2 pr-8 rounded-lg border border-outline-variant/20 shadow-xs focus:outline-none focus:bg-surface-container transition-colors cursor-pointer"
                   >
                     <option value="all">All Programs</option>
                     <option value="psych" selected>BS Psychology</option>
                     <option value="bio">BS Biology</option>
-                    <option value="comm">BA Communication</option>
-                    <option value="polsci">BA Political Science</option>
-                    <option value="lit">BA Literature</option>
+                    <option value="chem">BS Chemistry</option>
+                    <option value="math">BS Mathematics</option>
+                    <option value="devcom">BS DevCom</option>
+                    <option value="baels">BAELS</option>
                   </select>
-                  <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+                  <span class="material-symbols-outlined absolute right-2 top-2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
                 </div>
-                <div class="relative w-full sm:w-64">
-                  <span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-[20px]">search</span>
+                <div class="relative flex-1 md:w-56">
+                  <span class="material-symbols-outlined absolute left-2.5 top-2 text-secondary text-[18px]">search</span>
                   <input
                     id="name-search"
                     type="text"
                     placeholder="Search name..."
-                    class="w-full bg-surface-container-low text-on-surface placeholder-on-surface-variant/60 font-body-sm text-body-sm pl-10 pr-space-md py-2.5 rounded-full shadow-sm focus:outline-none focus:bg-surface-container transition-all"
+                    class="w-full bg-surface-container-low text-on-surface placeholder-on-surface-variant/60 font-body-sm text-body-sm pl-8 pr-space-sm py-2 rounded-full border border-outline-variant/20 shadow-xs focus:outline-none focus:bg-surface-container transition-all"
                   />
                 </div>
               </div>
             </div>
 
-            <!-- Academic Metrics Bar -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm py-space-md mb-space-lg rounded-lg bg-surface-container-low px-space-md">
-              <div class="flex flex-col">
-                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Selected Program</span>
-                <span class="font-title-md text-title-md text-primary font-semibold">BS Psychology</span>
+            <!-- Lightweight Editorial Subheader Bar -->
+            <div class="flex items-center justify-between mb-3 px-1 text-on-surface-variant font-label-sm text-label-sm">
+              <div class="flex items-center gap-2 font-semibold text-primary">
+                <span class="material-symbols-outlined text-[18px] text-secondary" id="deans-program-icon">psychology</span>
+                <span id="deans-program-heading" class="tracking-wide">BS PSYCHOLOGY</span>
               </div>
-              <div class="flex flex-col">
-                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Class Honor Roll</span>
-                <span class="font-title-md text-title-md text-on-surface font-semibold" id="roster-count">21 Confirmed</span>
-              </div>
-              <div class="flex flex-col">
-                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Min. Weighted Avg.</span>
-                <span class="font-title-md text-title-md text-secondary font-semibold">1.450 / 94.5%</span>
-              </div>
-              <div class="flex flex-col">
-                <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Certification Code</span>
-                <span class="font-title-md text-title-md text-on-surface-variant font-mono">DL-CAS-2627-1</span>
-              </div>
+              <span class="font-medium text-on-surface-variant text-body-xs" id="roster-count">21 Confirmed Scholars</span>
             </div>
 
-            <!-- Department Section Banner -->
-            <div class="flex items-center justify-between mb-space-md pb-space-xs">
-              <div class="flex items-center gap-space-xs">
-                <span class="material-symbols-outlined text-primary text-[22px]">psychology</span>
-                <h3 class="font-title-md text-title-md font-bold uppercase tracking-wider text-primary">
-                  BS PSYCHOLOGY
-                </h3>
-              </div>
-              <span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">21 Scholars</span>
-            </div>
-
-            <!-- 3-Column Names Directory -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-space-xs bg-surface-container-low/50 p-space-md lg:p-space-lg rounded-xl" id="honorees-container">
+            <!-- 3-Column Editorial Registry Roll (Breathable & Pristine) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1" id="honorees-container">
               <!-- Column 1 -->
-              <div class="flex flex-col gap-space-xs honor-column">
+              <div class="flex flex-col honor-column divide-y divide-outline-variant/10">
                 {col1.map((student) => (
-                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
-                    <div class="flex items-center gap-space-xs min-w-0">
-                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
-                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                  <div class="student-entry flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low/70 transition-colors group" data-program={student.program}>
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 opacity-80 group-hover:scale-125 transition-transform"></span>
+                      <span class="font-body-sm text-body-sm text-on-surface font-medium truncate student-name">{student.name}</span>
                     </div>
-                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                    <span class="font-serif text-sm font-bold text-secondary shrink-0 pl-2">{student.gwa}</span>
                   </div>
                 ))}
               </div>
 
               <!-- Column 2 -->
-              <div class="flex flex-col gap-space-xs honor-column">
+              <div class="flex flex-col honor-column divide-y divide-outline-variant/10">
                 {col2.map((student) => (
-                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
-                    <div class="flex items-center gap-space-xs min-w-0">
-                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
-                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                  <div class="student-entry flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low/70 transition-colors group" data-program={student.program}>
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 opacity-80 group-hover:scale-125 transition-transform"></span>
+                      <span class="font-body-sm text-body-sm text-on-surface font-medium truncate student-name">{student.name}</span>
                     </div>
-                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                    <span class="font-serif text-sm font-bold text-secondary shrink-0 pl-2">{student.gwa}</span>
                   </div>
                 ))}
               </div>
 
               <!-- Column 3 -->
-              <div class="flex flex-col gap-space-xs honor-column">
+              <div class="flex flex-col honor-column divide-y divide-outline-variant/10">
                 {col3.map((student) => (
-                  <div class="student-entry flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm group">
-                    <div class="flex items-center gap-space-xs min-w-0">
-                      <span class="material-symbols-outlined text-primary text-[20px] shrink-0 group-hover:scale-110 transition-transform">person</span>
-                      <span class="font-body-md text-body-md text-on-surface font-medium truncate student-name">{student.name}</span>
+                  <div class="student-entry flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-surface-container-low/70 transition-colors group" data-program={student.program}>
+                    <div class="flex items-center gap-2.5 min-w-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 opacity-80 group-hover:scale-125 transition-transform"></span>
+                      <span class="font-body-sm text-body-sm text-on-surface font-medium truncate student-name">{student.name}</span>
                     </div>
-                    <span class="font-label-xs text-label-xs text-secondary-fixed-variant bg-secondary-fixed/50 px-2 py-0.5 rounded-full shrink-0 font-semibold">{student.gwa}</span>
+                    <span class="font-serif text-sm font-bold text-secondary shrink-0 pl-2">{student.gwa}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <!-- No Results Fallback -->
-            <div class="hidden flex-col items-center justify-center py-space-xl text-center" id="no-search-results">
-              <span class="material-symbols-outlined text-primary/40 text-[48px] mb-2">person_search</span>
-              <p class="font-title-md text-title-md text-on-surface font-medium">No honor scholar found matching the query</p>
-              <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Please ensure the student's legal surname or given name is spelled accurately.</p>
+            <div class="hidden flex-col items-center justify-center py-12 text-center" id="no-search-results">
+              <span class="material-symbols-outlined text-primary/40 text-[40px] mb-2">person_search</span>
+              <p class="font-title-sm text-title-sm text-on-surface font-medium">No scholar found matching the query</p>
+              <p class="font-body-xs text-body-xs text-on-surface-variant mt-0.5">Please check spelling or select another program.</p>
             </div>
 
             <!-- Bottom Action CTA -->
-            <div class="mt-space-xl pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
-              <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
-                <span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
-                <span>Archival record verified by CAS Honor Society Governance Council</span>
-              </div>
-              <a
-                href="/archive"
-                class="inline-flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary hover:text-primary-container px-space-md py-space-sm rounded-full bg-surface-container hover:bg-surface-container-high transition-all shadow-sm"
-              >
-                <span>VIEW FULL LIST (ALL PROGRAMS)</span>
-                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <div class="mt-space-md pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-body-xs text-body-xs border-t border-outline-variant/15">
+              <span>Verified registry record of the College of Arts and Sciences</span>
+              <a href="/archive" class="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-container transition-colors">
+                <span>View Historical Rolls</span>
+                <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
               </a>
             </div>
           </div>
 
-          <!-- Scholarly Verification & Document Link Banner -->
-          <div class="w-full mt-space-lg grid grid-cols-1 md:grid-cols-3 gap-gutter">
-            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
-              <div class="p-2 rounded-lg bg-primary text-on-primary shrink-0">
-                <span class="material-symbols-outlined text-[24px]">policy</span>
-              </div>
+          <!-- ========================================================================= -->
+          <!-- TABPANEL 2: TOP ACADEMIC ACHIEVERS (Simplified & High-End)                -->
+          <!-- ========================================================================= -->
+          <div
+            id="panel-achievers"
+            role="tabpanel"
+            aria-labelledby="tab-achievers"
+            class="recognition-panel hidden w-full bg-surface-container-lowest rounded-2xl border border-outline-variant/25 shadow-sm p-space-md sm:p-space-lg lg:p-space-xl transition-all"
+          >
+            <!-- Streamlined Header & Filter Toolbar -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md pb-space-md border-b border-outline-variant/20 mb-space-md">
               <div>
-                <h4 class="font-title-md text-title-md text-primary font-semibold">Eligibility Standards</h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Minimum GPA of 1.450 with no single grade lower than 2.0 and at least 18 regular academic units completed.</p>
+                <div class="flex items-center gap-2">
+                  <h2 class="font-headline-md text-headline-md text-primary font-serif font-normal">
+                    Top Academic Achievers
+                  </h2>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-xs text-label-xs font-bold shadow-xs">
+                    <span class="material-symbols-outlined text-[13px]">military_tech</span>
+                    Highest Honors
+                  </span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Conferring collegiate honors upon the highest-ranking general weighted averages.
+                </p>
+              </div>
+
+              <!-- Controls -->
+              <div class="flex items-center gap-2 w-full md:w-auto">
+                <div class="relative flex-1 md:w-44">
+                  <select
+                    id="achievers-program-filter"
+                    class="w-full appearance-none bg-surface-container-low text-on-surface font-body-sm text-body-sm px-space-sm py-2 pr-8 rounded-lg border border-outline-variant/20 shadow-xs focus:outline-none focus:bg-surface-container transition-colors cursor-pointer"
+                  >
+                    <option value="all" selected>All Programs</option>
+                    <option value="psych">BS Psychology</option>
+                    <option value="bio">BS Biology</option>
+                    <option value="math">BS Mathematics</option>
+                    <option value="chem">BS Chemistry</option>
+                    <option value="devcom">BS DevCom</option>
+                    <option value="baels">BAELS</option>
+                  </select>
+                  <span class="material-symbols-outlined absolute right-2 top-2 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
+                </div>
+                <div class="relative flex-1 md:w-56">
+                  <span class="material-symbols-outlined absolute left-2.5 top-2 text-secondary text-[18px]">search</span>
+                  <input
+                    id="achievers-search"
+                    type="text"
+                    placeholder="Search scholar or rank..."
+                    class="w-full bg-surface-container-low text-on-surface placeholder-on-surface-variant/60 font-body-sm text-body-sm pl-8 pr-space-sm py-2 rounded-full border border-outline-variant/20 shadow-xs focus:outline-none focus:bg-surface-container transition-all"
+                  />
+                </div>
               </div>
             </div>
-            
-            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
-              <div class="p-2 rounded-lg bg-secondary text-on-secondary shrink-0">
-                <span class="material-symbols-outlined text-[24px]">history_edu</span>
+
+            <!-- College Valedictorian Podium (The 3 Topnotchers in Refined Showcase) -->
+            <div class="mb-space-lg">
+              <div class="w-full flex flex-col items-center justify-center text-center my-6">
+                <div class="inline-flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[22px] text-secondary">workspace_premium</span>
+                  <h3 class="font-serif text-lg sm:text-xl font-bold text-primary uppercase tracking-widest text-center">
+                    College Podium • Overall Highest Honors
+                  </h3>
+                </div>
+                <p class="font-label-xs text-label-xs text-on-surface-variant font-medium mt-1">
+                  Rankings confirmed by the College Academic Board (<span id="achievers-count">9 Honorees</span>)
+                </p>
               </div>
-              <div>
-                <h4 class="font-title-md text-title-md text-primary font-semibold">Official Transcript Seals</h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Inscribed directly upon semester permanent records and eligible for university convocation recognition honors.</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                {podiumAchievers.map((achiever) => (
+                  <div
+                    class={`achiever-card flex flex-col justify-between p-space-md sm:p-space-lg rounded-2xl transition-all group ${
+                      achiever.podiumRank === 1
+                        ? 'bg-gradient-to-b from-secondary-fixed/20 via-surface-container-lowest to-surface-container-lowest border-2 border-secondary/50 shadow-md'
+                        : 'bg-surface-container-low/30 border border-outline-variant/20 hover:bg-surface-container-low shadow-xs'
+                    }`}
+                    data-program={achiever.programCode}
+                    data-name={achiever.name}
+                    data-rank={achiever.rankTitle}
+                  >
+                    <div>
+                      <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label-xs text-label-xs font-bold uppercase tracking-wider ${
+                          achiever.podiumRank === 1 ? 'bg-primary text-secondary-fixed' : 'bg-surface-container-high text-primary'
+                        }`}>
+                          <span class="material-symbols-outlined text-[13px]">
+                            {achiever.podiumRank === 1 ? 'workspace_premium' : achiever.podiumRank === 2 ? 'military_tech' : 'award_star'}
+                          </span>
+                          {achiever.podiumRank === 1 ? 'Rank 1 • Valedictorian' : achiever.podiumRank === 2 ? 'Rank 2 • Salutatorian' : 'Rank 3 • 1st Honorable'}
+                        </span>
+                        <span class="font-serif text-2xl sm:text-3xl font-bold text-secondary">{achiever.gwa}</span>
+                      </div>
+
+                      <h3 class="font-serif text-lg font-bold text-on-surface uppercase tracking-tight mt-2 group-hover:text-primary transition-colors">
+                        {achiever.name}
+                      </h3>
+                      <span class="font-body-sm text-body-sm text-primary font-semibold block mt-0.5">
+                        {achiever.program}
+                      </span>
+                      <span class="font-label-xs text-label-xs text-on-surface-variant block mt-0.5">
+                        {achiever.yearLevel}
+                      </span>
+
+                      <p class="font-serif text-body-xs text-on-surface-variant mt-3 leading-relaxed italic border-t border-outline-variant/15 pt-3">
+                        "{achiever.citation}"
+                      </p>
+                    </div>
+
+                    <div class="mt-4 pt-2.5 border-t border-outline-variant/15 flex items-center justify-between font-label-xs text-label-xs">
+                      <span class="text-secondary font-bold uppercase tracking-wider">{achiever.honorBadge}</span>
+                      <span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            
-            <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm shadow-sm">
-              <div class="p-2 rounded-lg bg-surface-container-highest text-primary shrink-0">
-                <span class="material-symbols-outlined text-[24px]">assignment_turned_in</span>
+
+            <!-- Departmental Valedictorians (Sleek Scannable Honor Roster) -->
+            <div>
+              <div class="w-full flex flex-col items-center justify-center text-center my-6">
+                <div class="inline-flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[22px] text-primary">stars</span>
+                  <h3 class="font-serif text-lg sm:text-xl font-bold text-primary uppercase tracking-widest text-center">
+                    Departmental First Rankers
+                  </h3>
+                </div>
+                <p class="font-label-xs text-label-xs text-on-surface-variant font-medium mt-1">
+                  Recognizing the highest general weighted averages across CAS programs
+                </p>
               </div>
-              <div class="flex flex-col">
-                <h4 class="font-title-md text-title-md text-primary font-semibold">Need Proof of Distinction?</h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Official certificates and verification letters can be ordered through the digital request bureau.</p>
-                <a href="/request" class="mt-2 inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-primary-container font-semibold">
-                  Go to Document Request
-                  <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-                </a>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="departmental-achievers-grid">
+              {departmentalAchievers.map((achiever) => (
+                <div
+                  class="achiever-card flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low/30 border border-outline-variant/15 hover:bg-surface-container-low hover:border-outline-variant/30 transition-all shadow-xs group"
+                  data-program={achiever.programCode}
+                  data-name={achiever.name}
+                  data-rank={achiever.rankTitle}
+                >
+                  <div class="min-w-0 pr-2">
+                    <span class="font-label-xs text-label-xs uppercase tracking-wider text-primary font-bold block truncate">
+                      {achiever.rankTitle}
+                    </span>
+                    <h4 class="font-body-sm text-body-sm font-bold text-on-surface uppercase tracking-tight truncate mt-0.5">
+                      {achiever.name}
+                    </h4>
+                    <span class="font-label-xs text-label-xs text-on-surface-variant block truncate">
+                      {achiever.program}
+                    </span>
+                  </div>
+                  <span class="font-serif text-base font-bold text-secondary px-2.5 py-1 rounded-md bg-secondary-fixed/40 shrink-0">
+                    {achiever.gwa}
+                  </span>
+                </div>
+              ))}
+              </div>
+            </div>
+
+            <!-- Achievers No Results Fallback -->
+            <div class="hidden flex-col items-center justify-center py-12 text-center" id="no-achievers-results">
+              <span class="material-symbols-outlined text-primary/40 text-[40px] mb-2">person_search</span>
+              <p class="font-title-sm text-title-sm text-on-surface font-medium">No top achiever found</p>
+              <p class="font-body-xs text-body-xs text-on-surface-variant mt-0.5">Please adjust your search terms or choose "All Programs".</p>
+            </div>
+          </div>
+
+          <!-- ========================================================================= -->
+          <!-- TABPANEL 3: OTHER DISTINCTIONS (High-Contrast & Symmetrical Showcase)     -->
+          <!-- ========================================================================= -->
+          <div
+            id="panel-distinctions"
+            role="tabpanel"
+            aria-labelledby="tab-distinctions"
+            class="recognition-panel hidden w-full bg-surface-container-lowest rounded-2xl border border-outline-variant/25 shadow-sm p-space-md sm:p-space-lg lg:p-space-xl transition-all"
+          >
+            <!-- Symmetrical Centered Header & Controls -->
+            <div class="flex flex-col items-center justify-center text-center pb-space-md border-b border-outline-variant/20 mb-space-md">
+              <div class="inline-flex items-center justify-center gap-2 mb-1">
+                <span class="material-symbols-outlined text-secondary text-[24px]">stars</span>
+                <h2 class="font-headline-md text-headline-md text-primary font-serif font-bold">
+                  Collegiate Distinctions & Laurels
+                </h2>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface max-w-2xl font-normal text-center">
+                Honoring peerless undergraduate research colloquiums, civic leadership stewardship, and inter-collegiate competition delegations.
+              </p>
+
+              <!-- Symmetrical Centered Search Bar -->
+              <div class="relative w-full max-w-md mt-4">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-secondary text-[20px]">search</span>
+                <input
+                  id="distinctions-search"
+                  type="text"
+                  placeholder="Search award, initiative, or honoree..."
+                  class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm pl-10 pr-4 py-2.5 rounded-full border border-outline-variant/30 shadow-xs focus:outline-none focus:border-secondary focus:bg-surface-container transition-all"
+                />
+              </div>
+
+              <!-- Symmetrical Centered Category Filter Pills -->
+              <div class="flex flex-wrap items-center justify-center gap-2 mt-4">
+                <button
+                  type="button"
+                  data-dist-filter="all"
+                  class="dist-filter-btn px-4 py-1.5 rounded-full font-label-xs text-label-xs font-bold bg-primary text-on-primary shadow-xs transition-all cursor-pointer"
+                >
+                  All Distinctions (9)
+                </button>
+                <button
+                  type="button"
+                  data-dist-filter="research"
+                  class="dist-filter-btn px-4 py-1.5 rounded-full font-label-xs text-label-xs font-semibold bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all cursor-pointer"
+                >
+                  Research & Thesis
+                </button>
+                <button
+                  type="button"
+                  data-dist-filter="leadership"
+                  class="dist-filter-btn px-4 py-1.5 rounded-full font-label-xs text-label-xs font-semibold bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all cursor-pointer"
+                >
+                  Academic Leadership
+                </button>
+                <button
+                  type="button"
+                  data-dist-filter="competitions"
+                  class="dist-filter-btn px-4 py-1.5 rounded-full font-label-xs text-label-xs font-semibold bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all cursor-pointer"
+                >
+                  Competitions
+                </button>
+                <button
+                  type="button"
+                  data-dist-filter="citations"
+                  class="dist-filter-btn px-4 py-1.5 rounded-full font-label-xs text-label-xs font-semibold bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all cursor-pointer"
+                >
+                  Departmental Citations
+                </button>
+              </div>
+            </div>
+
+            <!-- Distinctions Grid (Symmetrical High-Contrast Editorial Architecture) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="distinctions-grid">
+              {OTHER_DISTINCTIONS_DATA.map((dist) => (
+                <div
+                  class="distinction-card flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-secondary/50 shadow-xs hover:shadow-md transition-all group"
+                  data-category={dist.category}
+                  data-search={`${dist.title} ${dist.award} ${dist.recipients} ${dist.program}`.toLowerCase()}
+                >
+                  <!-- Top & Body Content -->
+                  <div>
+                    <!-- Symmetrical Header: Category & Badge -->
+                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-outline-variant/15">
+                      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-xs text-label-xs font-bold uppercase tracking-wider">
+                        <span class="material-symbols-outlined text-[15px] text-secondary">{dist.icon}</span>
+                        {dist.categoryLabel}
+                      </span>
+                      <span class="font-label-xs text-label-xs px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold shadow-xs">
+                        {dist.badge}
+                      </span>
+                    </div>
+
+                    <!-- Level 2: Award Title -->
+                    <h3 class="font-serif text-lg font-bold text-primary tracking-tight mt-3 group-hover:text-primary-container transition-colors leading-snug">
+                      {dist.award}
+                    </h3>
+
+                    <!-- Level 3: Initiative / Thesis in High Contrast -->
+                    <p class="font-body-md text-body-md text-on-surface font-semibold italic mt-2 leading-normal">
+                      “{dist.title}”
+                    </p>
+
+                    <!-- Level 4: Attribution & Honorees -->
+                    <div class="mt-4 pt-3 border-t border-outline-variant/20 flex flex-col gap-1.5">
+                      <div class="flex items-center gap-2 text-on-surface font-bold text-sm">
+                        <span class="material-symbols-outlined text-[16px] text-secondary shrink-0">person</span>
+                        <span class="truncate">{dist.recipients}</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-on-surface-variant font-medium text-xs">
+                        <span class="material-symbols-outlined text-[16px] text-primary/70 shrink-0">school</span>
+                        <span class="truncate">{dist.program}{dist.adviserOrAffiliation ? ` • ${dist.adviserOrAffiliation}` : ''}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Level 5: Grounded Citation Footer Box -->
+                  <div class="mt-4 p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+                    <p class="font-body-xs text-xs text-on-surface leading-relaxed font-normal">
+                      {dist.citation}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Distinctions No Results Fallback -->
+            <div class="hidden flex-col items-center justify-center py-12 text-center" id="no-distinctions-results">
+              <span class="material-symbols-outlined text-primary/40 text-[40px] mb-2">search_off</span>
+              <p class="font-title-sm text-title-sm text-on-surface font-medium">No distinction found</p>
+              <p class="font-body-xs text-body-xs text-on-surface-variant mt-0.5">Please try searching for another term or click "All Distinctions".</p>
+            </div>
+          </div>
+
+          <!-- Scholarly Verification Ribbon (Unified & Cohesive Ledger) -->
+          <div class="w-full mt-space-lg p-space-md sm:p-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/25 shadow-xs">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md divide-y md:divide-y-0 md:divide-x divide-outline-variant/15">
+              <div class="flex items-start gap-3 pt-space-xs md:pt-0 md:pr-space-md">
+                <span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">policy</span>
+                <div>
+                  <h4 class="font-title-sm text-title-sm text-primary font-serif font-bold">Eligibility Standards</h4>
+                  <p class="font-body-xs text-body-xs text-on-surface-variant mt-1 leading-relaxed">
+                    Sustained term GPA of 1.450 or better, with no grade lower than 2.0 and a minimum of 18 regular collegiate units.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-3 pt-space-md md:pt-0 md:px-space-md">
+                <span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">history_edu</span>
+                <div>
+                  <h4 class="font-title-sm text-title-sm text-primary font-serif font-bold">Official Transcript Seals</h4>
+                  <p class="font-body-xs text-body-xs text-on-surface-variant mt-1 leading-relaxed">
+                    Inscribed directly into permanent University Registrar archives and certified for Honors Convocations.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-3 pt-space-md md:pt-0 md:pl-space-md">
+                <span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">assignment_turned_in</span>
+                <div>
+                  <h4 class="font-title-sm text-title-sm text-primary font-serif font-bold">Document Verification</h4>
+                  <p class="font-body-xs text-body-xs text-on-surface-variant mt-1 leading-relaxed">
+                    Request formal letters of distinction and seal certifications through the society bureau.
+                  </p>
+                  <a href="/request" class="mt-2 inline-flex items-center gap-1 font-label-xs text-label-xs text-primary hover:text-primary-container font-bold uppercase tracking-wider transition-colors">
+                    <span>Request Certificate</span>
+                    <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -273,61 +564,190 @@ const col3 = [
   <Footer />
 
   <script>
-    function setupRecognitionSearch() {
-      const searchInput = document.getElementById('name-search') as HTMLInputElement | null;
-      const studentCards = document.querySelectorAll('.student-entry');
-      const noResults = document.getElementById('no-search-results');
-      const rosterCount = document.getElementById('roster-count');
+    import { switchRecognitionTab } from '../lib/academic-recognition';
 
-      if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-          const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
-          let visibleCount = 0;
-
-          studentCards.forEach(function(card) {
-            const nameEl = card.querySelector('.student-name');
-            const nameText = nameEl ? nameEl.textContent?.toLowerCase() || '' : '';
-            if (nameText.includes(query)) {
-              card.classList.remove('hidden');
-              visibleCount++;
-            } else {
-              card.classList.add('hidden');
-            }
-          });
-
-          if (visibleCount === 0) {
-            noResults?.classList.remove('hidden');
-            noResults?.classList.add('flex');
-          } else {
-            noResults?.classList.add('hidden');
-            noResults?.classList.remove('flex');
+    function setupAcademicRecognition() {
+      // 1. Tab Switching System
+      const tabs = document.querySelectorAll<HTMLButtonElement>('.recognition-tab');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+          const tabId = this.id.replace('tab-', '') as 'deans-list' | 'achievers' | 'distinctions';
+          switchRecognitionTab(tabId);
+          if (history.replaceState) {
+            history.replaceState(null, '', `#${tabId}`);
           }
-
-          if (rosterCount) {
-            rosterCount.textContent = visibleCount + ' Confirmed';
-          }
-        });
-      }
-
-      const tabs = document.querySelectorAll('.recognition-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          tabs.forEach(t => {
-            t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
-            t.classList.add('text-on-surface-variant');
-            t.setAttribute('aria-selected', 'false');
-          });
-          this.classList.remove('text-on-surface-variant');
-          this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
-          this.setAttribute('aria-selected', 'true');
         });
       });
+
+      // Handle Initial URL Hash
+      const currentHash = window.location.hash.replace('#', '');
+      if (currentHash === 'achievers' || currentHash === 'distinctions') {
+        switchRecognitionTab(currentHash);
+      } else {
+        switchRecognitionTab('deans-list');
+      }
+
+      // 2. Tab 1: Dean's Listers Live Search & Program Filter
+      const deansSearchInput = document.getElementById('name-search') as HTMLInputElement | null;
+      const deansProgramFilter = document.getElementById('program-filter') as HTMLSelectElement | null;
+      const deansStudentCards = document.querySelectorAll<HTMLElement>('.student-entry');
+      const deansNoResults = document.getElementById('no-search-results');
+      const deansRosterCount = document.getElementById('roster-count');
+      const deansProgramHeading = document.getElementById('deans-program-heading');
+      const deansProgramIcon = document.getElementById('deans-program-icon');
+
+      const programLabels: Record<string, { name: string; icon: string }> = {
+        all: { name: 'ALL CAS PROGRAMS', icon: 'school' },
+        psych: { name: 'BS PSYCHOLOGY', icon: 'psychology' },
+        bio: { name: 'BS BIOLOGY', icon: 'biotechnology' },
+        chem: { name: 'BS CHEMISTRY', icon: 'science' },
+        math: { name: 'BS MATHEMATICS', icon: 'calculate' },
+        devcom: { name: 'BS DEVELOPMENT COMMUNICATION', icon: 'campaign' },
+        baels: { name: 'BA ENGLISH LANGUAGE STUDIES', icon: 'menu_book' },
+      };
+
+      function updateDeansList() {
+        const query = deansSearchInput ? deansSearchInput.value.toLowerCase().trim() : '';
+        const selectedProg = deansProgramFilter ? deansProgramFilter.value : 'all';
+        let visibleCount = 0;
+
+        deansStudentCards.forEach((card) => {
+          const nameEl = card.querySelector('.student-name');
+          const nameText = nameEl ? nameEl.textContent?.toLowerCase() || '' : '';
+          const cardProg = card.getAttribute('data-program') || '';
+
+          const matchesProgram = selectedProg === 'all' || cardProg === selectedProg;
+          const matchesQuery = query === '' || nameText.includes(query);
+
+          if (matchesProgram && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          deansNoResults?.classList.remove('hidden');
+          deansNoResults?.classList.add('flex');
+        } else {
+          deansNoResults?.classList.add('hidden');
+          deansNoResults?.classList.remove('flex');
+        }
+
+        if (deansRosterCount) {
+          deansRosterCount.textContent = `${visibleCount} Confirmed Scholars`;
+        }
+
+        const info = programLabels[selectedProg] || programLabels.all;
+        if (deansProgramHeading) deansProgramHeading.textContent = info.name;
+        if (deansProgramIcon) deansProgramIcon.textContent = info.icon;
+      }
+
+      if (deansSearchInput) deansSearchInput.addEventListener('input', updateDeansList);
+      if (deansProgramFilter) deansProgramFilter.addEventListener('change', updateDeansList);
+
+      // 3. Tab 2: Top Academic Achievers Live Search & Filter
+      const achieversSearchInput = document.getElementById('achievers-search') as HTMLInputElement | null;
+      const achieversProgramFilter = document.getElementById('achievers-program-filter') as HTMLSelectElement | null;
+      const achieverCards = document.querySelectorAll<HTMLElement>('.achiever-card');
+      const achieversNoResults = document.getElementById('no-achievers-results');
+      const achieversCount = document.getElementById('achievers-count');
+
+      function updateAchieversList() {
+        const query = achieversSearchInput ? achieversSearchInput.value.toLowerCase().trim() : '';
+        const selectedProg = achieversProgramFilter ? achieversProgramFilter.value : 'all';
+        let visibleCount = 0;
+
+        achieverCards.forEach((card) => {
+          const cardProg = card.getAttribute('data-program') || '';
+          const cardName = card.getAttribute('data-name')?.toLowerCase() || '';
+          const cardRank = card.getAttribute('data-rank')?.toLowerCase() || '';
+
+          const matchesProgram = selectedProg === 'all' || cardProg === selectedProg;
+          const matchesQuery = query === '' || cardName.includes(query) || cardRank.includes(query);
+
+          if (matchesProgram && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          achieversNoResults?.classList.remove('hidden');
+          achieversNoResults?.classList.add('flex');
+        } else {
+          achieversNoResults?.classList.add('hidden');
+          achieversNoResults?.classList.remove('flex');
+        }
+
+        if (achieversCount) {
+          achieversCount.textContent = `${visibleCount} Honorees`;
+        }
+      }
+
+      if (achieversSearchInput) achieversSearchInput.addEventListener('input', updateAchieversList);
+      if (achieversProgramFilter) achieversProgramFilter.addEventListener('change', updateAchieversList);
+
+      // 4. Tab 3: Other Distinctions Live Search & Category Filter
+      const distSearchInput = document.getElementById('distinctions-search') as HTMLInputElement | null;
+      const distFilterButtons = document.querySelectorAll<HTMLButtonElement>('.dist-filter-btn');
+      const distinctionCards = document.querySelectorAll<HTMLElement>('.distinction-card');
+      const distNoResults = document.getElementById('no-distinctions-results');
+
+      let currentDistCategory = 'all';
+
+      function updateDistinctionsList() {
+        const query = distSearchInput ? distSearchInput.value.toLowerCase().trim() : '';
+        let visibleCount = 0;
+
+        distinctionCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category') || '';
+          const cardSearchData = card.getAttribute('data-search') || '';
+
+          const matchesCategory = currentDistCategory === 'all' || cardCategory === currentDistCategory;
+          const matchesQuery = query === '' || cardSearchData.includes(query);
+
+          if (matchesCategory && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          distNoResults?.classList.remove('hidden');
+          distNoResults?.classList.add('flex');
+        } else {
+          distNoResults?.classList.add('hidden');
+          distNoResults?.classList.remove('flex');
+        }
+      }
+
+      distFilterButtons.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          distFilterButtons.forEach((b) => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs', 'font-bold');
+            b.classList.add('bg-surface-container-high', 'text-on-surface', 'font-semibold');
+          });
+          this.classList.remove('bg-surface-container-high', 'text-on-surface', 'font-semibold');
+          this.classList.add('bg-primary', 'text-on-primary', 'shadow-xs', 'font-bold');
+
+          currentDistCategory = this.getAttribute('data-dist-filter') || 'all';
+          updateDistinctionsList();
+        });
+      });
+
+      if (distSearchInput) distSearchInput.addEventListener('input', updateDistinctionsList);
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupRecognitionSearch);
+      document.addEventListener('DOMContentLoaded', setupAcademicRecognition);
     } else {
-      setupRecognitionSearch();
+      setupAcademicRecognition();
     }
   </script>
 </BaseLayout>
