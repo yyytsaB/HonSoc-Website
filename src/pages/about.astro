@@ -5,126 +5,314 @@ import Footer from "../components/navigation/Footer.astro";
 
 const officers = [
   {
-    name: "JUAN DELA CRUZ",
+    name: "LIAN BEATRICE S. CATIPON",
     role: "President",
     roleClass: "text-secondary",
     badgeIcon: "workspace_premium",
     badgeClass: "bg-primary/90 text-surface-bright",
   },
   {
-    name: "MARIA SANTOS",
-    role: "Vice President",
+    name: "ALVIE KENSHLY H. BIEN",
+    role: "Vice President for Internal Affairs",
     roleClass: "text-on-surface-variant",
     badgeIcon: "star",
     badgeClass: "bg-surface-container-lowest/90 text-primary",
   },
   {
-    name: "ANDREA REYES",
-    role: "Secretary",
+    name: "ARON JAMES G. SAMONTE",
+    role: "Vice President for External Affairs",
     roleClass: "text-on-surface-variant",
     badgeIcon: "edit_note",
     badgeClass: "bg-surface-container-lowest/90 text-primary",
   },
   {
-    name: "LUIS GARCIA",
+    name: "CRISTAL B. COLIAT",
     role: "Treasurer",
     roleClass: "text-on-surface-variant",
     badgeIcon: "account_balance_wallet",
     badgeClass: "bg-surface-container-lowest/90 text-primary",
   },
   {
-    name: "PATRICIA LOPEZ",
-    role: "Auditor",
+    name: "JENNELYN M. CANINO",
+    role: "Treasurer",
     roleClass: "text-on-surface-variant",
     badgeIcon: "fact_check",
     badgeClass: "bg-surface-container-lowest/90 text-primary",
-    containerClass: "col-span-2 md:col-span-1 mx-auto w-full max-w-[240px] md:max-w-none",
+    containerClass:
+      "col-span-2 md:col-span-1 mx-auto w-full max-w-[240px] md:max-w-none",
   },
 ];
 
 const committees = [
-  { code: "COC", name: "Constitutional" },
-  { code: "COB", name: "Budget & Finance" },
-  { code: "CPL", name: "Programs & Logistics" },
-  { code: "CSG", name: "Student Grievances" },
-  { code: "COD", name: "Documentation" },
-  { code: "CPR", name: "Public Relations" },
-  { code: "COTA", name: "Technical Affairs", containerClass: "col-span-2 sm:col-span-1" },
+  {
+    code: "COTA",
+    name: "Technical Affairs",
+    fullName: "Committee on Technical Affairs",
+    members: [
+      { name: "Jared Dale S. Santos", role: "Head", isHead: true },
+      { name: "Kyle Marcus D. Lim", role: "Member", isHead: false },
+      { name: "Nathaniel B. Cruz", role: "Member", isHead: false },
+      { name: "Samantha Marie Go", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CPR",
+    name: "Public Relations",
+    fullName: "Committee on Public Relations",
+    members: [
+      { name: "Beatriz Andrea P. Reyes", role: "Head", isHead: true },
+      { name: "Chloe Nicole Villanueva", role: "Member", isHead: false },
+      { name: "Dominic Rafael Mendoza", role: "Member", isHead: false },
+      { name: "Janelle Rose Aquino", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "COD",
+    name: "Documentation",
+    fullName: "Committee on Documentation",
+    members: [
+      { name: "Danielle Marie G. Castro", role: "Head", isHead: true },
+      { name: "Angelo Miguel Ramos", role: "Member", isHead: false },
+      { name: "Francesca Lei Navarro", role: "Member", isHead: false },
+      { name: "Gavin Matthew David", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CPL",
+    name: "Procurement & Logistics",
+    fullName: "Committee on Procurement and Logistics",
+    members: [
+      { name: "Marcus Rafael T. Tan", role: "Head", isHead: true },
+      { name: "Patricia Ysabel Lopez", role: "Member", isHead: false },
+      { name: "Ramon Vicente Soriano", role: "Member", isHead: false },
+      { name: "Alyssa Mae Flores", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CDRRM",
+    name: "Disaster Risk Reduction & Management",
+    fullName: "Committee on Disaster Risk Reduction and Management",
+    members: [
+      { name: "Justin Tyler E. Valenzuela", role: "Head", isHead: true },
+      { name: "Bianca Sophia Del Rosario", role: "Member", isHead: false },
+      { name: "Christian Paul Perez", role: "Member", isHead: false },
+      { name: "Denise Angela Gomez", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CSD",
+    name: "Sustainable Development",
+    fullName: "Committee on Sustainable Development",
+    members: [
+      { name: "Camille Victoria R. Dizon", role: "Head", isHead: true },
+      { name: "Enzo Gabriel Tolentino", role: "Member", isHead: false },
+      { name: "Hannah Patricia Ramos", role: "Member", isHead: false },
+      { name: "Joshua David Salazar", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CSG",
+    name: "Student Grievances",
+    fullName: "Committee on Student Grievances",
+    members: [
+      { name: "Julian Andrei M. Fernandez", role: "Head", isHead: true },
+      { name: "Katrina Marie Bautista", role: "Member", isHead: false },
+      { name: "Liam Alexander Ocampo", role: "Member", isHead: false },
+      { name: "Sophia Isabella Mercado", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "COB",
+    name: "Branding",
+    fullName: "Committee on Branding",
+    members: [
+      { name: "Michaela Denise C. Pascual", role: "Head", isHead: true },
+      { name: "Noah Benjamin Torres", role: "Member", isHead: false },
+      { name: "Olivia Grace Hernandez", role: "Member", isHead: false },
+      { name: "Patrick James Aguilar", role: "Member", isHead: false },
+    ],
+  },
+  {
+    code: "CCA",
+    name: "Creative Arts",
+    fullName: "Committee on Creative Arts",
+    containerClass:
+      "col-span-2 sm:col-span-1 max-w-[280px] sm:max-w-none mx-auto w-full",
+    members: [
+      { name: "Rhea Maeve L. Gutierrez", role: "Head", isHead: true },
+      { name: "Sebastian Carlo Castillo", role: "Member", isHead: false },
+      { name: "Trisha Danielle Roxas", role: "Member", isHead: false },
+      { name: "Vincent Kyle Morales", role: "Member", isHead: false },
+    ],
+  },
 ];
 ---
 
 <BaseLayout title="About CAS Honor Society | CASHONSITE">
   <Navbar currentPath="/about" />
 
-  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)]">
+  <main class="w-full pt-[78px] bg-surface min-h-[calc(100vh-78px)] relative z-10">
     <div class="flex flex-col w-full">
-      <!-- Decorative ambient background glows contained within section -->
-      <div class="relative w-full overflow-hidden">
-        <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg pt-space-lg pb-space-xl">
+      <div class="relative w-full">
+        <!-- Decorative ambient background glows contained within dedicated clipped container -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-secondary-fixed/20 blur-3xl pointer-events-none"
+          >
+          </div>
+          <div
+            class="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none"
+          >
+          </div>
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto px-margin-sm lg:px-margin-lg pt-space-lg pb-space-xl relative z-10"
+        >
           <!-- Section 1: Hero Editorial Layout -->
-          <div class="max-w-3xl mx-auto md:mx-0 flex flex-col items-center text-center md:items-start md:text-left gap-space-md mb-space-xl">
-            <div class="inline-flex items-center gap-space-xs self-center md:self-start px-space-sm py-1 bg-surface-container-high text-primary rounded-full shadow-sm">
-              <span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
-              <span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-semibold">College of Arts and Sciences Official Guild</span>
+          <div
+            class="max-w-3xl mx-auto md:mx-0 flex flex-col items-center text-center md:items-start md:text-left gap-space-md mb-space-xl"
+          >
+            <div
+              class="inline-flex items-center gap-space-xs self-center md:self-start px-space-sm py-1 bg-surface-container-high text-primary rounded-full shadow-sm"
+            >
+              <span class="material-symbols-outlined text-[16px] text-secondary"
+                >verified_user</span
+              >
+              <span
+                class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant font-semibold"
+                >College of Arts and Sciences Official Guild</span
+              >
             </div>
-            <div class="flex flex-col items-center text-center md:items-start md:text-left">
-              <span class="font-headline-xl text-headline-xl text-primary font-normal leading-tight">ABOUT</span>
-              <span class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight tracking-tight">CAS HONOR SOCIETY</span>
+            <div
+              class="flex flex-col items-center text-center md:items-start md:text-left"
+            >
+              <span
+                class="font-headline-xl text-headline-xl text-primary font-normal leading-tight"
+                >ABOUT</span
+              >
+              <span
+                class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight tracking-tight"
+                >CAS HONOR SOCIETY</span
+              >
             </div>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0 mt-space-xs leading-relaxed">
-              The CAS Honor Society is the official academic recognition organization of the College of Arts and Sciences. It recognizes academic excellence, promotes leadership, and encourages service among CAS students.
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0 mt-space-xs leading-relaxed"
+            >
+              The CAS Honor Society is the official academic recognition
+              organization of the College of Arts and Sciences. It recognizes
+              academic excellence, promotes leadership, and encourages service
+              among CAS students.
             </p>
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-space-md pt-space-xs">
+            <div
+              class="flex flex-wrap items-center justify-center md:justify-start gap-space-md pt-space-xs"
+            >
               <div class="flex items-center gap-space-xs text-secondary">
-                <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-                <span class="font-label-md text-label-md text-on-surface font-medium">Chartered Academic Guild</span>
+                <span class="material-symbols-outlined text-[20px]"
+                  >workspace_premium</span
+                >
+                <span
+                  class="font-label-md text-label-md text-on-surface font-medium"
+                  >Chartered Academic Guild</span
+                >
               </div>
               <div class="w-1.5 h-1.5 rounded-full bg-outline-variant"></div>
               <div class="flex items-center gap-space-xs text-secondary">
-                <span class="material-symbols-outlined text-[20px]">history_edu</span>
-                <span class="font-label-md text-label-md text-on-surface font-medium">Archival Heritage &amp; Merit</span>
+                <span class="material-symbols-outlined text-[20px]"
+                  >history_edu</span
+                >
+                <span
+                  class="font-label-md text-label-md text-on-surface font-medium"
+                  >Archival Heritage &amp; Merit</span
+                >
               </div>
             </div>
           </div>
 
           <!-- Section 2: 4 Connected Foundation Pillar Cards -->
           <div class="mb-space-xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-sm bg-surface-container-low p-space-md rounded-xl shadow-sm">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-sm bg-surface-container-low p-space-md rounded-xl shadow-sm"
+            >
               <!-- Pillar 1: Vision -->
-              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
-                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
-                  <span class="material-symbols-outlined text-[30px]">visibility</span>
+              <div
+                class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner"
+                >
+                  <span class="material-symbols-outlined text-[30px]"
+                    >visibility</span
+                  >
                 </div>
-                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">VISION</h3>
-                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  To be a recognized organization that upholds academic excellence, leadership, and service.
+                <h3
+                  class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold"
+                >
+                  VISION
+                </h3>
+                <div
+                  class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"
+                >
+                </div>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                >
+                  To be a recognized organization that upholds academic
+                  excellence, leadership, and service.
                 </p>
               </div>
 
               <!-- Pillar 2: Mission -->
-              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
-                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
-                  <span class="material-symbols-outlined text-[30px]">track_changes</span>
+              <div
+                class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner"
+                >
+                  <span class="material-symbols-outlined text-[30px]"
+                    >track_changes</span
+                  >
                 </div>
-                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">MISSION</h3>
-                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
-                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  To recognize and develop academically outstanding students and empower them to serve the community.
+                <h3
+                  class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold"
+                >
+                  MISSION
+                </h3>
+                <div
+                  class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"
+                >
+                </div>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                >
+                  To recognize and develop academically outstanding students and
+                  empower them to serve the community.
                 </p>
               </div>
 
               <!-- Pillar 3: Core Values -->
-              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
-                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
-                  <span class="material-symbols-outlined text-[30px]">diamond</span>
+              <div
+                class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner"
+                >
+                  <span class="material-symbols-outlined text-[30px]"
+                    >diamond</span
+                  >
                 </div>
-                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">CORE VALUES</h3>
-                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
-                <ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-1 text-left w-full max-w-[190px] mx-auto">
+                <h3
+                  class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold"
+                >
+                  CORE VALUES
+                </h3>
+                <div
+                  class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"
+                >
+                </div>
+                <ul
+                  class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-1 text-left w-full max-w-[190px] mx-auto"
+                >
                   <li class="flex items-center gap-space-xs">
                     <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
                     <span>Excellence</span>
@@ -149,23 +337,46 @@ const committees = [
               </div>
 
               <!-- Pillar 4: Goals -->
-              <div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center">
-                <div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner">
-                  <span class="material-symbols-outlined text-[30px]">flag</span>
+              <div
+                class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center"
+              >
+                <div
+                  class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md shadow-inner"
+                >
+                  <span class="material-symbols-outlined text-[30px]">flag</span
+                  >
                 </div>
-                <h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold">GOALS</h3>
-                <div class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"></div>
-                <ul class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-2 text-left w-full">
+                <h3
+                  class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-xs font-bold"
+                >
+                  GOALS
+                </h3>
+                <div
+                  class="w-8 h-0.5 bg-secondary-fixed-dim rounded-full mb-space-sm"
+                >
+                </div>
+                <ul
+                  class="font-body-md text-body-md text-on-surface-variant flex flex-col gap-2 text-left w-full"
+                >
                   <li class="flex items-start gap-space-xs">
-                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span
+                      class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0"
+                      >check_circle</span
+                    >
                     <span>Promote academic excellence</span>
                   </li>
                   <li class="flex items-start gap-space-xs">
-                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span
+                      class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0"
+                      >check_circle</span
+                    >
                     <span>Develop future leaders</span>
                   </li>
                   <li class="flex items-start gap-space-xs">
-                    <span class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                    <span
+                      class="material-symbols-outlined text-[16px] text-secondary mt-0.5 shrink-0"
+                      >check_circle</span
+                    >
                     <span>Foster honor and community integrity</span>
                   </li>
                 </ul>
@@ -175,69 +386,201 @@ const committees = [
 
           <!-- Section 3: Meet the Officers -->
           <div class="mb-space-xl">
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-lg">
+            <div
+              class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-lg"
+            >
               <div class="flex flex-col">
-                <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">MEET THE OFFICERS</h2>
-                <span class="font-label-md text-label-md text-on-surface-variant font-medium uppercase tracking-wider mt-1">Academic Year 2026–2027</span>
+                <h2
+                  class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight"
+                >
+                  MEET THE OFFICERS
+                </h2>
+                <span
+                  class="font-label-md text-label-md text-on-surface-variant font-medium uppercase tracking-wider mt-1"
+                  >Academic Year 2026–2027</span
+                >
               </div>
               <a
                 href="#officers-roster"
                 class="inline-flex items-center justify-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary text-secondary-fixed shadow-md hover:bg-primary-container transition-all self-start sm:self-auto font-label-md text-label-md uppercase tracking-wider font-semibold"
               >
                 <span>VIEW ALL OFFICERS</span>
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                <span class="material-symbols-outlined text-[18px]"
+                  >arrow_forward</span
+                >
               </a>
             </div>
 
-            <div id="officers-roster" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-gutter-sm">
-              {officers.map((officer) => (
-                <div class:list={["flex flex-col bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md transition-all group", officer.containerClass]}>
-                  <div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high mb-space-sm relative">
-                    <img
-                      src="/images/officer-placeholder.svg"
-                      alt={officer.name}
-                      class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div class:list={["absolute top-2 right-2 p-1 rounded-full shadow-sm", officer.badgeClass]}>
-                      <span class="material-symbols-outlined text-[14px] block">{officer.badgeIcon}</span>
+            <div
+              id="officers-roster"
+              class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-gutter-sm"
+            >
+              {
+                officers.map((officer) => (
+                  <div
+                    class:list={[
+                      "flex flex-col bg-surface-container-lowest p-space-sm rounded-xl shadow-sm hover:shadow-md transition-all group",
+                      officer.containerClass,
+                    ]}
+                  >
+                    <div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high mb-space-sm relative">
+                      <img
+                        src="/images/officer-placeholder.svg"
+                        alt={officer.name}
+                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div
+                        class:list={[
+                          "absolute top-2 right-2 p-1 rounded-full shadow-sm",
+                          officer.badgeClass,
+                        ]}
+                      >
+                        <span class="material-symbols-outlined text-[14px] block">
+                          {officer.badgeIcon}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-space-xs">
+                      <span class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-tight">
+                        {officer.name}
+                      </span>
+                      <span
+                        class:list={[
+                          "font-body-sm text-body-sm font-medium mt-0.5",
+                          officer.roleClass,
+                        ]}
+                      >
+                        {officer.role}
+                      </span>
                     </div>
                   </div>
-                  <div class="flex flex-col items-center text-center p-space-xs">
-                    <span class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-tight">{officer.name}</span>
-                    <span class:list={["font-body-sm text-body-sm font-medium mt-0.5", officer.roleClass]}>{officer.role}</span>
-                  </div>
-                </div>
-              ))}
+                ))
+              }
             </div>
           </div>
 
           <!-- Section 4: Our Committees -->
-          <div class="mb-space-lg">
+          <div class="mb-20 sm:mb-28 relative z-30">
             <div class="flex items-center justify-between mb-space-md">
               <div class="flex flex-col">
-                <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">OUR COMMITTEES</h2>
-                <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-0.5">Operational Standing Councils</span>
+                <h2
+                  class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight"
+                >
+                  OUR COMMITTEES
+                </h2>
+                <span
+                  class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-0.5"
+                  >Operational Standing Councils</span
+                >
               </div>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-gutter-sm">
-              {committees.map((comm) => (
-                <div class:list={["bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-center text-center min-h-[110px] group cursor-default", comm.containerClass]}>
-                  <span class="font-label-lg text-label-lg text-secondary font-bold tracking-wider mb-1 group-hover:text-primary transition-colors">{comm.code}</span>
-                  <span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">{comm.name}</span>
-                </div>
-              ))}
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-gutter-sm relative pb-4"
+            >
+              {
+                committees.map((comm) => (
+                  <div
+                    class:list={[
+                      "committee-card relative cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-xl",
+                      comm.containerClass,
+                    ]}
+                    tabindex="0"
+                    role="button"
+                    aria-label={`View members for ${comm.fullName}`}
+                  >
+                    <!-- Stable Height Spacer to prevent grid layout shifts -->
+                    <div
+                      class="min-h-[124px] w-full invisible pointer-events-none"
+                      aria-hidden="true"
+                    />
+
+                    <!-- Expandable Drawer Card Shell -->
+                    <div
+                      class="committee-shell absolute inset-x-0 top-0 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-sm z-10 overflow-hidden"
+                    >
+                      <!-- Card Front Header -->
+                      <div class="p-space-md flex flex-col items-center justify-center text-center select-none min-h-[124px]">
+                        <span class="font-label-lg text-label-lg text-secondary font-bold tracking-wider mb-1 group-hover:text-primary transition-colors">
+                          {comm.code}
+                        </span>
+                        <span class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+                          {comm.name}
+                        </span>
+
+                        <!-- Drawer Pull Tab Indicator -->
+                        <div class="committee-pill mt-2.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-medium tracking-tight transition-colors">
+                          <span>{comm.members.length} Members</span>
+                          <span class="committee-chevron material-symbols-outlined text-[14px]">
+                            expand_more
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Drawer Extension: Members Tray -->
+                      <div
+                        class="committee-drawer bg-surface-container-low/95 border-t border-outline-variant/30 overflow-hidden"
+                      >
+                        <!-- Tactile Drawer Grip Line -->
+                        <div class="w-8 h-1 bg-outline-variant/60 rounded-full mx-auto my-2" />
+
+                        <div class="px-space-md pb-space-md pt-0.5">
+                          <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                              Committee Roster
+                            </span>
+                            <span class="text-[10px] text-secondary font-bold">
+                              {comm.code}
+                            </span>
+                          </div>
+                          <ul class="space-y-1 text-left">
+                            {comm.members.map((member) => (
+                              <li class="flex items-center justify-between gap-2 text-xs py-1 px-2.5 rounded-md bg-surface-container-lowest/80 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                                <span class="font-medium text-on-surface truncate">
+                                  {member.name}
+                                </span>
+                                <span
+                                  class:list={[
+                                    "text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded shrink-0",
+                                    member.isHead
+                                      ? "bg-primary/15 text-primary"
+                                      : "bg-surface-variant/40 text-on-surface-variant",
+                                  ]}
+                                >
+                                  {member.role}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
           </div>
 
           <!-- Institutional Transparency Callout Banner -->
-          <div class="bg-surface-container p-space-lg rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mt-space-lg">
+          <div
+            class="bg-surface-container p-space-lg rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md mt-space-lg relative z-10"
+          >
             <div class="flex items-center gap-space-md">
-              <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
-                <span class="material-symbols-outlined text-[24px]">policy</span>
+              <div
+                class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0"
+              >
+                <span class="material-symbols-outlined text-[24px]">policy</span
+                >
               </div>
               <div class="flex flex-col">
-                <h4 class="font-title-md text-title-md text-on-surface font-semibold">Society Operations &amp; Financial Governance</h4>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">All organizational activities, disbursements, and executive council minutes are subject to full transparency guidelines.</p>
+                <h4
+                  class="font-title-md text-title-md text-on-surface font-semibold"
+                >
+                  Society Operations &amp; Financial Governance
+                </h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  All organizational activities, disbursements, and executive
+                  council minutes are subject to full transparency guidelines.
+                </p>
               </div>
             </div>
             <a
@@ -247,11 +590,93 @@ const committees = [
               Inspect Transparency Reports
             </a>
           </div>
-
         </div>
       </div>
     </div>
   </main>
 
-  <Footer />
+  <Footer class="relative z-0" />
+
+  <style>
+    .committee-card {
+      user-select: none;
+    }
+    .committee-shell {
+      transition: box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+                  z-index 0ms;
+    }
+    .committee-drawer {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 240ms ease-out;
+    }
+    .committee-chevron {
+      transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .committee-card:hover,
+    .committee-card:focus-within,
+    .committee-card.is-open {
+      z-index: 50;
+    }
+    .committee-card:hover .committee-drawer,
+    .committee-card:focus-within .committee-drawer,
+    .committee-card.is-open .committee-drawer {
+      max-height: 380px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .committee-card:hover .committee-shell,
+    .committee-card:focus-within .committee-shell,
+    .committee-card.is-open .committee-shell {
+      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.22), 0 8px 16px rgba(0, 0, 0, 0.12);
+      border-color: rgba(184, 134, 11, 0.55);
+      z-index: 50;
+    }
+    .committee-card:hover .committee-chevron,
+    .committee-card:focus-within .committee-chevron,
+    .committee-card.is-open .committee-chevron {
+      transform: rotate(180deg);
+    }
+    .committee-card:hover .committee-pill,
+    .committee-card:focus-within .committee-pill,
+    .committee-card.is-open .committee-pill {
+      background-color: rgba(184, 134, 11, 0.12);
+      color: var(--color-primary, #b8860b);
+    }
+  </style>
+
+  <script>
+    function setupCommitteeDrawers() {
+      const cards = document.querySelectorAll('.committee-card');
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          const wasOpen = card.classList.contains('is-open');
+          cards.forEach((c) => c.classList.remove('is-open'));
+          if (!wasOpen) {
+            card.classList.add('is-open');
+          }
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.classList.toggle('is-open');
+          } else if (e.key === 'Escape') {
+            card.classList.remove('is-open');
+          }
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.committee-card')) {
+          cards.forEach((c) => c.classList.remove('is-open'));
+        }
+      });
+    }
+
+    setupCommitteeDrawers();
+    document.addEventListener('astro:page-load', setupCommitteeDrawers);
+  </script>
 </BaseLayout>
